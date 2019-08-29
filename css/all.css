@@ -153,44 +153,62 @@ table {
   }
 }
 
-.index-main .index-main-right {
+.index-main-right {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 50%;
+  width: 55%;
   padding: 3%;
-  border: 1px solid;
+  position: relative;
 }
 
 @media (max-width: 768px) {
-  .index-main .index-main-right {
+  .index-main-right {
     width: 100%;
   }
 }
 
-.index-main .index-main-right .index-main-title {
-  padding-bottom: 5%;
+.index-main-title {
+  padding-bottom: 2%;
 }
 
-.index-main .index-main-right .index-main-crad {
-  border: 1px solid;
+.index-main-crad {
+  border-bottom: 1px solid;
   padding: 5%;
 }
 
-.index-main .index-main-left {
+.index-main-left {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 50%;
+  width: 40%;
   padding: 3%;
-  border: 1px solid;
 }
 
 @media (max-width: 768px) {
-  .index-main .index-main-left {
+  .index-main-left {
     width: 100%;
   }
+}
+
+.card-title {
+  margin-bottom: 2%;
+}
+
+.index-more-btn {
+  padding: 2% 3%;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 5px;
+  width: 50px;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+
+.index-more-btn:hover {
+  background-color: gray;
 }
 
 .footer {
