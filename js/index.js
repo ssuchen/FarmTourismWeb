@@ -7,11 +7,13 @@
 
 function newRender(data){
  //let len = data.XML_Head.Infos.Info.length
-for( let i=0; i<6 ;i++ ){
-   //最新消息 資料  
+for( let i=0; i<5 ;i++ ){
+   //最新消息 資料
+    let id = data.XML_Head.Infos.Info[i].Id;  
     let title = data.XML_Head.Infos.Info[i].Name;
     let text = data.XML_Head.Infos.Info[i].Description.slice(0,50)+"...";
     let time = data.XML_Head.Infos.Info[i].Start.slice(0,10);
+    console.log(id)
     
     //最新消息DOM元素
      let indexMainCrad = document.createElement('div');
@@ -19,7 +21,9 @@ for( let i=0; i<6 ;i++ ){
      let cardTitle = document.createElement('div');
          cardTitle.setAttribute('class','card-title');
          cardTitle.textContent = title;
-     let cardText = document.createElement('p');
+     let cardText = document.createElement('a');
+         cardText.setAttribute('href',"#");
+         cardText.setAttribute('class','card-Text');
          cardText.textContent = text ;
      let cardTime = document.createElement('p');
          cardTime.setAttribute('class','card-time');
@@ -27,7 +31,7 @@ for( let i=0; i<6 ;i++ ){
 
 
 
-     let indexMainRight = document.querySelector('.index-main-right');
+     let indexMainRight = document.querySelector('.index-main-content');
      indexMainRight.appendChild(indexMainCrad);
      indexMainCrad.appendChild(cardTitle);
      indexMainCrad.appendChild(cardText);
