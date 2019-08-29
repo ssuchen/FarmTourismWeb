@@ -1,0 +1,43 @@
+// @mixin web-size {
+//     @media (max-width: 1200px) {
+//       @content;
+//     }
+//   }
+  
+//   @mixin tab-size {
+//     @media (max-width: 875px) {
+//       @content;
+//     }
+//   }
+//   @mixin tab-size-m {
+//     @media (max-width: 807px) {
+//       @content;
+//     }
+//   }
+
+
+//   @mixin tab-size-s {
+//     @media (max-width: 780px) {
+//       @content;
+//     }
+//   }
+
+//   @mixin tab-size-xs {
+//     @media (max-width: 620px) {
+//       @content;
+//     }
+//   }
+
+  
+//   @mixin phone-size {
+//     @media (max-width: 375px) {
+//       @content;
+//     }
+//   }
+
+  
+  @mixin phone-size {
+    @media (max-width: 460px) {
+      @content;
+    }
+  }
