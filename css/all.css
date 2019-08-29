@@ -62,7 +62,7 @@ table {
   max-width: 1000px;
   margin: 0 auto;
   margin-top: -3%;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -91,7 +91,7 @@ table {
 
 .mobile-menu-title {
   display: none;
-  padding: 20px 0;
+  margin: 8px 0;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -103,6 +103,17 @@ table {
     display: -ms-flexbox;
     display: flex;
   }
+}
+
+.mobileLogo {
+  max-width: 200px;
+  margin-left: 18px;
+}
+
+.mobile-menu-buttom {
+  font-size: 23px;
+  margin-right: 5%;
+  margin-top: 3%;
 }
 
 .mobile-menu-list {
@@ -136,7 +147,7 @@ table {
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .index-main {
     display: block;
   }
@@ -166,6 +177,9 @@ table {
 }
 
 .index-main .index-main-left {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 50%;
