@@ -36,8 +36,31 @@
 //   }
 
   
+  // @mixin phone-size {
+  //   @media (max-width: 460px) {
+  //     @content;
+  //   }
+  // }
+
   @mixin phone-size {
-    @media (max-width: 460px) {
+    @media (max-width: 510px) {
+      @content;
+    }
+  }
+
+@mixin tab-size {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @mixin tab-size-s {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }  
+
+  @mixin tab-size-L {
+    @media (max-width: 1000px) {
       @content;
     }
   }

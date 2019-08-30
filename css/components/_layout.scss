@@ -1,0 +1,108 @@
+
+.title{
+    background-color: gray;
+    height: 400px;
+    max-width:100%; 
+  
+}
+.menu{
+    @include tab-size-s{
+        display:none;
+    }
+    li{      
+        width: 230px;
+        margin-left:5%;
+        margin-right:5%;
+        height: 50px;
+        line-height:50px;
+        margin:0 auto;
+        font-size: 1.1rem;
+        background: #626262;
+        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+        text-align: center;
+        &:hover{
+            background: #a7a7a7;
+        }
+    }
+    max-width:1000px;
+    margin:0 auto;
+    margin-top:-3%;
+    margin-bottom:3%;
+    display: flex;
+}
+.mobile-menu-title{
+    display: none;
+    //padding: 20px 0;
+    margin:8px 0;
+    justify-content: space-between;
+    @include tab-size-s{
+        display:flex;
+    }
+
+}
+
+.mobileLogo{
+   max-width:250px;
+   margin-left:18px;
+}
+
+.mobile-menu-buttom{
+   font-size:23px; 
+   margin-right:5%;
+   margin-top:3%; 
+}
+
+.mobile-menu-list{
+    display: block;
+    height: 0;
+    background: #a7a7a7;
+    transition: all 0.5s;  
+    overflow: hidden;
+    li{
+    text-align: center;
+    font-size: 1.1rem;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    padding-top:10px;
+    padding-bottom:12px;
+    &:hover{
+        background-color: #fff;
+    }   
+    }
+}
+
+.mobile-menu-list-show{ 
+    @include phone-size{
+        transition: all 0.5s;
+        height:152px;
+        }
+}
+.main{
+    max-width: 1152px;
+    margin: 0 auto;
+}
+.footer{
+    height: 200px;
+    background: gray;
+} 
+.footer-content{
+    margin:0 auto;
+    max-width: 1200px;
+    padding:3%;
+    display: flex;
+    .footer-content-left{
+        li{
+            margin-top:10px;
+        }
+        padding:0 2%;
+    }
+    .footer-content-right
+    {
+        li{
+            margin-top:10px;
+        }
+        padding:0 2%;
+    }
+}
+.footer-content-title{
+    margin-top:10px;
+}
