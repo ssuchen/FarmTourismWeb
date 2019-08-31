@@ -4,8 +4,12 @@ ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenDat
 });
 
 function farmRender(data){
-   // console.log(data)
+
 let len = data.length;
+console.log(len)
+
+
+
 for( let i = 0 ; i<12; i++){
     let photo = data[i].Photo; 
     let name = data[i].Name;
@@ -50,6 +54,19 @@ for( let i = 0 ; i<12; i++){
 
 
     
+}
+
+//農場頁數
+let page = Math.ceil(len/12);
+console.log(page)
+
+//畫出 農場總頁數
+for( let i=0 ; i<page+1 ; i++){
+   let pageList = document.querySelector('.page-list');
+   let pageBtn = document.createElement('div');
+   pageBtn.setAttribute('class','page-Btn');
+   pageBtn.textContent = i;
+   pageList.appendChild(pageBtn);
 }
 
 

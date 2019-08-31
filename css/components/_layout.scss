@@ -71,7 +71,7 @@
 }
 
 .mobile-menu-list-show{ 
-    @include phone-size{
+    @include tab-size-s{
         transition: all 0.5s;
         height:152px;
         }
