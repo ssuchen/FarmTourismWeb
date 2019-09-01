@@ -5,14 +5,24 @@ ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenDat
 
 function farmRender(data){
 let len = data.length;
-let perpage = 12
-for( let i = 0 ; i<perpage; i++){
-    let photo = data[i].Photo; 
-    let name = data[i].Name;
-    let city = data[i].City;
-    let town = data[i].Town;
+let perpage = 12;
 
-    let travelMainContent = document.querySelector('.travel-main-content');
+let photo
+let name 
+let city
+let town
+
+for( let i = 0 ; i<12; i++){
+
+    photo = data[i].Photo; 
+    name = data[i].Name;
+    city = data[i].City;
+    town = data[i].Town;
+    
+    let travelMainContent
+
+    function renderCard(){
+    travelMainContent = document.querySelector('.travel-main-content');
 
     let travelCard = document.createElement('div');
         travelCard.setAttribute('class','travel-card');
@@ -46,15 +56,14 @@ for( let i = 0 ; i<perpage; i++){
     travelImg.appendChild(travelPhoto);
     travelPlace.appendChild(travelCounty);
     travelPlace.appendChild(travelText);
-
-
+    }
+    renderCard();
 
     
 }
 //+++++++++++++++++++++++++++
 //      頁數判斷功能
 //+++++++++++++++++++++++++++
-
 
 //農場頁數
 let page = Math.ceil(len/perpage);
@@ -128,34 +137,64 @@ for(let i=0 ; i< page+1 ; i++){
         let city = newdata[p].City;
         let town = newdata[p].Town;
 
-        str += '<div class="travel-card"><div class="travel-img"><img src=' + photo + '></div><div class="travel-title">' + name +'</div><div class="travel-place"><div class="travel-county">'+ city +'</div> <div class="travel-text">' + town + '</div></div></div>';
+        str += '<div class="travel-card"><div class="travel-img"><img src=' + photo 
+        + '></div><div class="travel-title">' + name 
+        +'</div><div class="travel-place"><div class="travel-county">'
+        + city +'</div> <div class="travel-text">' + town + '</div></div></div>';
         let travelMainContent = document.querySelector('.travel-main-content');
         travelMainContent.innerHTML = str;
         }
 
     })
 }
-
-
 //+++++++++++++++++++++++++++
 //      搜尋列 功能
 //+++++++++++++++++++++++++++
-let searchBtn = document.querySelector(".searchBar-Btn");
-searchBtn.addEventListener("click",function(){
-
-    //取得使用者選取的 地方區域
-    let searchBarArea = document.querySelector(".searchBar-Area");
-    console.log(searchBarArea.value)
-    //取得使用者選取的 縣市
-    let searchBarCounty = document.querySelector(".searchBar-County");
-    console.log(searchBarCounty.value)
-
-    //取得使用者輸入的文字
-
-    let searchInput = document.querySelector(".searchBar-Input-text");
-    console.log(searchInput.value)
+    //console.log(name)
     
-})
+    let searchBtn = document.querySelector(".searchBar-Btn");
+    searchBtn.addEventListener("click",function(){
+    //取得使用者選取的 地方區域
+    let searchBarArea = document.querySelector(".searchBar-Area").value;
+    //console.log(searchBarArea)
+    //取得使用者選取的 縣市
+    let searchBarCounty = document.querySelector(".searchBar-County").value;
+    //console.log(searchBarCounty)
+
+    //取得使用 者輸入的文字
+    let searchInput = document.querySelector(".searchBar-Input-text").value;
+    
+    //清空資料 並重新放上資訊
+    travelMainContent = document.querySelector('.travel-main-content');
+    travelMainContent.innerHTML="";
+        data.forEach(function(item,index){
+        if(searchBarCounty === item.City){
+            photo = item.Photo; 
+            name = item.Name;
+            city = item.City;
+            town = item.Town;
+            renderCard(); 
+        }
+        if(searchInput === item.City ||  searchInput === item.Town){
+            photo = item.Photo; 
+            name = item.Name;
+            city = item.City;
+            town = item.Town;
+            renderCard(); 
+        }
+        if(searchBarArea==="all" && searchBarCounty==="all"){
+            photo = item.Photo; 
+            name = item.Name;
+            city = item.City;
+            town = item.Town;
+            renderCard(); 
+        }   
+        });
+         
+
+    })    
+
+
 }
 
 
