@@ -18,13 +18,15 @@ for( let i = 0 ; i<12; i++){
     name = data[i].Name;
     city = data[i].City;
     town = data[i].Town;
-    
+
+    let id = data[i].ID;
     let travelMainContent
 
     function renderCard(){
     travelMainContent = document.querySelector('.travel-main-content');
 
-    let travelCard = document.createElement('div');
+    let travelCard = document.createElement('a');
+        travelCard.setAttribute('href','travelPagination.html?id='+ id );
         travelCard.setAttribute('class','travel-card');
 
     let travelImg = document.createElement('div');
@@ -150,8 +152,6 @@ for(let i=0 ; i< page+1 ; i++){
 //+++++++++++++++++++++++++++
 //      搜尋列 功能
 //+++++++++++++++++++++++++++
-    //console.log(name)
-    
     let searchBtn = document.querySelector(".searchBar-Btn");
     searchBtn.addEventListener("click",function(){
     //取得使用者選取的 地方區域

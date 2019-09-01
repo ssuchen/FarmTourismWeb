@@ -9,7 +9,7 @@
     @include tab-size-s{
         display:none;
     }
-    li{      
+    a{      
         width: 230px;
         margin-left:5%;
         margin-right:5%;
@@ -24,6 +24,7 @@
             background: #a7a7a7;
         }
     }
+  
     max-width:1000px;
     margin:0 auto;
     margin-top:-3%;
