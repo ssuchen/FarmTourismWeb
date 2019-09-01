@@ -51,18 +51,19 @@ for( let i = 0 ; i<perpage; i++){
 
     
 }
+//+++++++++++++++++++++++++++
+//      頁數判斷功能
+//+++++++++++++++++++++++++++
+
 
 //農場頁數
 let page = Math.ceil(len/perpage);
-
-//抓出當前頁數
-//若是當前頁數 大於總頁數 則顯示 總頁數
 
 //畫出 農場總頁數
 
 //農場頁數 掛的 html 標籤
 let pageList = document.querySelector('.page-list');
-for( let i=0 ; i<5 ; i++){
+for( let i=0 ; i<page ; i++){
     let pageBtn = document.createElement('div');
         pageBtn.setAttribute('class','page-Btn');
         pageBtn.textContent = i+1;
@@ -96,13 +97,6 @@ for( let i=0 ; i<5 ; i++){
     
 
 };
-
-
-
-
-
-
-
 // 頁數按鈕 監聽事件
 let pageBtn =  document.querySelectorAll('.page-Btn');
 for(let i=0 ; i< page+1 ; i++){
@@ -136,20 +130,33 @@ for(let i=0 ; i< page+1 ; i++){
 
         str += '<div class="travel-card"><div class="travel-img"><img src=' + photo + '></div><div class="travel-title">' + name +'</div><div class="travel-place"><div class="travel-county">'+ city +'</div> <div class="travel-text">' + town + '</div></div></div>';
         let travelMainContent = document.querySelector('.travel-main-content');
-        travelMainContent.innerHTML = str
+        travelMainContent.innerHTML = str;
         }
 
     })
 }
+
+
+//+++++++++++++++++++++++++++
+//      搜尋列 功能
+//+++++++++++++++++++++++++++
+let searchBtn = document.querySelector(".searchBar-Btn");
+searchBtn.addEventListener("click",function(){
+
+    //取得使用者選取的 地方區域
+    let searchBarArea = document.querySelector(".searchBar-Area");
+    console.log(searchBarArea.value)
+    //取得使用者選取的 縣市
+    let searchBarCounty = document.querySelector(".searchBar-County");
+    console.log(searchBarCounty.value)
+
+    //取得使用者輸入的文字
+
+    let searchInput = document.querySelector(".searchBar-Input-text");
+    console.log(searchInput.value)
     
+})
 }
 
 
-//如果觸發增加按紐 頁碼數字會增加
-    // let AddPageBtn = document.querySelector('.Add-page');
-    //     AddPageBtn.addEventListener('click',function(){
-    //     let pageNumber = parseInt(pageBtn.innerHTML)+10
-    //         pageBtn.textContent = pageNumber;
-    //         pageList.appendChild(pageBtn);
-    //     // if(pageNumber === page )    
-    //     })
+search(); 
