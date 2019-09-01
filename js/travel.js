@@ -58,71 +58,90 @@ let page = Math.ceil(len/perpage);
 //抓出當前頁數
 //若是當前頁數 大於總頁數 則顯示 總頁數
 
-// if( 當前頁數 > page){
-//     當前頁數 == page;
-// }
-
 //畫出 農場總頁數
-for( let i=0 ; i<page ; i++){
-    let pageList = document.querySelector('.page-list');
+
+//農場頁數 掛的 html 標籤
+let pageList = document.querySelector('.page-list');
+for( let i=0 ; i<5 ; i++){
     let pageBtn = document.createElement('div');
         pageBtn.setAttribute('class','page-Btn');
         pageBtn.textContent = i+1;
         pageList.appendChild(pageBtn);
+
+
+
+
+    //增加頁數的按紐
+    // let AddPageBtn = document.querySelector('.Add-page');
+    // AddPageBtn.addEventListener('click',function(){
+    // let pageNumber = parseInt(pageBtn.innerHTML)+5
+    //     if(pageNumber>page){
+    //         return
+    //     }
+    //     pageBtn.textContent = pageNumber;
+    //     pageList.appendChild(pageBtn);       
+    // });
+
+
+    // //減少頁數的按紐
+    // let LessPageBtn = document.querySelector('.Less-page');
+    // LessPageBtn.addEventListener('click',function(){
+    // let pageNumber = parseInt(pageBtn.innerHTML)-5
+    //     if(pageNumber<1){
+    //        return
+    //     }
+    //     pageBtn.textContent = pageNumber;
+    //     pageList.appendChild(pageBtn);       
+    // });
+    
+
 };
 
-// 頁面按鈕監聽事件
+
+
+
+
+
+
+// 頁數按鈕 監聽事件
 let pageBtn =  document.querySelectorAll('.page-Btn');
 for(let i=0 ; i< page+1 ; i++){
     pageBtn[i].addEventListener('click',function(){
 
          let pageNumber = parseInt(pageBtn[i].innerHTML);
-        // if( pageNumber > page){
-        //     pageNumber == page
-        // };
 
-        //抓出每頁最大及最小的筆數編號
+        //抓出每頁最大及最小的筆數編號  當前頁數 * 每頁需要的資料筆數
         let min =(pageNumber*perpage)- perpage +1;
         let max =(pageNumber*perpage);
 
         //建立新陣列
         let newdata = [];
         data.forEach(function(item,index){
+            //利用陣列索引 索引從0開始 所以要加1
             let num = index+1
+            //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
             if(num>=min && num<=max){
                 newdata.push(item)    
             }  
-        })
+        });
         
-        //
-
-        let str
-
+        //將新的頁數資料重新放上網頁
+        let str=""
         for(let p = 0 ; p<newdata.length ; p++){
 
         let photo = newdata[p].Photo; 
         let name = newdata[p].Name;
         let city = newdata[p].City;
         let town = newdata[p].Town;
-        str+=name
-    
-        
-        console.log(str)
+
+        str += '<div class="travel-card"><div class="travel-img"><img src=' + photo + '></div><div class="travel-title">' + name +'</div><div class="travel-place"><div class="travel-county">'+ city +'</div> <div class="travel-text">' + town + '</div></div></div>';
         let travelMainContent = document.querySelector('.travel-main-content');
         travelMainContent.innerHTML = str
         }
-       //'<div class="travel-card"><div class="travel-img"><img src=' + photo + 'alt=""></div><div class="travel-title">' + name +'</div><div class="travel-place"><div class="travel-county">'+ city +'</div> <div class="travel-text">' + town + '</div></div></div>'
-        // function aa(newdata){
-        //     console.log(newdata)
-        // }
-        //console.log(aa)
-        //console.log(newdata)
+
     })
 }
     
-
-
-
 }
 
 
