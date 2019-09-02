@@ -1,9 +1,9 @@
 //休閒農業區 資料
 ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx",function(response){
-    farmRender(response)
+    travelRender(response)
 });
 
-function farmRender(data){
+function travelRender(data){
 let len = data.length;
 let perpage = 12;
 
