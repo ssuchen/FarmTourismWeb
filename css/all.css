@@ -158,6 +158,10 @@ a {
   margin: 0 auto;
 }
 
+.btn-active {
+  background-color: red;
+}
+
 .footer {
   height: 200px;
   background: gray;
@@ -388,6 +392,10 @@ a {
 .main {
   max-width: 1152px;
   margin: 0 auto;
+}
+
+.btn-active {
+  background-color: red;
 }
 
 .footer {
@@ -774,6 +782,10 @@ a {
 .main {
   max-width: 1152px;
   margin: 0 auto;
+}
+
+.btn-active {
+  background-color: red;
 }
 
 .footer {

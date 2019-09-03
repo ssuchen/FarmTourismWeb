@@ -12,7 +12,7 @@ let name
 let city
 let town
 
-for( let i = 0 ; i<12; i++){
+    for( let i = 0 ; i<12; i++){
 
     photo = data[i].Photo; 
     name = data[i].Name;
@@ -58,63 +58,90 @@ for( let i = 0 ; i<12; i++){
     travelImg.appendChild(travelPhoto);
     travelPlace.appendChild(travelCounty);
     travelPlace.appendChild(travelText);
-    }
+    };
     renderCard();
 
     
-}
+    };
+
+
+    
+
+
+
+
+
+
 //+++++++++++++++++++++++++++
 //      頁數判斷功能
 //+++++++++++++++++++++++++++
 
 //農場頁數
 let page = Math.ceil(len/perpage);
-
-//畫出 農場總頁數
-
 //農場頁數 掛的 html 標籤
-let pageList = document.querySelector('.page-list');
-for( let i=0 ; i<page ; i++){
+   let pageList = document.querySelector('.page-list');
+   for( let i=0 ; i<page ; i++){
     let pageBtn = document.createElement('div');
         pageBtn.setAttribute('class','page-Btn');
+        pageBtn.setAttribute('id',i+1);
         pageBtn.textContent = i+1;
         pageList.appendChild(pageBtn);
 
+   };
+    let activebtn = document.getElementById("1");
+        activebtn.classList.add("btn-active");
+
+
+//下一頁的按鈕
+let AddPageBtn = document.querySelector('.Add-page');
+AddPageBtn.addEventListener("click",function(){
+    //console.log(pageNumber)  
+    if(pageNumber == undefined){
+    nextpage = 1 ;
+    pageNumber = nextpage;
+    }
+    if(pageNumber==page){
+    alert('最後一頁了');
+    return;
+    }       
+    nextpage = pageNumber + 1;
+    pageNumber = nextpage;
+    Pageloading();  
+});
+
+//上一頁的按鈕    
+     
+let LessPageBtn = document.querySelector('.Less-page');
+LessPageBtn.addEventListener("click",function(){
+    //console.log(pageNumber)
+    if(pageNumber== 1){
+    return;
+    } 
+    nextpage = pageNumber - 1;
+    pageNumber = nextpage;
+    Pageloading(); 
+
+})  
 
 
 
-    //增加頁數的按紐
-    // let AddPageBtn = document.querySelector('.Add-page');
-    // AddPageBtn.addEventListener('click',function(){
-    // let pageNumber = parseInt(pageBtn.innerHTML)+5
-    //     if(pageNumber>page){
-    //         return
-    //     }
-    //     pageBtn.textContent = pageNumber;
-    //     pageList.appendChild(pageBtn);       
-    // });
 
-
-    // //減少頁數的按紐
-    // let LessPageBtn = document.querySelector('.Less-page');
-    // LessPageBtn.addEventListener('click',function(){
-    // let pageNumber = parseInt(pageBtn.innerHTML)-5
-    //     if(pageNumber<1){
-    //        return
-    //     }
-    //     pageBtn.textContent = pageNumber;
-    //     pageList.appendChild(pageBtn);       
-    // });
-    
-
-};
 // 頁數按鈕 監聽事件
-let pageBtn =  document.querySelectorAll('.page-Btn');
-for(let i=0 ; i< page+1 ; i++){
-    pageBtn[i].addEventListener('click',function(){
-
-         let pageNumber = parseInt(pageBtn[i].innerHTML);
-
+   let pageBtn =  document.querySelectorAll('.page-Btn');
+   let pageNumber = 1 ;
+   let nextpage
+   for(let i=0 ; i< page+1 ; i++){
+    pageBtn[i].addEventListener('click',renderPage);
+    //console.log(pageBtn[i])
+    function renderPage(){
+        pageNumber = parseInt(pageBtn[i].innerHTML);
+        //為點取的按鈕增加CSS屬性
+        //1.先移除原有
+        let removeClass = document.querySelector('.btn-active');
+        removeClass.classList.remove('btn-active');
+        //2.再加入指定的按鈕css屬性      
+        let clickBtn = document.getElementById(pageNumber);
+            clickBtn.classList.add("btn-active");      
         //抓出每頁最大及最小的筆數編號  當前頁數 * 每頁需要的資料筆數
         let min =(pageNumber*perpage)- perpage +1;
         let max =(pageNumber*perpage);
@@ -146,9 +173,52 @@ for(let i=0 ; i< page+1 ; i++){
         let travelMainContent = document.querySelector('.travel-main-content');
         travelMainContent.innerHTML = str;
         }
+        
+    }
+    }    
 
-    })
-}
+    function Pageloading(){
+    let removeClass = document.querySelector('.btn-active');
+        removeClass.classList.remove('btn-active');
+    //2.再加入指定的按鈕css屬性
+    let clickBtn = document.getElementById(pageNumber);
+        clickBtn.classList.add("btn-active");
+
+    //抓出每頁最大及最小的筆數編號  當前頁數 * 每頁需要的資料筆數
+    let min =(pageNumber*perpage)- perpage +1;
+    let max =(pageNumber*perpage);
+
+    //建立新陣列
+    let newdata = [];
+    data.forEach(function(item,index){
+        //利用陣列索引 索引從0開始 所以要加1
+        let num = index+1
+        //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
+        if(num>=min && num<=max){
+            newdata.push(item)    
+        }  
+    });
+    
+    //將新的頁數資料重新放上網頁
+    let str=""
+    for(let p = 0 ; p<newdata.length ; p++){
+
+    let photo = newdata[p].Photo; 
+    let name = newdata[p].Name;
+    let city = newdata[p].City;
+    let town = newdata[p].Town;
+
+    str += '<div class="travel-card"><div class="travel-img"><img src=' + photo 
+    + '></div><div class="travel-title">' + name 
+    +'</div><div class="travel-place"><div class="travel-county">'
+    + city +'</div> <div class="travel-text">' + town + '</div></div></div>';
+    let travelMainContent = document.querySelector('.travel-main-content');
+    travelMainContent.innerHTML = str;
+    }
+    
+    }
+
+
 //+++++++++++++++++++++++++++
 //      搜尋列 功能
 //+++++++++++++++++++++++++++
@@ -199,3 +269,31 @@ for(let i=0 ; i< page+1 ; i++){
 
 
 search(); 
+
+
+
+
+
+    //增加頁數的按紐
+    // let AddPageBtn = document.querySelector('.Add-page');
+    // AddPageBtn.addEventListener('click',function(){
+    // let pageNumber = parseInt(pageBtn.innerHTML)+5
+    //     if(pageNumber>page){
+    //         return
+    //     }
+    //     pageBtn.textContent = pageNumber;
+    //     pageList.appendChild(pageBtn);       
+    // });
+
+
+    // //減少頁數的按紐
+    // let LessPageBtn = document.querySelector('.Less-page');
+    // LessPageBtn.addEventListener('click',function(){
+    // let pageNumber = parseInt(pageBtn.innerHTML)-5
+    //     if(pageNumber<1){
+    //        return
+    //     }
+    //     pageBtn.textContent = pageNumber;
+    //     pageList.appendChild(pageBtn);       
+    // });
+    
