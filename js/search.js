@@ -48,4 +48,5 @@ searchBarArea.addEventListener('change',function(){
    county.innerHTML = str;
 })
 
-}
+};
+

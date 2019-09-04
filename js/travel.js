@@ -111,16 +111,14 @@ let page = Math.ceil(len/perpage);
         };
         let text =document.getElementById(nextpage);
         text.classList.add('btn-active'); 
-
+        
+        //更新所點選的按鈕所對應的資料
         let pageBtn =  document.querySelectorAll('.page-Btn');
         for(let b=0 ;b<pageBtn.length;b++){
         pageBtn[b].addEventListener('click',function(){ 
-        console.log(pageBtn[b])
         let clickid = pageBtn[b].id
-        console.log(clickid)
         let removeClass = document.querySelector('.btn-active');
             removeClass.classList.remove('btn-active');
-            console.log(removeClass)  
         let clickBtn = document.getElementById(clickid); 
             clickBtn.classList.add("btn-active");
      
@@ -139,7 +137,7 @@ let page = Math.ceil(len/perpage);
         if(num>=minpage && num<=maxpage){
          newdata.push(item)    
         } 
-        console.log(newdata)
+        //console.log(newdata)
         });
  
         //將新的頁數資料重新放上網頁
@@ -157,7 +155,7 @@ let page = Math.ceil(len/perpage);
     }else{
     photo = photo;   
     }
-    
+    console.log("test")
     str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
     + '></div><div class="travel-title">' + name 
     +'</div><div class="travel-place"><div class="travel-county">'
@@ -211,7 +209,13 @@ let page = Math.ceil(len/perpage);
      let city = newdata[p].City;
      let town = newdata[p].Town;
      let id = newdata[p].ID;
- 
+
+    if(name== "中崙漁業休閒農場"){
+        photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
+    }else{
+    photo = photo;   
+    }
+
     str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
     + '></div><div class="travel-title">' + name 
     +'</div><div class="travel-place"><div class="travel-county">'
@@ -229,7 +233,7 @@ let page = Math.ceil(len/perpage);
     pageBtn[i].addEventListener('click',renderPage);    
     };
     };    
-
+//上下頁 按鈕觸發 撈取資訊
     function Pageloading(){
     let removeClass = document.querySelector('.btn-active');
         removeClass.classList.remove('btn-active');
@@ -262,6 +266,14 @@ let page = Math.ceil(len/perpage);
  let city = newdata[p].City;
  let town = newdata[p].Town;
  let id = newdata[p].ID;
+
+ if(name== "中崙漁業休閒農場"){
+    photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
+ }else{
+ photo = photo;   
+ }
+
+
  str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
  + '></div><div class="travel-title">' + name 
  +'</div><div class="travel-place"><div class="travel-county">'
@@ -273,7 +285,6 @@ let page = Math.ceil(len/perpage);
 
 //下一頁的按鈕
     let AddPageBtn = document.querySelector('.Add-page');
-    
     AddPageBtn.addEventListener("click",function(){
     if(pageNumber == undefined){
     nextpage = 1 ;
@@ -281,6 +292,9 @@ let page = Math.ceil(len/perpage);
     }
     if(pageNumber==page){
     alert('最後一頁了');
+    return;
+    } 
+    if(pageNumber== 1){
     return;
     }       
     nextpage = pageNumber + 1;
@@ -303,9 +317,6 @@ let page = Math.ceil(len/perpage);
 
     });  
 
-
-
-
 //+++++++++++++++++++++++++++
 //      搜尋列 功能
 //+++++++++++++++++++++++++++
@@ -313,7 +324,6 @@ let page = Math.ceil(len/perpage);
     searchBtn.addEventListener("click",function(){
     //取得使用者選取的 地方區域
     let searchBarArea = document.querySelector(".searchBar-Area").value;
-    //console.log(searchBarArea)
     //取得使用者選取的 縣市
     let searchBarCounty = document.querySelector(".searchBar-County").value;
     //console.log(searchBarCounty)
@@ -324,33 +334,73 @@ let page = Math.ceil(len/perpage);
     //清空資料 並重新放上資訊
     travelMainContent = document.querySelector('.travel-main-content');
     travelMainContent.innerHTML="";
+        let status = true ;
+        let searchdata=[] ;  
         data.forEach(function(item,index){
-        if(searchBarCounty === item.City){
-            photo = item.Photo; 
-            name = item.Name;
-            city = item.City;
-            town = item.Town;
-            renderCard();   
+        //如果選取對應的城市    
+        if(searchBarCounty === item.City){       
+            searchdata.push(item);
         }
+        //如果搜尋列 輸入 鄉鎮或是縣市
         if(searchInput === item.City ||  searchInput === item.Town){
-            photo = item.Photo; 
-            name = item.Name;
-            city = item.City;
-            town = item.Town;
-            renderCard(); 
+            searchdata.push(item);
         }
-        if(searchBarArea==="all" && searchBarCounty==="all"){
-            photo = item.Photo; 
-            name = item.Name;
-            city = item.City;
-            town = item.Town;
-            renderCard(); 
-        }   
+        if(searchBarArea==="all" || searchBarCounty==="all"){
+            status=false;//如果沒有輸入的話
+        }
+        else{
+            word = false; //如果輸入沒有找到
+        } 
         });
-         
+        if( status == false){
+        alert("請點選或輸入搜尋地");
+        location.reload();
+        }
 
-    })    
+        //將新的頁數資料重新放上網頁
+        let str=""
+        for(let p = 0 ; p<searchdata.length ; p++){
+        
+        if(searchdata.length >12 ){
+            searchdata.length = 12  //如果長度超出12筆 只顯示12筆
+        }    
+        let photo = searchdata[p].Photo; 
+        let name = searchdata[p].Name;
+        let city = searchdata[p].City;
+        let town = searchdata[p].Town;
+        let id = searchdata[p].ID;
 
+        if(name== "中崙漁業休閒農場"){
+        photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
+        }else{
+        photo = photo;   
+        }
+        str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
+        + '></div><div class="travel-title">' + name 
+        +'</div><div class="travel-place"><div class="travel-county">'
+        + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
+        let travelMainContent = document.querySelector('.travel-main-content');
+        travelMainContent.innerHTML = str;
+        } 
+        //算出頁數按鈕總數
+        let pagelen = Math.ceil(searchdata.length/12)
+        console.log(pagelen)
+        console.log(searchdata.length)
+        //重新寫出按鈕
+        let pageList = document.querySelector('.page-list');
+         pageList.innerHTML=""; //清空原先按鈕列
+        for( let i=0 ; i< pagelen; i++){
+            let pageBtn = document.createElement('div');
+                pageBtn.setAttribute('class','page-Btn');
+                pageBtn.setAttribute('id',i+1);
+                pageBtn.textContent = i+1;
+                pageList.appendChild(pageBtn);
+                console.log("test")
+        
+        };
+        let activebtn = document.getElementById("1");
+            activebtn.classList.add("btn-active");
+    })
 
 }
 search(); 
