@@ -1,0 +1,168 @@
+
+
+
+.present-main-content{
+    display: flex;
+    margin-bottom: 3.5%;
+    //border: 1px solid;
+    @include tab-size{
+        margin-top:4%;
+        display: block;
+    }
+}
+.present-left{
+    margin:0 2%;    
+    width: 100%;
+    padding-bottom:3%; 
+    box-sizing: border-box;
+    @include tab-size{
+        margin: 0 auto;
+        margin-bottom:5%;
+        width: 90%;
+    }
+
+}
+.present-other-title{
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-size: 1.5rem;
+    margin-top:3%;
+}
+.presentPagination-content{
+    box-sizing: border-box;
+    border: 1px solid;
+    object-fit: cover;
+    margin:0 auto;
+    display: flex;
+    @include tab-size{
+        display: block;
+    } 
+    img{
+    width:30%;     
+    margin:3% 0;
+    margin-left:2%;
+    //border: 1px solid;
+    padding: 1.5%;
+    box-sizing: border-box;
+    height: 300px;
+    object-fit: cover;
+    @include tab-size{
+        width: 100%;
+        margin:0;
+        padding: 0;
+    }    
+    }
+    .content-list{
+        padding-top:5%;
+        margin-left:3%;
+        width: 60%;
+        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    @include tab-size{
+        width: 95%;
+    }
+    }
+    .content-title{
+        margin-top:3%;
+        font-size: 1.5rem;
+        margin-bottom:3%;
+    }
+    .content-produceOrg{
+        margin:1% 0;
+        font-size: 1.5rem;
+    }
+    .content-tel{
+        font-size: 1.2rem;
+         margin:1% 0;
+    }
+    .content-feature{
+        line-height:1.5rem;
+        font-size: 1.1rem;
+        @include tab-size{
+        padding-bottom: 5%;
+        }
+    }
+}
+
+.present-right{
+    margin:0 2%;
+    width: 100%;
+    box-sizing: border-box;
+    @include tab-size{
+        margin: 0 auto;
+        width: 90%;
+    }
+
+.present-other{
+    display: flex;
+    .other-name{
+        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+        margin-top:5%;
+        margin-bottom: 3%;
+        padding-left: 10%;
+        @include phone-size{
+            margin-top:0;
+            margin-bottom:0;
+            padding-left: 5%;
+        }
+    }
+    .other-present{
+        width: 100%;
+        //border:1px solid;
+        display:block;
+        padding:1.5% 0;
+    }
+    .other-img{
+        width:100%;
+        margin:0 5%;
+        height: 150px;
+        //border:1px solid;
+        padding:5%;
+        box-sizing: border-box;
+        object-fit: cover;
+        @include phone-size{
+         height: auto;
+         margin: 0;
+        }
+     
+    }
+    @include phone-size{
+    display: block;
+    
+    }
+
+}
+.present-content{
+    margin:0 5%;
+    margin-top:3%;
+}
+.present-name{
+    font-size: 1.5rem;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    margin-bottom:3%;
+}
+.present-place{
+    display: flex;
+    font-size: 1.3rem;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    margin-bottom:3%;
+}
+.present-city{
+    margin-right: 3%;
+}
+.present-tel{
+    font-size: 1rem;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    margin-bottom:3%;
+}
+.present-text{
+    line-height: 1.5rem;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+}
+
+.present-name{
+   font-size: 1.2rem;
+   margin-top: 5%;
+   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+}
+
+
+}

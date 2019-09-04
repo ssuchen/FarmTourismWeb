@@ -1181,14 +1181,14 @@ a {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
-.other-title {
+.travelpage-other .other-title {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   font-size: 1.5rem;
   margin-top: 5%;
   margin-bottom: 3%;
 }
 
-.other-space {
+.travelpage-other .other-space {
   width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1199,7 +1199,7 @@ a {
           align-items: center;
 }
 
-.other-img {
+.travelpage-other .other-img {
   width: 30%;
   height: 100px;
   border: 1px solid;
@@ -1210,9 +1210,229 @@ a {
      object-fit: cover;
 }
 
-.other-name {
+.travelpage-other .other-name {
   padding-left: 5%;
   font-size: 1.2rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+.present-main-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 3.5%;
+}
+
+@media (max-width: 768px) {
+  .present-main-content {
+    margin-top: 4%;
+    display: block;
+  }
+}
+
+.present-left {
+  margin: 0 2%;
+  width: 100%;
+  padding-bottom: 3%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .present-left {
+    margin: 0 auto;
+    margin-bottom: 5%;
+    width: 90%;
+  }
+}
+
+.present-other-title {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-size: 1.5rem;
+  margin-top: 3%;
+}
+
+.presentPagination-content {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .presentPagination-content {
+    display: block;
+  }
+}
+
+.presentPagination-content img {
+  width: 30%;
+  margin: 3% 0;
+  margin-left: 2%;
+  padding: 1.5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .presentPagination-content img {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.presentPagination-content .content-list {
+  padding-top: 5%;
+  margin-left: 3%;
+  width: 60%;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .presentPagination-content .content-list {
+    width: 95%;
+  }
+}
+
+.presentPagination-content .content-title {
+  margin-top: 3%;
+  font-size: 1.5rem;
+  margin-bottom: 3%;
+}
+
+.presentPagination-content .content-produceOrg {
+  margin: 1% 0;
+  font-size: 1.5rem;
+}
+
+.presentPagination-content .content-tel {
+  font-size: 1.2rem;
+  margin: 1% 0;
+}
+
+.presentPagination-content .content-feature {
+  line-height: 1.5rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .presentPagination-content .content-feature {
+    padding-bottom: 5%;
+  }
+}
+
+.present-right {
+  margin: 0 2%;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .present-right {
+    margin: 0 auto;
+    width: 90%;
+  }
+}
+
+.present-right .present-other {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.present-right .present-other .other-name {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  margin-top: 5%;
+  margin-bottom: 3%;
+  padding-left: 10%;
+}
+
+@media (max-width: 510px) {
+  .present-right .present-other .other-name {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 5%;
+  }
+}
+
+.present-right .present-other .other-present {
+  width: 100%;
+  display: block;
+  padding: 1.5% 0;
+}
+
+.present-right .present-other .other-img {
+  width: 100%;
+  margin: 0 5%;
+  height: 150px;
+  padding: 5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (max-width: 510px) {
+  .present-right .present-other .other-img {
+    height: auto;
+    margin: 0;
+  }
+}
+
+@media (max-width: 510px) {
+  .present-right .present-other {
+    display: block;
+  }
+}
+
+.present-right .present-content {
+  margin: 0 5%;
+  margin-top: 3%;
+}
+
+.present-right .present-name {
+  font-size: 1.5rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  margin-bottom: 3%;
+}
+
+.present-right .present-place {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.3rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  margin-bottom: 3%;
+}
+
+.present-right .present-city {
+  margin-right: 3%;
+}
+
+.present-right .present-tel {
+  font-size: 1rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  margin-bottom: 3%;
+}
+
+.present-right .present-text {
+  line-height: 1.5rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+.present-right .present-name {
+  font-size: 1.2rem;
+  margin-top: 5%;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 /*# sourceMappingURL=all.css.map */
