@@ -150,8 +150,10 @@ let page = Math.ceil(len/perpage);
     let town = newdata[p].Town;
     let id = newdata[p].ID;
 
-    if(name== "中崙漁業休閒農場"){
-    photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
+    if(name== "中崙漁業休閒農場" || name== "淞濤田園休閒農場"  || name=="梨之鄉休閒農業區" || name=="清香休閒農場"||
+    name=="春園休閒農場"){
+       // photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
+       photo="https://images.unsplash.com/photo-1471194402529-8e0f5a675de6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
     }else{
     photo = photo;   
     }
@@ -210,8 +212,10 @@ let page = Math.ceil(len/perpage);
      let town = newdata[p].Town;
      let id = newdata[p].ID;
 
-    if(name== "中崙漁業休閒農場"){
-        photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
+    if(name== "中崙漁業休閒農場" || name== "淞濤田園休閒農場"  || name=="梨之鄉休閒農業區" || name=="清香休閒農場"||
+    name=="春園休閒農場"){
+       // photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
+       photo="https://images.unsplash.com/photo-1471194402529-8e0f5a675de6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
     }else{
     photo = photo;   
     }
@@ -267,9 +271,12 @@ let page = Math.ceil(len/perpage);
  let town = newdata[p].Town;
  let id = newdata[p].ID;
 
- if(name== "中崙漁業休閒農場"){
-    photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
- }else{
+ if(name== "中崙漁業休閒農場" || name== "淞濤田園休閒農場"  || name=="梨之鄉休閒農業區" || name=="清香休閒農場"||
+ name=="春園休閒農場"){
+    // photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
+    photo="https://images.unsplash.com/photo-1471194402529-8e0f5a675de6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+ }
+ else{
  photo = photo;   
  }
 
@@ -294,7 +301,7 @@ let page = Math.ceil(len/perpage);
     alert('最後一頁了');
     return;
     } 
-    if(pageNumber== 1){
+    if(pageNumber== 1 && page == 1 ){
     return;
     }       
     nextpage = pageNumber + 1;
@@ -370,8 +377,10 @@ let page = Math.ceil(len/perpage);
         let town = searchdata[p].Town;
         let id = searchdata[p].ID;
 
-        if(name== "中崙漁業休閒農場"){
-        photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
+        if(name== "中崙漁業休閒農場" || name== "淞濤田園休閒農場"  || name=="梨之鄉休閒農業區" || name=="清香休閒農場"||
+        name=="春園休閒農場"){
+        // photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
+        photo="https://images.unsplash.com/photo-1471194402529-8e0f5a675de6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
         }else{
         photo = photo;   
         }
@@ -384,8 +393,12 @@ let page = Math.ceil(len/perpage);
         } 
         //算出頁數按鈕總數
         let pagelen = Math.ceil(searchdata.length/12)
-        console.log(pagelen)
-        console.log(searchdata.length)
+        //console.log(pagelen)
+        if(pagelen = 1){
+            page=1; 
+        }
+        //console.log(page)
+        //console.log(searchdata.length)
         //重新寫出按鈕
         let pageList = document.querySelector('.page-list');
          pageList.innerHTML=""; //清空原先按鈕列
@@ -395,7 +408,6 @@ let page = Math.ceil(len/perpage);
                 pageBtn.setAttribute('id',i+1);
                 pageBtn.textContent = i+1;
                 pageList.appendChild(pageBtn);
-                console.log("test")
         
         };
         let activebtn = document.getElementById("1");

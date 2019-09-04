@@ -17,7 +17,8 @@ function presentRender(data){
         function renderCard(){
             presentMainContent = document.querySelector('.present-main-content');
             
-            let presentCard = document.createElement('div');
+            let presentCard = document.createElement('a');
+                presentCard.setAttribute('href','presentPagination.html?id='+ id);
                 presentCard.setAttribute('class','present-card');
         
             let presentImg = document.createElement('div');
