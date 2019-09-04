@@ -23,11 +23,11 @@ for( let i = 0 ; i<12; i++){
     let travelMainContent
 
     function renderCard(){
-       if(name== "中崙漁業休閒農場"){
-        photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
-       }else{
-        photo = photo;   
-       }
+    //    if(name== "中崙漁業休閒農場"){
+    //     photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
+    //    }else{
+    //     photo = photo;   
+    //    }
 
     travelMainContent = document.querySelector('.travel-main-content');
 
@@ -151,6 +151,12 @@ let page = Math.ceil(len/perpage);
     let city = newdata[p].City;
     let town = newdata[p].Town;
     let id = newdata[p].ID;
+
+    if(name== "中崙漁業休閒農場"){
+    photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
+    }else{
+    photo = photo;   
+    }
     
     str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
     + '></div><div class="travel-title">' + name 
@@ -204,12 +210,15 @@ let page = Math.ceil(len/perpage);
      let name = newdata[p].Name;
      let city = newdata[p].City;
      let town = newdata[p].Town;
-     str += '<div class="travel-card"><div class="travel-img"><img src=' + photo 
-     + '></div><div class="travel-title">' + name 
-     +'</div><div class="travel-place"><div class="travel-county">'
-     + city +'</div> <div class="travel-text">' + town + '</div></div></div>';
-     let travelMainContent = document.querySelector('.travel-main-content');
-     travelMainContent.innerHTML = str;
+     let id = newdata[p].ID;
+ 
+    str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
+    + '></div><div class="travel-title">' + name 
+    +'</div><div class="travel-place"><div class="travel-county">'
+    + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
+    let travelMainContent = document.querySelector('.travel-main-content');
+    travelMainContent.innerHTML = str;
+
      }
     
     };
