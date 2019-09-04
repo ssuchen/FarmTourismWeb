@@ -100,7 +100,7 @@ let page = Math.ceil(len/perpage);
  
         if( min<0 || min==0 ){
             min=1;
-           // max=11;
+            max=11;
         }
         if(max > page){
             max = page+1;
@@ -150,12 +150,15 @@ let page = Math.ceil(len/perpage);
     let name = newdata[p].Name;
     let city = newdata[p].City;
     let town = newdata[p].Town;
-    str += '<div class="travel-card"><div class="travel-img"><img src=' + photo 
+    let id = newdata[p].ID;
+    
+    str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
     + '></div><div class="travel-title">' + name 
     +'</div><div class="travel-place"><div class="travel-county">'
-    + city +'</div> <div class="travel-text">' + town + '</div></div></div>';
+    + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
     let travelMainContent = document.querySelector('.travel-main-content');
     travelMainContent.innerHTML = str;
+
         }    
 
 
@@ -249,11 +252,11 @@ let page = Math.ceil(len/perpage);
  let name = newdata[p].Name;
  let city = newdata[p].City;
  let town = newdata[p].Town;
-
- str += '<div class="travel-card"><div class="travel-img"><img src=' + photo 
+ let id = newdata[p].ID;
+ str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
  + '></div><div class="travel-title">' + name 
  +'</div><div class="travel-place"><div class="travel-county">'
- + city +'</div> <div class="travel-text">' + town + '</div></div></div>';
+ + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
  let travelMainContent = document.querySelector('.travel-main-content');
  travelMainContent.innerHTML = str;
     }
