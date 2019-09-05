@@ -68,7 +68,7 @@ function travelpageRender(data){
             maplink.setAttribute("scrolling","no");
             maplink.setAttribute("marginheight","0");
             maplink.setAttribute("marginwidth","0");
-            maplink.setAttribute("src","http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+ coordinate +"&z=16&output=embed&t=");
+            maplink.setAttribute("src","https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+ coordinate +"&z=16&output=embed&t=");
             //切換成空景模式
             //maplink.setAttribute("src","http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+ coordinate +"&z=16&output=embed&t=h");
             
