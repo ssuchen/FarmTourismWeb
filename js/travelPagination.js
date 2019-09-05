@@ -6,7 +6,7 @@ let url = new URL(Idstring);
 //console.log(url)
 //找到id後方的字串
 let UrlString = url.searchParams.get('id');
-console.log(UrlString)
+//console.log(UrlString)
     
 ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx",function(response){
     travelpageRender(response)
@@ -25,6 +25,7 @@ function travelpageRender(data){
         let town = item.Town;
         let introduction = item.Introduction;
         let coordinate = item.Coordinate;
+        console.log(coordinate)
  
         let travelpageLeft = document.querySelector(".travelpage-left");
             
@@ -54,8 +55,23 @@ function travelpageRender(data){
 
         let travelpageText = document.createElement('div');
             travelpageText.setAttribute("class","travelpage-text");
-            travelpageText.textContent = introduction; 
+            travelpageText.textContent = introduction;
+            
+            
 
+            //建立google map 標籤
+        let travelpageMap = document.querySelector(".travelpage-map");
+        let maplink = document.createElement("iframe");
+            maplink.setAttribute("width","100%");
+            maplink.setAttribute("height","100%");
+            maplink.setAttribute("frameborder","0");
+            maplink.setAttribute("scrolling","no");
+            maplink.setAttribute("marginheight","0");
+            maplink.setAttribute("marginwidth","0");
+            maplink.setAttribute("src","http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+ coordinate +"&z=16&output=embed&t=");
+            //切換成空景模式
+            //maplink.setAttribute("src","http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+ coordinate +"&z=16&output=embed&t=h");
+            
 
             travelpageLeft.appendChild(travelpageImg);
             travelpageLeft.appendChild(travelpageContent);
@@ -68,6 +84,9 @@ function travelpageRender(data){
 
             travelpageContent.appendChild(travelpageTel);
             travelpageContent.appendChild(travelpageText);
+
+            travelpageMap.appendChild(maplink);
+
 
 
         }
