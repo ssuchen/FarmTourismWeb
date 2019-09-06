@@ -10,7 +10,7 @@ function presentRender(data){
         let id = data[i].ID;
         let name = data[i].Name;
         let photo = data[i].Column1;
-        let Place = data[i].SalePlace.substring(0,3);
+        let Place = data[i].SalePlace.substr(0,3);
         //console.log(Place)
         let ProduceOrg = data[i].ProduceOrg;
         let presentMainContent
@@ -35,7 +35,7 @@ function presentRender(data){
                 
             let presentCounty = document.createElement('div');
                 presentCounty.setAttribute('class','presentCounty');
-                //presentCounty.textContent = Place;
+                presentCounty.textContent = Place;
 
             let presentText = document.createElement('div');
             presentText.setAttribute('class','present-text');
