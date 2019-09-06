@@ -94,6 +94,7 @@ newobj.forEach(function(item,index){
 
         let otherPresent = document.createElement("a");
             otherPresent.setAttribute("class","other-present");
+            otherPresent.setAttribute("href","presentPagination.html?id="+item.ID );
         let otherImg = document.createElement("img");
             otherImg.setAttribute("class","other-img");
             otherImg.setAttribute("src",item.Column1);
@@ -111,11 +112,16 @@ newobj.forEach(function(item,index){
 
 }
 
+//右移的按鈕
 let RightBtn = document.querySelector(".present-right-btn");
-
-RightBtn.addEventListener("click",function(){
-    //console.log("test")
+    RightBtn.addEventListener("click",function(){
+    let scroll = document.querySelector(".present-other")
+        scroll.scrollLeft += 300 ; 
 })
 
-
+//左移的按鈕
 let LeftBtn = document.querySelector(".present-left-btn");
+    LeftBtn.addEventListener("click",function(){
+        let scroll = document.querySelector(".present-other")
+            scroll.scrollLeft -= 300 ; 
+    })

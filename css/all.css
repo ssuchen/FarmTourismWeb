@@ -1250,8 +1250,15 @@ a {
 }
 
 .present-other-title {
+  padding: 0 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-top: 3%;
 }
 
@@ -1424,7 +1431,9 @@ a {
   display: flex;
   width: 90%;
   margin: 0 auto;
+  scroll-behavior: smooth;
   overflow: auto;
+  overflow-x: hidden;
 }
 
 .present-right .present-other .other-name {

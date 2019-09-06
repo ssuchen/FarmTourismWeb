@@ -22,8 +22,11 @@
 
 }
 .present-other-title{
+    padding:0 5%;
+    display: flex;
+    justify-content:space-between;
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-top:3%;
     @include tab-size{
      margin-top:0;   
@@ -146,8 +149,9 @@
     width: 90%;
     margin: 0 auto;
     //border:1px solid;
+    scroll-behavior:smooth;
     overflow: auto;
-    //overflow-x: hidden;
+    overflow-x: hidden;
     .other-name{
         font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
         margin-top:5%;
