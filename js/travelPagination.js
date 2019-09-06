@@ -13,20 +13,18 @@ ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenDat
 });
 
 function travelpageRender(data){
-    data.forEach(function(item,index){
-    
+    let city
+    data.forEach(function(item,index){  
         //渲染出id位置關資料  
         if(UrlString===item.ID){
-
+ 
+        city = item.City;    
         let photo = item.Photo;
-        let city = item.City;
         let name = item.Name;
         let tel = item.Tel;
         let town = item.Town;
         let introduction = item.Introduction;
         let coordinate = item.Coordinate;
-        console.log(coordinate)
- 
         let travelpageLeft = document.querySelector(".travelpage-left");
             
         let travelpageImg = document.createElement("img");
@@ -70,7 +68,7 @@ function travelpageRender(data){
             maplink.setAttribute("marginwidth","0");
             maplink.setAttribute("src","https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+ coordinate +"&z=16&output=embed&t=");
             //切換成空景模式
-            //maplink.setAttribute("src","http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+ coordinate +"&z=16&output=embed&t=h");
+            //maplink.setAttribute("src","https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+ coordinate +"&z=16&output=embed&t=h");
             
 
             travelpageLeft.appendChild(travelpageImg);
@@ -89,6 +87,46 @@ function travelpageRender(data){
 
 
 
-        }
+        }          
     });
+    //找出相關的位置的景點
+    //創新陣列 將塞選的資料放入
+    let newplace=[];
+    data.forEach(function(item,index){
+       if(city===item.City && UrlString !== item.ID){
+        newplace.push(item);
+       }
+    });
+
+    //隨機打亂 陣列中 物件順序
+    newplace.sort(function(){
+    return Math.random() - 0.5;
+    });
+    
+    //抓出前面5筆資訊
+    newplace.forEach(function(item,index){
+        if(index<5){
+        let travelpageOther = document.querySelector(".travelpage-other");
+        let name =item.Name;
+        let photo = item.Photo;
+        let id = item.ID
+        let otherSpace = document.createElement("a");
+            otherSpace.setAttribute("class","other-space");
+            otherSpace.setAttribute("href","travelPagination.html?id=" + id);
+        let otherImg = document.createElement("img");
+            otherImg.setAttribute("class","other-img");
+            otherImg.setAttribute("src", photo);
+        let otherName = document.createElement("div");
+            otherName.setAttribute("class","other-name");
+            otherName.textContent = name;
+
+            travelpageOther.appendChild(otherSpace);
+            otherSpace.appendChild(otherImg);
+            otherSpace.appendChild(otherName);
+
+        }
+        
+    })
+    
+    
 }
