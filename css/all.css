@@ -59,8 +59,10 @@ a {
 }
 
 .title {
-  background-color: gray;
-  height: 400px;
+  background: gray;
+  background-position: center center;
+  background-size: cover;
+  height: 350px;
   max-width: 100%;
 }
 
@@ -88,7 +90,8 @@ a {
   line-height: 50px;
   margin: 0 auto;
   font-size: 1.1rem;
-  background: #626262;
+  background: #7b9a48;
+  color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   text-align: center;
 }
@@ -295,8 +298,10 @@ a {
 }
 
 .title {
-  background-color: gray;
-  height: 400px;
+  background: gray;
+  background-position: center center;
+  background-size: cover;
+  height: 350px;
   max-width: 100%;
 }
 
@@ -324,7 +329,8 @@ a {
   line-height: 50px;
   margin: 0 auto;
   font-size: 1.1rem;
-  background: #626262;
+  background: #7b9a48;
+  color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   text-align: center;
 }
@@ -685,8 +691,10 @@ a {
 }
 
 .title {
-  background-color: gray;
-  height: 400px;
+  background: gray;
+  background-position: center center;
+  background-size: cover;
+  height: 350px;
   max-width: 100%;
 }
 
@@ -714,7 +722,8 @@ a {
   line-height: 50px;
   margin: 0 auto;
   font-size: 1.1rem;
-  background: #626262;
+  background: #7b9a48;
+  color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   text-align: center;
 }

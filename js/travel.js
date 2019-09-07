@@ -304,9 +304,8 @@ function clickbtn(){
             status=false;//如果沒有輸入的話
         }
         });
-        console.log(searchdata)
         //如果沒有得到輸入值
-        if( status == false){
+        if( status == false && searchInput==""){
         alert("請點選或輸入搜尋地");
         location.reload();
         };
