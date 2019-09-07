@@ -37,7 +37,7 @@ searchBarArea.addEventListener('change',function(){
         str ='<option value="all">縣市</option>'
             +'<option value="宜蘭縣">宜蘭縣</option>'
             +'<option value="花蓮縣">花蓮縣</option>'
-            +'<option value="台東縣">台東縣</option>'
+            +'<option value="臺東縣">臺東縣</option>'
         break;
 
         default:
