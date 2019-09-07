@@ -177,8 +177,7 @@ let page = Math.ceil(len/perpage);
     let pageBtn =  document.querySelectorAll('.page-Btn');
     let pageNumber = 1 ;
     let nextpage
-    for(let i=0 ; i< page; i++){
-        
+    for(let i=0 ; i< page; i++){    
     function renderPage(){
      pageNumber = parseInt(pageBtn[i].innerHTML);
      //為點取的按鈕增加CSS屬性
