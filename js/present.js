@@ -254,13 +254,13 @@ function presentRender(data){
         });
     
     
-//+++++++++++++++++++++++++++
-//      搜尋列 功能
-//+++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++
+    //      搜尋列 功能
+    //+++++++++++++++++++++++++++
  
-let searchBtn = document.querySelector(".searchBar-Btn");
-let searchdata=[] ; 
-searchBtn.addEventListener("click",function(){
+    let searchBtn = document.querySelector(".searchBar-Btn");
+    let searchdata=[] ; 
+    searchBtn.addEventListener("click",function(){
 
 //取得使用者選取的 地方區域
 let searchBarArea = document.querySelector(".searchBar-Area").value;
@@ -342,6 +342,6 @@ let status = true ;
     page = pagelen    
     updateBtnlist();
     clickbtn();
-})
+    });
 }
 search(); 
