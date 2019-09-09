@@ -48,7 +48,7 @@ for( let i = 0 ; i<12; i++){
         travelPlace.setAttribute('class','travel-place');
         
     let travelCounty = document.createElement('div');
-        travelCounty.setAttribute('class','travelCounty');
+        travelCounty.setAttribute('class','travel-country');
         travelCounty.textContent = city;
 
     let travelText = document.createElement('div');
@@ -211,7 +211,7 @@ function clickbtn(){
         
             str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
             + '></div><div class="travel-title">' + name 
-            +'</div><div class="travel-place"><div class="travel-county">'
+            +'</div><div class="travel-place"><div class="travel-country">'
             + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
         };
         let travelMainContent = document.querySelector('.travel-main-content');
@@ -332,7 +332,7 @@ function clickbtn(){
         }
         str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
         + '></div><div class="travel-title">' + name 
-        +'</div><div class="travel-place"><div class="travel-county">'
+        +'</div><div class="travel-place"><div class="travel-country">'
         + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
         let travelMainContent = document.querySelector('.travel-main-content');
         travelMainContent.innerHTML = str;

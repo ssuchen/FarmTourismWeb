@@ -42,7 +42,7 @@ function presentRender(data){
                 presentPlace.setAttribute('class','present-place');
                 
             let presentCounty = document.createElement('div');
-                presentCounty.setAttribute('class','presentCounty');
+                presentCounty.setAttribute('class','presentCountry');
                 presentCounty.textContent = Place +" | ";
 
             let presentText = document.createElement('div');
