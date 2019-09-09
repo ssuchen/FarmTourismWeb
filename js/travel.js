@@ -277,7 +277,7 @@ function clickbtn(){
     let searchBarArea = document.querySelector(".searchBar-Area").value;
     //取得使用者選取的 縣市
    
-    let searchBarCounty = document.querySelector(".searchBar-County").value;
+    let searchBarCountry = document.querySelector(".searchBar-Country").value;
     //取得使用 者輸入的文字
     let searchInput = document.querySelector(".searchBar-Input-text").value;
     
@@ -289,18 +289,18 @@ function clickbtn(){
      //建立新陣列
      searchdata=[];    
     //篩選相對應的資料 
-    console.log(searchInput)
+   // console.log(searchInput)
         data.forEach(function(item,index){
           //  console.log(data)
         //如果選取對應的城市    
-        if(searchBarCounty === item.City){       
+        if(searchBarCountry === item.City){       
             searchdata.push(item);
         }
         //如果搜尋列 輸入 鄉鎮或是縣市
         if(searchInput === item.City ||  searchInput === item.Town){
             searchdata.push(item);
         }
-        if(searchBarArea==="all" || searchBarCounty==="all"){
+        if(searchBarArea==="all" || searchBarCountry==="all"){
             status=false;//如果沒有輸入的話
         }
         });

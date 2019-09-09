@@ -1,10 +1,8 @@
 function search(){
-
 let searchBarArea = document.querySelector(".searchBar-Area");
 searchBarArea.addEventListener('change',function(){
     let select = searchBarArea.value;
-    let county = document.querySelector('.searchBar-County');
-    
+    let county = document.querySelector('.searchBar-Country');
     let str
     switch(select){
         case "North":

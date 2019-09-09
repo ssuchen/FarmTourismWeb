@@ -191,12 +191,12 @@ function foodRender(data){
         let min =(choseBtn*perpage) - perpage +1;
         let max =(choseBtn*perpage);
         let newdata =[];
-        // if(searchdata!=""){
-        // pagedata = searchdata;
-        // }
-        // else{
-        // pagedata = data ;     
-        // }
+        if(searchdata!=""){
+        pagedata = searchdata;
+        }
+        else{
+        pagedata = data ;     
+        }
         data.forEach(function(item,index){
             //利用陣列索引 索引從0開始 所以要加1
             let num = index+1
@@ -216,9 +216,9 @@ function foodRender(data){
         photo = newdata[p].PicURL
         address = newdata[p].Address
         text = newdata[p].HostWords.substr(0,35)
-        country = newdata[i].City
-        town = newdata[i].Town
-        tel = newdata[i].Tel
+        country = newdata[p].City
+        town = newdata[p].Town
+        tel = newdata[p].Tel
 
         str += '<a  href="foodPagination.html?id="'+ id +' class="food-card"><div class="food-card-left"><div class="food-img"><img src="'+ photo
         +'" alt=""></div></div><div class="food-card-right"><div class="food-title">'+name
@@ -282,4 +282,101 @@ function foodRender(data){
         renderPage();           
         });
 
+
+
+
+    //+++++++++++++++++++++++++++
+    //      搜尋列 功能
+    //+++++++++++++++++++++++++++
+
+    let searchBtn = document.querySelector(".searchBar-Btn");
+    let searchdata=[] ; 
+    searchBtn.addEventListener("click",function(){
+    
+    //取得使用者選取的 地方區域
+    let searchBarArea = document.querySelector(".searchBar-Area").value;
+    //取得使用者選取的 縣市
+    let searchBarCountry = document.querySelector(".searchBar-Country").value;
+     
+    //取得使用 者輸入的文字
+    let searchInput = document.querySelector(".searchBar-Input-text").value;
+    //console.log(searchInput)
+    //清空資料 並重新放上資訊
+    presentMainContent = document.querySelector('.food-main-content');
+    presentMainContent.innerHTML="";
+    let status = true ;
+
+    //建立新陣列
+    searchdata=[];    
+    //篩選相對應的資料 
+ 
+    data.forEach(function(item,index){
+    //如果選取對應的城市  
+    if( searchInput === item.City){ 
+        searchdata.push(item);
+    }
+    if(searchBarCountry === item.City){       
+        searchdata.push(item);
+    }
+ 
+    if(searchBarArea==="all" || searchBarCountry==="all"){
+        status=false;//如果沒有輸入的話
+    }
+    });
+    
+    
+    //如果沒有得到輸入值
+    if( status == false && searchInput==""){
+        alert("請點選或輸入搜尋地");
+        location.reload();
+    };
+
+    //將新的頁數資料重新放上網頁
+    let str=""
+    let len = searchdata.length
+
+    for(let p = 0; p<len ; p++){
+    if(len>12){
+        len=12
+    }
+    
+    id = searchdata[p].ID
+    name = searchdata[p].Name
+    photo = searchdata[p].PicURL
+    address = searchdata[p].Address
+    text = searchdata[p].HostWords.substr(0,35)
+    country = searchdata[p].City
+    town = searchdata[p].Town
+    tel = searchdata[p].Tel
+
+    str += '<a  href="foodPagination.html?id="'+ id +' class="food-card"><div class="food-card-left"><div class="food-img"><img src="'+ photo
+        +'" alt=""></div></div><div class="food-card-right"><div class="food-title">'+name
+        +'</div><div class="food-tel">'+ tel 
+        +'<div class="food-place"><div class="food-country">'+ country
+        +'</div><div class="food-town">'+ town +'</div></div>'
+        +'</div><div class="food-text">'+ text
+        +'</div></div></a>'
+    let foodMainContent = document.querySelector('.food-main-content');
+        foodMainContent.innerHTML = str;
+
+    //將搜尋列清空
+    let InputClear = document.querySelector(".searchBar-Input-text");
+        InputClear.value = "";
+
+    }
+    //算出頁數按鈕總數
+    let pagelen = Math.ceil(searchdata.length/12);
+
+    //重新寫出按鈕
+    nextpage = 1
+    page = pagelen    
+    updateBtnlist();
+    clickbtn();
+    
+
+    })
+
+
+
 }
+search();

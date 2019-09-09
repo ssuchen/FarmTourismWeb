@@ -67,6 +67,22 @@ if(item.ID==UrlString){
         contentList.appendChild(contentTel);
         contentList.appendChild(contentFeature);
 }
+if(item.ID==UrlString && UrlString=="126"){
+
+    let presentPaginationContent =  document.querySelector('.presentPagination-content');
+    
+    str= '<div class="presentPagination-content"><img class="other-img" src="'+item.Column1
+    +'"><div class="content-list"><div class="content-title">'+item.Name
+    +'</div><div class="content-produceOrg">'+item.ProduceOrg
+    +'</div><div class="content-place">'+ item.SalePlace.substr(0,3)
+    +'</div><div class="content-tel">連絡電話 | '+ item.ContactTel
+    +'</div><div class="content-feature">'+ item.Feature
+    +'</div></div></div>'
+
+    presentPaginationContent.innerHTML = str
+    
+}
+
 }
 );
 

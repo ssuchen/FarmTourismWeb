@@ -23,6 +23,7 @@ function presentRender(data){
         ProduceOrg = data[i].ProduceOrg;
         
         function renderCard(){
+
             presentMainContent = document.querySelector('.present-main-content');
             
             let presentCard = document.createElement('a');
@@ -175,20 +176,20 @@ function presentRender(data){
         else{
         pagedata = data ;
         }
-        //console.log(pagedata)
         pagedata.forEach(function(item,index){
             //利用陣列索引 索引從0開始 所以要加1
             let num = index+1
             //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
-            if(num>=min && num<=max){
-               newdata.push(item)    
+            if(num>=min && num<=max ){
+               newdata.push(item)   
+               console.log(item.Name) 
             }  
         });
 
         //將新的頁數資料重新放上網頁
         let str=""
         for(let p = 0 ; p<newdata.length ; p++){
-            id = data[p].ID;
+            id = newdata[p].ID;
             name = newdata[p].Name;
             photo = newdata[p].Column1;
             Place = newdata[p].SalePlace.substr(0,3);
@@ -265,20 +266,20 @@ function presentRender(data){
     //取得使用者選取的 地方區域
     let searchBarArea = document.querySelector(".searchBar-Area").value;
     //取得使用者選取的 縣市
-    let searchBarCounty = document.querySelector(".searchBar-County").value;
+    let searchBarCountry = document.querySelector(".searchBar-Country").value;
 
     //將資料庫文字與判斷做修改
-    if(searchBarCounty=="臺北市"){
-   searchBarCounty ="台北市" 
+    if(searchBarCountry=="臺北市"){
+    searchBarCountry ="台北市" 
     }
-    else if(searchBarCounty=="臺中市"){
-    searchBarCounty ="台中市" 
+    else if(searchBarCountry=="臺中市"){
+    searchBarCountry ="台中市" 
     }
-    else if(searchBarCounty=="臺南市"){
-    searchBarCounty ="台南市" 
+    else if(searchBarCountry=="臺南市"){
+    searchBarCountry ="台南市" 
     }
-    else if(searchBarCounty=="臺東縣"){
-    searchBarCounty ="台東縣" 
+    else if(searchBarCountry=="臺東縣"){
+    searchBarCountry ="台東縣" 
     }
 
     //取得使用 者輸入的文字
@@ -298,11 +299,11 @@ function presentRender(data){
     if( searchInput === item.SalePlace.substr(0,3)){ 
         searchdata.push(item);
     }
-    if(searchBarCounty === item.SalePlace.substr(0,3)){       
+    if(searchBarCountry === item.SalePlace.substr(0,3)){       
         searchdata.push(item);
     }
 
-    if(searchBarArea==="all" || searchBarCounty==="all"){
+    if(searchBarArea==="all" || searchBarCountry==="all"){
         status=false;//如果沒有輸入的話
     }
     });
@@ -342,7 +343,7 @@ function presentRender(data){
      
     //算出頁數按鈕總數
     //console.log( "資料長度"+searchdata.length)
-    let pagelen = Math.ceil(searchdata.length/12)
+    let pagelen = Math.ceil(searchdata.length/12);
     //console.log("總頁數"+pagelen)
 
     //重新寫出按鈕
