@@ -336,6 +336,11 @@ function clickbtn(){
         + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
         let travelMainContent = document.querySelector('.travel-main-content');
         travelMainContent.innerHTML = str;
+        
+        //將搜尋列清空
+        let InputClear = document.querySelector(".searchBar-Input-text");
+        InputClear.value = "";
+
         } 
         
         //算出頁數按鈕總數

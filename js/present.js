@@ -110,8 +110,6 @@ function presentRender(data){
         };
         let text =document.getElementById(nextpage);
         text.classList.add('btn-active');
-
-        
     };
 
     //更新點擊按鈕事件
@@ -170,13 +168,15 @@ function presentRender(data){
 
 
         let newdata = [];
+        let pagedata
         if(searchdata!=""){
         pagedata = searchdata;
         }
         else{
         pagedata = data ;
         }
-        data.forEach(function(item,index){
+        //console.log(pagedata)
+        pagedata.forEach(function(item,index){
             //利用陣列索引 索引從0開始 所以要加1
             let num = index+1
             //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
@@ -262,48 +262,52 @@ function presentRender(data){
     let searchdata=[] ; 
     searchBtn.addEventListener("click",function(){
 
-//取得使用者選取的 地方區域
-let searchBarArea = document.querySelector(".searchBar-Area").value;
-//取得使用者選取的 縣市
-let searchBarCounty = document.querySelector(".searchBar-County").value;
+    //取得使用者選取的 地方區域
+    let searchBarArea = document.querySelector(".searchBar-Area").value;
+    //取得使用者選取的 縣市
+    let searchBarCounty = document.querySelector(".searchBar-County").value;
 
-//將資料庫文字與判斷做修改
-if(searchBarCounty=="臺北市"){
+    //將資料庫文字與判斷做修改
+    if(searchBarCounty=="臺北市"){
    searchBarCounty ="台北市" 
-}
-else if(searchBarCounty=="臺中市"){
+    }
+    else if(searchBarCounty=="臺中市"){
     searchBarCounty ="台中市" 
-}
-else if(searchBarCounty=="臺南市"){
+    }
+    else if(searchBarCounty=="臺南市"){
     searchBarCounty ="台南市" 
-}
-else if(searchBarCounty=="臺東縣"){
+    }
+    else if(searchBarCounty=="臺東縣"){
     searchBarCounty ="台東縣" 
-}
+    }
 
-//console.log(searchBarCounty)
-//取得使用 者輸入的文字
-let searchInput = document.querySelector(".searchBar-Input-text").value;
+    //取得使用 者輸入的文字
+    let searchInput = document.querySelector(".searchBar-Input-text").value;
+    //console.log(searchInput)
+    //清空資料 並重新放上資訊
+    presentMainContent = document.querySelector('.present-main-content');
+    presentMainContent.innerHTML="";
+    let status = true ;
 
-//清空資料 並重新放上資訊
-presentMainContent = document.querySelector('.present-main-content');
-presentMainContent.innerHTML="";
-let status = true ;
-
-//建立新陣列
- searchdata=[];    
-//篩選相對應的資料 
+    //建立新陣列
+    searchdata=[];    
+    //篩選相對應的資料 
 
     data.forEach(function(item,index){
-    //如果選取對應的城市    
-    //console.log(item.SalePlace.substr(0,3))
+    //如果選取對應的城市  
+    if( searchInput === item.SalePlace.substr(0,3)){ 
+        searchdata.push(item);
+    }
     if(searchBarCounty === item.SalePlace.substr(0,3)){       
         searchdata.push(item);
     }
+
     if(searchBarArea==="all" || searchBarCounty==="all"){
         status=false;//如果沒有輸入的話
     }
     });
+
+    
     //如果沒有得到輸入值
     if( status == false && searchInput==""){
     alert("請點選或輸入搜尋地");
@@ -330,6 +334,10 @@ let status = true ;
     let presentMainContent = document.querySelector('.present-main-content');
         presentMainContent.innerHTML = str;
     
+    //將搜尋列清空
+    let InputClear = document.querySelector(".searchBar-Input-text");
+        InputClear.value = "";
+   
     } 
      
     //算出頁數按鈕總數
