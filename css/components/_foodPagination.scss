@@ -1,0 +1,119 @@
+
+
+
+.foodpage-main-content{
+    display: flex;
+    margin-bottom: 3.5%;
+    @include tab-size{
+        margin-top:4%;
+        display: block;
+    }
+}
+.foodpage-left{
+    margin:0 2%;    
+    width: 100%;
+    padding-bottom:3%; 
+    box-sizing: border-box;
+    border: 1px solid;
+    //height: 1000px;
+    @include tab-size{
+        margin: 0 auto;
+        margin-bottom:5%;
+        width: 90%;
+    }
+
+}
+.foodpage-img{
+    width:90%;
+   // height:460px;
+    object-fit: cover;
+    margin:0 auto;
+    margin-top:5%;
+    display: flex;
+
+   // background:gray;
+}
+.foodpage-right{
+    margin:0 2%;
+    width: 80%;
+    box-sizing: border-box;
+    //border: 1px solid gray;
+    //height: 600px;
+    @include tab-size{
+        margin: 0 auto;
+        width: 90%;
+    }
+}
+.foodpage-map{
+    width: 100%;
+    height: 350px;
+    padding:5%;
+    box-sizing: border-box;
+    border: 1px solid;
+    div{
+        width: 100%;
+        height: 100%;
+        //background-color: gray;
+    }
+
+}
+.foodpage-content{
+    margin:0 5%;
+    margin-top:3%;
+}
+.foodpage-name{
+    font-size: 1.5rem;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    margin-bottom:3%;
+}
+.foodpage-place{
+    display: flex;
+    font-size: 1.3rem;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    margin-bottom:3%;
+}
+.foodpage-city{
+    margin-right: 3%;
+}
+.foodpage-tel{
+    font-size: 1rem;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    margin-bottom:3%;
+}
+.foodpage-text{
+    line-height: 1.5rem;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+}
+.foodpage-other{
+    .other-title { 
+        display:flex;
+        justify-content: space-between;
+        div{
+        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+        font-size: 1.2rem;
+        margin-top:5%;
+        margin-bottom: 3%;
+        }
+    }
+    .other-space{
+        width: 80%;
+        //border:1px solid;
+        display:flex;
+        padding:1.5% 0;
+        align-items: center;
+    }
+    .other-img{
+        width: 30%;
+        height: 100px;
+        border:1px solid;
+        padding:2.2%;
+        box-sizing: border-box;
+        object-fit: cover;
+     
+    }
+    .other-name{
+       padding-left:5%; 
+       font-size: 1.2rem;
+       font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    }
+}
