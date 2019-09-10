@@ -23,11 +23,11 @@ for( let i = 0 ; i<12; i++){
     let travelMainContent
 
     function renderCard(){
-    //    if(name== "中崙漁業休閒農場"){
-    //     photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
-    //    }else{
-    //     photo = photo;   
-    //    }
+       if(name=="梨之鄉休閒農業區"){
+        photo="https://images.unsplash.com/photo-1471194402529-8e0f5a675de6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+       }else{
+        photo = photo;   
+       }
 
     travelMainContent = document.querySelector('.travel-main-content');
 

@@ -14,13 +14,22 @@ ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenDat
 
 function travelpageRender(data){
     let city
+    let photo 
+    let name
+
     data.forEach(function(item,index){  
         //渲染出id位置關資料  
+        if(item.Name== "中崙漁業休閒農場" || item.Name == "淞濤田園休閒農場"  || item.Name =="梨之鄉休閒農業區" || item.Name =="清香休閒農場"||
+        name=="春園休閒農場" ){
+            // photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
+            item.Photo="https://images.unsplash.com/photo-1471194402529-8e0f5a675de6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+        }
+       
         if(UrlString===item.ID){
  
         city = item.City;    
-        let photo = item.Photo;
-        let name = item.Name;
+        photo = item.Photo;
+        name = item.Name;
         let tel = item.Tel;
         let town = item.Town;
         let introduction = item.Introduction;
@@ -87,7 +96,11 @@ function travelpageRender(data){
 
 
 
-        }          
+        }
+        //console.log(item.ID)
+        
+        
+               
     });
     //找出相關的位置的景點
     //創新陣列 將塞選的資料放入
