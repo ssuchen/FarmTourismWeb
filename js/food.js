@@ -119,7 +119,8 @@ function foodRender(data){
     let Btnstr = "";
     let max = nextpage +5;
     let min = nextpage -5;
-
+    console.log(max)
+    console.log(min)
     if(min<0 || min==0){
         min = 1;
         max = 11;     
@@ -193,11 +194,12 @@ function foodRender(data){
         let newdata =[];
         if(searchdata!=""){
         pagedata = searchdata;
+
         }
         else{
         pagedata = data ;     
         }
-        data.forEach(function(item,index){
+        pagedata.forEach(function(item,index){
             //利用陣列索引 索引從0開始 所以要加1
             let num = index+1
             //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
@@ -366,17 +368,13 @@ function foodRender(data){
     }
     //算出頁數按鈕總數
     let pagelen = Math.ceil(searchdata.length/12);
-
     //重新寫出按鈕
     nextpage = 1
     page = pagelen    
     updateBtnlist();
-    clickbtn();
+    clickbtn();  
     
-
     })
-
-
 
 }
 search();
