@@ -1,5 +1,49 @@
 @import"size";
 @import"layout";
+
+.tag-bar{
+    justify-content: center;
+    align-items: center;
+    display:flex; 
+    margin:0.5%;
+    margin-bottom:2%;
+    @include tab-size{
+        display:block;
+        
+    }
+}
+.tag-title{
+   font-size: 1.5rem;
+   margin-right:2%;
+   width:100px;
+   justify-content: center;
+   line-height: 80px; 
+   @include tab-size{
+   margin-right:0;
+   width: 100%;
+   text-align: center;
+   }
+}
+.tag-group{
+    div{
+     display: flex;
+     justify-content: center;
+    }
+    @include tab-size{
+    width: 90%;
+    padding:0 5%;
+    }
+}
+.tag-Btn{
+    padding:1%;
+    margin:0.5% 5px;
+    width: 150px;
+    text-align: center;
+    border:1px solid;
+    justify-content: center;
+    border-radius: 5px;
+
+}
 .journey-main-title{
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
     font-size: 1.5rem;
