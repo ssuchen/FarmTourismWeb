@@ -2563,4 +2563,8 @@ a {
   width: 25px;
   height: 25px;
 }
+
+.tag-active {
+  background-color: #9191a8;
+}
 /*# sourceMappingURL=all.css.map */

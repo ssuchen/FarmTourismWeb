@@ -133,7 +133,7 @@ let pageList = document.querySelector('.page-list');
                  changeBtnStyle();
   
                  //重新 更換內容資料的函式
-                 //renderPage();
+                 renderPage();
               })
             }
     };
@@ -160,25 +160,25 @@ let pageList = document.querySelector('.page-list');
 
         //重新定義 nextpage 將內容定義為 undefined   
         nextpage = undefined;    
-       };
+        };
     
-       //更換內容資料的函式
-       pageBtn[i].addEventListener("click",renderPage);
+        //更換內容資料的函式
+        pageBtn[i].addEventListener("click",renderPage);
 
-       function renderPage(){
+        function renderPage(){
        
-       //抓出每頁最大及最小筆數編號 當前頁數 * 每頁需要的資料筆數
-       let min =(choseBtn*perpage)-perpage +1;
-       let max = (choseBtn*perpage);
-       let newdata=[];
-    //    if(searchdata!=""){
-    //    pagedata = searchdata;
+        //抓出每頁最大及最小筆數編號 當前頁數 * 每頁需要的資料筆數
+        let min =(choseBtn*perpage)-perpage +1;
+        let max = (choseBtn*perpage);
+        let newdata=[];
+       if(searchdata!=""){
+       pagedata = searchdata;
 
-    //    }
-    //    else{
-    //    pagedata = data ;     
-    //    }
-        data.forEach(function(item,index){
+       }
+       else{
+       pagedata = data ;     
+       }
+       pagedata.forEach(function(item,index){
         //利用陣列索引 索引從0開始 所以要加1
         let num = index+1
         //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
@@ -294,4 +294,128 @@ let pageList = document.querySelector('.page-list');
         });
 
 
-  }
+
+
+
+//+++++++++++++++++++++++++++
+//      搜尋列 功能
+//+++++++++++++++++++++++++++
+
+let tagBtn = document.querySelectorAll(".tag-Btn");
+let searchdata
+for(let b=0 ; b<tagBtn.length ; b++){
+    tagBtn[b].addEventListener("click",tagClick);
+    function tagClick(){
+
+    //為點選的按鈕加上樣式
+    let removeClass = document.querySelector('.tag-active');
+    if( removeClass == null){
+        removeClass = null
+    }else{
+      removeClass.classList.remove('tag-active');
+    }
+    tagBtn[b].classList.add('tag-active');
+
+    //選取點選樣式的數值
+    let btnValue = tagBtn[b].innerHTML; 
+    searchdata=[];  
+    data.forEach(function(item,index){
+        let tag = item.TravelType
+        //將tag 字串分開成陣列
+        let arr=[]
+        for(t=0 ;t<tag.length;t++){
+            let gettag = tag.substr(t*9,4);
+            let id = item.TravelSeq
+            if(gettag!==""){
+            arr.push(gettag)   
+            }  
+        };
+        //比對選取的 tag 與 資料相符的放入searchdata
+        for(let a=0; a<arr.length ;a++){
+            if(arr[a]==btnValue){
+            searchdata.push(item)
+            }
+        };  
+    });
+
+    let len = searchdata.length;
+    //console.log(len)
+    if(len>12){
+        len=12
+    }
+    let journeyMainContent = document.querySelector(".journey-main-content");
+    journeyMainContent.innerHTML=""; 
+    for (let l = 0; l < len; l++) {
+        let journeyTag
+        let id = searchdata[l].TravelSeq;
+        let name = searchdata[l].Title;
+        let photo = searchdata[l].PhotoUrl;
+        let text = searchdata[l].Contents.substr(0,38)+"...";
+        let tag = searchdata[l].TravelType;
+        
+        //console.log("test")
+        //將tag 字串分開成陣列
+        let arr=[]
+        for(t=0 ;t<tag.length;t++){   
+        let gettag = tag.substr(t*9,4);
+        if(gettag!==""){
+        arr.push(gettag)    
+        }  
+        };
+
+        let journeyCard = document.createElement("a");
+            journeyCard.setAttribute("class","journey-card")
+            journeyCard.setAttribute("href","journeyPagination.html?id="+id)
+        let journeyImg = document.createElement("div");
+            journeyImg.setAttribute("class","journey-img");
+        let img = document.createElement("img");
+            img.setAttribute("src",photo);
+        let journeyTitle = document.createElement("div");
+            journeyTitle.setAttribute("class","journey-title");
+            journeyTitle.textContent = name;
+            
+        let journeyGroup = document.createElement("div");
+            journeyGroup.setAttribute("class","journey-group");
+             
+        let journeyText = document.createElement("div");
+            journeyText.setAttribute("class","journey-text");
+            journeyText.textContent = text ;
+            
+            journeyMainContent.appendChild(journeyCard);
+            journeyCard.appendChild(journeyImg);
+            journeyCard.appendChild(journeyTitle);
+            journeyCard.appendChild(journeyGroup);
+
+            journeyCard.appendChild(journeyText);            
+            journeyImg.appendChild(img);
+  
+
+            //將 tag 放入 journey-group的迴圈
+            arr.forEach(function(item,index){
+                journeyTag = document.createElement("div");
+                journeyTag.setAttribute("class","journey-tag");
+                tag = item;
+                journeyTag.textContent = tag;
+                journeyGroup.appendChild(journeyTag);
+            });
+        
+    }
+    
+    //算出頁數按鈕總數   
+    let pagelen = Math.ceil(searchdata.length/12);
+    //重新寫出按鈕
+    nextpage = 1
+    page = pagelen    
+    updateBtnlist();
+    clickbtn();
+
+
+    }
+
+}
+
+
+
+
+
+}
