@@ -2567,4 +2567,137 @@ a {
 .tag-active {
   background-color: #9191a8;
 }
+
+.journeyPagination-main-content {
+  margin-bottom: 3.5%;
+}
+
+@media (max-width: 768px) {
+  .journeyPagination-main-content {
+    margin-top: 4%;
+    display: block;
+  }
+}
+
+.journeyPagination-left {
+  margin: 0 2%;
+  padding-bottom: 3%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .journeyPagination-left {
+    margin: 0 auto;
+    margin-bottom: 5%;
+    width: 90%;
+  }
+}
+
+.journey-other-title {
+  padding: 0 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-size: 1.3rem;
+  margin-top: 3%;
+}
+
+@media (max-width: 768px) {
+  .journey-other-title {
+    margin-top: 0;
+  }
+}
+
+.journeyPagination-content {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .journeyPagination-content {
+    display: block;
+  }
+}
+
+.journeyPagination-content img {
+  width: 30%;
+  margin: 3% 0;
+  margin-left: 2%;
+  padding: 1.5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .journeyPagination-content img {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.journeyPagination-content .content-list {
+  padding-top: 3%;
+  margin-left: 3%;
+  width: 60%;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .journeyPagination-content .content-list {
+    width: 95%;
+  }
+}
+
+.journeyPagination-content .content-title {
+  margin-top: 3%;
+  font-size: 1.5rem;
+  margin-bottom: 2%;
+}
+
+.journeyPagination-content .content-date {
+  font-size: 1.2rem;
+  margin: 1% 0;
+}
+
+.journeyPagination-content .content-feature {
+  line-height: 1.5rem;
+  font-size: 1.1rem;
+  padding-bottom: 3%;
+}
+
+@media (max-width: 768px) {
+  .journeyPagination-content .content-feature {
+    padding-bottom: 5%;
+  }
+}
+
+.journeyPagination-content .content-tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.journeyPagination-content .content-tag .journeypagination-tag {
+  padding: 1%;
+  width: 70px;
+  text-align: center;
+  border: 1px solid;
+  margin-right: 1%;
+}
 /*# sourceMappingURL=all.css.map */

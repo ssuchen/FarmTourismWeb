@@ -1,0 +1,99 @@
+
+
+
+.journeyPagination-main-content{
+    //display: flex;
+    margin-bottom: 3.5%;
+    //border: 1px solid;
+    @include tab-size{
+        margin-top:4%;
+        display: block;
+    }
+}
+.journeyPagination-left{
+    margin:0 2%;    
+    padding-bottom:3%; 
+    box-sizing: border-box;
+    @include tab-size{
+        margin: 0 auto;
+        margin-bottom:5%;
+        width: 90%;
+    }
+
+}
+.journey-other-title{
+    padding:0 5%;
+    display: flex;
+    justify-content:space-between;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-size: 1.3rem;
+    margin-top:3%;
+    @include tab-size{
+     margin-top:0;   
+    }
+}
+.journeyPagination-content{
+    box-sizing: border-box;
+    border: 1px solid;
+    object-fit: cover;
+    margin:0 auto;
+    display: flex;
+    @include tab-size{
+        display: block;
+
+    } 
+    img{
+    width:30%;     
+    margin:3% 0;
+    margin-left:2%;
+    //border: 1px solid;
+    padding: 1.5%;
+    box-sizing: border-box;
+    height: 300px;
+    object-fit: cover;
+    @include tab-size{
+        width: 100%;
+        margin:0;
+        padding: 0;
+    }    
+    }
+    .content-list{
+        padding-top:3%;
+        margin-left:3%;
+        width: 60%;
+        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    @include tab-size{
+        width: 95%;
+    }
+    }
+    .content-title{
+        margin-top:3%;
+        font-size: 1.5rem;
+        margin-bottom:2%;
+    }
+    .content-date{
+        font-size: 1.2rem;
+         margin:1% 0;
+    }
+    .content-feature{
+        line-height:1.5rem;
+        font-size: 1.1rem;
+        padding-bottom: 3%;
+        @include tab-size{
+        padding-bottom: 5%;
+        }
+    }
+
+    .content-tag{
+    //width: 100%;
+       display: flex;
+       .journeypagination-tag{
+           padding:1%;
+           width: 70px;
+           text-align: center;
+           border:1px solid;
+           margin-right:1%;
+       }
+    }
+}
+
