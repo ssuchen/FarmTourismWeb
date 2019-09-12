@@ -96,6 +96,7 @@ let pageList = document.querySelector('.page-list');
     let pageBtn =  document.querySelectorAll('.page-Btn');
     let choseBtn
     let nextpage    
+    let searchdata=[]
 
     //---------------更新按鈕列---------------
     //重新更新按鈕列表
@@ -131,7 +132,6 @@ let pageList = document.querySelector('.page-list');
   
                  //改變按鈕 樣式
                  changeBtnStyle();
-  
                  //重新 更換內容資料的函式
                  renderPage();
               })
@@ -170,6 +170,7 @@ let pageList = document.querySelector('.page-list');
         //抓出每頁最大及最小筆數編號 當前頁數 * 每頁需要的資料筆數
         let min =(choseBtn*perpage)-perpage +1;
         let max = (choseBtn*perpage);
+        let pagedata
         let newdata=[];
        if(searchdata!=""){
        pagedata = searchdata;
@@ -178,6 +179,7 @@ let pageList = document.querySelector('.page-list');
        else{
        pagedata = data ;     
        }
+       //console.log(data)
        pagedata.forEach(function(item,index){
         //利用陣列索引 索引從0開始 所以要加1
         let num = index+1
@@ -302,7 +304,7 @@ let pageList = document.querySelector('.page-list');
 //+++++++++++++++++++++++++++
 
 let tagBtn = document.querySelectorAll(".tag-Btn");
-let searchdata
+
 for(let b=0 ; b<tagBtn.length ; b++){
     tagBtn[b].addEventListener("click",tagClick);
     function tagClick(){
@@ -315,7 +317,6 @@ for(let b=0 ; b<tagBtn.length ; b++){
       removeClass.classList.remove('tag-active');
     }
     tagBtn[b].classList.add('tag-active');
-
     //選取點選樣式的數值
     let btnValue = tagBtn[b].innerHTML; 
     searchdata=[];  
@@ -337,7 +338,6 @@ for(let b=0 ; b<tagBtn.length ; b++){
             }
         };  
     });
-
     let len = searchdata.length;
     //console.log(len)
     if(len>12){
@@ -409,10 +409,10 @@ for(let b=0 ; b<tagBtn.length ; b++){
     updateBtnlist();
     clickbtn();
 
-
     }
 
 }
+
 
 
 
