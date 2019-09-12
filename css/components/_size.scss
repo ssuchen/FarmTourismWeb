@@ -42,6 +42,7 @@
   //   }
   // }
 
+ 
   @mixin phone-size {
     @media (max-width: 510px) {
       @content;
