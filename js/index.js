@@ -7,13 +7,33 @@
 
 function newRender(data){
  //let len = data.XML_Head.Infos.Info.length
+//抓出2019的資訊
+let arr=[]
+let list = data.XML_Head.Infos.Info
+for(let a= 0;a< list.length ;a++){
+    let year = data.XML_Head.Infos.Info[a].Start.slice(0,4);
+    if( year=="2019"){
+    arr.push(data.XML_Head.Infos.Info[a]);
+    }
+}
+
+//抓出最新50筆
+let newarr=[]
+arr.forEach(function(item,index){
+let max = arr.length
+let min = max-6
+if(index<max && min<index){
+ newarr.push(item)
+}
+})
+
 for( let i=0; i<5 ;i++ ){
    //最新消息 資料
-    let id = data.XML_Head.Infos.Info[i].Id;  
-    let title = data.XML_Head.Infos.Info[i].Name;
-    let text = data.XML_Head.Infos.Info[i].Description.slice(0,50)+"...";
-    let time = data.XML_Head.Infos.Info[i].Start.slice(0,10);
-    console.log(id)
+    let id = newarr[i].Id;  
+    let title = newarr[i].Name;
+    let text = newarr[i].Description.slice(0,50)+"...";
+    let time = newarr[i].Start.slice(0,10);
+    //console.log(id)
     
     //最新消息DOM元素
      let indexMainCrad = document.createElement('div');

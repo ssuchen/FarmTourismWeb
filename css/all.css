@@ -3043,4 +3043,180 @@ a {
   width: 25px;
   height: 25px;
 }
+
+.newspage-main-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 3.5%;
+}
+
+@media (max-width: 768px) {
+  .newspage-main-content {
+    margin-top: 4%;
+    display: block;
+  }
+}
+
+.newspage-left {
+  margin: 0 2%;
+  width: 100%;
+  padding-bottom: 3%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid;
+}
+
+@media (max-width: 768px) {
+  .newspage-left {
+    margin: 0 auto;
+    margin-bottom: 5%;
+    width: 90%;
+  }
+}
+
+.newspage-main-title {
+  margin-bottom: 3%;
+  margin-left: 2%;
+  font-size: 1.5rem;
+}
+
+.newspage-img {
+  width: 90%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0 auto;
+  margin-top: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.newspage-right {
+  margin: 0 2%;
+  width: 40%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .newspage-right {
+    margin: 0 auto;
+    width: 90%;
+  }
+}
+
+.newspage-content {
+  margin: 0 5%;
+  margin-top: 3%;
+}
+
+.newspage-name {
+  font-size: 1.5rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  margin-bottom: 3%;
+}
+
+.newspage-place {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.3rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  margin-bottom: 2%;
+}
+
+.newspage-city {
+  margin-right: 3%;
+}
+
+.newspage-date {
+  font-size: 1rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  margin-bottom: 1%;
+}
+
+.newspage-web {
+  font-size: 1rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  margin-bottom: 3%;
+}
+
+.newspage-text {
+  line-height: 1.5rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+.newspage-other .other-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 3%;
+  width: 85%;
+}
+
+.newspage-other .other-title div {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-size: 1.2rem;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+@media (max-width: 768px) {
+  .newspage-other .other-title div {
+    margin-bottom: 0;
+  }
+}
+
+.newspage-other .other-space {
+  width: 100%;
+  padding: 1.5% 0;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .newspage-other .other-space {
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+}
+
+.newspage-other .other-img {
+  width: 80%;
+  height: 160px;
+  border: 1px solid;
+  padding: 2.2%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .newspage-other .other-img {
+    width: 25%;
+    padding: 1.6%;
+    height: 100px;
+  }
+}
+
+.newspage-other .other-name {
+  margin-top: 3%;
+  font-size: 1.2rem;
+  width: 80%;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .newspage-other .other-name {
+    width: 100%;
+    margin-left: 3%;
+  }
+}
 /*# sourceMappingURL=all.css.map */

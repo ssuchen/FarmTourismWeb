@@ -14,7 +14,7 @@ function newsRender(data){
         arr.push(data.XML_Head.Infos.Info[a]);
         }
     }
-//抓出最新100筆
+//抓出最新50筆
     let newarr=[]
     arr.forEach(function(item,index){
     let max = arr.length
@@ -100,7 +100,7 @@ function newsRender(data){
     let len = newarr.length;
     let perpage = 6;
     let page = Math.ceil(len/perpage); 
-    console.log(page)
+   // console.log(page)
 
     //產品頁數 掛的 html 標籤
     let pageList = document.querySelector('.page-list');
@@ -155,7 +155,7 @@ function newsRender(data){
                 changeBtnStyle();
 
                 //重新 更換內容資料的函式
-                //renderPage();
+                renderPage();
             })
            
         }
