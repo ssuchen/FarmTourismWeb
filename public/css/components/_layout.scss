@@ -2,7 +2,7 @@
 .title{
     //background-color: gray;
     //background: gray;
-   background-image: url(../../img/change.jpg);
+   background-image: url(../img/change.jpg);
     background-position: center center;
     background-size: cover;
     height: 350px;
@@ -87,7 +87,7 @@
     margin: 0 auto;
 }
 .btn-active{
-    background-color: red;
+    background-color: #7b9a48;
 }
 .footer{
     height: 200px;
@@ -114,4 +114,61 @@
 }
 .footer-content-title{
     margin-top:10px;
+}
+.loginbtn{
+    position: absolute;
+    padding:1%;
+    right:30px;
+    top:20px;
+    color: #fff;
+    font-size: 1.5rem;
+    border: 1px solid #fff;
+    @include tab-size-s{
+        top:120px;
+    }
+}
+.login-box{
+    display: none;
+    border-radius: 10px;
+    padding: 2%;
+    box-shadow: 3px 3px 5px #888888;
+    width: 360px;
+    height:200px;
+    background-color: #fff;
+    position: fixed;
+    z-index: 10;
+    top:450px;
+    margin-left: 50%;
+    transform: translate(-180px);
+    border: 1px solid #7b9a48;
+    h1{
+        padding-top:5%;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+        
+    }
+}
+.signinBtn{
+    margin-top:6%; 
+}
+.login-box-btn{
+    width: 45px;
+    height: 45px;
+    border-radius:50%;
+    background-color:#7b9a48;
+    position:absolute;
+    
+    top:-15px;
+    right:-10px;
+}
+.login-box-btn-text{
+    color:#fff;
+    display: flex;
+    font-size: 1.5rem;
+    margin-left:55%;
+    transform: translate(-10px); 
+    margin-top:23%;
+    justify-content: center;
 }

@@ -26,4 +26,4 @@ firebase.initializeApp(firebaseConfig);
 
 
 let test = firebase.firestore();
-console.log(test)
+//console.log(test)
