@@ -143,11 +143,31 @@
         }
 
     @include tab-size{
-        margin-top:8%; 
+        margin-top:10px; 
     }    
     @include tab-size-s{
       top:120px;
     }
+}
+
+.logoutbtn-user{
+    display: none;
+    padding:0 10px;
+    margin-top:2%;
+    cursor: pointer;
+    font-family: Arial,"微軟正黑體", "新細明體", sans-serif; 
+    color: #fff;
+    font-size: 1.1rem;
+    i{
+        font-family:"Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+        }
+
+    @include tab-size{
+        margin-top:10px; 
+    }    
+    @include tab-size-s{
+      top:120px;
+    } 
 }
 .login-box{
     display: none;
@@ -155,7 +175,6 @@
     padding: 5%;
     box-shadow: 3px 3px 5px #888888;
     width: 300px;
-    //height:300px;
     background-color: #fff;
     position: fixed;
     z-index: 10;
@@ -172,6 +191,89 @@
         
     }
 }
+.loginStatus{
+    display: none;
+}
+
+//登出成功視窗
+.logout-box-success {
+    display: none;
+    padding:5%;
+    border-radius: 10px;
+    padding: 5%;
+    box-shadow: 3px 3px 5px #888888;
+    width: 200px;
+    background-color: #fff;
+    position: fixed;
+    z-index: 10;
+    top:300px;
+    margin-left: 50%;
+    transform: translate(-100px);
+    border: 1px solid #7b9a48;
+    div{
+      text-align: center;
+    }
+} 
+.logout-box-success-btn{
+    width: 45px;
+    height: 45px;
+    border-radius:50%;
+    background-color:#7b9a48;
+    position:absolute;
+    top:-15px;
+    right:-10px;
+}
+.logout-box-success-text {
+    color:#fff;
+    display: flex;
+    font-size: 1.5rem;
+    margin-left:50%;
+    transform: translate(-10px); 
+    margin-top:23%;
+    justify-content: center;
+}
+
+
+//登入成功視窗
+.login-box-success {
+    display: none;
+    padding:5%;
+    border-radius: 10px;
+    padding: 5%;
+    box-shadow: 3px 3px 5px #888888;
+    width: 200px;
+    background-color: #fff;
+    position: fixed;
+    z-index: 10;
+    top:300px;
+    margin-left: 50%;
+    transform: translate(-100px);
+    border: 1px solid #7b9a48;
+    div{
+      text-align: center;
+    }
+} 
+.login-box-success-btn{
+    width: 45px;
+    height: 45px;
+    border-radius:50%;
+    background-color:#7b9a48;
+    position:absolute;
+    top:-15px;
+    right:-10px;
+}
+.login-box-success-text{
+    color:#fff;
+    display: flex;
+    font-size: 1.5rem;
+    margin-left:50%;
+    transform: translate(-10px); 
+    margin-top:23%;
+    justify-content: center;
+}
+
+
+//會員登入視窗
 .signinBtn{
     margin-top:6%; 
 }
@@ -202,10 +304,24 @@
     width: 100%;
     border: 0;
     padding: 3%;
+    margin-bottom:5%;
     cursor: pointer;
     &:hover{
         background-color: gray;
     }
+}
+
+#faceSingUpPopup{
+        margin:0 auto;
+        color:#fff ;
+        background: #5487b6;
+        width: 100%;
+        border: 0;
+        padding: 3%;
+        cursor: pointer;
+        &:hover{
+            background-color: gray;
+        }    
 
 
 }
