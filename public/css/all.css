@@ -299,6 +299,20 @@ a {
           justify-content: center;
 }
 
+#googleSingUpPopup {
+  margin: 0 auto;
+  color: #fff;
+  background: #7b9a48;
+  width: 100%;
+  border: 0;
+  padding: 3%;
+  cursor: pointer;
+}
+
+#googleSingUpPopup:hover {
+  background-color: gray;
+}
+
 .index-main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -636,6 +650,20 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+#googleSingUpPopup {
+  margin: 0 auto;
+  color: #fff;
+  background: #7b9a48;
+  width: 100%;
+  border: 0;
+  padding: 3%;
+  cursor: pointer;
+}
+
+#googleSingUpPopup:hover {
+  background-color: gray;
 }
 
 .travel-main-title {
@@ -1139,6 +1167,20 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+#googleSingUpPopup {
+  margin: 0 auto;
+  color: #fff;
+  background: #7b9a48;
+  width: 100%;
+  border: 0;
+  padding: 3%;
+  cursor: pointer;
+}
+
+#googleSingUpPopup:hover {
+  background-color: gray;
 }
 
 .present-main-title {
@@ -2072,6 +2114,20 @@ a {
           justify-content: center;
 }
 
+#googleSingUpPopup {
+  margin: 0 auto;
+  color: #fff;
+  background: #7b9a48;
+  width: 100%;
+  border: 0;
+  padding: 3%;
+  cursor: pointer;
+}
+
+#googleSingUpPopup:hover {
+  background-color: gray;
+}
+
 .food-main-title {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   font-size: 1.5rem;
@@ -2758,6 +2814,20 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+#googleSingUpPopup {
+  margin: 0 auto;
+  color: #fff;
+  background: #7b9a48;
+  width: 100%;
+  border: 0;
+  padding: 3%;
+  cursor: pointer;
+}
+
+#googleSingUpPopup:hover {
+  background-color: gray;
 }
 
 .tag-bar {
@@ -3460,6 +3530,20 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+#googleSingUpPopup {
+  margin: 0 auto;
+  color: #fff;
+  background: #7b9a48;
+  width: 100%;
+  border: 0;
+  padding: 3%;
+  cursor: pointer;
+}
+
+#googleSingUpPopup:hover {
+  background-color: gray;
 }
 
 .news-main-title {

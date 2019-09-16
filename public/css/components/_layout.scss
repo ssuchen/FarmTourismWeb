@@ -194,3 +194,18 @@
     margin-top:23%;
     justify-content: center;
 }
+
+#googleSingUpPopup{
+    margin:0 auto;
+    color:#fff ;
+    background: #7b9a48;
+    width: 100%;
+    border: 0;
+    padding: 3%;
+    cursor: pointer;
+    &:hover{
+        background-color: gray;
+    }
+
+
+}
