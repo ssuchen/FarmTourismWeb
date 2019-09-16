@@ -43,7 +43,7 @@ function ChangeUserOut(){
 }
 
 
-
+let UserToken
 //建立google登入系統
 let Googleprovider = new firebase.auth.GoogleAuthProvider();
 let btnGooglePopup = document.getElementById('googleSingUpPopup');
@@ -51,14 +51,14 @@ let btnGooglePopup = document.getElementById('googleSingUpPopup');
 btnGooglePopup.onclick = function() {
     firebase.auth().signInWithPopup(Googleprovider).then(function(result) {
     // 可以獲得 Google 提供 token，token可透過 Google API 獲得其他數據。  
-    let token = result.credential.accessToken;
+    UserToken = result.credential.accessToken;
     let user = result.user;
-    console.log(token)
+    console.log(UserToken)
     console.log(user)
 
     }); 
     //alert("登入成功")
-    ChangeUserIn()
+    //ChangeUserIn()
 }
 
 
@@ -68,32 +68,40 @@ let btnFacePopup = document.getElementById('faceSingUpPopup');
 
 btnFacePopup.onclick = function(){
 firebase.auth().signInWithPopup(faceprovider).then(function(result) {
-  let token = result.credential.accessToken;
+  let UserToken = result.credential.accessToken;
   let user = result.user;
    
-  console.log(token)
+  console.log(UserToken)
   console.log(user)
 
 });
 
 }
 
-
+console.log(UserToken)
 //會員登出
 let signOutbtn=document.querySelector(".logoutbtn-user");
-
 signOutbtn.onclick = function(){
-
   firebase.auth().signOut().then(function() {
     alert("登出成功")
     // Sign-out successful.
     let token = result.credential.accessToken;
-    console.log(token)
-    ChangeUserOut();
+   // ChangeUserOut();
+     console.log(UserToken)
   }).catch(function(error) {
     // An error happened.
     alert("登出失敗")
   });
+}
+
+//判斷會員是否登入
+let user = firebase.auth().currentUser;
+if (user) {
+  console.log(UserToken) 
+  ChangeUserIn()
+} else {
+  console.log(UserToken) 
+  // No user is signed in.
 }
 
 
