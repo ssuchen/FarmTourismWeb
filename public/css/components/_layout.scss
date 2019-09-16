@@ -1,4 +1,20 @@
+.nav-bar{
+    background: #7b9a48;
+    //padding:10px 0px;
+    height: 50px;
+    @include tab-size-s{
+       // display:none;
+    }
+    
+}
+.nav-bar-width{
+    margin:0 auto;
+    max-width: 1000px;
+    padding: 1%;
+    display: flex;
+    justify-content: flex-end;
 
+}
 .title{
     //background-color: gray;
     //background: gray;
@@ -115,30 +131,36 @@
 .footer-content-title{
     margin-top:10px;
 }
-.loginbtn{
-    position: absolute;
-    padding:1%;
-    right:30px;
-    top:20px;
+.loginbtn-user,.loginbtn-list{
+    padding:0 10px;
+    margin-top:2%;
+    cursor: pointer;
+    font-family: Arial,"微軟正黑體", "新細明體", sans-serif; 
     color: #fff;
-    font-size: 1.5rem;
-    border: 1px solid #fff;
+    font-size: 1.1rem;
+    i{
+        font-family:"Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+        }
+
+    @include tab-size{
+        margin-top:8%; 
+    }    
     @include tab-size-s{
-        top:120px;
+      top:120px;
     }
 }
 .login-box{
     display: none;
     border-radius: 10px;
-    padding: 2%;
+    padding: 5%;
     box-shadow: 3px 3px 5px #888888;
-    width: 360px;
-    height:200px;
+    width: 300px;
+    //height:300px;
     background-color: #fff;
     position: fixed;
     z-index: 10;
-    top:450px;
-    margin-left: 50%;
+    top:300px;
+    margin-left: 45%;
     transform: translate(-180px);
     border: 1px solid #7b9a48;
     h1{

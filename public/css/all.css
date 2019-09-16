@@ -58,6 +58,23 @@ a {
   color: #000;
 }
 
+.nav-bar {
+  background: #7b9a48;
+  height: 50px;
+}
+
+.nav-bar-width {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 .title {
   background-image: url(../img/change.jpg);
   background-position: center center;
@@ -199,18 +216,27 @@ a {
   margin-top: 10px;
 }
 
-.loginbtn {
-  position: absolute;
-  padding: 1%;
-  right: 30px;
-  top: 20px;
+.loginbtn-user, .loginbtn-list {
+  padding: 0 10px;
+  margin-top: 2%;
+  cursor: pointer;
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   color: #fff;
-  font-size: 1.5rem;
-  border: 1px solid #fff;
+  font-size: 1.1rem;
+}
+
+.loginbtn-user i, .loginbtn-list i {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .loginbtn-user, .loginbtn-list {
+    margin-top: 8%;
+  }
 }
 
 @media (max-width: 600px) {
-  .loginbtn {
+  .loginbtn-user, .loginbtn-list {
     top: 120px;
   }
 }
@@ -218,16 +244,15 @@ a {
 .login-box {
   display: none;
   border-radius: 10px;
-  padding: 2%;
+  padding: 5%;
   -webkit-box-shadow: 3px 3px 5px #888888;
           box-shadow: 3px 3px 5px #888888;
-  width: 360px;
-  height: 200px;
+  width: 300px;
   background-color: #fff;
   position: fixed;
   z-index: 10;
-  top: 450px;
-  margin-left: 50%;
+  top: 300px;
+  margin-left: 45%;
   -webkit-transform: translate(-180px);
           transform: translate(-180px);
   border: 1px solid #7b9a48;
@@ -372,6 +397,23 @@ a {
   background-color: gray;
 }
 
+.nav-bar {
+  background: #7b9a48;
+  height: 50px;
+}
+
+.nav-bar-width {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 .title {
   background-image: url(../img/change.jpg);
   background-position: center center;
@@ -513,18 +555,27 @@ a {
   margin-top: 10px;
 }
 
-.loginbtn {
-  position: absolute;
-  padding: 1%;
-  right: 30px;
-  top: 20px;
+.loginbtn-user, .loginbtn-list {
+  padding: 0 10px;
+  margin-top: 2%;
+  cursor: pointer;
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   color: #fff;
-  font-size: 1.5rem;
-  border: 1px solid #fff;
+  font-size: 1.1rem;
+}
+
+.loginbtn-user i, .loginbtn-list i {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .loginbtn-user, .loginbtn-list {
+    margin-top: 8%;
+  }
 }
 
 @media (max-width: 600px) {
-  .loginbtn {
+  .loginbtn-user, .loginbtn-list {
     top: 120px;
   }
 }
@@ -532,16 +583,15 @@ a {
 .login-box {
   display: none;
   border-radius: 10px;
-  padding: 2%;
+  padding: 5%;
   -webkit-box-shadow: 3px 3px 5px #888888;
           box-shadow: 3px 3px 5px #888888;
-  width: 360px;
-  height: 200px;
+  width: 300px;
   background-color: #fff;
   position: fixed;
   z-index: 10;
-  top: 450px;
-  margin-left: 50%;
+  top: 300px;
+  margin-left: 45%;
   -webkit-transform: translate(-180px);
           transform: translate(-180px);
   border: 1px solid #7b9a48;
@@ -850,6 +900,23 @@ a {
   height: 25px;
 }
 
+.nav-bar {
+  background: #7b9a48;
+  height: 50px;
+}
+
+.nav-bar-width {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 .title {
   background-image: url(../img/change.jpg);
   background-position: center center;
@@ -991,18 +1058,27 @@ a {
   margin-top: 10px;
 }
 
-.loginbtn {
-  position: absolute;
-  padding: 1%;
-  right: 30px;
-  top: 20px;
+.loginbtn-user, .loginbtn-list {
+  padding: 0 10px;
+  margin-top: 2%;
+  cursor: pointer;
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   color: #fff;
-  font-size: 1.5rem;
-  border: 1px solid #fff;
+  font-size: 1.1rem;
+}
+
+.loginbtn-user i, .loginbtn-list i {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .loginbtn-user, .loginbtn-list {
+    margin-top: 8%;
+  }
 }
 
 @media (max-width: 600px) {
-  .loginbtn {
+  .loginbtn-user, .loginbtn-list {
     top: 120px;
   }
 }
@@ -1010,16 +1086,15 @@ a {
 .login-box {
   display: none;
   border-radius: 10px;
-  padding: 2%;
+  padding: 5%;
   -webkit-box-shadow: 3px 3px 5px #888888;
           box-shadow: 3px 3px 5px #888888;
-  width: 360px;
-  height: 200px;
+  width: 300px;
   background-color: #fff;
   position: fixed;
   z-index: 10;
-  top: 450px;
-  margin-left: 50%;
+  top: 300px;
+  margin-left: 45%;
   -webkit-transform: translate(-180px);
           transform: translate(-180px);
   border: 1px solid #7b9a48;
@@ -1756,6 +1831,23 @@ a {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
+.nav-bar {
+  background: #7b9a48;
+  height: 50px;
+}
+
+.nav-bar-width {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 .title {
   background-image: url(../img/change.jpg);
   background-position: center center;
@@ -1897,18 +1989,27 @@ a {
   margin-top: 10px;
 }
 
-.loginbtn {
-  position: absolute;
-  padding: 1%;
-  right: 30px;
-  top: 20px;
+.loginbtn-user, .loginbtn-list {
+  padding: 0 10px;
+  margin-top: 2%;
+  cursor: pointer;
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   color: #fff;
-  font-size: 1.5rem;
-  border: 1px solid #fff;
+  font-size: 1.1rem;
+}
+
+.loginbtn-user i, .loginbtn-list i {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .loginbtn-user, .loginbtn-list {
+    margin-top: 8%;
+  }
 }
 
 @media (max-width: 600px) {
-  .loginbtn {
+  .loginbtn-user, .loginbtn-list {
     top: 120px;
   }
 }
@@ -1916,16 +2017,15 @@ a {
 .login-box {
   display: none;
   border-radius: 10px;
-  padding: 2%;
+  padding: 5%;
   -webkit-box-shadow: 3px 3px 5px #888888;
           box-shadow: 3px 3px 5px #888888;
-  width: 360px;
-  height: 200px;
+  width: 300px;
   background-color: #fff;
   position: fixed;
   z-index: 10;
-  top: 450px;
-  margin-left: 50%;
+  top: 300px;
+  margin-left: 45%;
   -webkit-transform: translate(-180px);
           transform: translate(-180px);
   border: 1px solid #7b9a48;
@@ -2419,6 +2519,23 @@ a {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
+.nav-bar {
+  background: #7b9a48;
+  height: 50px;
+}
+
+.nav-bar-width {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 .title {
   background-image: url(../img/change.jpg);
   background-position: center center;
@@ -2560,18 +2677,27 @@ a {
   margin-top: 10px;
 }
 
-.loginbtn {
-  position: absolute;
-  padding: 1%;
-  right: 30px;
-  top: 20px;
+.loginbtn-user, .loginbtn-list {
+  padding: 0 10px;
+  margin-top: 2%;
+  cursor: pointer;
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   color: #fff;
-  font-size: 1.5rem;
-  border: 1px solid #fff;
+  font-size: 1.1rem;
+}
+
+.loginbtn-user i, .loginbtn-list i {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .loginbtn-user, .loginbtn-list {
+    margin-top: 8%;
+  }
 }
 
 @media (max-width: 600px) {
-  .loginbtn {
+  .loginbtn-user, .loginbtn-list {
     top: 120px;
   }
 }
@@ -2579,16 +2705,15 @@ a {
 .login-box {
   display: none;
   border-radius: 10px;
-  padding: 2%;
+  padding: 5%;
   -webkit-box-shadow: 3px 3px 5px #888888;
           box-shadow: 3px 3px 5px #888888;
-  width: 360px;
-  height: 200px;
+  width: 300px;
   background-color: #fff;
   position: fixed;
   z-index: 10;
-  top: 450px;
-  margin-left: 50%;
+  top: 300px;
+  margin-left: 45%;
   -webkit-transform: translate(-180px);
           transform: translate(-180px);
   border: 1px solid #7b9a48;
@@ -3096,6 +3221,23 @@ a {
   margin-right: 1%;
 }
 
+.nav-bar {
+  background: #7b9a48;
+  height: 50px;
+}
+
+.nav-bar-width {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 .title {
   background-image: url(../img/change.jpg);
   background-position: center center;
@@ -3237,18 +3379,27 @@ a {
   margin-top: 10px;
 }
 
-.loginbtn {
-  position: absolute;
-  padding: 1%;
-  right: 30px;
-  top: 20px;
+.loginbtn-user, .loginbtn-list {
+  padding: 0 10px;
+  margin-top: 2%;
+  cursor: pointer;
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   color: #fff;
-  font-size: 1.5rem;
-  border: 1px solid #fff;
+  font-size: 1.1rem;
+}
+
+.loginbtn-user i, .loginbtn-list i {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .loginbtn-user, .loginbtn-list {
+    margin-top: 8%;
+  }
 }
 
 @media (max-width: 600px) {
-  .loginbtn {
+  .loginbtn-user, .loginbtn-list {
     top: 120px;
   }
 }
@@ -3256,16 +3407,15 @@ a {
 .login-box {
   display: none;
   border-radius: 10px;
-  padding: 2%;
+  padding: 5%;
   -webkit-box-shadow: 3px 3px 5px #888888;
           box-shadow: 3px 3px 5px #888888;
-  width: 360px;
-  height: 200px;
+  width: 300px;
   background-color: #fff;
   position: fixed;
   z-index: 10;
-  top: 450px;
-  margin-left: 50%;
+  top: 300px;
+  margin-left: 45%;
   -webkit-transform: translate(-180px);
           transform: translate(-180px);
   border: 1px solid #7b9a48;
