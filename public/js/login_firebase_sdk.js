@@ -70,7 +70,7 @@ btnFacePopup.onclick = function(){
 firebase.auth().signInWithPopup(faceprovider).then(function(result) {
   let UserToken = result.credential.accessToken;
   let user = result.user;
-   
+  test(); 
   console.log(UserToken)
   console.log(user)
 
@@ -84,6 +84,7 @@ let signOutbtn=document.querySelector(".logoutbtn-user");
 signOutbtn.onclick = function(){
   firebase.auth().signOut().then(function() {
     alert("登出成功")
+    test();
     // Sign-out successful.
     let token = result.credential.accessToken;
    // ChangeUserOut();
@@ -95,13 +96,18 @@ signOutbtn.onclick = function(){
 }
 
 //判斷會員是否登入
-let user = firebase.auth().currentUser;
-if (user) {
-  console.log(UserToken) 
-  ChangeUserIn()
-} else {
-  console.log(UserToken) 
-  // No user is signed in.
+// let user = firebase.auth().currentUser;
+// if (user) {
+//   console.log(UserToken) 
+//   ChangeUserIn()
+// } else {
+//   console.log(UserToken) 
+//   // No user is signed in.
+// }
+
+function test(){
+  console.log("123")
+  console.log(UserToken)
 }
 
 

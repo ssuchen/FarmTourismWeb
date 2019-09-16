@@ -79,6 +79,26 @@ function travelpageRender(data){
             //切換成空景模式
             //maplink.setAttribute("src","https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+ coordinate +"&z=16&output=embed&t=h");
             
+         
+
+           //留言板功能
+            let travelpageMessage = document.querySelector(".travelpage-message");
+             
+            let travelpageMessageContent = document.createElement("div");
+            travelpageMessageContent.setAttribute("class","travelpage-message-content");
+
+            let travelpageMessageTitle = document.createElement("div");
+            travelpageMessageTitle.setAttribute("class","travelpage-message-title");
+
+            let travelpageMessageName = document.createElement("div");
+            travelpageMessageName.setAttribute("class","travelpage-message-name");
+
+            let travelpageMessageTime = document.createElement("div");
+            travelpageMessageTime.setAttribute("class","travelpage-message-time");
+
+            let travelpageMessageMemo = document.createElement("div");
+            travelpageMessageMemo.setAttribute("class","travelpage-message-memo");
+
 
             travelpageLeft.appendChild(travelpageImg);
             travelpageLeft.appendChild(travelpageContent);
@@ -95,6 +115,15 @@ function travelpageRender(data){
             travelpageMap.appendChild(maplink);
 
 
+            //留言版功能
+
+            travelpageMessage.appendChild(travelpageMessageContent);
+            travelpageMessageContent.appendChild(travelpageMessageTitle);
+            travelpageMessageTitle.appendChild(travelpageMessageName);
+            travelpageMessageTitle.appendChild(travelpageMessageName);
+            travelpageMessageContent.appendChild(travelpageMessageMemo);
+
+            
 
         }
         //console.log(item.ID)
