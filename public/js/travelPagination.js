@@ -172,3 +172,40 @@ function travelpageRender(data){
     
     
 }
+
+
+//============================
+//  留言按鈕 判斷是否有登入會員 
+//============================
+
+let travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
+// 有登入時 留言按鈕出現
+firebase.auth().onAuthStateChanged(function(user){
+    if(user !== null){
+        travelpageMessageBtn.style.display="none"
+    }
+
+})
+
+let travelpageMessageComment = document.querySelector(".travelpage-message-comment");
+    
+//按下留言按鈕 留言視窗出現
+    travelpageMessageBtn.addEventListener("click",function(){
+        travelpageMessageComment.style.display="block";
+        travelpageMessageBtn.style.display="none";
+    });
+
+//按下取消評論 視窗關閉 
+let commentCancelBtn = document.querySelector(".comment-cancel-btn");
+    commentCancelBtn.addEventListener("click",function(){
+    travelpageMessageComment.style.display="none";
+    travelpageMessageBtn.style.display="block";
+    });
+
+//按下送出評論 評論送出
+let commentSubmitBtn = document.querySelector(".comment-submit-btn");
+let commentInput = document.querySelector(".comment-input");
+let commentInputValue = commentInput.value
+commentSubmitBtn.addEventListener("click",function(){
+console.log(commentInputValue)
+})

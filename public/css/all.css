@@ -1912,7 +1912,6 @@ a {
   margin: 0 2%;
   margin-bottom: 2%;
   width: 96%;
-  margin: 0 auto;
   padding: 2% 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1967,6 +1966,68 @@ a {
 
 .travelpage-message-btn:hover {
   background-color: gray;
+}
+
+.travelpage-message-comment {
+  display: none;
+  margin: 0 2%;
+  margin-bottom: 2%;
+  width: 96%;
+  margin: 0 auto;
+  padding: 2% 1.5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid;
+}
+
+@media (max-width: 768px) {
+  .travelpage-message-comment {
+    margin: 0 auto;
+    margin-bottom: 5%;
+    width: 90%;
+  }
+}
+
+.travelpage-message-comment .comment-title {
+  font-size: 1.2rem;
+  margin-bottom: 1.6%;
+}
+
+.travelpage-message-comment .comment-input {
+  width: 96%;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 1.6%;
+  height: 150px;
+  font-size: 1.2rem;
+}
+
+.travelpage-message-comment .comment-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.travelpage-message-comment .comment-btn .comment-submit-btn, .travelpage-message-comment .comment-btn .comment-cancel-btn {
+  padding: 1%;
+  width: 100px;
+  border: 1px solid;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0 1%;
+  margin-top: 2%;
+}
+
+.travelpage-message-comment .comment-btn .comment-submit-btn:hover, .travelpage-message-comment .comment-btn .comment-cancel-btn:hover {
+  background-color: gray;
+}
+
+.travelpage-message-comment input {
+  width: 200px;
+  height: 300px;
 }
 
 .travelpage-map {
