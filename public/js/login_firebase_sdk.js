@@ -14,6 +14,7 @@ firebase.initializeApp(firebaseConfig);
 let db = firebase.firestore();
 let auth = firebase.auth();
 //console.log(db);
+//db.settings({timestampsInSnapshots: true });
 
 //===================================
 //        判斷使用者目前狀態
@@ -25,7 +26,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     // User is signed in.
   } else {
     // No user is signed in.
-    console.log(null)
+    //console.log(null)
   }
 });
 

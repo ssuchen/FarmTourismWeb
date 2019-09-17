@@ -6,7 +6,7 @@ let url = new URL(Idstring);
 //console.log(url)
 //找到id後方的字串
 let UrlString = url.searchParams.get('id');
-//console.log(UrlString)
+console.log(UrlString)
     
 ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx",function(response){
     travelpageRender(response)
@@ -79,8 +79,39 @@ function travelpageRender(data){
             //切換成空景模式
             //maplink.setAttribute("src","https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+ coordinate +"&z=16&output=embed&t=h");
             
-         
 
+
+           //============================
+           //  抓取firebase 資料
+           //============================
+            
+           //1.判斷 文件id 相同 得到文件內的訊息
+
+           //2.判斷 若是 文件id不同 則需創建新 collection
+
+
+
+
+           //console.log(db) 
+                db.collection("comment").get().then(function(snapshop){
+                    //console.log(snapshop.doc.id)
+                    snapshop.docs.forEach(function(doc){
+                        console.log(doc.id)
+                    })
+                })
+            
+
+        //    db.collection("comment").doc(test).collection("message").get().then(function(snapshop){
+        //         snapshop.docs.forEach(function(doc){
+        //          console.log(doc.data().name)
+        //         })
+        //    })
+    
+
+
+           //console.log(UserMessage)
+          
+           //============================
            //留言板功能
             let travelpageMessage = document.querySelector(".travelpage-message");
              
@@ -205,7 +236,24 @@ let commentCancelBtn = document.querySelector(".comment-cancel-btn");
 //按下送出評論 評論送出
 let commentSubmitBtn = document.querySelector(".comment-submit-btn");
 let commentInput = document.querySelector(".comment-input");
-let commentInputValue = commentInput.value
+let commentInputValue
+commentInput.addEventListener("change",textchange)
+function textchange(){
+    commentInputValue = commentInput.value;
+}
 commentSubmitBtn.addEventListener("click",function(){
 console.log(commentInputValue)
+//location.reload()
+
+//獲得時間
+//var Today=new Date();
+//console.log(Today.getFullYear())
+//console.log(Today.getMonth()+1) 
+//console.log(Today.getDate() )
+
+
+
 })
+
+
+
