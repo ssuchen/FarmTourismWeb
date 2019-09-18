@@ -100,6 +100,7 @@ function travelpageRender(data){
 
            //判斷 文件id 相同 得到文件內的訊息
             db.collection("comment").doc(UrlString).collection("message").get().then(function(snapshop){
+                //console.log(snapshop.docs)
                 let MessageArr=[]
                 snapshop.docs.forEach(function(doc){
                 // console.log(doc.data())  
@@ -147,12 +148,16 @@ function travelpageRender(data){
 
            
             })
-
-
+           
             
 
+        
+           //判斷 若是 文件id不同 則需創建新 collection
 
-           //2.判斷 若是 文件id不同 則需創建新 collection
+           //將文件放入 firebase
+
+
+
 
 
                 //判斷文件id是否存在
@@ -260,23 +265,44 @@ let commentCancelBtn = document.querySelector(".comment-cancel-btn");
 let commentSubmitBtn = document.querySelector(".comment-submit-btn");
 let commentInput = document.querySelector(".comment-input");
 let commentInputValue
-commentInput.addEventListener("change",textchange)
-function textchange(){
+// commentInput.addEventListener("change",textchange)
+// function textchange(){
+//     commentInputValue = commentInput.value;
+
+// }
+// commentSubmitBtn.addEventListener("click",function(){
+// //console.log(commentInputValue)
+// let Today=new Date();
+// // db.collection("comment").doc(UrlString).collection("message").add({
+// // name:"test",
+// // text:commentInputValue,
+// // time:Today.getFullYear()+"."+ (Today.getMonth()+1 )+"." + Today.getDate() 
+// // })
+// //location.reload()
+// //window.location.reload();
+// //獲得時間
+// //var Today=new Date();
+// //console.log(Today.getFullYear())
+// //console.log(Today.getMonth()+1) 
+// //console.log(Today.getDate() )
+
+
+
+// })
+
+let formMessage = document.querySelector("#formMessage");
+formMessage.addEventListener("submit",function(e){
+    e.preventDefault()
     commentInputValue = commentInput.value;
-}
-commentSubmitBtn.addEventListener("click",function(){
-console.log(commentInputValue)
-//location.reload()
-
-//獲得時間
-//var Today=new Date();
-//console.log(Today.getFullYear())
-//console.log(Today.getMonth()+1) 
-//console.log(Today.getDate() )
-
-
+    let Today=new Date();
+    //console.log(commentInputValue)
+    db.collection("comment").doc(UrlString).collection("message").add({
+    name:"test",
+    text:commentInputValue,
+    time:Today.getFullYear()+"."+ (Today.getMonth()+1 )+"." + Today.getDate() 
+    });
+    //清空表單資訊
+    commentInput.value="";
 
 })
-
-
 
