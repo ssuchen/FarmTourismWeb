@@ -102,6 +102,14 @@
     max-width: 1152px;
     margin: 0 auto;
 }
+.like-btn{
+    position: absolute;
+    top:8%;
+    z-index: 10;
+    right:10%;
+    font-size: 1.5rem;
+    color: #fff;
+}
 .btn-active{
     background-color: #7b9a48;
 }

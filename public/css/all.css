@@ -178,6 +178,15 @@ a {
   margin: 0 auto;
 }
 
+.like-btn {
+  position: absolute;
+  top: 8%;
+  z-index: 10;
+  right: 10%;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
 .btn-active {
   background-color: #7b9a48;
 }
@@ -670,6 +679,15 @@ a {
   margin: 0 auto;
 }
 
+.like-btn {
+  position: absolute;
+  top: 8%;
+  z-index: 10;
+  right: 10%;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
 .btn-active {
   background-color: #7b9a48;
 }
@@ -1085,6 +1103,7 @@ a {
 }
 
 .travel-card {
+  position: relative;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 1% 1%;
@@ -1324,6 +1343,15 @@ a {
 .main {
   max-width: 1152px;
   margin: 0 auto;
+}
+
+.like-btn {
+  position: absolute;
+  top: 8%;
+  z-index: 10;
+  right: 10%;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
 .btn-active {
@@ -1741,6 +1769,7 @@ a {
 }
 
 .present-card {
+  position: relative;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 1% 1%;
@@ -2532,6 +2561,15 @@ a {
   margin: 0 auto;
 }
 
+.like-btn {
+  position: absolute;
+  top: 8%;
+  z-index: 10;
+  right: 10%;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
 .btn-active {
   background-color: #7b9a48;
 }
@@ -2988,6 +3026,7 @@ a {
 }
 
 .food-img {
+  position: relative;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -3010,6 +3049,10 @@ a {
 .food-img img:hover {
   -webkit-transform: scale(1.06, 1.06);
           transform: scale(1.06, 1.06);
+}
+
+.food-likebtn {
+  left: 5%;
 }
 
 .food-title {
@@ -3371,6 +3414,15 @@ a {
 .main {
   max-width: 1152px;
   margin: 0 auto;
+}
+
+.like-btn {
+  position: absolute;
+  top: 8%;
+  z-index: 10;
+  right: 10%;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
 .btn-active {
@@ -3854,6 +3906,7 @@ a {
 }
 
 .journey-card {
+  position: relative;
   padding: 1% 1%;
   margin: 0.5%;
   margin-bottom: 2%;
@@ -4226,6 +4279,15 @@ a {
 .main {
   max-width: 1152px;
   margin: 0 auto;
+}
+
+.like-btn {
+  position: absolute;
+  top: 8%;
+  z-index: 10;
+  right: 10%;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
 .btn-active {

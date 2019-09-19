@@ -34,6 +34,9 @@ function presentRender(data){
                 presentImg.setAttribute('class','present-img');
             let presentPhoto = document.createElement('img');
                 presentPhoto.setAttribute('src',photo);
+
+            let presentBtn = document.createElement("i");
+                presentBtn.setAttribute("class","far fa-heart like-btn");
             
             let presentTitle = document.createElement('div');
                 presentTitle.setAttribute('class','present-title');
@@ -57,6 +60,8 @@ function presentRender(data){
             presentCard.appendChild(presentPlace);
            
             presentImg.appendChild(presentPhoto);
+            presentImg.appendChild(presentBtn);
+           
             presentPlace.appendChild(presentCounty);
             presentPlace.appendChild(presentText);
             }

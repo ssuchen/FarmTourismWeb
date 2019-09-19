@@ -98,15 +98,27 @@ function travelpageRender(data){
            //  抓取firebase 資料
            //============================
       
+           //抓取 相同id 的留言
             let MessageArr=[]
-            db.collection("comment").get().then(function(snapshop){          
-            //console.log(snapshop.docs) 
+            db.collection("comment").orderBy("time").get().then(function(snapshop){              
+            renderMessage();
+            function renderMessage(){
+            
             snapshop.docs.forEach(function(doc){
                 if (doc.data().id == UrlString ){
                     MessageArr.push(doc.data())
                 } 
-            });            
-            for(let i = 0 ;i<5 ; i++){
+            });    
+
+
+            let len = MessageArr.length
+            if(len>5){
+                len = 5
+            }else{
+                len = len
+            }
+
+            for(let i = 0 ;i<len; i++){
                 let name = MessageArr[i].name
                 let time = MessageArr[i].time
                 let text = MessageArr[i].text
@@ -141,7 +153,11 @@ function travelpageRender(data){
                travelpageMessageContent.appendChild(travelpageMessageMemo);
 
             }
+
+            }
+
             });
+
 
         }
                
@@ -184,8 +200,7 @@ function travelpageRender(data){
         }
         
     })
-    
-    
+        
 }
 
 
@@ -196,11 +211,30 @@ function travelpageRender(data){
 let travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
 // 有登入時 留言按鈕出現
 firebase.auth().onAuthStateChanged(function(user){
-    if(user !== null){
+    if(user != null){
         travelpageMessageBtn.style.display="none"
+    }else{
+        travelpageMessageBtn.style.display="block"
     }
 
 })
+
+//============================ 
+//         獲取用戶資料 
+//============================ 
+
+let user = firebase.auth.currentUser;
+let userName
+let userEmail
+let userPhoto
+if(user != null){
+userName = user.displayName; 
+userEmail = user.email;
+userPhoto = user.photoURL;   
+}
+
+//=============================
+
 
 let travelpageMessageComment = document.querySelector(".travelpage-message-comment");
     
@@ -235,11 +269,11 @@ function pushMessage(){
     console.log(UrlString)
     let Today=new Date();
     console.log(typeof(UrlString))
-    let messagedoc = db.collection("comment").doc();
-    
+    let messagedoc = db.collection("comment").doc();    
     messagedoc.set({
         id:UrlString,
-        name:"test",
+        name:userName,
+        //name:"test",
         text:commentInputValue,
         time:Today.getFullYear()+"."+ (Today.getMonth()+1 )+"." + Today.getDate() 
     });

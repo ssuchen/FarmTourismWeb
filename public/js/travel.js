@@ -39,6 +39,9 @@ for( let i = 0 ; i<12; i++){
         travelImg.setAttribute('class','travel-img');
     let travelPhoto = document.createElement('img');
         travelPhoto.setAttribute('src',photo);
+
+    let travellikeBtn = document.createElement("i")
+        travellikeBtn.setAttribute("class","far fa-heart like-btn");   
     
     let travelTitle = document.createElement('div');
         travelTitle.setAttribute('class','travel-title');
@@ -62,6 +65,7 @@ for( let i = 0 ; i<12; i++){
     travelCard.appendChild(travelPlace);
 
     travelImg.appendChild(travelPhoto);
+    travelImg.appendChild(travellikeBtn);  
     travelPlace.appendChild(travelCounty);
     travelPlace.appendChild(travelText);
     };

@@ -42,7 +42,10 @@ function foodRender(data){
             foodImg.setAttribute("class","food-img");
         let Img = document.createElement("img");
             Img.setAttribute("src",photo);
-        
+
+        let foodBtn = document.createElement("i");
+            foodBtn.setAttribute("class","far fa-heart like-btn food-likebtn");
+
         let foodTitle = document.createElement("div");
             foodTitle.setAttribute("class","food-title");
             foodTitle.textContent = name;
@@ -74,6 +77,8 @@ function foodRender(data){
 
         foodCardLeft.appendChild(foodImg);
         foodImg.appendChild(Img);
+        foodImg.appendChild(foodBtn);
+        
         
         foodCardRight.appendChild(foodTitle);
         foodCardRight.appendChild(foodTel);

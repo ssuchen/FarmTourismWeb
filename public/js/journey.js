@@ -33,6 +33,9 @@ for(let i =0 ;i<12 ;i++){
                 journeyImg.setAttribute("class","journey-img");
             let img = document.createElement("img");
                 img.setAttribute("src",photo);
+            let journeyBtn = document.createElement("i");
+                journeyBtn.setAttribute("class","far fa-heart like-btn");
+
             let journeyTitle = document.createElement("div");
                 journeyTitle.setAttribute("class","journey-title");
                 journeyTitle.textContent = name;
@@ -53,6 +56,8 @@ for(let i =0 ;i<12 ;i++){
 
                 journeyCard.appendChild(journeyText);            
                 journeyImg.appendChild(img);
+                journeyImg.appendChild(journeyBtn);
+
       
 
                 //將 tag 放入 journey-group的迴圈
