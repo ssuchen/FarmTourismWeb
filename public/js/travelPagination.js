@@ -97,97 +97,53 @@ function travelpageRender(data){
            //============================
            //  抓取firebase 資料
            //============================
-
-           //判斷 文件id 相同 得到文件內的訊息
-            db.collection("comment").doc(UrlString).collection("message").get().then(function(snapshop){
-                //console.log(snapshop.docs)
-                let MessageArr=[]
-                snapshop.docs.forEach(function(doc){
-                // console.log(doc.data())  
-                MessageArr.push(doc.data())
-                 });
-                
-                for(let i = 0 ;i<5 ; i++){
-
+      
+            let MessageArr=[]
+            db.collection("comment").get().then(function(snapshop){          
+            //console.log(snapshop.docs) 
+            snapshop.docs.forEach(function(doc){
+                if (doc.data().id == UrlString ){
+                    MessageArr.push(doc.data())
+                } 
+            });            
+            for(let i = 0 ;i<5 ; i++){
                 let name = MessageArr[i].name
                 let time = MessageArr[i].time
                 let text = MessageArr[i].text
-                 
-                           
-            //============================
-            //留言板功能
-            let travelpageMessage = document.querySelector(".travelpage-message");
+                               
+               //============================
+               //留言板功能
+               let travelpageMessage = document.querySelector(".travelpage-message");
              
-            let travelpageMessageContent = document.createElement("div");
-            travelpageMessageContent.setAttribute("class","travelpage-message-content");
+               let travelpageMessageContent = document.createElement("div");
+               travelpageMessageContent.setAttribute("class","travelpage-message-content");
 
-            let travelpageMessageTitle = document.createElement("div");
-            travelpageMessageTitle.setAttribute("class","travelpage-message-title");
+               let travelpageMessageTitle = document.createElement("div");
+               travelpageMessageTitle.setAttribute("class","travelpage-message-title");
 
-            let travelpageMessageName = document.createElement("div");
-            travelpageMessageName.setAttribute("class","travelpage-message-name");
-            travelpageMessageName.textContent = name;
+               let travelpageMessageName = document.createElement("div");
+               travelpageMessageName.setAttribute("class","travelpage-message-name");
+               travelpageMessageName.textContent = name;
 
-            let travelpageMessageTime = document.createElement("div");
-            travelpageMessageTime.setAttribute("class","travelpage-message-time");
-            travelpageMessageTime.textContent = time;
+               let travelpageMessageTime = document.createElement("div");
+               travelpageMessageTime.setAttribute("class","travelpage-message-time");
+               travelpageMessageTime.textContent = time;
 
-            let travelpageMessageMemo = document.createElement("div");
-            travelpageMessageMemo.setAttribute("class","travelpage-message-memo");
-            travelpageMessageMemo.textContent = text;
+               let travelpageMessageMemo = document.createElement("div");
+               travelpageMessageMemo.setAttribute("class","travelpage-message-memo");
+               travelpageMessageMemo.textContent = text;
 
-            //留言版功能
-            travelpageMessage.appendChild(travelpageMessageContent);
-            travelpageMessageContent.appendChild(travelpageMessageTitle);
-            travelpageMessageTitle.appendChild(travelpageMessageName);
-            travelpageMessageTitle.appendChild(travelpageMessageTime);
-            travelpageMessageContent.appendChild(travelpageMessageMemo);
+               //留言版功能
+               travelpageMessage.appendChild(travelpageMessageContent);
+               travelpageMessageContent.appendChild(travelpageMessageTitle);
+               travelpageMessageTitle.appendChild(travelpageMessageName);
+               travelpageMessageTitle.appendChild(travelpageMessageTime);
+               travelpageMessageContent.appendChild(travelpageMessageMemo);
 
             }
-
-
-           
-            })
-           
-            
-
-        
-           //判斷 若是 文件id不同 則需創建新 collection
-
-           //將文件放入 firebase
-
-
-
-
-
-                //判斷文件id是否存在
-           //console.log(db) 
-                // db.collection("comment").get().then(function(snapshop){
-                //     //console.log(snapshop.doc.id)
-                //     snapshop.docs.forEach(function(doc){
-                //         if (doc.id == UrlString ){
-                //            console.log(doc)
-                //         }
-            
-                //        // console.log(doc.id)
-                //     })
-                // })
-            
-        
-
-        
-
-
-           //console.log(UserMessage)
-          
-
-
-            
+            });
 
         }
-        //console.log(item.ID)
-        
-        
                
     });
     //找出相關的位置的景點
@@ -262,47 +218,29 @@ let commentCancelBtn = document.querySelector(".comment-cancel-btn");
     });
 
 //按下送出評論 評論送出
-let commentSubmitBtn = document.querySelector(".comment-submit-btn");
+//let commentSubmitBtn = document.querySelector(".comment-submit-btn");
 let commentInput = document.querySelector(".comment-input");
 let commentInputValue
-// commentInput.addEventListener("change",textchange)
-// function textchange(){
-//     commentInputValue = commentInput.value;
-
-// }
-// commentSubmitBtn.addEventListener("click",function(){
-// //console.log(commentInputValue)
-// let Today=new Date();
-// // db.collection("comment").doc(UrlString).collection("message").add({
-// // name:"test",
-// // text:commentInputValue,
-// // time:Today.getFullYear()+"."+ (Today.getMonth()+1 )+"." + Today.getDate() 
-// // })
-// //location.reload()
-// //window.location.reload();
-// //獲得時間
-// //var Today=new Date();
-// //console.log(Today.getFullYear())
-// //console.log(Today.getMonth()+1) 
-// //console.log(Today.getDate() )
-
-
-
-// })
-
 let formMessage = document.querySelector("#formMessage");
 formMessage.addEventListener("submit",function(e){
     e.preventDefault()
     commentInputValue = commentInput.value;
-    let Today=new Date();
-    //console.log(commentInputValue)
-    db.collection("comment").doc(UrlString).collection("message").add({
-    name:"test",
-    text:commentInputValue,
-    time:Today.getFullYear()+"."+ (Today.getMonth()+1 )+"." + Today.getDate() 
-    });
+    pushMessage();
     //清空表單資訊
     commentInput.value="";
 
 })
 
+function pushMessage(){
+    console.log(UrlString)
+    let Today=new Date();
+    console.log(typeof(UrlString))
+    let messagedoc = db.collection("comment").doc();
+    
+    messagedoc.set({
+        id:UrlString,
+        name:"test",
+        text:commentInputValue,
+        time:Today.getFullYear()+"."+ (Today.getMonth()+1 )+"." + Today.getDate() 
+    });
+}
