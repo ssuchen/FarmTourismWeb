@@ -58,6 +58,15 @@ a {
   color: #000;
 }
 
+button {
+  padding: 0;
+  margin: 0;
+  border: 1px solid transparent;
+  outline: none;
+  font-weight: 0;
+  background-color: #fff;
+}
+
 .nav-bar {
   background: #7b9a48;
   height: 50px;

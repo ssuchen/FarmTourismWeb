@@ -100,17 +100,17 @@ function travelpageRender(data){
       
            //抓取 相同id 的留言
             let MessageArr=[]
-            db.collection("comment").orderBy("time").get().then(function(snapshop){              
-            renderMessage();
-            function renderMessage(){
-            
+            db.collection("comment").orderBy("time").onSnapshot(function(snapshop){
+            MessageArr=[]
+            let travelpageMessage = document.querySelector(".travelpage-message");
+            travelpageMessage.innerHTML=""
             snapshop.docs.forEach(function(doc){
                 if (doc.data().id == UrlString ){
                     MessageArr.push(doc.data())
                 } 
             });    
 
-
+            //console.log(MessageArr)
             let len = MessageArr.length
             if(len>5){
                 len = 5
@@ -118,6 +118,8 @@ function travelpageRender(data){
                 len = len
             }
 
+            renderMessage();
+            function renderMessage(){
             for(let i = 0 ;i<len; i++){
                 let name = MessageArr[i].name
                 let time = MessageArr[i].time
@@ -210,11 +212,26 @@ function travelpageRender(data){
 
 let travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
 // 有登入時 留言按鈕出現
+    let userName
+    let userEmail
+    let userPhoto
+    let user
+
 firebase.auth().onAuthStateChanged(function(user){
     if(user != null){
         travelpageMessageBtn.style.display="none"
     }else{
         travelpageMessageBtn.style.display="block"
+
+        // user = firebase.auth.currentUser;
+        // console.log(user)
+        // userName = user.displayName; 
+        // console.log(userName)
+        // userEmail = user.email;
+        // console.log(userEmail)
+        // userPhoto = user.photoURL;  
+        // console.log(userPhoto) 
+
     }
 
 })
@@ -223,15 +240,15 @@ firebase.auth().onAuthStateChanged(function(user){
 //         獲取用戶資料 
 //============================ 
 
-let user = firebase.auth.currentUser;
-let userName
-let userEmail
-let userPhoto
-if(user != null){
-userName = user.displayName; 
-userEmail = user.email;
-userPhoto = user.photoURL;   
-}
+// let user = firebase.auth.currentUser;
+// let userName
+// let userEmail
+// let userPhoto
+// if(user != null){
+// userName = user.displayName; 
+// userEmail = user.email;
+// userPhoto = user.photoURL;   
+// }
 
 //=============================
 
@@ -259,9 +276,14 @@ let formMessage = document.querySelector("#formMessage");
 formMessage.addEventListener("submit",function(e){
     e.preventDefault()
     commentInputValue = commentInput.value;
+    if(commentInputValue==""){
+      alert("請輸入訊息")
+    }else{
     pushMessage();
     //清空表單資訊
     commentInput.value="";
+    }
+    
 
 })
 
@@ -272,8 +294,8 @@ function pushMessage(){
     let messagedoc = db.collection("comment").doc();    
     messagedoc.set({
         id:UrlString,
-        name:userName,
-        //name:"test",
+        //name:userName,
+        name:"test",
         text:commentInputValue,
         time:Today.getFullYear()+"."+ (Today.getMonth()+1 )+"." + Today.getDate() 
     });
