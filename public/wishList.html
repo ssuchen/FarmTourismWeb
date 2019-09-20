@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/all.css">
     <script src="https://kit.fontawesome.com/ab3a164183.js"></script>
-    <title>farm web-travel</title>
+    <title>farm web-wish</title>
 </head>
 <body>
 <div class="wrap">
@@ -66,40 +66,39 @@
       <a href="food.html"><li>農村特色小吃</li></a> 
     </ul> 
     <div class="main">
-        
-        <div class="searchBar">
-            <div class="travel-main-title">休閒農業區</div>
-            <div class="searchBar-group">
-                <div class="searchBar-Input">
-                    <input class="searchBar-Input-text" type="text">
-                </div>
-                <select class="searchBar-Area">
-                    <option value="all">區域</option>
-                    <option value="North">北區</option>
-                    <option value="Central">中區</option>
-                    <option value="South">南區</option>
-                    <option value="East">東區</option>    
-                </select>
-                <select class="searchBar-Country">
-                    <option value="all">縣市</option>  
-                </select>
-                <div class="searchBar-Btn">搜尋</div>
-            </div>           
-
-            
+        <div class="wish-main-title">
+        <div class="wish-main-text">我的收藏</div>
+        <div class="wish-main-list">
+            <div id="wishPresent" class="wish-btn">農村伴手禮</div>
+            <div id="wishTravel" class="wish-btn wishBtn-click">休閒農業區</div>
+            <div id="wishJourney" class="wish-btn">農村小旅行</div>
+            <div id="wishFood" class="wish-btn">特色小吃</div>
         </div>
-        <div class="travel-main-content">
-            <!-- <div class="travel-card">
-            <div class="travel-img">
+        
+        </div>
+        <div class="wish-main-content">
+            <div class="wish-card">
+            <div class="wish-img">
                 <i class="far fa-heart like-btn fas"></i>
                 <img src="img/20151111165433.jpg" alt="">  
             </div>
-            <div class="travel-title">黃金小鎮休閒農業區</div>
-            <div class="travel-place">
-                <div class="travel-county">苗栗縣</div> 
-                <div class="travel-text">公館鄉</div> 
+            <div class="wish-title">黃金小鎮休閒農業區</div>
+            <div class="wish-place">
+                <div class="wish-county">苗栗縣</div> 
+                <div class="wish-text">公館鄉</div> 
             </div>                                      
-            </div> -->
+            </div>
+            <div class="wish-card">
+                    <div class="wish-img">
+                        <i class="far fa-heart like-btn fas"></i>
+                        <img src="img/20151111165433.jpg" alt="">  
+                    </div>
+                    <div class="wish-title">黃金小鎮休閒農業區</div>
+                    <div class="wish-place">
+                        <div class="wish-county">苗栗縣</div> 
+                        <div class="wish-text">公館鄉</div> 
+                    </div>                                      
+                    </div>
             <!-- <div class="travel-card">
                 <div class="travel-img">
                     <img src="img/20151111165433.jpg" alt="">  
@@ -163,8 +162,6 @@
 
 </body>
 <script src="js/all.js"></script>
-<script src="js/search.js"></script>
-<script src="js/travel.js"></script>
 <script src="js/login_firebase_sdk.js"></script>
 <script src="js/wishlist.js"></script>
 </html>

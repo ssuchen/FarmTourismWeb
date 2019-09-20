@@ -222,6 +222,30 @@ firebase.auth().onAuthStateChanged(function(user){
         travelpageMessageBtn.style.display="none"
     }else{
         travelpageMessageBtn.style.display="block"
+        user = firebase.auth.currentUser;
+       // Using a popup.
+        var provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope('profile');
+        provider.addScope('email');
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a Google Access Token.
+        var token = result.credential.accessToken;
+        console.log(token)
+        // The signed-in user info.
+        var user = result.user;
+        console.log(user)
+        userName = user.displayName; 
+        console.log(userName)
+        userEmail = user.email;
+        console.log(userEmail)
+        userPhoto = user.photoURL;  
+        console.log(userPhoto) 
+
+
+
+        });
+               
+
 
         // user = firebase.auth.currentUser;
         // console.log(user)
