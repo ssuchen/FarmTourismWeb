@@ -3,6 +3,9 @@ ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenDat
     travelRender(response)
 });
 
+
+
+
 function travelRender(data){
 let len = data.length;
 let perpage = 12;
@@ -41,7 +44,9 @@ for( let i = 0 ; i<12; i++){
         travelPhoto.setAttribute('src',photo);
 
     let travellikeBtn = document.createElement("i")
-        travellikeBtn.setAttribute("class","far fa-heart like-btn");   
+        travellikeBtn.setAttribute("class","far fa-heart like-btn");
+        travellikeBtn.setAttribute("data-tag","travel");  
+        travellikeBtn.setAttribute("id",id);    
     
     let travelTitle = document.createElement('div');
         travelTitle.setAttribute('class','travel-title');
@@ -214,13 +219,15 @@ function clickbtn(){
             }
         
             str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
-            + '></div><div class="travel-title">' + name 
+            + '><i class="far fa-heart like-btn" data-tag="travel" id = '+ id
+            + '></i></div><div class="travel-title">' + name 
             +'</div><div class="travel-place"><div class="travel-country">'
             + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
         };
         let travelMainContent = document.querySelector('.travel-main-content');
             travelMainContent.innerHTML = str;
-          
+            //點選 愛心按鈕監聽事件
+            likebtnAdd();
     }; 
        
     };  
@@ -334,13 +341,22 @@ function clickbtn(){
         }else{
         photo = photo;   
         }
-        str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
-        + '></div><div class="travel-title">' + name 
+        str += '<a  href= " travelPagination.html?id=' + id 
+        +'"class="travel-card"><div class="travel-img"><img src=' + photo 
+        + '><i class="far fa-heart like-btn" data-tag="travel" id = '+ id
+        + '></i></div><div class="travel-title">' + name 
         +'</div><div class="travel-place"><div class="travel-country">'
         + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
+        
         let travelMainContent = document.querySelector('.travel-main-content');
         travelMainContent.innerHTML = str;
         
+        likebtnAdd();
+
+
+
+
+
         //將搜尋列清空
         let InputClear = document.querySelector(".searchBar-Input-text");
         InputClear.value = "";
@@ -358,98 +374,101 @@ function clickbtn(){
         updateBtnlist();
         clickbtn();
     })
+    //======================
+    //     增加願望清單
+    //======================
+    let likebtn = document.querySelectorAll(".like-btn");
+    let likebtnClick 
+    function likelistAdd(){    
+        for(let i=0;i<likebtn.length;i++){
+            likebtn[i].addEventListener("click",function(e){
+                e.preventDefault();
+                //console.log(likebtn[i].id)
+                //console.log(likebtn[i].dataset.tag)
+            }, true)   
+        }
+        likebtnAddStyle();    
+
+    };
+    likelistAdd();
     
+    //======================
+    //  改變點選按鈕的css樣式
+    //======================
+
+    //  增加樣式
+    function likebtnAddStyle(){
+        for(let b=0;b<likebtn.length;b++){
+        likebtn[b].addEventListener("click",function(){
+          likebtn[b].classList.add("fas"); 
+          likebtn[b].classList.add("likebtnClick"); 
+          
+          //獲取 點擊的卡片
+          let btnID =likebtn[b].id      
+          for(let a=0;a<data.length;a++){
+            if(data[a].ID == btnID){
+              let country = data[a].City;
+              let id =data[a].ID;
+              let img = data[a].Photo;
+              let text = data[a].Town;
+              let title = data[a].Name;
+              console.log(country)
+              console.log(id)
+              console.log(img)
+              console.log(text)
+              console.log(title)
+
+
+
+            }
+          }
+
+          
+          //監聽移除樣式
+          likebtnRemoveStyle();   
+        })  
+        }
+    };
+    
+    //  移除樣式
+    function likebtnRemoveStyle(){
+      likebtnClick = document.querySelectorAll(".likebtnClick");     
+    for(let i=0 ;i<likebtnClick.length ; i++){
+        likebtnClick[i].addEventListener("click",function(){
+          console.log(likebtnClick[i])
+          likebtnClick[i].classList.remove("fas") 
+          likebtnClick[i].classList.remove("likebtnClick")
+
+          likebtnAddStyle(); 
+        })    
+       //console.log(likebtnClick[i].dataset.tag)
+
+    }    
+    };
+
 }
 search(); 
 
 
+    // function likebtnRemoveStyle(){
+    //     console.log("test")
+    //     for(let i=0 ;i<likebtnRemove.length ; i++){
+    //         console.log(likebtnRemove.length)
+    //     likebtnRemove[i].addEventListener('click',function(){
+    //         console.log("1")
+    //         likebtnRemove[i].classList.remove("fas")  
+    //         console.log("2")
+    //     })
+    //          //console.log(likebtnRemove[i])
+    //         // likebtnRemove[i].classList.remove("fas")
+    //     }
+    // }
+    // likebtnRemoveStyle();
 
 
 
 
-// searchBtn.addEventListener("click",function(){
-//     //取得使用者選取的 地方區域
-//     let searchBarArea = document.querySelector(".searchBar-Area").value;
-//     //取得使用者選取的 縣市
-//     let searchBarCounty = document.querySelector(".searchBar-County").value;
-//     //console.log(searchBarCounty)
 
-//     //取得使用 者輸入的文字
-//     let searchInput = document.querySelector(".searchBar-Input-text").value;
-    
-//     //清空資料 並重新放上資訊
-//     travelMainContent = document.querySelector('.travel-main-content');
-//     travelMainContent.innerHTML="";
-//         let status = true ;
-//         let searchdata=[] ;  
-//         data.forEach(function(item,index){
-//         //如果選取對應的城市    
-//         if(searchBarCounty === item.City){       
-//             searchdata.push(item);
-//         }
-//         //如果搜尋列 輸入 鄉鎮或是縣市
-//         if(searchInput === item.City ||  searchInput === item.Town){
-//             searchdata.push(item);
-//         }
-//         if(searchBarArea==="all" || searchBarCounty==="all"){
-//             status=false;//如果沒有輸入的話
-//         }
-//         else{
-//             word = false; //如果輸入沒有找到
-//         } 
-//         });
-//         if( status == false){
-//         alert("請點選或輸入搜尋地");
-//         location.reload();
-//         }
 
-//         //將新的頁數資料重新放上網頁
-//         let str=""
-//         for(let p = 0 ; p<searchdata.length ; p++){
-        
-//         if(searchdata.length >12 ){
-//             searchdata.length = 12  //如果長度超出12筆 只顯示12筆
-//         }    
-//         let photo = searchdata[p].Photo; 
-//         let name = searchdata[p].Name;
-//         let city = searchdata[p].City;
-//         let town = searchdata[p].Town;
-//         let id = searchdata[p].ID;
 
-//         if(name== "中崙漁業休閒農場" || name== "淞濤田園休閒農場"  || name=="梨之鄉休閒農業區" || name=="清香休閒農場"||
-//         name=="春園休閒農場"){
-//         // photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
-//         photo="https://images.unsplash.com/photo-1471194402529-8e0f5a675de6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-//         }else{
-//         photo = photo;   
-//         }
-//         str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
-//         + '></div><div class="travel-title">' + name 
-//         +'</div><div class="travel-place"><div class="travel-county">'
-//         + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
-//         let travelMainContent = document.querySelector('.travel-main-content');
-//         travelMainContent.innerHTML = str;
-//         } 
-//         //算出頁數按鈕總數
-//         let pagelen = Math.ceil(searchdata.length/12)
-//        // console.log(pagelen)
-//         if(pagelen = 1){
-//             page=1; 
-//         }
-//         //console.log(page)
-//         //console.log(searchdata.length)
-//         //重新寫出按鈕
-//         let pageList = document.querySelector('.page-list');
-//          pageList.innerHTML=""; //清空原先按鈕列
-//         for( let i=0 ; i< pagelen; i++){
-//             let pageBtn = document.createElement('div');
-//                 pageBtn.setAttribute('class','page-Btn');
-//                 pageBtn.setAttribute('id',i+1);
-//                 pageBtn.textContent = i+1;
-//                 pageList.appendChild(pageBtn);
-        
-//         };
-//         let activebtn = document.getElementById("1");
-//             activebtn.classList.add("btn-active");
-//     })
 

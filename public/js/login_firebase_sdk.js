@@ -112,22 +112,37 @@ signOutbtn.onclick = function(){
 //==========================
 //  判斷會員是否登入還是登出
 //==========================
+
 function checkLogin(){
-  let user = firebase.auth().currentUser;
-  if (user) {
-  //console.log(UserToken) 
-  ChangeUserIn();
-  loginSuccess();
-  } else {
-  // No user is signed in.
-  ChangeUserOut();
-  logoutSuccess();
-  };
+ 
+  firebase.auth().onAuthStateChanged(function(user){
+    if(user==null){
+      ChangeUserOut();
+      logoutSuccess();
+    }else{
+      ChangeUserIn();
+      loginSuccess();
+    }
+  })
+  
+  }
 
-}
+// function checkLogin(){
+//   let user = firebase.auth().currentUser;
+//   if (user) {
+//   //console.log(UserToken) 
+//   ChangeUserIn();
+//   loginSuccess();
+//   } else {
+//   // No user is signed in.
+//   ChangeUserOut();
+//   logoutSuccess();
+//   };
+
+// }
 
 
-
+//============================
 //顯示與關閉 登入對話框
 let loginBox
 window.onload = function(){
