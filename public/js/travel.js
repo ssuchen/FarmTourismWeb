@@ -44,7 +44,7 @@ for( let i = 0 ; i<12; i++){
         travelPhoto.setAttribute('src',photo);
 
     let travellikeBtn = document.createElement("i")
-        travellikeBtn.setAttribute("class","far fa-heart like-btn");
+        travellikeBtn.setAttribute("class","far fa-heart like-btn likebtnRemove");
         travellikeBtn.setAttribute("data-tag","travel");  
         travellikeBtn.setAttribute("id",id);    
     
@@ -219,7 +219,7 @@ function clickbtn(){
             }
         
             str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
-            + '><i class="far fa-heart like-btn" data-tag="travel" id = '+ id
+            + '><i class="far fa-heart like-btn likebtnRemove" data-tag="travel" id = '+ id
             + '></i></div><div class="travel-title">' + name 
             +'</div><div class="travel-place"><div class="travel-country">'
             + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
@@ -343,7 +343,7 @@ function clickbtn(){
         }
         str += '<a  href= " travelPagination.html?id=' + id 
         +'"class="travel-card"><div class="travel-img"><img src=' + photo 
-        + '><i class="far fa-heart like-btn" data-tag="travel" id = '+ id
+        + '><i class="far fa-heart like-btn likebtnRemove" data-tag="travel" id = '+ id
         + '></i></div><div class="travel-title">' + name 
         +'</div><div class="travel-place"><div class="travel-country">'
         + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
@@ -378,70 +378,84 @@ function clickbtn(){
     //     增加願望清單
     //======================
     let likebtn = document.querySelectorAll(".like-btn");
-    let likebtnClick 
-    function likelistAdd(){    
-        for(let i=0;i<likebtn.length;i++){
-            likebtn[i].addEventListener("click",function(e){
-                e.preventDefault();
-                //console.log(likebtn[i].id)
-                //console.log(likebtn[i].dataset.tag)
-            }, true)   
-        }
-        likebtnAddStyle();    
-
-    };
-    likelistAdd();
     
+
     //======================
     //  改變點選按鈕的css樣式
     //======================
+    let btnNum
+    //  改變樣式
+    function AddStyle(){
+      for(let i =0 ; i<likebtn.length;i++){
+        likebtn[i].addEventListener("click",function(e){
+        e.preventDefault();
+        likebtn[i].classList.toggle("fas");
+        likebtn[i].classList.toggle("likebtnClick");
+        likebtn[i].classList.toggle("likebtnRemove");
+        btnNum = likebtn[i].id
+        
+        likebtnAdd();
+        likebtnRemoveStyle();   
+        });
 
-    //  增加樣式
-    function likebtnAddStyle(){
-        for(let b=0;b<likebtn.length;b++){
-        likebtn[b].addEventListener("click",function(){
-          likebtn[b].classList.add("fas"); 
-          likebtn[b].classList.add("likebtnClick"); 
+      }; 
+    };  
+    AddStyle();
+
+    //將表單送到 firebase
+    function likebtnAdd(){
+        let len = document.querySelectorAll(".likebtnClick").length;
+        let btnAdd = document.querySelectorAll(".likebtnClick")
+        for(let b=0;b<len;b++){
+          let btnID = btnNum
+          let country
+          let id 
+          let img 
+          let text 
+          let title     
           
-          //獲取 點擊的卡片
-          let btnID =likebtn[b].id      
           for(let a=0;a<data.length;a++){
             if(data[a].ID == btnID){
-              let country = data[a].City;
-              let id =data[a].ID;
-              let img = data[a].Photo;
-              let text = data[a].Town;
-              let title = data[a].Name;
-              console.log(country)
-              console.log(id)
-              console.log(img)
-              console.log(text)
-              console.log(title)
-
-
+              country = data[a].City;
+              id =data[a].ID;
+              img = data[a].Photo;
+              text = data[a].Town;
+              title = data[a].Name;
 
             }
           }
 
-          
-          //監聽移除樣式
-          likebtnRemoveStyle();   
-        })  
-        }
+          //將點取資訊放入firebase 
+          db.collection("user").get().then(function(snapshop){
+            let docID         
+            snapshop.docs.forEach(function(doc) {
+                //將符合email的資料放入陣列              
+                if(userEmail == doc.data().email){
+                    docID = doc.id
+                    let travellist = db.collection("user").doc(docID).collection("travellist")
+                    travellist.add({
+                    id:id,
+                    country:country,
+                    img:img,
+                    text:text,
+                    title:title,
+                    });
+                };  
+            }); 
+          })
+
+        };
     };
     
-    //  移除樣式
+    //移除樣式
     function likebtnRemoveStyle(){
-      likebtnClick = document.querySelectorAll(".likebtnClick");     
-    for(let i=0 ;i<likebtnClick.length ; i++){
-        likebtnClick[i].addEventListener("click",function(){
-          console.log(likebtnClick[i])
-          likebtnClick[i].classList.remove("fas") 
-          likebtnClick[i].classList.remove("likebtnClick")
+      len = document.querySelectorAll(".likebtnRemove").length; 
+      let btn =  document.querySelectorAll(".likebtnRemove")   
+    for(let i=0 ;i<len; i++){
+        btn[i].addEventListener("click",function(){
+          console.log(btn[i])
 
-          likebtnAddStyle(); 
         })    
-       //console.log(likebtnClick[i].dataset.tag)
 
     }    
     };
@@ -449,21 +463,6 @@ function clickbtn(){
 }
 search(); 
 
-
-    // function likebtnRemoveStyle(){
-    //     console.log("test")
-    //     for(let i=0 ;i<likebtnRemove.length ; i++){
-    //         console.log(likebtnRemove.length)
-    //     likebtnRemove[i].addEventListener('click',function(){
-    //         console.log("1")
-    //         likebtnRemove[i].classList.remove("fas")  
-    //         console.log("2")
-    //     })
-    //          //console.log(likebtnRemove[i])
-    //         // likebtnRemove[i].classList.remove("fas")
-    //     }
-    // }
-    // likebtnRemoveStyle();
 
 
 

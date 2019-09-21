@@ -58,38 +58,46 @@ let wishTravel=document.querySelector("#wishTravel");
 wishTravel.addEventListener("click",wishTravelText);
 function wishTravelText(){
 let Travellist=[]   
-console.log(userEmail)
+
 db.collection("user").get().then(function(snapshop){
     //console.log(snapshop.docs)
+    let docID
+    //獲得 doc 的 id
     snapshop.docs.forEach(function(doc) {
-        //將符合email的資料放入陣列
         if(userEmail == doc.data().email){
-        console.log(doc.data().travellist)  
-        Travellist = doc.data().travellist
-        }    
+        docID = doc.id
+        //console.log(doc.id)
+        } 
     });
-    console.log(Travellist)
-    let str=""
-    Travellist.forEach(function(item){
-        let name = item.title
-        let photo = item.img
-        let town = item.text
-        let city = item.country
-        let id = item.id
-        str += '<a  href= " travelPagination.html?id=' + id +'"class="wish-card"><div class="wish-img"><img src=' + photo 
-            + '><i class="far fa-heart like-btn" data-tag="travel" id = '+ id
-            + '></i></div><div class="wish-title">' + name 
-            +'</div><div class="wish-place"><div class="wish-country">'
-            + city +'</div> <div class="wish-text">' + town + '</div></div></a>';
-        
-    })
-    let travelMainContent = document.querySelector('.wish-main-content');
+    //將符合email的資料放入陣列
+    let list = db.collection("user").doc(docID).collection("travellist")
+    list.get().then(function(snapshop){
+       // console.log(snapshop)
+        snapshop.forEach(function(doc){
+        Travellist.push(doc.data())
+        })
+        let str=""
+        Travellist.forEach(function(item){
+            //console.log(Travellist)
+            let name = item.title
+            let photo = item.img
+            let town = item.text
+            let city = item.country
+            let id = item.id
+            str += '<a  href= " travelPagination.html?id=' + id +'"class="wish-card"><div class="wish-img"><img src=' + photo 
+                + '><i class="far fa-heart like-btn" data-tag="travel" id = '+ id
+                + '></i></div><div class="wish-title">' + name 
+                +'</div><div class="wish-place"><div class="wish-country">'
+                + city +'</div> <div class="wish-text">' + town + '</div></div></a>';
+            
+        })
+        let travelMainContent = document.querySelector('.wish-main-content');
         travelMainContent.innerHTML = str;
 
 
     })
-
-
+    
+    })
 }
 
 //=======================================
