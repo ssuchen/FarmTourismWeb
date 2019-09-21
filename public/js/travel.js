@@ -393,11 +393,12 @@ function clickbtn(){
         likebtn[i].classList.toggle("likebtnClick");
         likebtn[i].classList.toggle("likebtnRemove");
         btnNum = likebtn[i].id
-        
         likebtnAdd();
-        likebtnRemoveStyle();   
+        likebtnRemoveStyle();
         });
-
+        
+          
+      
       }; 
     };  
     AddStyle();
@@ -449,16 +450,37 @@ function clickbtn(){
     
     //移除樣式
     function likebtnRemoveStyle(){
-      len = document.querySelectorAll(".likebtnRemove").length; 
-      let btn =  document.querySelectorAll(".likebtnRemove")   
+    let btn = document.querySelectorAll(".likebtnClick"); 
+    len = document.querySelectorAll(".likebtnClick").length;
+    //console.log(len)   
     for(let i=0 ;i<len; i++){
         btn[i].addEventListener("click",function(){
-          console.log(btn[i])
-
+        let btnID = btn[i].id;
+        let docID 
+        db.collection("user").get().then(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+                if(userEmail == doc.data().email){
+                    docID = doc.id;
+                }
+                let travellist = db.collection("user").doc(docID).collection("travellist")
+                travellist.get().then(function(snapshop){
+                    snapshop.docs.forEach(function(doc){
+                       //console.log(doc.data().id)
+                       //console.log(btnID)
+                        if(btnID == doc.data().id){
+                        let deleteDoc = db.collection("user").doc(docID).collection("travellist").doc(doc.id);
+                        deleteDoc.delete();
+                        console.log(doc.id)
+                        }
+                    })
+                })
+            })
+        })
         })    
 
     }    
     };
+    
 
 }
 search(); 
