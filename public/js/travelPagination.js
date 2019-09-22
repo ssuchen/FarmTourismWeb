@@ -210,12 +210,12 @@ function travelpageRender(data){
 //  留言按鈕 判斷是否有登入會員 
 //============================
 
-let travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
+ travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
 // 有登入時 留言按鈕出現
-    let userName
-    let userEmail
-    let userPhoto
-    let user
+ userName
+ userEmail
+ userPhoto
+ user
 
 firebase.auth().onAuthStateChanged(function(user){
     if(user === null){

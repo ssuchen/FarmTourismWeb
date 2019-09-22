@@ -3,10 +3,10 @@
 //=======================================
 //  判斷是否登入會員 取得相關的會員資料
 //=======================================
-let userName
-let userEmail="html4well@gmail.com"
-let userPhoto
-let user
+userName
+userEmail="html4well@gmail.com"
+userPhoto
+user
 
 // firebase.auth().onAuthStateChanged(function(user){
 // if(user == null){
@@ -49,6 +49,7 @@ for(let i=0 ;i<wishBtn.length;i++){
     })
 }
 
+wishTravelText();
 //=======================================
 //  切換 wishTravel 按鈕 切換相對應的內容
 //=======================================
@@ -60,7 +61,7 @@ function wishTravelText(){
 let Travellist=[]   
 
 db.collection("user").get().then(function(snapshop){
-    //console.log(snapshop.docs)
+    
     let docID
     //獲得 doc 的 id
     snapshop.docs.forEach(function(doc) {
@@ -107,8 +108,49 @@ db.collection("user").get().then(function(snapshop){
 let wishPresent=document.querySelector("#wishPresent");
 wishPresent.addEventListener("click",wishPresentText);
 function wishPresentText(){
-   // console.log("text2")
+let Presentlist=[]
+db.collection("user").get().then(function(snapshop){
+    
+    let docID
+    //獲得 doc 的 id
+    snapshop.docs.forEach(function(doc) {
+        if(userEmail == doc.data().email){
+        docID = doc.id
+        } 
+    });
+    //將符合email的資料放入陣列
+    let list = db.collection("user").doc(docID).collection("presentlist")    
+    list.get().then(function(snapshop){
+
+        snapshop.forEach(function(doc){
+        Presentlist.push(doc.data())
+        })
+        let str=""
+        Presentlist.forEach(function(item){
+            console.log(Presentlist)
+            let name = item.title
+            let photo = item.img
+            let text = item.text
+            let city = item.country
+            let id = item.id
+            str += '<a href="presentPagination.html?id='+ id
+            +'" class="present-card"><div class="present-img"><img src="' + photo
+            +'"><i class="far fa-heart like-btn" aria-hidden="true"></i></div><div class="present-title">'+ name
+            +'</div><div class="present-place"><div class="presentCountry">'+ city
+            +' | </div><div class="present-text">'+ text
+            +'</div></div></a>'
+
+        })
+        let PresentMainContent = document.querySelector('.wish-main-content');
+        PresentMainContent.innerHTML = str;
+
+
+    })
+    
+    })
+
 }
+
 
 //=======================================
 //  切換 wishJourney 按鈕 切換相對應的內容
@@ -117,15 +159,139 @@ function wishPresentText(){
 let wishJourney=document.querySelector("#wishJourney");
 wishJourney.addEventListener("click",wishJourneyText);
 function wishJourneyText(){
-   // console.log("text3")
+
+let Journeylist=[]
+db.collection("user").get().then(function(snapshop){
+    
+    let docID
+    //獲得 doc 的 id
+    snapshop.docs.forEach(function(doc) {
+        if(userEmail == doc.data().email){
+        docID = doc.id
+        } 
+    });
+    //將符合email的資料放入陣列
+    let list = db.collection("user").doc(docID).collection("journeylist")    
+    list.get().then(function(snapshop){
+
+        snapshop.forEach(function(doc){
+        Journeylist.push(doc.data())
+        })
+        let journeyMainContent = document.querySelector('.wish-main-content');
+            journeyMainContent.innerHTML=""
+
+        Journeylist.forEach(function(item){
+            let city = item.country
+            let id = item.id
+            let photo = item.img
+            let tag = item.tag
+            let text = item.text
+            let name = item.title
+
+            let journeyTag 
+            let journeyCard = document.createElement("a");
+                journeyCard.setAttribute("class","journey-card")
+                journeyCard.setAttribute("href","journeyPagination.html?id="+id)
+            let journeyImg = document.createElement("div");
+                journeyImg.setAttribute("class","journey-img");
+            let img = document.createElement("img");
+                img.setAttribute("src",photo);
+            let journeyBtn = document.createElement("i");
+                journeyBtn.setAttribute("class","far fa-heart like-btn");
+
+            let journeyTitle = document.createElement("div");
+                journeyTitle.setAttribute("class","journey-title");
+                journeyTitle.textContent = name;
+
+            let journeyGroup = document.createElement("div");
+                journeyGroup.setAttribute("class","journey-group");
+                 
+
+            let journeyText = document.createElement("div");
+                journeyText.setAttribute("class","journey-text");
+                journeyText.textContent = text ;
+                
+                journeyMainContent.appendChild(journeyCard);
+                journeyCard.appendChild(journeyImg);
+                journeyCard.appendChild(journeyTitle);
+                journeyCard.appendChild(journeyGroup);
+
+                journeyCard.appendChild(journeyText);            
+                journeyImg.appendChild(img);
+                journeyImg.appendChild(journeyBtn);
+
+                for(let i=0 ;i<tag.length;i++){
+                    console.log(tag[i])
+                    journeyTag = document.createElement("div");
+                    journeyTag.setAttribute("class","journey-tag");
+                    journeyTag.textContent= tag[i];
+                    journeyGroup.appendChild(journeyTag);
+                }
+            
+
+            
+            
+            
+
+
+
+        })
+
+    })
+    
+})
 }
 
 //=======================================
-//  切換 wishJourney 按鈕 切換相對應的內容
+//  切換 wishFood 按鈕 切換相對應的內容
 //=======================================
 
 let wishFood =document.querySelector("#wishFood");
 wishFood.addEventListener("click",wishFoodText);
 function wishFoodText(){
-    //console.log("text4")
+   
+let Foodlist=[]
+db.collection("user").get().then(function(snapshop){
+        
+        let docID
+        //獲得 doc 的 id
+        snapshop.docs.forEach(function(doc) {
+            if(userEmail == doc.data().email){
+            docID = doc.id
+            } 
+        });
+        //將符合email的資料放入陣列
+        let list = db.collection("user").doc(docID).collection("foodlist")    
+        list.get().then(function(snapshop){
+    
+            snapshop.forEach(function(doc){
+            Foodlist.push(doc.data())
+            })
+            let str=""
+            Foodlist.forEach(function(item){
+                console.log(Foodlist)
+                let name = item.title
+                let tel = item.tel
+                let photo = item.img
+                let town = item.town
+                let text = item.text                
+                let city = item.country
+                let id = item.id
+                str += '<a href="foodPagination.html?id='+ id
+                +'" class="food-card"><div class="food-card-left"><div class="food-img"><img src="'+ photo
+                +'"><i class="far fa-heart like-btn food-likebtn" aria-hidden="true"></i></div></div><food-card-right class="food-card-right"><div class="food-title">'+name
+                +'</div><div class="food-tel">'+ tel
+                +'</div><div class="food-place"><div class="food-country">'+ city
+                +'</div><div class="food-town">'+ town
+                +'</div></div><div class="food-text">'+ text
+                +'</div></food-card-right></a>'
+            })
+            let foodMainContent = document.querySelector('.wish-main-content');
+            foodMainContent.innerHTML = str;
+    
+    
+        })
+        
+})
+
 }

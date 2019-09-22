@@ -228,7 +228,7 @@ function clickbtn(){
         let travelMainContent = document.querySelector('.travel-main-content');
             travelMainContent.innerHTML = str;
         //點選 愛心按鈕監聽事件
-        AddStyle();
+        AddStyle(likebtnAdd);
     }; 
        
     };  
@@ -355,7 +355,7 @@ function clickbtn(){
         //將搜尋列清空
         let InputClear = document.querySelector(".searchBar-Input-text");
         InputClear.value = "";
-        AddStyle();
+        AddStyle(likebtnAdd);
         } 
         
         //算出頁數按鈕總數
@@ -369,43 +369,56 @@ function clickbtn(){
         updateBtnlist();
         clickbtn();
     })
+
+    //======================
+    //   偵測會員是否有登入
+    //======================
+
+    // firebase.auth().onAuthStateChanged(function(user){
+        
+
+    // })
+
+
+
+
+
     //======================
     //     增加願望清單
     //======================
     let likebtn = document.querySelectorAll(".like-btn");
     
-
     //======================
     //  改變點選按鈕的css樣式
     //======================
     let btnNum
     //  改變樣式
-    function AddStyle(){
-        likebtn = document.querySelectorAll(".like-btn");
+    
+    //likebtn = document.querySelectorAll(".like-btn");
+    likebtn = document.querySelectorAll(".likebtnRemove");
+    function AddStyle(callback){    
       for(let i =0 ; i<likebtn.length;i++){
-        //console.log(likebtn[i])
-        likebtn[i].addEventListener("click",function(e){
-        
-        e.preventDefault();
-        likebtn[i].classList.toggle("fas");
-        likebtn[i].classList.toggle("likebtnClick");
-        likebtn[i].classList.toggle("likebtnRemove");
-        btnNum = likebtn[i].id
-        likebtnAdd();
-        likebtnRemoveStyle();
+        console.log(likebtn[i])
+        likebtn[i].addEventListener("click",function(e){           
+                e.preventDefault();
+                likebtn[i].classList.toggle("fas");
+                likebtn[i].classList.toggle("likebtnClick");
+                likebtn[i].classList.toggle("likebtnRemove");
+                btnNum = likebtn[i].id ; 
+                callback(likebtnRemoveStyle);
+
+
         });
-        
-          
-      
-      }; 
+      };  
+
     };  
-    AddStyle();
+    AddStyle(likebtnAdd);
 
     //將表單送到 firebase
-    function likebtnAdd(){
-        let len = document.querySelectorAll(".likebtnClick").length;
-        let btnAdd = document.querySelectorAll(".likebtnClick")
-        for(let b=0;b<len;b++){
+    function likebtnAdd(callback){
+        //let len = document.querySelectorAll(".likebtnClick").length;
+        //let btnAdd = document.querySelectorAll(".likebtnClick")
+        
           let btnID = btnNum
           let country
           let id 
@@ -428,55 +441,64 @@ function clickbtn(){
           db.collection("user").get().then(function(snapshop){
             let docID         
             snapshop.docs.forEach(function(doc) {
-                //將符合email的資料放入陣列              
+                //將符合email的資料放入陣列             
                 if(userEmail == doc.data().email){
                     docID = doc.id
-                    let travellist = db.collection("user").doc(docID).collection("travellist")
-                    travellist.add({
-                    id:id,
-                    country:country,
-                    img:img,
-                    text:text,
-                    title:title,
-                    });
                 };  
+            });
+            let travellist = db.collection("user").doc(docID).collection("travellist")
+            //let travellist = db.collection("user").doc(docID).collection("test")
+            travellist.add({
+            id:id,
+            country:country,
+            img:img,
+            text:text,
+            title:title,
             }); 
           })
-
-        };
+          callback();
+        
     };
     
     //移除樣式
-    function likebtnRemoveStyle(){
+    function likebtnRemoveStyle(){        
     let btn = document.querySelectorAll(".likebtnClick"); 
-    len = document.querySelectorAll(".likebtnClick").length;
-    //console.log(len)   
-    for(let i=0 ;i<len; i++){
+    let len = document.querySelectorAll(".likebtnClick").length;  
+    console.log(len)   
+    for(let i=0 ;i<len; i++){      
         btn[i].addEventListener("click",function(){
+        console.log(btn[i]) 
         let btnID = btn[i].id;
         let docID 
+        let dataID
         db.collection("user").get().then(function(snapshop){
             snapshop.docs.forEach(function(doc){
                 if(userEmail == doc.data().email){
                     docID = doc.id;
                 }
-                let travellist = db.collection("user").doc(docID).collection("travellist")
-                travellist.get().then(function(snapshop){
-                    snapshop.docs.forEach(function(doc){
-                       //console.log(doc.data().id)
-                       //console.log(btnID)
-                        if(btnID == doc.data().id){
-                        let deleteDoc = db.collection("user").doc(docID).collection("travellist").doc(doc.id);
-                        deleteDoc.delete();
-                        console.log(doc.id)
-                        }
-                    })
+            });
+            let travellist = db.collection("user").doc(docID).collection("travellist")
+            //let travellist = db.collection("user").doc(docID).collection("test")
+            travellist.get().then(function(snapshop){
+                snapshop.docs.forEach(function(doc){
+                    // console.log(doc.data().id)
+                    // console.log(btnID)
+                    if(btnID == doc.data().id){
+                    dataID = doc.id  
+                    }
+                    let deleteDoc = db.collection("user").doc(docID).collection("travellist").doc(dataID);
+                    //let deleteDoc = db.collection("user").doc(docID).collection("test").doc(dataID);
+                    deleteDoc.delete();
+                    
+
                 })
+
             })
         })
         })    
 
-    }    
+    }  
+    
     };
     
 
