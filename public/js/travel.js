@@ -222,12 +222,13 @@ function clickbtn(){
             + '><i class="far fa-heart like-btn likebtnRemove" data-tag="travel" id = '+ id
             + '></i></div><div class="travel-title">' + name 
             +'</div><div class="travel-place"><div class="travel-country">'
-            + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
+            + city +'</div> <div class="travel-text">' + town + '</div></div></a>';  
         };
+        
         let travelMainContent = document.querySelector('.travel-main-content');
             travelMainContent.innerHTML = str;
-            //點選 愛心按鈕監聽事件
-            likebtnAdd();
+        //點選 愛心按鈕監聽事件
+        AddStyle();
     }; 
        
     };  
@@ -351,16 +352,10 @@ function clickbtn(){
         let travelMainContent = document.querySelector('.travel-main-content');
         travelMainContent.innerHTML = str;
         
-        likebtnAdd();
-
-
-
-
-
         //將搜尋列清空
         let InputClear = document.querySelector(".searchBar-Input-text");
         InputClear.value = "";
-
+        AddStyle();
         } 
         
         //算出頁數按鈕總數
@@ -386,8 +381,11 @@ function clickbtn(){
     let btnNum
     //  改變樣式
     function AddStyle(){
+        likebtn = document.querySelectorAll(".like-btn");
       for(let i =0 ; i<likebtn.length;i++){
+        //console.log(likebtn[i])
         likebtn[i].addEventListener("click",function(e){
+        
         e.preventDefault();
         likebtn[i].classList.toggle("fas");
         likebtn[i].classList.toggle("likebtnClick");
@@ -483,6 +481,7 @@ function clickbtn(){
     
 
 }
+
 search(); 
 
 

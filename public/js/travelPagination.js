@@ -103,7 +103,7 @@ function travelpageRender(data){
             db.collection("comment").orderBy("time").onSnapshot(function(snapshop){
             MessageArr=[]
             let travelpageMessage = document.querySelector(".travelpage-message");
-            travelpageMessage.innerHTML=""
+            travelpageMessage.innerHTML='<div class="travelpage-message-text">留言評價</div>'
             snapshop.docs.forEach(function(doc){
                 if (doc.data().id == UrlString ){
                     MessageArr.push(doc.data())
