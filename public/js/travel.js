@@ -227,8 +227,11 @@ function clickbtn(){
         
         let travelMainContent = document.querySelector('.travel-main-content');
             travelMainContent.innerHTML = str;
-        //點選 愛心按鈕監聽事件
-        AddStyle(likebtnAdd);
+
+        //願望清單
+        checkBtnStyle();
+        checkBtn();
+        
     }; 
        
     };  
@@ -355,7 +358,10 @@ function clickbtn(){
         //將搜尋列清空
         let InputClear = document.querySelector(".searchBar-Input-text");
         InputClear.value = "";
-        AddStyle(likebtnAdd);
+        
+        //願望清單
+        checkBtnStyle();
+        checkBtn();
         } 
         
         //算出頁數按鈕總數
@@ -386,39 +392,99 @@ function clickbtn(){
     //======================
     //     增加願望清單
     //======================
-    let likebtn = document.querySelectorAll(".like-btn");
-    
-    //======================
-    //  改變點選按鈕的css樣式
-    //======================
-    let btnNum
-    //  改變樣式
-    
-    //likebtn = document.querySelectorAll(".like-btn");
-    likebtn = document.querySelectorAll(".likebtnRemove");
-    function AddStyle(callback){    
-      for(let i =0 ; i<likebtn.length;i++){
-        console.log(likebtn[i])
-        likebtn[i].addEventListener("click",function(e){           
-                e.preventDefault();
-                likebtn[i].classList.toggle("fas");
-                likebtn[i].classList.toggle("likebtnClick");
-                likebtn[i].classList.toggle("likebtnRemove");
-                btnNum = likebtn[i].id ; 
-                callback(likebtnRemoveStyle);
+   
 
-
-        });
-      };  
-
-    };  
-    AddStyle(likebtnAdd);
-
-    //將表單送到 firebase
-    function likebtnAdd(callback){
-        //let len = document.querySelectorAll(".likebtnClick").length;
-        //let btnAdd = document.querySelectorAll(".likebtnClick")
+    //=========================================
+    //  從 firebase得到願望清單 並改變愛心樣式
+    //=========================================
+     let btnNum  
+    function checkBtnStyle(){
+        let docID 
+        let docIDArr=[]
+        db.collection("user").onSnapshot(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+                if(userEmail == doc.data().email){
+                    docID = doc.id;
+                }
+            });
+        let travellist = db.collection("user").doc(docID).collection("travellist"); 
+            travellist.get().then(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+                let clickId = doc.data().id
+                docIDArr.push(clickId)
+            })
+           
+            let btn =document.querySelectorAll(".like-btn");
+            for(let i= 0 ; i<btn.length ;i++){
+            docIDArr.forEach(function(item){
+                if(btn[i].id==item){
+                  btn[i].classList.add("fas");
+                }
+                
+            })
+            }
         
+        })   
+        });
+        
+    };
+    checkBtnStyle();
+
+    //=========================================
+    //  從 firebase得到願望清單 並監聽愛心樣式
+    //=========================================
+    function checkBtn(){
+    let btn = document.querySelectorAll(".like-btn");
+    for(let i = 0 ;i<btn.length ; i++){
+        btn[i].addEventListener("click",function(e){
+        e.preventDefault();
+        btnNum = btn[i].id ; 
+        let docID 
+        let clickID
+        let deleteID
+        db.collection("user").onSnapshot(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+                if(userEmail == doc.data().email){
+                    docID = doc.id;
+                }
+            });
+        let travellist = db.collection("user").doc(docID).collection("travellist"); 
+        travellist.where("id","==",btnNum).get().then(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+            if(doc.data().id != undefined){
+               clickID = doc.data().id
+               deleteID = doc.id  
+            }
+            });
+            if(clickID === undefined){
+                btn[i].classList.add("fas");
+                //將表單送入firebase
+                likebtnAdd()
+                //檢查 firebase 的清單 重新放入樣式
+                checkBtnStyle()
+
+            }else{
+                //將表單從firebase上移除
+                btn[i].classList.remove("fas");
+                let deleteDoc = db.collection("user").doc(docID).collection("travellist").doc(deleteID)
+                deleteDoc.delete()
+                //檢查 firebase 的清單 重新放入樣式
+                checkBtnStyle()
+            }   
+        }
+        )
+        });
+
+        })
+    }
+    
+    };
+    checkBtn();
+
+    //===================
+    //將表單送到 firebase
+    //===================
+    function likebtnAdd(){
           let btnID = btnNum
           let country
           let id 
@@ -447,7 +513,6 @@ function clickbtn(){
                 };  
             });
             let travellist = db.collection("user").doc(docID).collection("travellist")
-            //let travellist = db.collection("user").doc(docID).collection("test")
             travellist.add({
             id:id,
             country:country,
@@ -456,52 +521,10 @@ function clickbtn(){
             title:title,
             }); 
           })
-          callback();
         
     };
     
-    //移除樣式
-    function likebtnRemoveStyle(){        
-    let btn = document.querySelectorAll(".likebtnClick"); 
-    let len = document.querySelectorAll(".likebtnClick").length;  
-    console.log(len)   
-    for(let i=0 ;i<len; i++){      
-        btn[i].addEventListener("click",function(){
-        console.log(btn[i]) 
-        let btnID = btn[i].id;
-        let docID 
-        let dataID
-        db.collection("user").get().then(function(snapshop){
-            snapshop.docs.forEach(function(doc){
-                if(userEmail == doc.data().email){
-                    docID = doc.id;
-                }
-            });
-            let travellist = db.collection("user").doc(docID).collection("travellist")
-            //let travellist = db.collection("user").doc(docID).collection("test")
-            travellist.get().then(function(snapshop){
-                snapshop.docs.forEach(function(doc){
-                    // console.log(doc.data().id)
-                    // console.log(btnID)
-                    if(btnID == doc.data().id){
-                    dataID = doc.id  
-                    }
-                    let deleteDoc = db.collection("user").doc(docID).collection("travellist").doc(dataID);
-                    //let deleteDoc = db.collection("user").doc(docID).collection("test").doc(dataID);
-                    deleteDoc.delete();
-                    
-
-                })
-
-            })
-        })
-        })    
-
-    }  
-    
-    };
-    
-
+   
 }
 
 search(); 
