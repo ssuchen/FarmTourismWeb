@@ -2,17 +2,26 @@
 //       判斷有沒有登入
 //==========================   
 firebase.auth().onAuthStateChanged(function(user){
-        if(user != null){
+    if(user != null){
             //user = firebase.auth.currentUser;
             console.log(user)
             userName = user.displayName; 
             userEmail = user.email
             console.log(userName)
-            
-        }
-        else{
+            console.log(userEmail)
+            //設定一個user欄位 給他
+            db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
+                if(snapshop.docs==""){
+                    db.collection("user").doc().set({
+                    email: userEmail 
+                    })
+                }
+            })
+
+    }
+    else{
           console.log("no")
-        }
+    }
        
 })
 //==========================
@@ -391,11 +400,6 @@ function clickbtn(){
         clickbtn();
     })
 
-    //======================
-    //   偵測會員是否有登入
-    //======================
-
-
     //=========================================
     //  從 firebase得到願望清單 並改變愛心樣式
     //=========================================
@@ -407,6 +411,9 @@ function clickbtn(){
             snapshop.docs.forEach(function(doc){
                 if(userEmail == doc.data().email){
                     docID = doc.id;
+                }
+                if(userEmail != doc.data().email){
+                    console.log("non")
                 }
             });
         let travellist = db.collection("user").doc(docID).collection("travellist"); 
@@ -448,14 +455,11 @@ function clickbtn(){
         let clickID
         let deleteID
         db.collection("user").onSnapshot(function(snapshop){
-            snapshop.docs.forEach(function(doc){
+            snapshop.docs.forEach(function(doc){ 
                 if(userEmail == doc.data().email){
                     docID = doc.id;
                 }
-                else{
-                console.log("還沒有這個會員的資料")   
-                }
-            });
+            });  
         let travellist = db.collection("user").doc(docID).collection("travellist"); 
         travellist.where("id","==",btnNum).get().then(function(snapshop){
             snapshop.docs.forEach(function(doc){
@@ -470,6 +474,7 @@ function clickbtn(){
                 likebtnAdd()
                 //檢查 firebase 的清單 重新放入樣式
                 checkBtnStyle()
+          
 
             }else{
                 //將表單從firebase上移除
@@ -515,10 +520,10 @@ function clickbtn(){
           db.collection("user").get().then(function(snapshop){
             let docID         
             snapshop.docs.forEach(function(doc) {
-                //將符合email的資料放入陣列             
+                //將符合email的資料放入陣列           
                 if(userEmail == doc.data().email){
                     docID = doc.id
-                };  
+                }; 
             });
             let travellist = db.collection("user").doc(docID).collection("travellist")
             travellist.add({
@@ -546,3 +551,6 @@ search();
 
 
 
+// db.collection("usser").doc().set({
+//     email: userEmail 
+//     }) 
