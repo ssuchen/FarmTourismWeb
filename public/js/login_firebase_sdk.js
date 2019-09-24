@@ -13,45 +13,46 @@ firebase.initializeApp(firebaseConfig);
 // 檢查是否載入成功
 let db = firebase.firestore();
 let auth = firebase.auth();
-//console.log(db);
-//db.settings({timestampsInSnapshots: true });
 
-//===================================
-//        判斷使用者目前狀態
-//===================================
 //=======================================
 //  判斷是否登入會員 取得相關的會員資料
 //=======================================
 let userName
-let userEmail="html4well@gmail.com"
+let userEmail
+//let userEmail="html4well@gmail.com"
 let userPhoto
 let user
+let UserToken
+let provider
 
-// firebase.auth().onAuthStateChanged(function(user){
-// if(user == null){
-//     user = firebase.auth.currentUser;
-//    // Using a popup.
-//     let provider = new firebase.auth.GoogleAuthProvider();
-//     provider.addScope('profile');
-//     provider.addScope('email');
-//     firebase.auth().signInWithPopup(provider).then(function(result) {
-//     // This gives you a Google Access Token.
-//     let token = result.credential.accessToken;
-//     // The signed-in user info.
-//     let user = result.user;
-//     console.log(user)
-//     userName = user.displayName; 
-//     console.log(userName)
-//     userEmail = user.email;
-//     console.log(userEmail)
-//     userPhoto = user.photoURL;  
-//     console.log(userPhoto) 
+firebase.auth().onAuthStateChanged(function(user){
+if(user != null){
+    //user = firebase.auth.currentUser;
+    //console.log(user)
+    userName = user.displayName; 
+   // console.log(userName)
 
-//     });
+    // firebase.auth().signInWithPopup(provider).then(function(result) {
+    // // This gives you a Google Access Token.
+    // let token = result.credential.accessToken;
+    // // The signed-in user info.
+    // let user = result.user;
+    // console.log(user)
+    // userName = user.displayName; 
+    // console.log(userName)
+    // userEmail = user.email;
+    // console.log(userEmail)
+    // userPhoto = user.photoURL;  
+    // console.log(userPhoto) 
+
+    // });
            
-// }
+}
+else{
+  console.log("no")
+}
 
-// })
+})
 
 // firebase.auth().onAuthStateChanged(function(user) {
 //   if (user) {
@@ -59,49 +60,28 @@ let user
 //     // User is signed in.
 //   } else {
 //     // No user is signed in.
-//     //console.log(null)
+//     console.log("no")
 //   }
 // });
 
-
-
-//===================================
-//      "登入"與"登出"文字切換
-//===================================
-
-//當登入成功時 "登入" 文字更改成 "登出"
-function ChangeUserIn(){
-  let loginText = document.querySelector(".logintext");
-  let logoutText = document.querySelector(".logouttext");
-  loginText.classList.add("loginStatus");
-  logoutText.classList.remove("loginStatus");
-}
-
-//當登出成功時 "登出" 文字更改成 "登入"
-function ChangeUserOut(){
-  let loginText = document.querySelector(".logintext");
-  let logoutText = document.querySelector(".logouttext");
-  logoutText.classList.add("loginStatus");
-  loginText.classList.remove("loginStatus");
-}
-
-
-let UserToken
 
 //==========================
 //    建立google登入系統
 //==========================
 
-let Googleprovider = new firebase.auth.GoogleAuthProvider();
+
 let btnGooglePopup = document.getElementById('googleSingUpPopup');
 
 btnGooglePopup.onclick = function() {
-    firebase.auth().signInWithPopup(Googleprovider).then(function(result) {
+    provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function(result) {
     // 可以獲得 Google 提供 token，token可透過 Google API 獲得其他數據。  
     UserToken = result.credential.accessToken;
     let user = result.user;
-    checkLogin(); 
-    //console.log(user)
+    //checkLogin(); 
+    console.log(user)
+    console.log("google登入")
+    location.reload()
     }); 
 
 }
@@ -110,15 +90,18 @@ btnGooglePopup.onclick = function() {
 //  建立 facebook 登入系統
 //==========================
 
-let faceprovider = new firebase.auth.FacebookAuthProvider();
+
 let btnFacePopup = document.getElementById('faceSingUpPopup');
 
 btnFacePopup.onclick = function(){
-firebase.auth().signInWithPopup(faceprovider).then(function(result) {
+provider = new firebase.auth.FacebookAuthProvider();
+firebase.auth().signInWithPopup(provider).then(function(result) {
   let UserToken = result.credential.accessToken;
   let user = result.user;
-  checkLogin(); 
-  //console.log(user)
+  //checkLogin(); 
+  console.log(user)
+  console.log("fb登入")
+  location.reload()
 
 });
 
@@ -131,7 +114,9 @@ firebase.auth().signInWithPopup(faceprovider).then(function(result) {
 let signOutbtn=document.querySelector(".logoutbtn-user");
 signOutbtn.onclick = function(){
   firebase.auth().signOut().then(function() {
-    checkLogin();
+    //checkLogin();
+    console.log("已登出")
+    location.reload()
     // Sign-out successful.
     let token = result.credential.accessToken;
     // ChangeUserOut();
@@ -146,37 +131,30 @@ signOutbtn.onclick = function(){
 //  判斷會員是否登入還是登出
 //==========================
 
-function checkLogin(){
- 
-  firebase.auth().onAuthStateChanged(function(user){
-    if(user==null){
-      ChangeUserOut();
-      logoutSuccess();
-    }else{
-      ChangeUserIn();
-      loginSuccess();
-    }
-  })
-  
-  }
-
 // function checkLogin(){
-//   let user = firebase.auth().currentUser;
-//   if (user) {
-//   //console.log(UserToken) 
-//   ChangeUserIn();
-//   loginSuccess();
-//   } else {
-//   // No user is signed in.
-//   ChangeUserOut();
-//   logoutSuccess();
-//   };
+ 
+//   firebase.auth().onAuthStateChanged(function(user){
+//     if(user==null){
+//       ChangeUserOut();
+//       logoutSuccess();
+//     }else{
+//       ChangeUserIn();
+//       loginSuccess();
+//     }
+//   })
+  
+//   }
 
-// }
+
+
+
+
 
 
 //============================
-//顯示與關閉 登入對話框
+//    顯示與關閉 登入對話框
+//============================
+
 let loginBox
 window.onload = function(){
        loginBox = document.querySelector(".login-box"); 
@@ -217,7 +195,31 @@ let logoutBoxSuccessBtn = document.querySelector(".logout-box-success-btn");
     });
 
 
-    
+
+
+//===================================
+//      "登入"與"登出"文字切換
+//===================================
+
+//當登入成功時 "登入" 文字更改成 "登出"
+function ChangeUserIn(){
+  let loginText = document.querySelector(".logintext");
+  let logoutText = document.querySelector(".logouttext");
+  loginText.classList.add("loginStatus");
+  logoutText.classList.remove("loginStatus");
+}
+
+//當登出成功時 "登出" 文字更改成 "登入"
+function ChangeUserOut(){
+  let loginText = document.querySelector(".logintext");
+  let logoutText = document.querySelector(".logouttext");
+  logoutText.classList.add("loginStatus");
+  loginText.classList.remove("loginStatus");
+}
+
+//===================================
+//===================================
+  
 
 //判斷會員是否登入
 // let user = firebase.auth().currentUser;

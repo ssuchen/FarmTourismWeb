@@ -159,7 +159,8 @@
 }
 
 .logoutbtn-user{
-    display: none;
+    //display: none;
+    display: block;
     padding:0 10px;
     margin-top:2%;
     cursor: pointer;
@@ -200,7 +201,8 @@
     }
 }
 .loginStatus{
-    display: none;
+   // display: none;
+   display: block;
 }
 
 //登出成功視窗

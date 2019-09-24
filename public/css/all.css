@@ -263,7 +263,7 @@ button {
 }
 
 .logoutbtn-user {
-  display: none;
+  display: block;
   padding: 0 10px;
   margin-top: 2%;
   cursor: pointer;
@@ -318,7 +318,7 @@ button {
 }
 
 .loginStatus {
-  display: none;
+  display: block;
 }
 
 .logout-box-success {
@@ -764,7 +764,7 @@ button {
 }
 
 .logoutbtn-user {
-  display: none;
+  display: block;
   padding: 0 10px;
   margin-top: 2%;
   cursor: pointer;
@@ -819,7 +819,7 @@ button {
 }
 
 .loginStatus {
-  display: none;
+  display: block;
 }
 
 .logout-box-success {
@@ -1430,7 +1430,7 @@ button {
 }
 
 .logoutbtn-user {
-  display: none;
+  display: block;
   padding: 0 10px;
   margin-top: 2%;
   cursor: pointer;
@@ -1485,7 +1485,7 @@ button {
 }
 
 .loginStatus {
-  display: none;
+  display: block;
 }
 
 .logout-box-success {
@@ -2646,7 +2646,7 @@ button {
 }
 
 .logoutbtn-user {
-  display: none;
+  display: block;
   padding: 0 10px;
   margin-top: 2%;
   cursor: pointer;
@@ -2701,7 +2701,7 @@ button {
 }
 
 .loginStatus {
-  display: none;
+  display: block;
 }
 
 .logout-box-success {
@@ -3501,7 +3501,7 @@ button {
 }
 
 .logoutbtn-user {
-  display: none;
+  display: block;
   padding: 0 10px;
   margin-top: 2%;
   cursor: pointer;
@@ -3556,7 +3556,7 @@ button {
 }
 
 .loginStatus {
-  display: none;
+  display: block;
 }
 
 .logout-box-success {
@@ -4366,7 +4366,7 @@ button {
 }
 
 .logoutbtn-user {
-  display: none;
+  display: block;
   padding: 0 10px;
   margin-top: 2%;
   cursor: pointer;
@@ -4421,7 +4421,7 @@ button {
 }
 
 .loginStatus {
-  display: none;
+  display: block;
 }
 
 .logout-box-success {
@@ -5127,7 +5127,7 @@ button {
 }
 
 .logoutbtn-user {
-  display: none;
+  display: block;
   padding: 0 10px;
   margin-top: 2%;
   cursor: pointer;
@@ -5182,7 +5182,7 @@ button {
 }
 
 .loginStatus {
-  display: none;
+  display: block;
 }
 
 .logout-box-success {

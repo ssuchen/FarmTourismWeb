@@ -216,7 +216,7 @@ function travelpageRender(data){
  userEmail
  userPhoto
  user
-
+console.log(user)
 firebase.auth().onAuthStateChanged(function(user){
     if(user === null){
         travelpageMessageBtn.style.display="none"

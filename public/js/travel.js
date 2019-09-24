@@ -1,10 +1,27 @@
+//==========================
+//       判斷有沒有登入
+//==========================   
+firebase.auth().onAuthStateChanged(function(user){
+        if(user != null){
+            //user = firebase.auth.currentUser;
+            console.log(user)
+            userName = user.displayName; 
+            userEmail = user.email
+            console.log(userName)
+            
+        }
+        else{
+          console.log("no")
+        }
+       
+})
+//==========================
+//==========================
+
 //休閒農業區 資料
 ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx",function(response){
     travelRender(response)
 });
-
-
-
 
 function travelRender(data){
 let len = data.length;
@@ -151,8 +168,6 @@ function clickbtn(){
     };
 };
 
-
-
 //---------------觸發更換按鈕------------
 
     for(let i=0 ; i< pageBtn.length ; i++){ 
@@ -282,9 +297,9 @@ function clickbtn(){
         renderPage();           
         });
 
-//+++++++++++++++++++++++++++
-//      搜尋列 功能
-//+++++++++++++++++++++++++++
+   //======================
+   //      搜尋列 功能
+   //======================
     let searchBtn = document.querySelector(".searchBar-Btn");
     let searchdata=[] ; 
     searchBtn.addEventListener("click",function(){
@@ -380,19 +395,6 @@ function clickbtn(){
     //   偵測會員是否有登入
     //======================
 
-    // firebase.auth().onAuthStateChanged(function(user){
-        
-
-    // })
-
-
-
-
-
-    //======================
-    //     增加願望清單
-    //======================
-   
 
     //=========================================
     //  從 firebase得到願望清單 並改變愛心樣式
@@ -426,7 +428,7 @@ function clickbtn(){
         
         })   
         });
-        
+      
     };
     checkBtnStyle();
 
@@ -438,6 +440,9 @@ function clickbtn(){
     for(let i = 0 ;i<btn.length ; i++){
         btn[i].addEventListener("click",function(e){
         e.preventDefault();
+        if(userEmail == undefined){
+            alert("請登入會員")
+        }
         btnNum = btn[i].id ; 
         let docID 
         let clickID
@@ -446,6 +451,9 @@ function clickbtn(){
             snapshop.docs.forEach(function(doc){
                 if(userEmail == doc.data().email){
                     docID = doc.id;
+                }
+                else{
+                console.log("還沒有這個會員的資料")   
                 }
             });
         let travellist = db.collection("user").doc(docID).collection("travellist"); 
@@ -523,9 +531,10 @@ function clickbtn(){
           })
         
     };
-    
-   
+      
 }
+
+
 
 search(); 
 
