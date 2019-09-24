@@ -1,3 +1,34 @@
+//============================
+//  判斷是否有登入會員 
+//============================
+
+travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
+// 有登入時 留言按鈕出現
+ userName
+ userEmail
+ userPhoto
+ user
+console.log(user)
+ firebase.auth().onAuthStateChanged(function(user){
+    if(user != null){
+        //user = firebase.auth.currentUser;
+        console.log(user)
+        userName = user.displayName; 
+        console.log(userName)
+        userEmail = user.email
+        console.log(userEmail)
+        userPhoto = user.photoURL;   
+        console.log(userPhoto)
+
+        
+    }
+    else{
+      console.log("no")
+    }
+   
+})
+
+
 ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/RuralTravelData.aspx",function(response){
     journeyRender(response)
 });

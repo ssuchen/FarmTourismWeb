@@ -3,38 +3,34 @@
 //=======================================
 //  判斷是否登入會員 取得相關的會員資料
 //=======================================
-userName
-userEmail="html4well@gmail.com"
-userPhoto
-user
 
-// firebase.auth().onAuthStateChanged(function(user){
-// if(user == null){
-//     user = firebase.auth.currentUser;
-//    // Using a popup.
-//     let provider = new firebase.auth.GoogleAuthProvider();
-//     provider.addScope('profile');
-//     provider.addScope('email');
-//     firebase.auth().signInWithPopup(provider).then(function(result) {
-//     // This gives you a Google Access Token.
-//     let token = result.credential.accessToken;
-//     // The signed-in user info.
-//     let user = result.user;
-//     console.log(user)
-//     userName = user.displayName; 
-//     console.log(userName)
-//     userEmail = user.email;
-//     console.log(userEmail)
-//     userPhoto = user.photoURL;  
-//     console.log(userPhoto) 
+travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
+// 有登入時 留言按鈕出現
+ userName
+ userEmail
+ userPhoto
+ user
+console.log(user)
+ firebase.auth().onAuthStateChanged(function(user){
+    if(user != null){
+        //user = firebase.auth.currentUser;
+        console.log(user)
+        userName = user.displayName; 
+        console.log(userName)
+        userEmail = user.email
+        console.log(userEmail)
+        userPhoto = user.photoURL;   
+        console.log(userPhoto)
 
-//     });
-           
-// }
+        
+    }
+    else{
+      console.log("no")
+    
+    }
+   
+})
 
-// })
-
-//=======================================
 
 //=======================================
 //  切換  按鈕 樣式(css出現底線)

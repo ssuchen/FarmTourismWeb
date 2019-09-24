@@ -217,51 +217,28 @@ function travelpageRender(data){
  userPhoto
  user
 console.log(user)
-firebase.auth().onAuthStateChanged(function(user){
-    if(user === null){
-        travelpageMessageBtn.style.display="none"
-    }else{
-        travelpageMessageBtn.style.display="block"
-        user = firebase.auth.currentUser;
-       // Using a popup.
-        let provider = new firebase.auth.GoogleAuthProvider();
-        provider.addScope('profile');
-        provider.addScope('email');
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Google Access Token.
-        let token = result.credential.accessToken;
-        // The signed-in user info.
-        let user = result.user;
+ firebase.auth().onAuthStateChanged(function(user){
+    if(user != null){
+        //user = firebase.auth.currentUser;
         console.log(user)
         userName = user.displayName; 
         console.log(userName)
-        userEmail = user.email;
+        userEmail = user.email
         console.log(userEmail)
-        userPhoto = user.photoURL;  
-        console.log(userPhoto) 
+        userPhoto = user.photoURL;   
+        console.log(userPhoto)
 
-        });
-               
+        
     }
-
+    else{
+      console.log("no")
+      travelpageMessageBtn.style.display="none";
+    }
+   
 })
 
-//============================ 
-//         獲取用戶資料 
-//============================ 
-
-// let user = firebase.auth.currentUser;
-// let userName
-// let userEmail
-// let userPhoto
-// if(user != null){
-// userName = user.displayName; 
-// userEmail = user.email;
-// userPhoto = user.photoURL;   
-// }
-
-//=============================
-
+//===========================
+//===========================
 
 let travelpageMessageComment = document.querySelector(".travelpage-message-comment");
     

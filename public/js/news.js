@@ -1,3 +1,33 @@
+//============================
+//    判斷是否有登入會員 
+//============================
+
+travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
+// 有登入時 留言按鈕出現
+ userName
+ userEmail
+ userPhoto
+ user
+console.log(user)
+ firebase.auth().onAuthStateChanged(function(user){
+    if(user != null){
+        //user = firebase.auth.currentUser;
+        console.log(user)
+        userName = user.displayName; 
+        console.log(userName)
+        userEmail = user.email
+        console.log(userEmail)
+        userPhoto = user.photoURL;   
+        console.log(userPhoto)
+
+        
+    }
+    else{
+      console.log("no")
+    }
+   
+})
+
 //最新消息 資料
 ajax("https://cors-anywhere.herokuapp.com/https://gis.taiwan.net.tw/XMLReleaseALL_public/activity_C_f.json",function(response){
     newsRender(response)
