@@ -19,11 +19,18 @@ console.log(user)
         console.log(userEmail)
         userPhoto = user.photoURL;   
         console.log(userPhoto)
-
+        //設定一個user欄位 給他
+        db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
+            if(snapshop.docs==""){
+                db.collection("user").doc().set({
+                email: userEmail 
+                })
+            }
+        })
         
     }
     else{
-      console.log("no")
+    console.log("no")
     }
    
 })

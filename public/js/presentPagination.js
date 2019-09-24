@@ -24,7 +24,6 @@ console.log(user)
     }
     else{
       console.log("no")
-      travelpageMessageBtn.style.display="none";
     }
    
 })

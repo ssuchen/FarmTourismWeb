@@ -7,8 +7,8 @@ firebase.auth().onAuthStateChanged(function(user){
             console.log(user)
             userName = user.displayName; 
             userEmail = user.email
-            console.log(userName)
-            console.log(userEmail)
+            //console.log(userName)
+            //console.log(userEmail)
             //設定一個user欄位 給他
             db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
                 if(snapshop.docs==""){
@@ -20,7 +20,7 @@ firebase.auth().onAuthStateChanged(function(user){
 
     }
     else{
-          console.log("no")
+    console.log("no")
     }
        
 })
@@ -412,9 +412,6 @@ function clickbtn(){
                 if(userEmail == doc.data().email){
                     docID = doc.id;
                 }
-                if(userEmail != doc.data().email){
-                    console.log("non")
-                }
             });
         let travellist = db.collection("user").doc(docID).collection("travellist"); 
             travellist.get().then(function(snapshop){
@@ -539,18 +536,4 @@ function clickbtn(){
       
 }
 
-
-
 search(); 
-
-
-
-
-
-
-
-
-
-// db.collection("usser").doc().set({
-//     email: userEmail 
-//     }) 

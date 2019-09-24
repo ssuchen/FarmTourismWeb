@@ -8,7 +8,7 @@ travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
  userEmail
  userPhoto
  user
-console.log(user)
+
  firebase.auth().onAuthStateChanged(function(user){
     if(user != null){
         //user = firebase.auth.currentUser;
@@ -20,10 +20,19 @@ console.log(user)
         userPhoto = user.photoURL;   
         console.log(userPhoto)
 
+        //設定一個user欄位 給他
+        db.collection("uuser").where("email","==",userEmail).get().then(function(snapshop){
+            if(snapshop.docs==""){
+                db.collection("uuser").doc().set({
+                email: userEmail 
+                })
+            }
+        })
+
         
     }
     else{
-      console.log("no")
+    console.log("no")
     }
    
 })
@@ -68,6 +77,7 @@ function presentRender(data){
 
             let presentBtn = document.createElement("i");
                 presentBtn.setAttribute("class","far fa-heart like-btn");
+                presentBtn.setAttribute("id",id); 
             
             let presentTitle = document.createElement('div');
                 presentTitle.setAttribute('class','present-title');
@@ -233,14 +243,23 @@ function presentRender(data){
 
             str += '<a href="presentPagination.html?id='+ id 
             +'" class="present-card"><div class="present-img"><img src="'+ photo 
-            +'"></div><div class="present-title">'+ name 
+            +'"><i class="far fa-heart like-btn" id= '+ id +
+            '></i></div><div class="present-title">'+ name 
             +'</div><div class="present-place"><div class="presentCounty">'+ Place
             +' | </div><div class="present-text">'+ ProduceOrg +'</div></div></a>';
        
         }          
         let presentMainContent = document.querySelector('.present-main-content');
             presentMainContent.innerHTML = str;
+      
+        //願望清單
+        checkBtnStyle();
+        checkBtn(); 
+
+
         }
+
+
 
  
     };
@@ -365,7 +384,8 @@ function presentRender(data){
 
     str += '<a href="presentPagination.html?id='+ id 
         +'" class="present-card"><div class="present-img"><img src="'+ photo 
-        +'"></div><div class="present-title">'+ name 
+        +'"><i class="far fa-heart like-btn" id= '+ id +
+        '></i></div><div class="present-title">'+ name 
         +'</div><div class="present-place"><div class="presentCounty">'+ Place
         +' | </div><div class="present-text">'+ ProduceOrg +'</div></div></a>';
     let presentMainContent = document.querySelector('.present-main-content');
@@ -374,6 +394,10 @@ function presentRender(data){
     //將搜尋列清空
     let InputClear = document.querySelector(".searchBar-Input-text");
         InputClear.value = "";
+
+    //願望清單
+    checkBtnStyle();
+    checkBtn();    
    
     } 
      
@@ -388,5 +412,139 @@ function presentRender(data){
     updateBtnlist();
     clickbtn();
     });
+
+
+
+    //=========================================
+    //  從 firebase得到願望清單 並改變愛心樣式
+    //=========================================
+    let btnNum  
+    function checkBtnStyle(){
+        let docID 
+        let docIDArr=[]
+        db.collection("uuser").onSnapshot(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+                if(userEmail == doc.data().email){
+                    docID = doc.id;
+                }
+            });
+        let presentlist = db.collection("uuser").doc(docID).collection("presentlist"); 
+            presentlist.get().then(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+                let clickId = doc.data().id
+                docIDArr.push(clickId)
+            })
+            let btn =document.querySelectorAll(".like-btn");
+            for(let i= 0 ; i<btn.length ;i++){
+            docIDArr.forEach(function(item){
+                if(btn[i].id==item){
+                  btn[i].classList.add("fas");
+                }
+                
+            })
+            }
+        
+        })   
+        });
+      
+    };
+    checkBtnStyle();
+
+    //=========================================
+    //  從 firebase得到願望清單 並監聽愛心樣式
+    //=========================================
+    function checkBtn(){
+    let btn = document.querySelectorAll(".like-btn");
+    //console.log(btn)
+    for(let i = 0 ;i<btn.length ; i++){
+        btn[i].addEventListener("click",function(e){
+        e.preventDefault();
+        if(userEmail == undefined){
+            alert("請登入會員")
+        }
+        btnNum = btn[i].id ; 
+        let docID 
+        let clickID
+        let deleteID
+        db.collection("uuser").onSnapshot(function(snapshop){
+            snapshop.docs.forEach(function(doc){ 
+                if(userEmail == doc.data().email){
+                    docID = doc.id;
+                }
+            });  
+        let presentlist = db.collection("uuser").doc(docID).collection("presentlist"); 
+        presentlist.where("id","==",btnNum).get().then(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+            if(doc.data().id != undefined){
+               clickID = doc.data().id
+               deleteID = doc.id  
+            }
+            });
+            if(clickID === undefined){
+                btn[i].classList.add("fas");
+                //將表單送入firebase
+                likebtnAdd()
+                //檢查 firebase 的清單 重新放入樣式
+                checkBtnStyle()
+          
+
+            }else{
+                //將表單從firebase上移除
+                btn[i].classList.remove("fas");
+                let deleteDoc = db.collection("uuser").doc(docID).collection("presentlist").doc(deleteID)
+                deleteDoc.delete()
+                //檢查 firebase 的清單 重新放入樣式
+                checkBtnStyle()
+            }   
+        }
+        )
+        });
+
+        })
+    }
+    
+    };
+    checkBtn();
+
+    //===================
+    //將表單送到 firebase
+    //===================
+    function likebtnAdd(){
+          let btnID = btnNum
+          let country
+          let id 
+          let img 
+          let text 
+          let title     
+          for(let a=0;a<data.length;a++){
+            if(data[a].ID == btnID){
+              country = data[a].SalePlace.substr(0,3);
+              id =data[a].ID;
+              img = data[a].Column1;
+              text = data[a].ProduceOrg;
+              title = data[a].Name;
+
+            }
+          }
+          //將點取資訊放入firebase 
+          db.collection("uuser").get().then(function(snapshop){
+            let docID         
+            snapshop.docs.forEach(function(doc) {
+                //將符合email的資料放入陣列           
+                if(userEmail == doc.data().email){
+                    docID = doc.id
+                }; 
+            });
+            let presentlist = db.collection("uuser").doc(docID).collection("presentlist")
+            presentlist.add({
+            id:id,
+            country:country,
+            img:img,
+            text:text,
+            title:title,
+            }); 
+          })
+        
+    };
 }
 search(); 
