@@ -42,7 +42,10 @@ for(let i=0 ;i<wishBtn.length;i++){
         let removeBtn = document.querySelector(".wishBtn-click");
         removeBtn.classList.remove('wishBtn-click')
         wishBtn[i].classList.add("wishBtn-click");
+
     })
+
+
 }
 
 wishTravelText();
@@ -82,7 +85,7 @@ db.collection("user").get().then(function(snapshop){
             let city = item.country
             let id = item.id
             str += '<a  href= " travelPagination.html?id=' + id +'"class="wish-card"><div class="wish-img"><img src=' + photo 
-                + '><i class="far fa-heart like-btn" data-tag="travel" id = '+ id
+                + '><i class="far fa-heart like-btn fas" data-tag="travel " id = '+ id
                 + '></i></div><div class="wish-title">' + name 
                 +'</div><div class="wish-place"><div class="wish-country">'
                 + city +'</div> <div class="wish-text">' + town + '</div></div></a>';
@@ -91,11 +94,31 @@ db.collection("user").get().then(function(snapshop){
         let travelMainContent = document.querySelector('.wish-main-content');
         travelMainContent.innerHTML = str;
 
+        //點擊愛心按鈕 刪除卡片
+        let btn = document.querySelectorAll(".like-btn")   
+        for(let b = 0 ;b<btn.length ; b++){
+        btn[b].addEventListener("click",function(e){
+            e.preventDefault();
+            //console.log(btn[b].id)
+            list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
+                snapshop.docs.forEach(function(doc){
+                    //console.log(doc.data())
+                    //console.log(doc.id)
+                    list.doc(doc.id).delete()
+                })
+            })
+            wishTravelText();
+        }) 
+        }   
+
 
     })
     
     })
+ 
+
 }
+
 
 //=======================================
 //  切換 wishPresent 按鈕 切換相對應的內容
@@ -123,7 +146,7 @@ db.collection("user").get().then(function(snapshop){
         })
         let str=""
         Presentlist.forEach(function(item){
-            console.log(Presentlist)
+            //console.log(Presentlist)
             let name = item.title
             let photo = item.img
             let text = item.text
@@ -131,7 +154,8 @@ db.collection("user").get().then(function(snapshop){
             let id = item.id
             str += '<a href="presentPagination.html?id='+ id
             +'" class="present-card"><div class="present-img"><img src="' + photo
-            +'"><i class="far fa-heart like-btn" aria-hidden="true"></i></div><div class="present-title">'+ name
+            +'"><i class="far fa-heart like-btn fas" aria-hidden="true" id = '+ id 
+            +'></i></div><div class="present-title">'+ name
             +'</div><div class="present-place"><div class="presentCountry">'+ city
             +' | </div><div class="present-text">'+ text
             +'</div></div></a>'
@@ -139,11 +163,36 @@ db.collection("user").get().then(function(snapshop){
         })
         let PresentMainContent = document.querySelector('.wish-main-content');
         PresentMainContent.innerHTML = str;
+        
+
+        //點擊愛心按鈕 刪除卡片
+        let btn = document.querySelectorAll(".like-btn")  
+        //console.log(btn) 
+        for(let b = 0 ;b<btn.length ; b++){
+                btn[b].addEventListener("click",function(e){
+                    e.preventDefault();
+                    //console.log(btn[b].id)
+                    list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
+                        snapshop.docs.forEach(function(doc){
+                            // console.log(doc.data())
+                            // console.log(doc.id)
+                            list.doc(doc.id).delete();
+                        })
+                    })
+                    wishPresentText();
+                }) 
+        };  
+
+
+        
+
+    })
+
 
 
     })
-    
-    })
+
+ 
 
 }
 
@@ -193,7 +242,8 @@ db.collection("user").get().then(function(snapshop){
             let img = document.createElement("img");
                 img.setAttribute("src",photo);
             let journeyBtn = document.createElement("i");
-                journeyBtn.setAttribute("class","far fa-heart like-btn");
+                journeyBtn.setAttribute("class","far fa-heart like-btn fas");
+                journeyBtn.setAttribute("id",id);
 
             let journeyTitle = document.createElement("div");
                 journeyTitle.setAttribute("class","journey-title");
@@ -217,7 +267,7 @@ db.collection("user").get().then(function(snapshop){
                 journeyImg.appendChild(journeyBtn);
 
                 for(let i=0 ;i<tag.length;i++){
-                    console.log(tag[i])
+                   // console.log(tag[i])
                     journeyTag = document.createElement("div");
                     journeyTag.setAttribute("class","journey-tag");
                     journeyTag.textContent= tag[i];
@@ -225,13 +275,25 @@ db.collection("user").get().then(function(snapshop){
                 }
             
 
-            
-            
-            
-
-
-
         })
+
+        //點擊愛心按鈕 刪除卡片
+        let btn = document.querySelectorAll(".like-btn")  
+        //console.log(btn) 
+        for(let b = 0 ;b<btn.length ; b++){
+            btn[b].addEventListener("click",function(e){
+            e.preventDefault();
+            //console.log(btn[b].id)
+            list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+            // console.log(doc.data())
+            // console.log(doc.id)
+            list.doc(doc.id).delete();
+            })
+            })
+            wishJourneyText();
+            }) 
+        };  
 
     })
     
@@ -265,7 +327,7 @@ db.collection("user").get().then(function(snapshop){
             })
             let str=""
             Foodlist.forEach(function(item){
-                console.log(Foodlist)
+               // console.log(Foodlist)
                 let name = item.title
                 let tel = item.tel
                 let photo = item.img
@@ -275,7 +337,8 @@ db.collection("user").get().then(function(snapshop){
                 let id = item.id
                 str += '<a href="foodPagination.html?id='+ id
                 +'" class="food-card"><div class="food-card-left"><div class="food-img"><img src="'+ photo
-                +'"><i class="far fa-heart like-btn food-likebtn" aria-hidden="true"></i></div></div><food-card-right class="food-card-right"><div class="food-title">'+name
+                +'"><i class="far fa-heart like-btn food-likebtn fas"aria-hidden="true" id="'+ id 
+                +'"></i></div></div><food-card-right class="food-card-right"><div class="food-title">'+name
                 +'</div><div class="food-tel">'+ tel
                 +'</div><div class="food-place"><div class="food-country">'+ city
                 +'</div><div class="food-town">'+ town
@@ -284,10 +347,31 @@ db.collection("user").get().then(function(snapshop){
             })
             let foodMainContent = document.querySelector('.wish-main-content');
             foodMainContent.innerHTML = str;
-    
+            
+
+                    //點擊愛心按鈕 刪除卡片
+            let btn = document.querySelectorAll(".like-btn")  
+            //console.log(btn) 
+            for(let b = 0 ;b<btn.length ; b++){
+            btn[b].addEventListener("click",function(e){
+            e.preventDefault();
+            //console.log(btn[b].id)
+            list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+            // console.log(doc.data())
+            // console.log(doc.id)
+            list.doc(doc.id).delete();
+            })
+            })
+            wishFoodText();
+            }) 
+            };  
+
+            
     
         })
         
 })
 
 }
+
