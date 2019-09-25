@@ -93,14 +93,15 @@ function travelpageRender(data){
 
             travelpageMap.appendChild(maplink);
 
-
+            console.log("test1")
            //============================
            //  抓取firebase 資料
            //============================
       
            //抓取 相同id 的留言
             let MessageArr=[]
-            db.collection("comment").orderBy("time").onSnapshot(function(snapshop){
+            //抓取遞減的資訊
+            db.collection("comment").orderBy("time","asc").onSnapshot(function(snapshop){
             MessageArr=[]
             let travelpageMessage = document.querySelector(".travelpage-message");
             travelpageMessage.innerHTML='<div class="travelpage-message-text">留言評價</div>'
@@ -109,11 +110,11 @@ function travelpageRender(data){
                     MessageArr.push(doc.data())
                 } 
             });    
-
-            //console.log(MessageArr)
+            console.log("test2")
+            console.log(MessageArr)
             let len = MessageArr.length
-            if(len>5){
-                len = 5
+            if(len>8){
+                len = 8
             }else{
                 len = len
             }

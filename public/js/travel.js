@@ -419,7 +419,6 @@ function clickbtn(){
                 let clickId = doc.data().id
                 docIDArr.push(clickId)
             })
-           
             let btn =document.querySelectorAll(".like-btn");
             for(let i= 0 ; i<btn.length ;i++){
             docIDArr.forEach(function(item){

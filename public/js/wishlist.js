@@ -73,12 +73,16 @@ db.collection("user").get().then(function(snapshop){
     let list = db.collection("user").doc(docID).collection("travellist")
     list.get().then(function(snapshop){
        // console.log(snapshop)
-        snapshop.forEach(function(doc){
+        snapshop.forEach(function(doc,index){
+            console.log()
         Travellist.push(doc.data())
         })
         let str=""
+        if(Travellist.length > 12){
+        alert("收藏頁放不下太多願望")
+        Travellist.length = 12
+        }
         Travellist.forEach(function(item){
-            //console.log(Travellist)
             let name = item.title
             let photo = item.img
             let town = item.text
@@ -145,6 +149,12 @@ db.collection("user").get().then(function(snapshop){
         Presentlist.push(doc.data())
         })
         let str=""
+        //console.log(Presentlist.length)
+        if(Presentlist.length > 12){
+        alert("收藏頁放不下太多願望")
+        Presentlist.length = 12;
+        }
+        //console.log(Presentlist)
         Presentlist.forEach(function(item){
             //console.log(Presentlist)
             let name = item.title
@@ -224,6 +234,11 @@ db.collection("user").get().then(function(snapshop){
         })
         let journeyMainContent = document.querySelector('.wish-main-content');
             journeyMainContent.innerHTML=""
+        
+        if(Journeylist.length > 12){
+            alert("收藏頁放不下太多願望")
+            Journeylist.length = 12;
+        }    
 
         Journeylist.forEach(function(item){
             let city = item.country
@@ -326,6 +341,10 @@ db.collection("user").get().then(function(snapshop){
             Foodlist.push(doc.data())
             })
             let str=""
+            if(Foodlist.length > 12){
+                alert("收藏頁放不下太多願望")
+                Foodlist.length = 12;
+            }   
             Foodlist.forEach(function(item){
                // console.log(Foodlist)
                 let name = item.title
