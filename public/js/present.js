@@ -12,18 +12,18 @@ travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
  firebase.auth().onAuthStateChanged(function(user){
     if(user != null){
         //user = firebase.auth.currentUser;
-        console.log(user)
+        //console.log(user)
         userName = user.displayName; 
-        console.log(userName)
+        //console.log(userName)
         userEmail = user.email
-        console.log(userEmail)
+        //console.log(userEmail)
         userPhoto = user.photoURL;   
-        console.log(userPhoto)
+        //console.log(userPhoto)
 
         //設定一個user欄位 給他
-        db.collection("uuser").where("email","==",userEmail).get().then(function(snapshop){
+        db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
             if(snapshop.docs==""){
-                db.collection("uuser").doc().set({
+                db.collection("user").doc().set({
                 email: userEmail 
                 })
             }
@@ -422,13 +422,13 @@ function presentRender(data){
     function checkBtnStyle(){
         let docID 
         let docIDArr=[]
-        db.collection("uuser").onSnapshot(function(snapshop){
+        db.collection("user").onSnapshot(function(snapshop){
             snapshop.docs.forEach(function(doc){
                 if(userEmail == doc.data().email){
                     docID = doc.id;
                 }
             });
-        let presentlist = db.collection("uuser").doc(docID).collection("presentlist"); 
+        let presentlist = db.collection("user").doc(docID).collection("presentlist"); 
             presentlist.get().then(function(snapshop){
             snapshop.docs.forEach(function(doc){
                 let clickId = doc.data().id
@@ -466,13 +466,13 @@ function presentRender(data){
         let docID 
         let clickID
         let deleteID
-        db.collection("uuser").onSnapshot(function(snapshop){
+        db.collection("user").onSnapshot(function(snapshop){
             snapshop.docs.forEach(function(doc){ 
                 if(userEmail == doc.data().email){
                     docID = doc.id;
                 }
             });  
-        let presentlist = db.collection("uuser").doc(docID).collection("presentlist"); 
+        let presentlist = db.collection("user").doc(docID).collection("presentlist"); 
         presentlist.where("id","==",btnNum).get().then(function(snapshop){
             snapshop.docs.forEach(function(doc){
             if(doc.data().id != undefined){
@@ -491,7 +491,7 @@ function presentRender(data){
             }else{
                 //將表單從firebase上移除
                 btn[i].classList.remove("fas");
-                let deleteDoc = db.collection("uuser").doc(docID).collection("presentlist").doc(deleteID)
+                let deleteDoc = db.collection("user").doc(docID).collection("presentlist").doc(deleteID)
                 deleteDoc.delete()
                 //檢查 firebase 的清單 重新放入樣式
                 checkBtnStyle()
@@ -527,7 +527,7 @@ function presentRender(data){
             }
           }
           //將點取資訊放入firebase 
-          db.collection("uuser").get().then(function(snapshop){
+          db.collection("user").get().then(function(snapshop){
             let docID         
             snapshop.docs.forEach(function(doc) {
                 //將符合email的資料放入陣列           
@@ -535,7 +535,7 @@ function presentRender(data){
                     docID = doc.id
                 }; 
             });
-            let presentlist = db.collection("uuser").doc(docID).collection("presentlist")
+            let presentlist = db.collection("user").doc(docID).collection("presentlist")
             presentlist.add({
             id:id,
             country:country,

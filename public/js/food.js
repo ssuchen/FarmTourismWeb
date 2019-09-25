@@ -83,6 +83,7 @@ function foodRender(data){
 
         let foodBtn = document.createElement("i");
             foodBtn.setAttribute("class","far fa-heart like-btn food-likebtn");
+            foodBtn.setAttribute("id",id); 
 
         let foodTitle = document.createElement("div");
             foodTitle.setAttribute("class","food-title");
@@ -265,19 +266,29 @@ function foodRender(data){
         town = newdata[p].Town
         tel = newdata[p].Tel
 
-        str += '<a  href="foodPagination.html?id="'+ id +' class="food-card"><div class="food-card-left"><div class="food-img"><img src="'+ photo
-        +'" alt=""></div></div><div class="food-card-right"><div class="food-title">'+name
-        +'</div><div class="food-tel">'+ tel 
-        +'<div class="food-place"><div class="food-country">'+ country
+        str += '<a  href="foodPagination.html?id="'+ id 
+        +' class="food-card"><div class="food-card-left"><div class="food-img"><img src="'+ photo  
+        +'" alt="" ><i class="far fa-heart like-btn food-likebtn" id="'+ id
+        +'"></i></div></div><div class="food-card-right"><div class="food-title">'+name
+        +'<div class="food-tel">'+ tel 
+        +'</div><div class="food-place"><div class="food-country">'+ country
         +'</div><div class="food-town">'+ town +'</div></div>'
         +'</div><div class="food-text">'+ text
         +'</div></div></a>'
+        
     
         }
         
         let presentMainContent = document.querySelector('.food-main-content');
         presentMainContent.innerHTML = str;
+
+        //願望清單
+        checkBtnStyle();
+        checkBtn();
+
         };
+
+
 
     };
 
@@ -324,7 +335,8 @@ function foodRender(data){
         //更改按鈕樣式   
         changeBtnStyle();
         //更改內容資料
-        renderPage();           
+        renderPage();  
+        
         });
 
 
@@ -394,13 +406,16 @@ function foodRender(data){
     town = searchdata[p].Town
     tel = searchdata[p].Tel
 
-    str += '<a  href="foodPagination.html?id="'+ id +' class="food-card"><div class="food-card-left"><div class="food-img"><img src="'+ photo
-        +'" alt=""></div></div><div class="food-card-right"><div class="food-title">'+name
-        +'</div><div class="food-tel">'+ tel 
-        +'<div class="food-place"><div class="food-country">'+ country
+    str += '<a  href="foodPagination.html?id="'+ id 
+        +' class="food-card"><div class="food-card-left"><div class="food-img"><img src="'+ photo  
+        +'" alt="" ><i class="far fa-heart like-btn food-likebtn" id="'+ id
+        +'"></i></div></div><div class="food-card-right"><div class="food-title">'+name
+        +'<div class="food-tel">'+ tel 
+        +'</div><div class="food-place"><div class="food-country">'+ country
         +'</div><div class="food-town">'+ town +'</div></div>'
         +'</div><div class="food-text">'+ text
         +'</div></div></a>'
+
     let foodMainContent = document.querySelector('.food-main-content');
         foodMainContent.innerHTML = str;
 
@@ -415,7 +430,11 @@ function foodRender(data){
     nextpage = 1
     page = pagelen    
     updateBtnlist();
-    clickbtn();  
+    clickbtn(); 
+    
+    //願望清單
+    checkBtnStyle();
+    checkBtn();
     
     })
 
@@ -433,8 +452,8 @@ function foodRender(data){
                     docID = doc.id;
                 }
             });
-        let travellist = db.collection("user").doc(docID).collection("travellist"); 
-            travellist.get().then(function(snapshop){
+        let foodlist = db.collection("user").doc(docID).collection("foodlist"); 
+            foodlist.get().then(function(snapshop){
             snapshop.docs.forEach(function(doc){
                 let clickId = doc.data().id
                 docIDArr.push(clickId)
@@ -477,8 +496,8 @@ function foodRender(data){
                     docID = doc.id;
                 }
             });  
-        let travellist = db.collection("user").doc(docID).collection("travellist"); 
-        travellist.where("id","==",btnNum).get().then(function(snapshop){
+        let foodlist = db.collection("user").doc(docID).collection("foodlist"); 
+        foodlist.where("id","==",btnNum).get().then(function(snapshop){
             snapshop.docs.forEach(function(doc){
             if(doc.data().id != undefined){
                clickID = doc.data().id
@@ -496,7 +515,7 @@ function foodRender(data){
             }else{
                 //將表單從firebase上移除
                 btn[i].classList.remove("fas");
-                let deleteDoc = db.collection("user").doc(docID).collection("travellist").doc(deleteID)
+                let deleteDoc = db.collection("user").doc(docID).collection("foodlist").doc(deleteID)
                 deleteDoc.delete()
                 //檢查 firebase 的清單 重新放入樣式
                 checkBtnStyle()
@@ -520,15 +539,19 @@ function foodRender(data){
           let id 
           let img 
           let text 
-          let title     
+          let title    
+          let town 
+          let tel
           
           for(let a=0;a<data.length;a++){
             if(data[a].ID == btnID){
               country = data[a].City;
-              id =data[a].ID;
-              img = data[a].Photo;
-              text = data[a].Town;
+              id = data[a].ID;
+              tel = data[a].Tel;
+              img = data[a].PicURL;
+              text = data[a].HostWords.substr(0,35);
               title = data[a].Name;
+              town = data[a].Town;
 
             }
           }
@@ -542,13 +565,15 @@ function foodRender(data){
                     docID = doc.id
                 }; 
             });
-            let travellist = db.collection("user").doc(docID).collection("travellist")
-            travellist.add({
-            id:id,
+            let foodlist = db.collection("user").doc(docID).collection("foodlist")
+            foodlist.add({
             country:country,
+            id:id,
             img:img,
+            tel:tel,
             text:text,
             title:title,
+            town:town
             }); 
           })
         

@@ -490,13 +490,13 @@ for(let b=0 ; b<tagBtn.length ; b++){
     function checkBtnStyle(){
         let docID 
         let docIDArr=[]
-        db.collection("uuser").onSnapshot(function(snapshop){
+        db.collection("user").onSnapshot(function(snapshop){
             snapshop.docs.forEach(function(doc){
                 if(userEmail == doc.data().email){
                     docID = doc.id;
                 }
             });
-        let journeylist = db.collection("uuser").doc(docID).collection("journeylist"); 
+        let journeylist = db.collection("user").doc(docID).collection("journeylist"); 
             journeylist.get().then(function(snapshop){
             snapshop.docs.forEach(function(doc){
                 let clickId = doc.data().id
@@ -534,13 +534,13 @@ for(let b=0 ; b<tagBtn.length ; b++){
         let docID 
         let clickID
         let deleteID
-        db.collection("uuser").onSnapshot(function(snapshop){
+        db.collection("user").onSnapshot(function(snapshop){
             snapshop.docs.forEach(function(doc){ 
                 if(userEmail == doc.data().email){
                     docID = doc.id;
                 }
             });  
-        let journeylist = db.collection("uuser").doc(docID).collection("journeylist"); 
+        let journeylist = db.collection("user").doc(docID).collection("journeylist"); 
         journeylist.where("id","==",btnNum).get().then(function(snapshop){
             snapshop.docs.forEach(function(doc){
             if(doc.data().id != undefined){
@@ -559,7 +559,7 @@ for(let b=0 ; b<tagBtn.length ; b++){
             }else{
                 //將表單從firebase上移除
                 btn[i].classList.remove("fas");
-                let deleteDoc = db.collection("uuser").doc(docID).collection("journeylist").doc(deleteID)
+                let deleteDoc = db.collection("user").doc(docID).collection("journeylist").doc(deleteID)
                 deleteDoc.delete()
                 //檢查 firebase 的清單 重新放入樣式
                 checkBtnStyle()
@@ -599,7 +599,7 @@ for(let b=0 ; b<tagBtn.length ; b++){
             }
           }
           //將點取資訊放入firebase 
-          db.collection("uuser").get().then(function(snapshop){
+          db.collection("user").get().then(function(snapshop){
             let docID         
             snapshop.docs.forEach(function(doc) {
                 //將符合email的資料放入陣列           
@@ -607,7 +607,7 @@ for(let b=0 ; b<tagBtn.length ; b++){
                     docID = doc.id
                 }; 
             });
-            let journeylist = db.collection("uuser").doc(docID).collection("journeylist")
+            let journeylist = db.collection("user").doc(docID).collection("journeylist")
             console.log(tag)
 
               //將tag 字串分開成陣列
