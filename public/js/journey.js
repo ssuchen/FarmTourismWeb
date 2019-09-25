@@ -74,6 +74,7 @@ for(let i =0 ;i<12 ;i++){
                 img.setAttribute("src",photo);
             let journeyBtn = document.createElement("i");
                 journeyBtn.setAttribute("class","far fa-heart like-btn");
+                journeyBtn.setAttribute("id",id); 
 
             let journeyTitle = document.createElement("div");
                 journeyTitle.setAttribute("class","journey-title");
@@ -216,15 +217,15 @@ let pageList = document.querySelector('.page-list');
         let max = (choseBtn*perpage);
         let pagedata
         let newdata=[];
-       if(searchdata!=""){
+        if(searchdata!=""){
        pagedata = searchdata;
 
-       }
-       else{
-       pagedata = data ;     
-       }
-       //console.log(data)
-       pagedata.forEach(function(item,index){
+        }
+        else{
+        pagedata = data ;     
+        }
+        //console.log(data)
+        pagedata.forEach(function(item,index){
         //利用陣列索引 索引從0開始 所以要加1
         let num = index+1
         //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
@@ -260,6 +261,11 @@ let pageList = document.querySelector('.page-list');
                 journeyImg.setAttribute("class","journey-img");
             let img = document.createElement("img");
                 img.setAttribute("src",photo);
+            
+            let journeyBtn = document.createElement("i");
+                journeyBtn.setAttribute("class","far fa-heart like-btn");
+                journeyBtn.setAttribute("id",id);                
+
             let journeyTitle = document.createElement("div");
                 journeyTitle.setAttribute("class","journey-title");
                 journeyTitle.textContent = name;
@@ -278,6 +284,7 @@ let pageList = document.querySelector('.page-list');
 
                 journeyCard.appendChild(journeyText);            
                 journeyImg.appendChild(img);
+                journeyImg.appendChild(journeyBtn);
       
 
                 //將 tag 放入 journey-group的迴圈
@@ -289,9 +296,13 @@ let pageList = document.querySelector('.page-list');
                     journeyGroup.appendChild(journeyTag);
                 });
    
+         } 
+        //願望清單
+        checkBtnStyle();
+        checkBtn();
         }
-    
-       }
+ 
+                
     }
 
     //下一頁按鈕
@@ -414,6 +425,11 @@ for(let b=0 ; b<tagBtn.length ; b++){
             journeyImg.setAttribute("class","journey-img");
         let img = document.createElement("img");
             img.setAttribute("src",photo);
+
+        let journeyBtn = document.createElement("i");
+            journeyBtn.setAttribute("class","far fa-heart like-btn");
+            journeyBtn.setAttribute("id",id); 
+
         let journeyTitle = document.createElement("div");
             journeyTitle.setAttribute("class","journey-title");
             journeyTitle.textContent = name;
@@ -432,6 +448,7 @@ for(let b=0 ; b<tagBtn.length ; b++){
 
             journeyCard.appendChild(journeyText);            
             journeyImg.appendChild(img);
+            journeyImg.appendChild(journeyBtn);
   
 
             //將 tag 放入 journey-group的迴圈
@@ -442,7 +459,8 @@ for(let b=0 ; b<tagBtn.length ; b++){
                 journeyTag.textContent = tag;
                 journeyGroup.appendChild(journeyTag);
             });
-        
+   
+
     }
     
     //算出頁數按鈕總數   
@@ -453,12 +471,163 @@ for(let b=0 ; b<tagBtn.length ; b++){
     updateBtnlist();
     clickbtn();
 
+    //願望清單
+    checkBtnStyle();
+    checkBtn(); 
+            
+
+    
+
     }
 
 }
 
 
+   //=========================================
+   //  從 firebase得到願望清單 並改變愛心樣式
+   //=========================================
+    let btnNum  
+    function checkBtnStyle(){
+        let docID 
+        let docIDArr=[]
+        db.collection("uuser").onSnapshot(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+                if(userEmail == doc.data().email){
+                    docID = doc.id;
+                }
+            });
+        let journeylist = db.collection("uuser").doc(docID).collection("journeylist"); 
+            journeylist.get().then(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+                let clickId = doc.data().id
+                docIDArr.push(clickId)
+            })
+            let btn =document.querySelectorAll(".like-btn");
+            for(let i= 0 ; i<btn.length ;i++){
+            docIDArr.forEach(function(item){
+                if(btn[i].id==item){
+                  btn[i].classList.add("fas");
+                }
+                
+            })
+            }
+        
+        })   
+        });
+      
+    };
+    checkBtnStyle();
 
+   //=========================================
+   //  從 firebase得到願望清單 並監聽愛心樣式
+   //=========================================
+    function checkBtn(){
+    let btn = document.querySelectorAll(".like-btn");
+    //console.log(btn)
+    for(let i = 0 ;i<btn.length ; i++){
+        btn[i].addEventListener("click",function(e){
+        e.preventDefault();
+        if(userEmail == undefined){
+            alert("請登入會員")
+        }
+        btnNum = btn[i].id ; 
+        let docID 
+        let clickID
+        let deleteID
+        db.collection("uuser").onSnapshot(function(snapshop){
+            snapshop.docs.forEach(function(doc){ 
+                if(userEmail == doc.data().email){
+                    docID = doc.id;
+                }
+            });  
+        let journeylist = db.collection("uuser").doc(docID).collection("journeylist"); 
+        journeylist.where("id","==",btnNum).get().then(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+            if(doc.data().id != undefined){
+               clickID = doc.data().id
+               deleteID = doc.id  
+            }
+            });
+            if(clickID === undefined){
+                btn[i].classList.add("fas");
+                //將表單送入firebase
+                likebtnAdd()
+                //檢查 firebase 的清單 重新放入樣式
+                checkBtnStyle()
+          
+
+            }else{
+                //將表單從firebase上移除
+                btn[i].classList.remove("fas");
+                let deleteDoc = db.collection("uuser").doc(docID).collection("journeylist").doc(deleteID)
+                deleteDoc.delete()
+                //檢查 firebase 的清單 重新放入樣式
+                checkBtnStyle()
+            }   
+        }
+        )
+        });
+
+        })
+    }
+    
+    };
+    checkBtn();
+
+    //===================
+    //將表單送到 firebase
+    //===================
+    function likebtnAdd(){
+          let btnID = btnNum
+          let tag
+          let id 
+          let img 
+          let text 
+          let title     
+          for(let a=0;a<data.length;a++){
+             // console.log(data[a].TravelSeq)
+             // console.log(btnID)
+            if(data[a].TravelSeq == btnID){
+              console.log(data[a])  
+              //console.log(tag)
+              tag = data[a].TravelType;            
+              id = data[a].TravelSeq;        
+              img = data[a].PhotoUrl;         
+              text = data[a].Contents.substr(0,38)+"...";             
+              title = data[a].Title;
+              
+            }
+          }
+          //將點取資訊放入firebase 
+          db.collection("uuser").get().then(function(snapshop){
+            let docID         
+            snapshop.docs.forEach(function(doc) {
+                //將符合email的資料放入陣列           
+                if(userEmail == doc.data().email){
+                    docID = doc.id
+                }; 
+            });
+            let journeylist = db.collection("uuser").doc(docID).collection("journeylist")
+            console.log(tag)
+
+              //將tag 字串分開成陣列
+            let arr=[]
+            for(t=0 ;t<tag.length;t++){
+            let gettag = tag.substr(t*9,4);
+            if(gettag!==""){
+            arr.push(gettag)    
+            }  
+            };
+            journeylist.add({
+            id:id,
+            img:img,
+            tag:arr,
+            text:text,
+            title:title,
+            }); 
+          })
+        
+    };
 
 
 

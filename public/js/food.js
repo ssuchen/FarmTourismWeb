@@ -419,5 +419,141 @@ function foodRender(data){
     
     })
 
+
+    //=========================================
+    //  從 firebase得到願望清單 並改變愛心樣式
+    //=========================================
+    let btnNum  
+    function checkBtnStyle(){
+        let docID 
+        let docIDArr=[]
+        db.collection("user").onSnapshot(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+                if(userEmail == doc.data().email){
+                    docID = doc.id;
+                }
+            });
+        let travellist = db.collection("user").doc(docID).collection("travellist"); 
+            travellist.get().then(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+                let clickId = doc.data().id
+                docIDArr.push(clickId)
+            })
+           
+            let btn =document.querySelectorAll(".like-btn");
+            for(let i= 0 ; i<btn.length ;i++){
+            docIDArr.forEach(function(item){
+                if(btn[i].id==item){
+                  btn[i].classList.add("fas");
+                }
+                
+            })
+            }
+        
+        })   
+        });
+      
+    };
+    checkBtnStyle();
+
+    //=========================================
+    //  從 firebase得到願望清單 並監聽愛心樣式
+    //=========================================
+    function checkBtn(){
+    let btn = document.querySelectorAll(".like-btn");
+    for(let i = 0 ;i<btn.length ; i++){
+        btn[i].addEventListener("click",function(e){
+        e.preventDefault();
+        if(userEmail == undefined){
+            alert("請登入會員")
+        }
+        btnNum = btn[i].id ; 
+        let docID 
+        let clickID
+        let deleteID
+        db.collection("user").onSnapshot(function(snapshop){
+            snapshop.docs.forEach(function(doc){ 
+                if(userEmail == doc.data().email){
+                    docID = doc.id;
+                }
+            });  
+        let travellist = db.collection("user").doc(docID).collection("travellist"); 
+        travellist.where("id","==",btnNum).get().then(function(snapshop){
+            snapshop.docs.forEach(function(doc){
+            if(doc.data().id != undefined){
+               clickID = doc.data().id
+               deleteID = doc.id  
+            }
+            });
+            if(clickID === undefined){
+                btn[i].classList.add("fas");
+                //將表單送入firebase
+                likebtnAdd()
+                //檢查 firebase 的清單 重新放入樣式
+                checkBtnStyle()
+          
+
+            }else{
+                //將表單從firebase上移除
+                btn[i].classList.remove("fas");
+                let deleteDoc = db.collection("user").doc(docID).collection("travellist").doc(deleteID)
+                deleteDoc.delete()
+                //檢查 firebase 的清單 重新放入樣式
+                checkBtnStyle()
+            }   
+        }
+        )
+        });
+
+        })
+    }
+    
+    };
+    checkBtn();
+
+    //===================
+    //將表單送到 firebase
+    //===================
+    function likebtnAdd(){
+          let btnID = btnNum
+          let country
+          let id 
+          let img 
+          let text 
+          let title     
+          
+          for(let a=0;a<data.length;a++){
+            if(data[a].ID == btnID){
+              country = data[a].City;
+              id =data[a].ID;
+              img = data[a].Photo;
+              text = data[a].Town;
+              title = data[a].Name;
+
+            }
+          }
+
+          //將點取資訊放入firebase 
+          db.collection("user").get().then(function(snapshop){
+            let docID         
+            snapshop.docs.forEach(function(doc) {
+                //將符合email的資料放入陣列           
+                if(userEmail == doc.data().email){
+                    docID = doc.id
+                }; 
+            });
+            let travellist = db.collection("user").doc(docID).collection("travellist")
+            travellist.add({
+            id:id,
+            country:country,
+            img:img,
+            text:text,
+            title:title,
+            }); 
+          })
+        
+    };    
+
+
 }
 search();
