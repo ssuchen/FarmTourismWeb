@@ -1,5 +1,8 @@
 @import"size";
 @import"layout";
+body{
+    background-color: #e9f1e7;
+}
 .index-main{
     display:flex;
     max-width: 1152px;
@@ -13,7 +16,7 @@
     width: 55%;
     padding:3%;
     position: relative;
-    border-left:1px dashed #CCCCCC;
+    border-left:1px dashed  #7b9a48;
     margin-bottom:2%;
     @include tab-size{
     width: 100%;
@@ -26,7 +29,7 @@
     padding-bottom:2%;   
 }
 .index-main-crad{
-   border-bottom:1px dashed #CCCCCC;
+   border-bottom:1px dashed  #7b9a48;
    padding:5%;
    .card-title{
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
@@ -64,14 +67,101 @@
     margin:5% 0;
 }
 .index-more-btn{
+    a{
+        color:#7b9a48;
+        &:hover{
+            color:#fff;
+        }
+    }
     padding:2% 3%;
     text-align: center;
-    border:1px solid;
+    border:2px solid  #7b9a48;
+    color:  #7b9a48;
     border-radius:5px;
     width: 50px;
     &:hover{
-        background-color:gray;
+
+        background-color: #7b9a48;
     }
     
 }
 
+.index-about{
+    padding:6% 0;
+    display: flex;
+    //max-width: 1152px;
+    max-width: 1000px;
+    margin:0 auto;
+    @include tab-size-s{
+    display: block;
+    }
+}
+
+.index-about-img{
+    border-radius:50%;
+    width:230px;
+    height:230px;
+    background-position: center center;
+    background-size:cover;
+    background-image: url(../img/img_05.jpg);
+    
+}
+.index-about-bg{
+    background-color:#fff;
+}
+.index-about-text{
+    box-sizing: border-box;
+    width:75%;
+    margin-left:5% ;
+}
+.index-about-title{
+    font-size: 1.5rem;
+    margin:3% 0;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+.index-about-content{
+    line-height:1.5rem ;
+}
+.img-fix{
+    margin: 0 auto;
+    display: flex;
+   justify-content: center;
+    margin-bottom:-0.3%;
+}
+.index-play{
+
+    //padding-top:3%;
+    //max-width: 1152px;
+    max-width: 1000px;
+    margin:0 auto;
+    @include tab-size-s{
+    display: block;
+    }
+}
+.index-play-title{
+    text-align: center;
+    font-size: 1.5rem;
+    margin:3% 0;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+.index-play-img{
+    max-width: 1000px;
+    display:flex;
+    justify-content: center;
+    margin-bottom:10%;
+    div{
+        padding:2%;
+        font-size: 1.2rem;
+        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+        text-align: center;
+    }
+
+    img{
+     width:100%;
+     height:200px;
+     border-radius: 10px;
+     padding-bottom:5%;
+     margin:0 2%; 
+     object-fit: cover;   
+    }
+}

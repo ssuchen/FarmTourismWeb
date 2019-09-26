@@ -192,20 +192,18 @@ button {
 
 .like-btn {
   position: absolute;
-  top: 8%;
+  top: 5%;
+  padding: 3.5%;
+  border-radius: 50%;
   z-index: 30;
-  right: 10%;
-  font-size: 1.5rem;
+  right: 8%;
+  font-size: 1.8rem;
   color: #fff;
-}
-
-.btn-active {
-  background-color: #7b9a48;
 }
 
 .footer {
   height: 200px;
-  background: gray;
+  background-color: #7b9a48;
 }
 
 .footer-content {
@@ -473,6 +471,52 @@ button {
   background-color: gray;
 }
 
+.page-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page-Btn {
+  border-radius: 50%;
+  background: #c7c7c7;
+  color: #fff;
+  text-align: center;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.page-Btn:hover {
+  background: #b8cf92;
+}
+
+.Add-page, .Less-page {
+  color: #7b9a48;
+  border-radius: 50%;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  border: 1px solid #7b9a48;
+  text-align: center;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.btn-active {
+  background-color: #7b9a48;
+  color: #fff;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+body {
+  background-color: #e9f1e7;
+}
+
 .index-main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -493,7 +537,7 @@ button {
   width: 55%;
   padding: 3%;
   position: relative;
-  border-left: 1px dashed #CCCCCC;
+  border-left: 1px dashed  #7b9a48;
   margin-bottom: 2%;
 }
 
@@ -511,7 +555,7 @@ button {
 }
 
 .index-main-crad {
-  border-bottom: 1px dashed #CCCCCC;
+  border-bottom: 1px dashed  #7b9a48;
   padding: 5%;
 }
 
@@ -562,13 +606,124 @@ button {
 .index-more-btn {
   padding: 2% 3%;
   text-align: center;
-  border: 1px solid;
+  border: 2px solid  #7b9a48;
+  color: #7b9a48;
   border-radius: 5px;
   width: 50px;
 }
 
+.index-more-btn a {
+  color: #7b9a48;
+}
+
+.index-more-btn a:hover {
+  color: #fff;
+}
+
 .index-more-btn:hover {
-  background-color: gray;
+  background-color: #7b9a48;
+}
+
+.index-about {
+  padding: 6% 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .index-about {
+    display: block;
+  }
+}
+
+.index-about-img {
+  border-radius: 50%;
+  width: 230px;
+  height: 230px;
+  background-position: center center;
+  background-size: cover;
+  background-image: url(../img/img_05.jpg);
+}
+
+.index-about-bg {
+  background-color: #fff;
+}
+
+.index-about-text {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 75%;
+  margin-left: 5%;
+}
+
+.index-about-title {
+  font-size: 1.5rem;
+  margin: 3% 0;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+.index-about-content {
+  line-height: 1.5rem;
+}
+
+.img-fix {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: -0.3%;
+}
+
+.index-play {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .index-play {
+    display: block;
+  }
+}
+
+.index-play-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 3% 0;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+.index-play-img {
+  max-width: 1000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 10%;
+}
+
+.index-play-img div {
+  padding: 2%;
+  font-size: 1.2rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  text-align: center;
+}
+
+.index-play-img img {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  padding-bottom: 5%;
+  margin: 0 2%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .nav-bar {
@@ -693,20 +848,18 @@ button {
 
 .like-btn {
   position: absolute;
-  top: 8%;
+  top: 5%;
+  padding: 3.5%;
+  border-radius: 50%;
   z-index: 30;
-  right: 10%;
-  font-size: 1.5rem;
+  right: 8%;
+  font-size: 1.8rem;
   color: #fff;
-}
-
-.btn-active {
-  background-color: #7b9a48;
 }
 
 .footer {
   height: 200px;
-  background: gray;
+  background-color: #7b9a48;
 }
 
 .footer-content {
@@ -972,6 +1125,491 @@ button {
 
 #faceSingUpPopup:hover {
   background-color: gray;
+}
+
+.page-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page-Btn {
+  border-radius: 50%;
+  background: #c7c7c7;
+  color: #fff;
+  text-align: center;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.page-Btn:hover {
+  background: #b8cf92;
+}
+
+.Add-page, .Less-page {
+  color: #7b9a48;
+  border-radius: 50%;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  border: 1px solid #7b9a48;
+  text-align: center;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.btn-active {
+  background-color: #7b9a48;
+  color: #fff;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+.nav-bar {
+  background: #7b9a48;
+  height: 50px;
+}
+
+.nav-bar-width {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.title {
+  background-image: url(../img/change.jpg);
+  background-position: center center;
+  background-size: cover;
+  height: 350px;
+  max-width: 100%;
+}
+
+.menu {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: -3%;
+  margin-bottom: 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width: 600px) {
+  .menu {
+    display: none;
+  }
+}
+
+.menu a {
+  width: 230px;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  background: #7b9a48;
+  color: #fff;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  text-align: center;
+}
+
+.menu a:hover {
+  background: #a7a7a7;
+}
+
+.mobile-menu-title {
+  display: none;
+  margin: 8px 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+  .mobile-menu-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.mobileLogo {
+  max-width: 250px;
+  margin-left: 18px;
+}
+
+.mobile-menu-buttom {
+  font-size: 23px;
+  margin-right: 5%;
+  margin-top: 3%;
+}
+
+.mobile-menu-list {
+  display: block;
+  height: 0;
+  background: #a7a7a7;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+
+.mobile-menu-list li {
+  text-align: center;
+  font-size: 1.1rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  padding-top: 10px;
+  padding-bottom: 12px;
+}
+
+.mobile-menu-list li:hover {
+  background-color: #fff;
+}
+
+@media (max-width: 600px) {
+  .mobile-menu-list-show {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    height: 152px;
+  }
+}
+
+.main {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.like-btn {
+  position: absolute;
+  top: 5%;
+  padding: 3.5%;
+  border-radius: 50%;
+  z-index: 30;
+  right: 8%;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.footer {
+  height: 200px;
+  background-color: #7b9a48;
+}
+
+.footer-content {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer-content .footer-content-left {
+  padding: 0 2%;
+}
+
+.footer-content .footer-content-left li {
+  margin-top: 10px;
+}
+
+.footer-content .footer-content-right {
+  padding: 0 2%;
+}
+
+.footer-content .footer-content-right li {
+  margin-top: 10px;
+}
+
+.footer-content-title {
+  margin-top: 10px;
+}
+
+.loginbtn-user, .loginbtn-list {
+  padding: 0 10px;
+  margin-top: 2%;
+  cursor: pointer;
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.loginbtn-user i, .loginbtn-list i {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .loginbtn-user, .loginbtn-list {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .loginbtn-user, .loginbtn-list {
+    top: 120px;
+  }
+}
+
+.logoutbtn-user {
+  display: block;
+  padding: 0 10px;
+  margin-top: 2%;
+  cursor: pointer;
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.logoutbtn-user i {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .logoutbtn-user {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logoutbtn-user {
+    top: 120px;
+  }
+}
+
+.login-box {
+  display: none;
+  border-radius: 10px;
+  padding: 5%;
+  -webkit-box-shadow: 3px 3px 5px #888888;
+          box-shadow: 3px 3px 5px #888888;
+  width: 300px;
+  background-color: #fff;
+  position: fixed;
+  z-index: 10;
+  top: 300px;
+  margin-left: 45%;
+  -webkit-transform: translate(-180px);
+          transform: translate(-180px);
+  border: 1px solid #7b9a48;
+}
+
+.login-box h1 {
+  padding-top: 5%;
+  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+.loginStatus {
+  display: block;
+}
+
+.logout-box-success {
+  display: none;
+  padding: 5%;
+  border-radius: 10px;
+  padding: 5%;
+  -webkit-box-shadow: 3px 3px 5px #888888;
+          box-shadow: 3px 3px 5px #888888;
+  width: 200px;
+  background-color: #fff;
+  position: fixed;
+  z-index: 10;
+  top: 300px;
+  margin-left: 50%;
+  -webkit-transform: translate(-100px);
+          transform: translate(-100px);
+  border: 1px solid #7b9a48;
+}
+
+.logout-box-success div {
+  text-align: center;
+}
+
+.logout-box-success-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #7b9a48;
+  position: absolute;
+  top: -15px;
+  right: -10px;
+}
+
+.logout-box-success-text {
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.5rem;
+  margin-left: 50%;
+  -webkit-transform: translate(-10px);
+          transform: translate(-10px);
+  margin-top: 23%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login-box-success {
+  display: none;
+  padding: 5%;
+  border-radius: 10px;
+  padding: 5%;
+  -webkit-box-shadow: 3px 3px 5px #888888;
+          box-shadow: 3px 3px 5px #888888;
+  width: 200px;
+  background-color: #fff;
+  position: fixed;
+  z-index: 10;
+  top: 300px;
+  margin-left: 50%;
+  -webkit-transform: translate(-100px);
+          transform: translate(-100px);
+  border: 1px solid #7b9a48;
+}
+
+.login-box-success div {
+  text-align: center;
+}
+
+.login-box-success-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #7b9a48;
+  position: absolute;
+  top: -15px;
+  right: -10px;
+}
+
+.login-box-success-text {
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.5rem;
+  margin-left: 50%;
+  -webkit-transform: translate(-10px);
+          transform: translate(-10px);
+  margin-top: 23%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.signinBtn {
+  margin-top: 6%;
+}
+
+.login-box-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #7b9a48;
+  position: absolute;
+  top: -15px;
+  right: -10px;
+}
+
+.login-box-btn-text {
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.5rem;
+  margin-left: 55%;
+  -webkit-transform: translate(-10px);
+          transform: translate(-10px);
+  margin-top: 23%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#googleSingUpPopup {
+  margin: 0 auto;
+  color: #fff;
+  background: #7b9a48;
+  width: 100%;
+  border: 0;
+  padding: 3%;
+  margin-bottom: 5%;
+  cursor: pointer;
+}
+
+#googleSingUpPopup:hover {
+  background-color: gray;
+}
+
+#faceSingUpPopup {
+  margin: 0 auto;
+  color: #fff;
+  background: #5487b6;
+  width: 100%;
+  border: 0;
+  padding: 3%;
+  cursor: pointer;
+}
+
+#faceSingUpPopup:hover {
+  background-color: gray;
+}
+
+.page-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page-Btn {
+  border-radius: 50%;
+  background: #c7c7c7;
+  color: #fff;
+  text-align: center;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.page-Btn:hover {
+  background: #b8cf92;
+}
+
+.Add-page, .Less-page {
+  color: #7b9a48;
+  border-radius: 50%;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  border: 1px solid #7b9a48;
+  text-align: center;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.btn-active {
+  background-color: #7b9a48;
+  color: #fff;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
 .travel-main-title {
@@ -1116,14 +1754,26 @@ button {
 
 .travel-card {
   position: relative;
+  -webkit-box-shadow: 3px 3px 10px #ddddddf5;
+          box-shadow: 3px 3px 10px #ddddddf5;
+  background-color: #fff;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 1% 1%;
   margin: 0.5%;
   margin-bottom: 2%;
   max-width: 270px;
-  border: 1px solid;
+  font-weight: 500;
+  border-radius: 5px;
   height: 350px;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.travel-card:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 @media (max-width: 600px) {
@@ -1139,8 +1789,7 @@ button {
 .travel-img {
   overflow: hidden;
   width: 100%;
-  height: 80%;
-  background-color: gray;
+  height: 78%;
 }
 
 .travel-img img {
@@ -1148,19 +1797,14 @@ button {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -webkit-transform: scale(1, 1);
-          transform: scale(1, 1);
-  -webkit-transition: all 1s;
-  transition: all 1s;
-}
-
-.travel-img img:hover {
-  -webkit-transform: scale(1.06, 1.06);
-          transform: scale(1.06, 1.06);
+  background: #7b9a48;
 }
 
 .travel-title {
-  margin-top: 3%;
+  text-align: center;
+  margin-top: 6%;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-size: 1.2rem;
 }
 
 .travel-main-content {
@@ -1179,10 +1823,15 @@ button {
 }
 
 .travel-place {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin-top: 3%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #7b9a48;
 }
 
 .travel-country {
@@ -1220,21 +1869,6 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.page-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.page-Btn {
-  border: 1px solid;
-  text-align: center;
-  line-height: 20px;
-  margin: 0.5%;
-  width: 25px;
-  height: 25px;
 }
 
 .nav-bar {
@@ -1359,20 +1993,18 @@ button {
 
 .like-btn {
   position: absolute;
-  top: 8%;
+  top: 5%;
+  padding: 3.5%;
+  border-radius: 50%;
   z-index: 30;
-  right: 10%;
-  font-size: 1.5rem;
+  right: 8%;
+  font-size: 1.8rem;
   color: #fff;
-}
-
-.btn-active {
-  background-color: #7b9a48;
 }
 
 .footer {
   height: 200px;
-  background: gray;
+  background-color: #7b9a48;
 }
 
 .footer-content {
@@ -1640,6 +2272,48 @@ button {
   background-color: gray;
 }
 
+.page-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page-Btn {
+  border-radius: 50%;
+  background: #c7c7c7;
+  color: #fff;
+  text-align: center;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.page-Btn:hover {
+  background: #b8cf92;
+}
+
+.Add-page, .Less-page {
+  color: #7b9a48;
+  border-radius: 50%;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  border: 1px solid #7b9a48;
+  text-align: center;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.btn-active {
+  background-color: #7b9a48;
+  color: #fff;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
 .present-main-title {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   font-size: 1.5rem;
@@ -1782,14 +2456,29 @@ button {
 
 .present-card {
   position: relative;
+  -webkit-box-shadow: 3px 3px 10px #ddddddf5;
+          box-shadow: 3px 3px 10px #ddddddf5;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 1% 1%;
   margin: 0.5%;
   margin-bottom: 2%;
+  border-radius: 5px;
   max-width: 270px;
-  border: 1px solid;
-  height: 350px;
+  height: 380px;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.present-card:hover {
+  -webkit-box-shadow: 3px 3px 8px #a3a2a2;
+          box-shadow: 3px 3px 8px #a3a2a2;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 @media (max-width: 600px) {
@@ -1803,9 +2492,10 @@ button {
 }
 
 .present-img {
+  overflow: hidden;
+  border-radius: 5px;
   width: 100%;
-  height: 80%;
-  background-color: gray;
+  height: 70%;
 }
 
 .present-img img {
@@ -1816,10 +2506,14 @@ button {
 }
 
 .present-title {
-  margin-top: 3%;
+  margin-top: 4%;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
 }
 
 .present-main-content {
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1828,21 +2522,21 @@ button {
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  font-size: 1rem;
 }
 
 .present-textcontent {
-  margin-top: 3%;
+  margin-top: 4%;
 }
 
 .present-place {
-  margin-top: 3%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
-.present-county {
-  margin-right: 3%;
+.present-country {
+  margin-right: 2%;
+  margin-bottom: 2%;
 }
 
 @media (max-width: 510px) {
@@ -1876,21 +2570,6 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.page-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.page-Btn {
-  border: 1px solid;
-  text-align: center;
-  line-height: 20px;
-  margin: 0.5%;
-  width: 25px;
-  height: 25px;
 }
 
 .travelpage-main-content {
@@ -1956,7 +2635,9 @@ button {
   padding: 2% 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border: 1px solid;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 10px #ddddddf5;
+          box-shadow: 3px 3px 10px #ddddddf5;
 }
 
 @media (max-width: 768px) {
@@ -1968,22 +2649,48 @@ button {
 }
 
 .travelpage-message-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   padding: 1% 0;
+  border-radius: 5px;
+  border: 1px solid;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 2%;
+}
+
+.travelpage-message-content-left {
+  margin-left: 2%;
+  margin-right: 1%;
+}
+
+.travelpage-message-content-left img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.travelpage-message-content-right {
+  width: 100%;
 }
 
 .travelpage-message-text {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   font-size: 1.2rem;
   margin-left: 2%;
+  margin-bottom: 2%;
 }
 
 .travelpage-message-memo {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   line-height: 1.2rem;
   margin: 0 2%;
   padding-bottom: 1%;
-  border-bottom: 1px solid;
 }
 
 .travelpage-message-title {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1992,6 +2699,10 @@ button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.travelpage-message-time {
+  font-size: 0.8rem;
 }
 
 .travelpage-message-btn {
@@ -2575,20 +3286,18 @@ button {
 
 .like-btn {
   position: absolute;
-  top: 8%;
+  top: 5%;
+  padding: 3.5%;
+  border-radius: 50%;
   z-index: 30;
-  right: 10%;
-  font-size: 1.5rem;
+  right: 8%;
+  font-size: 1.8rem;
   color: #fff;
-}
-
-.btn-active {
-  background-color: #7b9a48;
 }
 
 .footer {
   height: 200px;
-  background: gray;
+  background-color: #7b9a48;
 }
 
 .footer-content {
@@ -2856,6 +3565,48 @@ button {
   background-color: gray;
 }
 
+.page-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page-Btn {
+  border-radius: 50%;
+  background: #c7c7c7;
+  color: #fff;
+  text-align: center;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.page-Btn:hover {
+  background: #b8cf92;
+}
+
+.Add-page, .Less-page {
+  color: #7b9a48;
+  border-radius: 50%;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  border: 1px solid #7b9a48;
+  text-align: center;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.btn-active {
+  background-color: #7b9a48;
+  color: #fff;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
 .food-main-title {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   font-size: 1.5rem;
@@ -3009,14 +3760,22 @@ button {
   height: 200px;
   margin-bottom: 2%;
   max-width: 45%;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
   border: 1px solid #fff;
   box-sizing: border-box;
   border-radius: 5px;
 }
 
 .food-card:hover {
-  -webkit-box-shadow: -2px 0px 10px #ccccccf5;
-          box-shadow: -2px 0px 10px #ccccccf5;
+  -webkit-box-shadow: 3px 3px 8px #a3a2a2;
+          box-shadow: 3px 3px 8px #a3a2a2;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 @media (max-width: 768px) {
@@ -3052,15 +3811,6 @@ button {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 8px;
-  -webkit-transform: scale(1, 1);
-          transform: scale(1, 1);
-  -webkit-transition: all 1s;
-  transition: all 1s;
-}
-
-.food-img img:hover {
-  -webkit-transform: scale(1.06, 1.06);
-          transform: scale(1.06, 1.06);
 }
 
 .food-likebtn {
@@ -3068,7 +3818,8 @@ button {
 }
 
 .food-title {
-  font-size: 1.2rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-size: 1.5rem;
   margin: 3% 0;
 }
 
@@ -3084,14 +3835,17 @@ button {
 }
 
 .food-textcontent {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin-top: 3%;
 }
 
 .food-tel {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin: 3% 0;
 }
 
 .food-place {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin: 3% 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3099,6 +3853,7 @@ button {
 }
 
 .food-country {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin-right: 3%;
 }
 
@@ -3108,6 +3863,7 @@ button {
 }
 
 .food-text {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   line-height: 1.2rem;
 }
 
@@ -3142,21 +3898,6 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.page-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.page-Btn {
-  border: 1px solid;
-  text-align: center;
-  line-height: 20px;
-  margin: 0.5%;
-  width: 25px;
-  height: 25px;
 }
 
 .foodpage-main-content {
@@ -3430,20 +4171,18 @@ button {
 
 .like-btn {
   position: absolute;
-  top: 8%;
+  top: 5%;
+  padding: 3.5%;
+  border-radius: 50%;
   z-index: 30;
-  right: 10%;
-  font-size: 1.5rem;
+  right: 8%;
+  font-size: 1.8rem;
   color: #fff;
-}
-
-.btn-active {
-  background-color: #7b9a48;
 }
 
 .footer {
   height: 200px;
-  background: gray;
+  background-color: #7b9a48;
 }
 
 .footer-content {
@@ -3711,6 +4450,48 @@ button {
   background-color: gray;
 }
 
+.page-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page-Btn {
+  border-radius: 50%;
+  background: #c7c7c7;
+  color: #fff;
+  text-align: center;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.page-Btn:hover {
+  background: #b8cf92;
+}
+
+.Add-page, .Less-page {
+  color: #7b9a48;
+  border-radius: 50%;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  border: 1px solid #7b9a48;
+  text-align: center;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.btn-active {
+  background-color: #7b9a48;
+  color: #fff;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
 .tag-bar {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -3733,6 +4514,7 @@ button {
 
 .tag-title {
   font-size: 1.5rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin-right: 2%;
   width: 100px;
   -webkit-box-pack: center;
@@ -3770,11 +4552,18 @@ button {
   margin: 0.5% 5px;
   width: 150px;
   text-align: center;
-  border: 1px solid;
+  border: 1px solid  #7b9a48;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 5px;
+  color: #7b9a48;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+.tag-Btn:hover {
+  background: #b8cf92;
+  color: #fff;
 }
 
 .journey-main-title {
@@ -3919,12 +4708,27 @@ button {
 
 .journey-card {
   position: relative;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 10px #ddddddf5;
+          box-shadow: 3px 3px 10px #ddddddf5;
   padding: 1% 1%;
   margin: 0.5%;
   margin-bottom: 2%;
   max-width: 300px;
-  border: 1px solid;
-  height: 450px;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  height: 490px;
+}
+
+.journey-card:hover {
+  -webkit-box-shadow: 3px 3px 8px #a3a2a2;
+          box-shadow: 3px 3px 8px #a3a2a2;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 @media (max-width: 600px) {
@@ -3937,9 +4741,10 @@ button {
 }
 
 .journey-img {
+  overflow: hidden;
   width: 100%;
   height: 60%;
-  background-color: gray;
+  border-radius: 5px;
 }
 
 .journey-img img {
@@ -3950,11 +4755,13 @@ button {
 }
 
 .journey-title {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin: 3% 0;
   font-size: 1.2rem;
 }
 
 .journey-main-content {
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3980,7 +4787,9 @@ button {
   text-align: center;
   width: 25%;
   margin: 1%;
-  border: 1px solid;
+  color: #7b9a48;
+  border-radius: 3px;
+  border: 1px solid  #a5b68c;
 }
 
 .journey-text {
@@ -3995,7 +4804,7 @@ button {
 }
 
 @media (max-width: 510px) {
-  .searchBar-County {
+  .searchBar-Country {
     margin-bottom: 5%;
   }
 }
@@ -4021,23 +4830,10 @@ button {
           align-items: center;
 }
 
-.page-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.page-Btn {
-  border: 1px solid;
-  text-align: center;
-  line-height: 20px;
-  margin: 0.5%;
-  width: 25px;
-  height: 25px;
-}
-
 .tag-active {
-  background-color: #9191a8;
+  background-color: #7b9a48;
+  border: 1px solid #7b9a48;
+  color: #fff;
 }
 
 .journeyPagination-main-content {
@@ -4295,20 +5091,18 @@ button {
 
 .like-btn {
   position: absolute;
-  top: 8%;
+  top: 5%;
+  padding: 3.5%;
+  border-radius: 50%;
   z-index: 30;
-  right: 10%;
-  font-size: 1.5rem;
+  right: 8%;
+  font-size: 1.8rem;
   color: #fff;
-}
-
-.btn-active {
-  background-color: #7b9a48;
 }
 
 .footer {
   height: 200px;
-  background: gray;
+  background-color: #7b9a48;
 }
 
 .footer-content {
@@ -4576,6 +5370,48 @@ button {
   background-color: gray;
 }
 
+.page-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page-Btn {
+  border-radius: 50%;
+  background: #c7c7c7;
+  color: #fff;
+  text-align: center;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.page-Btn:hover {
+  background: #b8cf92;
+}
+
+.Add-page, .Less-page {
+  color: #7b9a48;
+  border-radius: 50%;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  border: 1px solid #7b9a48;
+  text-align: center;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.btn-active {
+  background-color: #7b9a48;
+  color: #fff;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
 .news-main-title {
   margin-left: 8%;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
@@ -4620,8 +5456,8 @@ button {
 }
 
 .news-card:hover {
-  -webkit-box-shadow: -2px 0px 10px #ccccccf5;
-          box-shadow: -2px 0px 10px #ccccccf5;
+  -webkit-box-shadow: 3px 3px 8px #a3a2a2;
+          box-shadow: 3px 3px 8px #a3a2a2;
 }
 
 @media (max-width: 768px) {
@@ -4682,8 +5518,8 @@ button {
 }
 
 .news-img img:hover {
-  -webkit-transform: scale(1.06, 1.06);
-          transform: scale(1.06, 1.06);
+  -webkit-transform: scale(1.03, 1.03);
+          transform: scale(1.03, 1.03);
 }
 
 .news-title {
@@ -4741,21 +5577,6 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.page-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.page-Btn {
-  border: 1px solid;
-  text-align: center;
-  line-height: 20px;
-  margin: 0.5%;
-  width: 25px;
-  height: 25px;
 }
 
 .newspage-main-content {
@@ -5056,20 +5877,18 @@ button {
 
 .like-btn {
   position: absolute;
-  top: 8%;
+  top: 5%;
+  padding: 3.5%;
+  border-radius: 50%;
   z-index: 30;
-  right: 10%;
-  font-size: 1.5rem;
+  right: 8%;
+  font-size: 1.8rem;
   color: #fff;
-}
-
-.btn-active {
-  background-color: #7b9a48;
 }
 
 .footer {
   height: 200px;
-  background: gray;
+  background-color: #7b9a48;
 }
 
 .footer-content {
@@ -5337,6 +6156,48 @@ button {
   background-color: gray;
 }
 
+.page-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page-Btn {
+  border-radius: 50%;
+  background: #c7c7c7;
+  color: #fff;
+  text-align: center;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.page-Btn:hover {
+  background: #b8cf92;
+}
+
+.Add-page, .Less-page {
+  color: #7b9a48;
+  border-radius: 50%;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  border: 1px solid #7b9a48;
+  text-align: center;
+  line-height: 35px;
+  margin: 3px;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.btn-active {
+  background-color: #7b9a48;
+  color: #fff;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
 .wish-main-title {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   font-size: 1.5rem;
@@ -5560,20 +6421,5 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.page-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.page-Btn {
-  border: 1px solid;
-  text-align: center;
-  line-height: 20px;
-  margin: 0.5%;
-  width: 25px;
-  height: 25px;
 }
 /*# sourceMappingURL=all.css.map */

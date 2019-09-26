@@ -9,6 +9,7 @@
         display: block;
     }
 }
+
 .travelpage-left{
     margin:0 2%;    
     width: 100%;
@@ -37,8 +38,6 @@
     margin:0 2%;
     width: 80%;
     box-sizing: border-box;
-    //border: 1px solid gray;
-    //height: 600px;
     @include tab-size{
         margin: 0 auto;
         width: 90%;
@@ -52,7 +51,8 @@
     padding:2% 0;
     //padding: 5%;
     box-sizing: border-box;
-    border:1px solid;
+    border-radius:5px ;
+    box-shadow:3px 3px 10px #ddddddf5 ;
     @include tab-size{
         margin: 0 auto;
         margin-bottom:5%;
@@ -60,24 +60,55 @@
     }
 }
 .travelpage-message-content{
+    display: flex;
     padding:1% 0;
+    border-radius:5px ;
+    border:1px solid;
+    //box-shadow:3px 3px 10px #ddddddf5 ;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 2%;
+
+
 }
+
+.travelpage-message-content-left{
+    margin-left:2%;
+    margin-right:1%;
+    img{
+        width:80px;
+        height:80px;
+        border-radius: 50%;
+    }
+}
+.travelpage-message-content-right{
+width: 100%;
+}
+
+
 .travelpage-message-text{
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
     font-size: 1.2rem;
     margin-left:2%;
+    margin-bottom: 2%;
 
 }
 .travelpage-message-memo{
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
     line-height: 1.2rem;
     margin:0 2%;
     padding-bottom:1%;
-    border-bottom:1px solid;
+    //border-bottom:1px solid;
 }
 .travelpage-message-title{
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
     display:flex;
     font-size: 1.2rem;
     margin: 1% 2%;
     justify-content: space-between;
+}
+.travelpage-message-time{
+    font-size: 0.8rem;
 }
 .travelpage-message-btn{
    padding:1%;

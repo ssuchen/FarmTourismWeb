@@ -30,8 +30,7 @@
     box-sizing: border-box;
     border-radius: 5px;
     &:hover{
-    box-shadow:-2px 0px 10px #ccccccf5; 
-    //border:2px solid #b8cfb3f5; 
+    box-shadow: 3px 3px 8px #a3a2a2; 
     }
     @include tab-size{
         max-width: 100%;
@@ -68,7 +67,7 @@
       transform: scale(1,1);
       transition: all 1s;
       &:hover{
-          transform: scale(1.06,1.06);
+          transform: scale(1.03,1.03);
       }  
       
     }
@@ -114,17 +113,4 @@
     justify-content: center;
     margin:5% 0;
     align-items: center;
-}
-
-.page-list{
-    display: flex;
-}
-.page-Btn{
-    //background: gray;
-    border: 1px solid;
-    text-align: center;
-    line-height:20px;
-    margin: 0.5%;
-    width: 25px;
-    height: 25px;
 }

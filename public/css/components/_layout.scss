@@ -1,3 +1,6 @@
+// body{
+//     background-color: #f8f6ec;
+// }
 .nav-bar{
     background: #7b9a48;
     //padding:10px 0px;
@@ -104,18 +107,22 @@
 }
 .like-btn{
     position: absolute;
-    top:8%;
+    top:5%;
+    padding:3.5%;
+    //background-color: #fff;
+    border-radius: 50%;
+    //box-shadow: 1px 1px 2px #a3a2a2;
     z-index: 30;
-    right:10%;
-    font-size: 1.5rem;
+    right:8%;
+    font-size: 1.8rem;
     color: #fff;
+    //color:#86aa4c;   
+    //opacity: 0.7;
 }
-.btn-active{
-    background-color: #7b9a48;
-}
+
 .footer{
     height: 200px;
-    background: gray;
+    background-color: #7b9a48;
 } 
 .footer-content{
     margin:0 auto;
@@ -333,5 +340,44 @@
             background-color: gray;
         }    
 
+
+}
+.page-list{
+    display: flex;
+}
+
+.page-Btn{
+    border-radius: 50%;
+    background: rgb(199, 199, 199);
+    color:#fff;
+    //color: #7b9a48;
+    //border:1px solid #7b9a48 ;
+    text-align: center;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    line-height:35px;
+    margin:3px;
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    &:hover{
+    background:#b8cf92 ;
+    }
+}
+.Add-page,.Less-page{
+   color: #7b9a48;
+   border-radius: 50%;
+   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+   border:1px solid #7b9a48 ;
+   text-align: center;
+   line-height:35px;
+   margin:3px;
+   width:35px;
+   height: 35px;
+   vertical-align: middle;
+}
+.btn-active{
+    background-color: #7b9a48;
+    color: #fff;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
 
 }

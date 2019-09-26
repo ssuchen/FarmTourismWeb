@@ -103,12 +103,14 @@
     height: 200px;
     margin-bottom:2%;
     max-width: 45%;
+    transform: scale(0.95);
+    transition: transform 0.5s;
     border:1px solid #fff;
     box-sizing: border-box;
     border-radius: 5px;
     &:hover{
-    box-shadow:-2px 0px 10px #ccccccf5; 
-    //border:2px solid #b8cfb3f5; 
+        box-shadow: 3px 3px 8px #a3a2a2; 
+        transform: scale(1);
     }
     @include tab-size{
         max-width: 100%;
@@ -133,12 +135,6 @@
       height: 100%;
       object-fit: cover;
       border-radius: 8px; 
-      transform: scale(1,1);
-      transition: all 1s;
-      &:hover{
-          transform: scale(1.06,1.06);
-      } 
-    
     }
     width: 100%;
     height: 100%;
@@ -149,27 +145,32 @@
     left:5%;
 }
 .food-title{
-    font-size: 1.2rem;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+    font-size: 1.5rem;
     margin:3% 0 ;
 
 }
-.food-main-content{
+.food-main-content{   
     display: flex;
     justify-content:center;
     flex-wrap: wrap;
 }
 .food-textcontent{
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
     margin-top:3%;
 }
 .food-tel{
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
     margin:3% 0 ;
 
 }
 .food-place{
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
     margin:3% 0; 
     display: flex;
 }
 .food-country{
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
     margin-right:3%; 
 }
 .food-address{
@@ -177,6 +178,7 @@
     line-height: 1.2rem;
 }
 .food-text{
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
     line-height: 1.2rem;
 }
 .searchBar-Area{
@@ -202,15 +204,3 @@
     align-items: center;
 }
 
-.page-list{
-    display: flex;
-}
-.page-Btn{
-    //background: gray;
-    border: 1px solid;
-    text-align: center;
-    line-height:20px;
-    margin: 0.5%;
-    width: 25px;
-    height: 25px;
-}

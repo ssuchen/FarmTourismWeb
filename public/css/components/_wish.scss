@@ -140,6 +140,7 @@
     background:#fff;
     &:active{
         background: gray;
+       
     }
 }
 .page-bar{
@@ -149,15 +150,5 @@
     align-items: center;
 }
 
-.page-list{
-    display: flex;
-}
-.page-Btn{
-    //background: gray;
-    border: 1px solid;
-    text-align: center;
-    line-height:20px;
-    margin: 0.5%;
-    width: 25px;
-    height: 25px;
-}
+
+

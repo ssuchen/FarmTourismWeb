@@ -24,11 +24,12 @@ travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
         db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
             if(snapshop.docs==""){
                 db.collection("user").doc().set({
-                email: userEmail 
+                email: userEmail,
+                photo: userPhoto 
                 })
             }
         })
-
+        console.log(userPhoto)
         
     }
     else{
@@ -87,7 +88,7 @@ function presentRender(data){
                 presentPlace.setAttribute('class','present-place');
                 
             let presentCounty = document.createElement('div');
-                presentCounty.setAttribute('class','presentCountry');
+                presentCounty.setAttribute('class','present-country');
                 presentCounty.textContent = Place +" | ";
 
             let presentText = document.createElement('div');
@@ -245,7 +246,7 @@ function presentRender(data){
             +'" class="present-card"><div class="present-img"><img src="'+ photo 
             +'"><i class="far fa-heart like-btn" id= '+ id +
             '></i></div><div class="present-title">'+ name 
-            +'</div><div class="present-place"><div class="presentCounty">'+ Place
+            +'</div><div class="present-place"><div class="present-country">'+ Place
             +' | </div><div class="present-text">'+ ProduceOrg +'</div></div></a>';
        
         }          
@@ -386,7 +387,7 @@ function presentRender(data){
         +'" class="present-card"><div class="present-img"><img src="'+ photo 
         +'"><i class="far fa-heart like-btn" id= '+ id +
         '></i></div><div class="present-title">'+ name 
-        +'</div><div class="present-place"><div class="presentCounty">'+ Place
+        +'</div><div class="present-place"><div class="present-country">'+ Place
         +' | </div><div class="present-text">'+ ProduceOrg +'</div></div></a>';
     let presentMainContent = document.querySelector('.present-main-content');
         presentMainContent.innerHTML = str;

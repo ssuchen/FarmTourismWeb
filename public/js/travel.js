@@ -7,17 +7,20 @@ firebase.auth().onAuthStateChanged(function(user){
             console.log(user)
             userName = user.displayName; 
             userEmail = user.email
+            userPhoto = user.photoURL; 
             //console.log(userName)
             //console.log(userEmail)
             //設定一個user欄位 給他
             db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
                 if(snapshop.docs==""){
                     db.collection("user").doc().set({
-                    email: userEmail 
+                    email: userEmail,
+                    photo: userPhoto 
+                    
                     })
                 }
             })
-
+            console.log(userPhoto)
     }
     else{
     console.log("no")

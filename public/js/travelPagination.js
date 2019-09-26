@@ -125,13 +125,23 @@ function travelpageRender(data){
                 let name = MessageArr[i].name
                 let time = MessageArr[i].time
                 let text = MessageArr[i].text
-                               
+                let photo = MessageArr[i].photo               
                //============================
                //留言板功能
                let travelpageMessage = document.querySelector(".travelpage-message");
              
                let travelpageMessageContent = document.createElement("div");
                travelpageMessageContent.setAttribute("class","travelpage-message-content");
+
+               let travelpageMessageContentRight = document.createElement("div");
+               travelpageMessageContentRight.setAttribute("class","travelpage-message-content-right");
+               //let ContentleftImg = document.createElement("div")
+              // ContentleftImg.setAttribute("src","https://lh3.googleusercontent.com/a-/AAuE7mAxk116vUO0nKbU2d3TxEZwM4qMCKDOFiDuZd67");
+               let leftImg= document.createElement("img")
+               leftImg.setAttribute("src",photo)
+
+               let travelpageMessageContentLeft = document.createElement("div");
+               travelpageMessageContentLeft.setAttribute("class","travelpage-message-content-left");
 
                let travelpageMessageTitle = document.createElement("div");
                travelpageMessageTitle.setAttribute("class","travelpage-message-title");
@@ -150,10 +160,17 @@ function travelpageRender(data){
 
                //留言版功能
                travelpageMessage.appendChild(travelpageMessageContent);
-               travelpageMessageContent.appendChild(travelpageMessageTitle);
+               travelpageMessageContent.appendChild(travelpageMessageContentLeft);
+               travelpageMessageContent.appendChild(travelpageMessageContentRight);
+               //travelpageMessageContentleft.appendChild(ContentleftImg);
+               travelpageMessageContentLeft.appendChild(leftImg)
+
+
+               travelpageMessageContentRight.appendChild(travelpageMessageTitle);
+               
                travelpageMessageTitle.appendChild(travelpageMessageName);
                travelpageMessageTitle.appendChild(travelpageMessageTime);
-               travelpageMessageContent.appendChild(travelpageMessageMemo);
+               travelpageMessageContentRight.appendChild(travelpageMessageMemo);
 
             }
 
@@ -283,7 +300,7 @@ function pushMessage(){
     messagedoc.set({
         id:UrlString,
         name:userName,
-        // name:"test",
+        photo:userPhoto,
         text:commentInputValue,
         time:Today.getFullYear()+"."+ (Today.getMonth()+1 )+"." + Today.getDate() 
     });
