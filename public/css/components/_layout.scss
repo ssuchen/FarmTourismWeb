@@ -21,11 +21,18 @@
 .title{
     //background-color: gray;
     //background: gray;
-   background-image: url(../img/change.jpg);
-    background-position: center center;
-    background-size: cover;
-    height: 350px;
-    max-width:100%; 
+  // background-image: url(../img/0828_版型-04.png);
+   // background-position: center center;
+    //background-size: cover;
+   //height: 490px;
+   background-color: #fff;
+    display: flex;
+    justify-content: center;
+    //padding:5% 0;
+    img{
+        width: 960px;
+        //max-width: 960px;
+    }
   
 }
 .menu{
@@ -51,7 +58,7 @@
   
     max-width:1000px;
     margin:0 auto;
-    margin-top:-3%;
+    margin-top:3%;
     margin-bottom:3%;
     display: flex;
 }

@@ -88,17 +88,23 @@ button {
 }
 
 .title {
-  background-image: url(../img/change.jpg);
-  background-position: center center;
-  background-size: cover;
-  height: 350px;
-  max-width: 100%;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.title img {
+  width: 960px;
 }
 
 .menu {
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: -3%;
+  margin-top: 3%;
   margin-bottom: 3%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -551,7 +557,10 @@ body {
 .index-main-title {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   font-size: 1.5rem;
-  padding-bottom: 2%;
+}
+
+.index-main-title img {
+  width: 220px;
 }
 
 .index-main-crad {
@@ -604,24 +613,29 @@ body {
 }
 
 .index-more-btn {
-  padding: 2% 3%;
+  height: 30px;
+  width: 120px;
+  line-height: 30px;
   text-align: center;
-  border: 2px solid  #7b9a48;
-  color: #7b9a48;
-  border-radius: 5px;
-  width: 50px;
+  color: #fff;
+  background-color: #7b9a48;
+  border: 2px solid #7b9a48;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
 .index-more-btn a {
-  color: #7b9a48;
-}
-
-.index-more-btn a:hover {
   color: #fff;
 }
 
+.index-more-btn a :hover {
+  color: #7b9a48;
+}
+
 .index-more-btn:hover {
-  background-color: #7b9a48;
+  border: 2px solid  #b8cf92;
+  background: #b8cf92;
 }
 
 .index-about {
@@ -665,6 +679,10 @@ body {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
+.index-about-title img {
+  max-width: 220px;
+}
+
 .index-about-content {
   line-height: 1.5rem;
 }
@@ -678,6 +696,10 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   margin-bottom: -0.3%;
+}
+
+.img-fix img {
+  width: 960px;
 }
 
 .index-play {
@@ -694,8 +716,12 @@ body {
 .index-play-title {
   text-align: center;
   font-size: 1.5rem;
-  margin: 3% 0;
+  margin-top: 3%;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+.index-play-title img {
+  max-width: 210px;
 }
 
 .index-play-img {
@@ -720,8 +746,8 @@ body {
   width: 100%;
   height: 200px;
   border-radius: 10px;
-  padding-bottom: 5%;
   margin: 0 2%;
+  margin-bottom: 5%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -744,17 +770,23 @@ body {
 }
 
 .title {
-  background-image: url(../img/change.jpg);
-  background-position: center center;
-  background-size: cover;
-  height: 350px;
-  max-width: 100%;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.title img {
+  width: 960px;
 }
 
 .menu {
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: -3%;
+  margin-top: 3%;
   margin-bottom: 3%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1187,17 +1219,23 @@ body {
 }
 
 .title {
-  background-image: url(../img/change.jpg);
-  background-position: center center;
-  background-size: cover;
-  height: 350px;
-  max-width: 100%;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.title img {
+  width: 960px;
 }
 
 .menu {
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: -3%;
+  margin-top: 3%;
   margin-bottom: 3%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1889,17 +1927,23 @@ body {
 }
 
 .title {
-  background-image: url(../img/change.jpg);
-  background-position: center center;
-  background-size: cover;
-  height: 350px;
-  max-width: 100%;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.title img {
+  width: 960px;
 }
 
 .menu {
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: -3%;
+  margin-top: 3%;
   margin-bottom: 3%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3182,17 +3226,23 @@ body {
 }
 
 .title {
-  background-image: url(../img/change.jpg);
-  background-position: center center;
-  background-size: cover;
-  height: 350px;
-  max-width: 100%;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.title img {
+  width: 960px;
 }
 
 .menu {
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: -3%;
+  margin-top: 3%;
   margin-bottom: 3%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4067,17 +4117,23 @@ body {
 }
 
 .title {
-  background-image: url(../img/change.jpg);
-  background-position: center center;
-  background-size: cover;
-  height: 350px;
-  max-width: 100%;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.title img {
+  width: 960px;
 }
 
 .menu {
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: -3%;
+  margin-top: 3%;
   margin-bottom: 3%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4987,17 +5043,23 @@ body {
 }
 
 .title {
-  background-image: url(../img/change.jpg);
-  background-position: center center;
-  background-size: cover;
-  height: 350px;
-  max-width: 100%;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.title img {
+  width: 960px;
 }
 
 .menu {
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: -3%;
+  margin-top: 3%;
   margin-bottom: 3%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5773,17 +5835,23 @@ body {
 }
 
 .title {
-  background-image: url(../img/change.jpg);
-  background-position: center center;
-  background-size: cover;
-  height: 350px;
-  max-width: 100%;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.title img {
+  width: 960px;
 }
 
 .menu {
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: -3%;
+  margin-top: 3%;
   margin-bottom: 3%;
   display: -webkit-box;
   display: -ms-flexbox;
