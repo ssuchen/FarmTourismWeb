@@ -22,13 +22,14 @@ console.log(user)
 
         //設定一個user欄位 給他
         db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
-            if(snapshop.docs==""){
-                db.collection("user").doc().set({
-                email: userEmail 
-                })
-            }
+                    if(snapshop.docs==""){
+                        db.collection("user").doc().set({
+                        email: userEmail 
+                        })
+                    }
         })
-        
+
+
     }
     else{
     console.log("no")
