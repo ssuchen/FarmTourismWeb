@@ -12,39 +12,30 @@
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v4.0&appId=2413258078998505&autoLogAppEvents=1"></script>    
 <div class="wrap">
-      <div class=""> 
+<div class=""> 
         <div class="nav-bar">
         <div class="nav-bar-width"> 
-          <!-- <div class="" id="signOutBtn">signOutBtn</div>       -->
-          <div class=""><a href="wishList.html"><i class="far fa-heart  loginbtn-list">  我的清單</i></a></div>
-          <div class="logintext"><i class="far fa-user loginbtn-user">  登入</i></div>
-          <div class="logouttext "><i class="far fa-user logoutbtn-user">  登出</i></div>
-          <!-- <div class="logouttext loginStatus"><i class="far fa-user logoutbtn-user">  登出</i></div> -->
+          <div class="nav-bar-logo"><a href="index.html"><img src="img/LOGO-w-02.png" alt=""></a></div>
+          <div class="user-login">
+          <div class="user-wish"><a href="wishList.html"><i class="far fa-heart  loginbtn-list">  我的清單</i></a></div>
+          <div class="user-photo">
+            <!-- <img src="img/img_01.jpg" alt=""> -->
+          </div>
+          <div class="user-name"></div>
+          <div class="loginbtn-user" >登入</div>
+          <div class="logoutbtn-user" >登出</div>
+          </div>
+
+          
         </div>  
         </div> 
-        <div class="login-box-success ">
-          <div class="login-box-success-btn">
-            <i class="login-box-btn-text fas fa-times"></i>
-          </div>
-         <div class=""> 登入成功!!</div>
-        </div>
-        <div class="logout-box-success ">
-          <div class="logout-box-success-btn">
-            <i class="logout-box-success-text fas fa-times"></i>
-          </div>
-          <div class=""> 登出成功!!</div>
-        </div>             
-        <div class="login-box">
-        <div class="login-box-btn">
-          <i class="login-box-btn-text fas fa-times"></i>
-        </div>
-            <h1>請登入帳號</h1>
-            <div class="signinBtn">            
-            <button id = "googleSingUpPopup">使用google登入</button>
-            <button id = "faceSingUpPopup">使用facebook登入</button>
-        </div>
-            
-        </div>
+        <ul class="new-menu">
+          <a href="news.html"><li>最新消息</li></a>
+          <a href="present.html"><li>農村伴手禮</li></a>
+          <a href="travel.html"><li> 休閒農業區</li></a>
+          <a href="journey.html"><li>農村小旅行</li></a>
+          <a href="food.html"><li>農村特色小吃</li></a>
+        </ul> 
       <div class="mobile-menu">
                 <div class="mobile-menu-title">
                 <div class="">
@@ -61,16 +52,35 @@
                 <a href="food.html"><li>農村特色小吃</li></a>
             </ul>    
       </div>
-    <div class="title">
+      <div class="banner banner-1">
+      </div>
+    <!-- <div class="title">
         <img src="img/banner_png-01.png" alt="">
-    </div>
-    <ul class="menu">
+    </div> -->
+    <!-- <ul class="menu">
       <a href="present.html"><li>農村伴手禮</li></a>
       <a href="travel.html"><li> 休閒農業區</li></a>
       <a href="journey.html"><li>農村小旅行</li></a>
       <a href="food.html"><li>農村特色小吃</li></a>
-    </ul> 
-    <div class="index-main">
+    </ul>  -->
+    <div class="img-logo-bg">
+    <div class="img-logo "><img src="img/pic_banner-02.png" alt=""></div></div> 
+    <!-- <div class="img-fix fix-index-top"><img src="img/new_banner-04.png" alt=""></div> -->
+    <div class="index-photobar-bg">
+    <div class="index-photobar">      
+    <!-- <div class="index-photobar-title">農村推薦體驗
+      <div class="">找到鄉村生活的樂趣</div>
+    </div> -->
+      <!-- <div class="index-play-title"><img src="img/專案字體-04.svg" alt=""></div> -->
+    <div class="index-photobar-img">
+        <div class=""><img src="img/summer-7.jpg" alt="">鄉村畜牧</div>
+        <div class=""><img src="img/summer-6.jpg" alt="">農食教育</div>
+        <div class=""><img src="img/summer-2.jpg" alt="">農園觀光</div>
+        <div class=""><img src="img/summer-3.jpg" alt="">鄉村體驗</div>
+    </div>
+    </div>
+    </div>
+    <div class="index-main">        
         <div class="index-main-left">
          <!-- <div class="">臉書粉絲團</div> -->
          <div class="fb-blog">               
@@ -94,39 +104,53 @@
           </div>
         </div>        
     </div>
-    <div class="img-fix"><img src="img/banner_png-02.png" alt=""></div>
+    <div class="banner banner-2">
+    </div>
     <div class="index-about-bg">
       <div class="index-about">
             <div class="index-about-img"></div>
             <div class="index-about-text">
               <!-- <div class="index-about-title">關於農村小旅行</div> -->
               <div class="index-about-title"><img src="img/專案字體-03.svg" alt=""></div>
-              <div class="">test!test!test</div>
               <div class="index-about-content">台灣地區多山的環境特質，孕育著豐富與多元化的自然資源，行政院農業委員會水土保持局自76年起以鄉（鎮、市、區）為對象，依各地區特性規劃產業發展、維護公共設施、改善生活環境、保護文物設施及環境等，
                 各社區秉持坡地農村既有資源，發展出不同特色。在資訊多元發展潮流中，資訊傳播已融入現代生活，有鑑於此，水土保持局以網路社群為媒介，
                 建置本網站，將各區之水土保持治理成果、景觀、生態、體驗、故事等特色，透過網站推廣至全國民眾。</div>
             </div>
       </div>
-      <div class="img-fix"><img src="img/banner_png-03.png" alt=""></div>
     </div>
-
+    <!-- <div class="img-fix fix-index-bottom"><img src="img/banner-png-03.png" alt=""></div> -->
     <div class="index-play-bg">
-          <div class="index-play">
+      <div class="img-fix fix-index-top"><img src="img/new_banner-04.png" alt=""></div>
+      <div class="index-play">      
       <!-- <div class="index-play-title">農村推薦體驗</div> -->
       <div class="index-play-title"><img src="img/專案字體-04.svg" alt=""></div>
-      <div class="index-play-img">
-        <div class=""><img src="img/img_01.jpg" alt="">農食教育</div>
-        <div class=""><img src="img/img_02.jpg" alt="">鄉村畜牧</div>
-        <div class=""><img src="img/img_03.jpg" alt="">農園觀光</div>
+      <div class="index-photo-bar">
+        <div class="index-play-left-btn">
+          <i class="fas fa-angle-left"></i>
+        </div>
+        <div class="index-play-img">
+          <div class=""><img src="img/img_01.jpg" alt=""></div>
+          <div class=""><img src="img/play-02.jpg" alt=""></div>
+          <div class=""><img src="img/play-06.jpg" alt=""></div>
+          <div class=""><img src="img/play-03.jpg" alt=""></div>
+          <div class=""><img src="img/play-01.jpg" alt=""></div>
+          <div class=""><img src="img/img_03.jpg" alt=""></div>
+          <div class=""><img src="img/play-05.jpg" alt=""></div>
+        </div>
+        <div class="index-play-right-btn">
+          <i class="fas fa-angle-right"></i>
+       </div>
       </div>
+      
       </div>
-      <div class="img-fix"><img src="img/banner_png-04.png" alt=""></div>
+      <div class="img-fix fix-index-top"><img src="img/new_banner-05.png" alt=""></div>
     </div>
-
+    
     <div class="footer">
         <div class="footer-content">
             <div class="footer-content-title">探索農村小旅行</div>
             <ul class="footer-content-left">
+              
                <li>地址</li>
                <li>電話</li>
                <li>服務時間</li>
@@ -139,6 +163,31 @@
         </div>
        
     </div>
+
+    <!-- 載入彈跳視窗 -->
+    <div class="login-box-success ">
+      <div class="login-box-success-btn">
+        <i class="login-box-btn-text fas fa-times"></i>
+      </div>
+     <div class=""> 登入成功!!</div>
+    </div>
+    <div class="logout-box-success ">
+      <div class="logout-box-success-btn">
+        <i class="logout-box-success-text fas fa-times"></i>
+      </div>
+      <div class=""> 登出成功!!</div>
+    </div>             
+    <div class="login-box">
+    <div class="login-box-btn">
+      <i class="login-box-btn-text fas fa-times"></i>
+    </div>
+        <h1>請登入帳號</h1>
+        <div class="signinBtn">            
+        <button id = "googleSingUpPopup">使用google登入</button>
+        <button id = "faceSingUpPopup">使用facebook登入</button>
+    </div>
+        
+    </div>
 </div>
 <!-- 載入 firebase -->
 <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
@@ -149,5 +198,10 @@
 <script src="js/all.js"></script>
 <script src="js/login_firebase_sdk.js"></script>
 <script src="js/index.js"></script>
+<!-- 輪播效果外掛 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">
+</script>
+<script src="https://cdn.rawgit.com/malsup/cycle2/master/build/jquery.cycle2.js"></script>
+
 
 </html>

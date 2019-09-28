@@ -1,13 +1,12 @@
 //============================
 //  留言按鈕 判斷是否有登入會員 
 //============================
-
-travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
 // 有登入時 留言按鈕出現
- userName
- userEmail
- userPhoto
- user
+userName
+userEmail
+userPhoto
+user
+travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
  console.log(user)
  firebase.auth().onAuthStateChanged(function(user){
     if(user != null){
@@ -24,10 +23,27 @@ travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
         db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
                 if(snapshop.docs==""){
                     db.collection("user").doc().set({
-                    email: userEmail 
+                    email: userEmail,
+                    photo: userPhoto 
                     })
                 }
         })    
+        
+        //將大頭照放入 navbar
+        let navphoto = document.querySelector(".user-photo");
+        let navimg = document.createElement("img");
+        navimg.setAttribute("src",userPhoto);
+        navphoto.appendChild(navimg)
+
+        //將名子放入 navbar
+        let navname = document.querySelector(".user-name");
+        let navnameDiv = document.createElement("div");
+        navnameDiv.textContent = userName +"  你好!";
+        console.log(userName)
+        navname.appendChild(navnameDiv);
+        //navnameDiv.setAttribute("class","navname-Div");
+
+        
 
         
     }
@@ -80,7 +96,7 @@ for( let i=0; i<5 ;i++ ){
          cardTitle.setAttribute('class','card-title');
          cardTitle.textContent = title;
      let cardText = document.createElement('a');
-         cardText.setAttribute('href',"#");
+         cardText.setAttribute('href',"newsPagination.html?id="+id);
          cardText.setAttribute('class','card-Text');
          cardText.textContent = text ;
      let cardTime = document.createElement('p');
@@ -101,3 +117,22 @@ for( let i=0; i<5 ;i++ ){
  
 
 }
+
+
+//右移的按鈕
+let RightBtn = document.querySelector(".index-play-right-btn");
+    RightBtn.addEventListener("click",function(){
+    let scroll = document.querySelector(".index-play-img")
+        scroll.scrollLeft += 300 ; 
+})
+
+//左移的按鈕
+let LeftBtn = document.querySelector(".index-play-left-btn");
+    LeftBtn.addEventListener("click",function(){
+        let scroll = document.querySelector(".index-play-img")
+            scroll.scrollLeft -= 300 ; 
+    })
+
+//輪播效果
+
+

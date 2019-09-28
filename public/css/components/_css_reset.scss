@@ -53,10 +53,13 @@ a{
 button{
 	padding: 0;
     margin: 0;
-    border: 1px solid transparent;
+    //border: 1px solid transparent;
 	outline: none;
 	font-weight:0;
 	background-color:#fff;
 	font-size: 1rem;
 	box-sizing:content-box;
+}
+select{
+	border:0px;
 }

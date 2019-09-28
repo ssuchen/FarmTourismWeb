@@ -24,7 +24,8 @@ console.log(user)
         db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
                     if(snapshop.docs==""){
                         db.collection("user").doc().set({
-                        email: userEmail 
+                        email: userEmail,
+                        photo: userPhoto 
                         })
                     }
         })

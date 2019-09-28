@@ -2,9 +2,11 @@
 //     background-color: #f8f6ec;
 // }
 .nav-bar{
+    z-index: 51;
     background: #7b9a48;
-    //padding:10px 0px;
-    height: 50px;
+    width: 100%;
+    position: fixed;
+    height: 46px;
     @include tab-size-s{
        // display:none;
     }
@@ -13,18 +15,41 @@
 .nav-bar-width{
     margin:0 auto;
     max-width: 1000px;
-    padding: 1%;
+    //padding: 1%;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    justify-content:space-between;
+
+}
+.nav-bar-logo{
+    img{
+     height: 38px;    
+    }
+   
+}
+.user-login{
+    height: 50px;
+    align-items: center;
     display: flex;
     justify-content: flex-end;
 
 }
+.user-photo{
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #3a5215;
+    img{
+        width: 32px;
+        height: 32px;
+    }
+}
+
 .title{
-    //background-color: gray;
-    //background: gray;
-  // background-image: url(../img/0828_版型-04.png);
-   // background-position: center center;
-    //background-size: cover;
-   //height: 490px;
    background-color: #fff;
     display: flex;
     justify-content: center;
@@ -52,7 +77,8 @@
         font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
         text-align: center;
         &:hover{
-            background: #a7a7a7;
+            background: #c9e49d;
+            color: #3a5215;
         }
     }
   
@@ -61,6 +87,33 @@
     margin-top:3%;
     margin-bottom:3%;
     display: flex;
+}
+.new-menu{
+   z-index: 50;
+   margin-top:46px;
+   width: 100%;
+   position: fixed;
+   display: flex; 
+   height: 65px;
+   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+   justify-content:center;
+   background-color: #fff;
+   font-size: 1.1rem;
+   letter-spacing: 0.1rem;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
+   a{
+    width: 230px;
+    border-bottom:6px solid  #fff;
+    &:hover{
+    border-bottom:6px solid  #c9e49d;    
+    }
+   }
+   li{
+       line-height: 65px;
+       text-align: center;
+       
+   }
+   
 }
 .mobile-menu-title{
     display: none;
@@ -87,7 +140,7 @@
 .mobile-menu-list{
     display: block;
     height: 0;
-    background: #a7a7a7;
+    //background: #a7a7a7;
     transition: all 0.5s;  
     overflow: hidden;
     li{
@@ -150,12 +203,16 @@
         padding:0 2%;
     }
 }
+
 .footer-content-title{
     margin-top:10px;
 }
-.loginbtn-user,.loginbtn-list{
+.loginbtn-list{
+    padding-top:1%;
+    line-height: 60px;
+}
+.loginbtn-user,.loginbtn-list,.user-name{
     padding:0 10px;
-    margin-top:2%;
     cursor: pointer;
     font-family: Arial,"微軟正黑體", "新細明體", sans-serif; 
     color: #fff;
@@ -164,19 +221,42 @@
         font-family:"Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
         }
 
-    @include tab-size{
-        margin-top:10px; 
-    }    
+    // @include tab-size{
+    //     margin-top:10px; 
+    // }    
     @include tab-size-s{
       top:120px;
     }
 }
+.user-wish{
+    padding-top:0.5%; 
+    font-family: "微軟正黑體", "新細明體", sans-serif; 
+    width: 120px;    
+}
+.user-name{
+padding-top:0.5%;    
+}
 
+.loginbtn-user,.logoutbtn-user{
+
+  padding: 0.5%;
+  padding-top:2.5%;
+  width: 60px;
+  text-align: center;
+  padding-bottom:2.5%;
+
+
+  border:1px solid #fff;
+  border-radius: 30px;
+  &:hover{
+      background-color: #fff;
+      color:  #7b9a48;
+  }
+}
 .logoutbtn-user{
-    //display: none;
-    display: block;
-    padding:0 10px;
-    margin-top:2%;
+    display: none;
+    //padding:0 10px;
+    //margin-top:2%;
     cursor: pointer;
     font-family: Arial,"微軟正黑體", "新細明體", sans-serif; 
     color: #fff;
@@ -215,8 +295,8 @@
     }
 }
 .loginStatus{
-   // display: none;
-   display: block;
+   display: none;
+   //display: block;
 }
 
 //登出成功視窗
@@ -331,7 +411,7 @@
     margin-bottom:5%;
     cursor: pointer;
     &:hover{
-        background-color: gray;
+        background-color: #b8cf92;
     }
 }
 
@@ -387,4 +467,19 @@
     color: #fff;
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
 
+}
+.searchBar-Area{
+    font-size: 1.1rem;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    // &:hover{
+    // background:#b8cf92 ;   
+    // }
+}
+.searchBar-Country{
+    font-size: 1.1rem;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+}
+.searchBar-Btn{
+    font-size: 1.1rem;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
 }

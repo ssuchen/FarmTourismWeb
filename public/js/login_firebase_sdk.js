@@ -27,29 +27,16 @@ let provider
 
 firebase.auth().onAuthStateChanged(function(user){
 if(user != null){
+  ChangeUserIn()
+  //loginSuccess()
     //user = firebase.auth.currentUser;
     //console.log(user)
     userName = user.displayName; 
    // console.log(userName)
-
-    // firebase.auth().signInWithPopup(provider).then(function(result) {
-    // // This gives you a Google Access Token.
-    // let token = result.credential.accessToken;
-    // // The signed-in user info.
-    // let user = result.user;
-    // console.log(user)
-    // userName = user.displayName; 
-    // console.log(userName)
-    // userEmail = user.email;
-    // console.log(userEmail)
-    // userPhoto = user.photoURL;  
-    // console.log(userPhoto) 
-
-    // });
-           
 }
 else{
   console.log("no")
+  
 }
 
 })
@@ -117,6 +104,7 @@ signOutbtn.onclick = function(){
     //checkLogin();
     console.log("已登出")
     location.reload()
+    //logoutSuccess();
     // Sign-out successful.
     let token = result.credential.accessToken;
     // ChangeUserOut();
@@ -159,9 +147,11 @@ let loginBox
 window.onload = function(){
        loginBox = document.querySelector(".login-box"); 
 } 
+
+
 let loginBtn = document.querySelector('.loginbtn-user');    
     loginBtn.addEventListener('click',function(){ 
-        loginBox.style.display="block";
+      loginBox.style.display="block";
     });
 
 let loginBoxBtn = document.querySelector(".login-box-btn");
@@ -203,18 +193,10 @@ let logoutBoxSuccessBtn = document.querySelector(".logout-box-success-btn");
 
 //當登入成功時 "登入" 文字更改成 "登出"
 function ChangeUserIn(){
-  let loginText = document.querySelector(".logintext");
-  let logoutText = document.querySelector(".logouttext");
-  loginText.classList.add("loginStatus");
-  logoutText.classList.remove("loginStatus");
-}
-
-//當登出成功時 "登出" 文字更改成 "登入"
-function ChangeUserOut(){
-  let loginText = document.querySelector(".logintext");
-  let logoutText = document.querySelector(".logouttext");
-  logoutText.classList.add("loginStatus");
-  loginText.classList.remove("loginStatus");
+  let logintext = document.querySelector(".loginbtn-user");
+  logintext.style.display="none"
+  let logouttext = document.querySelector(".logoutbtn-user");
+  logouttext.style.display="block"
 }
 
 //===================================
@@ -222,11 +204,12 @@ function ChangeUserOut(){
   
 
 //判斷會員是否登入
-// let user = firebase.auth().currentUser;
+// user = firebase.auth().currentUser;
 // if (user) {
 //   console.log(UserToken) 
 //   ChangeUserIn()
 // } else {
 //   console.log(UserToken) 
+//   ChangeUserOut()
 //   // No user is signed in.
 // }

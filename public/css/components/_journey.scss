@@ -86,7 +86,6 @@
     select{
     width: 100%; 
     padding:1%; 
-    border:1px solid; 
     text-align: center;
     text-align-last: center;
 
@@ -108,7 +107,7 @@
     div{
     width: 100%;
     padding:1%;
-    border:1px solid;
+    //border:1px solid;
     @include phone-size{
       width: auto;
       padding:2%;
@@ -147,6 +146,7 @@
 .journey-card{
     position: relative;
     border-radius: 5px;
+    background-color: #fff;
     box-shadow:3px 3px 10px #ddddddf5;
     padding:1% 1%;
     margin:0.5%;
