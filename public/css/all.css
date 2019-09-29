@@ -351,6 +351,12 @@ select {
   width: 230px;
 }
 
+@media (max-width: 600px) {
+  .footer-content-title {
+    display: none;
+  }
+}
+
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
@@ -374,10 +380,22 @@ select {
   }
 }
 
+@media (max-width: 680px) {
+  .loginbtn-user, .loginbtn-list, .user-name {
+    margin-right: 4%;
+  }
+}
+
 .user-wish {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+}
+
+@media (max-width: 680px) {
+  .user-wish {
+    width: 150px;
+  }
 }
 
 .user-name {
@@ -631,6 +649,12 @@ select {
   background: #ffe04c;
 }
 
+@media (max-width: 500px) {
+  .page-Btn {
+    display: none;
+  }
+}
+
 .Add-page, .Less-page {
   color: #7b9a48;
   border-radius: 50%;
@@ -648,6 +672,12 @@ select {
   background-color: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 500px) {
+  .btn-active {
+    display: block;
+  }
 }
 
 .searchBar-Area {
@@ -703,6 +733,12 @@ body {
   height: 600px;
   display: block;
   overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .scroll-bar {
+    height: 300px;
+  }
 }
 
 @-webkit-keyframes show {
@@ -766,6 +802,12 @@ body {
   width: 100%;
 }
 
+@media (max-width: 468px) {
+  .scroll-banner {
+    height: 300px;
+  }
+}
+
 .banner-1 {
   background-image: url(../img/banner-01.jpg);
 }
@@ -785,6 +827,12 @@ body {
 .banner {
   height: 400px;
   background-image: url(../img/banner-01.jpg);
+}
+
+@media (max-width: 468px) {
+  .banner {
+    height: 200px;
+  }
 }
 
 .index-main {
@@ -822,6 +870,13 @@ body {
   .index-main-right {
     width: 50%;
     padding: 3%;
+  }
+}
+
+@media (max-width: 600px) {
+  .index-main-right {
+    width: 100%;
+    padding-top: 5%;
   }
 }
 
@@ -870,6 +925,12 @@ body {
 @media (max-width: 768px) {
   .index-main-left {
     width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .index-main-left {
+    display: none;
   }
 }
 
@@ -942,6 +1003,12 @@ body {
   }
 }
 
+@media (max-width: 600px) {
+  .index-about-img {
+    margin: 0 auto;
+  }
+}
+
 .index-about-bg {
   background-color: #fff;
 }
@@ -962,6 +1029,13 @@ body {
 @media (max-width: 680px) {
   .index-about-text {
     width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .index-about-text {
+    margin: 0 5%;
+    width: 90%;
   }
 }
 
@@ -1022,6 +1096,12 @@ body {
 @media (max-width: 800px) {
   .img-logo img {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .img-logo img {
+    display: none;
   }
 }
 
@@ -1087,6 +1167,13 @@ body {
 @media (max-width: 1160px) {
   .index-play-img img {
     width: 280px;
+  }
+}
+
+@media (max-width: 468px) {
+  .index-play-img img {
+    width: 120px;
+    height: 120px;
   }
 }
 
@@ -1162,6 +1249,18 @@ body {
 @media (max-width: 680px) {
   .index-photobar-img img {
     height: 150px;
+  }
+}
+
+@media (max-width: 425px) {
+  .index-photobar-img img {
+    height: 80px;
+  }
+}
+
+@media (max-width: 425px) {
+  .index-photobar-img {
+    height: 100px;
   }
 }
 
@@ -1459,6 +1558,12 @@ body {
   width: 230px;
 }
 
+@media (max-width: 600px) {
+  .footer-content-title {
+    display: none;
+  }
+}
+
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
@@ -1482,10 +1587,22 @@ body {
   }
 }
 
+@media (max-width: 680px) {
+  .loginbtn-user, .loginbtn-list, .user-name {
+    margin-right: 4%;
+  }
+}
+
 .user-wish {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+}
+
+@media (max-width: 680px) {
+  .user-wish {
+    width: 150px;
+  }
 }
 
 .user-name {
@@ -1739,6 +1856,12 @@ body {
   background: #ffe04c;
 }
 
+@media (max-width: 500px) {
+  .page-Btn {
+    display: none;
+  }
+}
+
 .Add-page, .Less-page {
   color: #7b9a48;
   border-radius: 50%;
@@ -1756,6 +1879,12 @@ body {
   background-color: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 500px) {
+  .btn-active {
+    display: block;
+  }
 }
 
 .searchBar-Area {
@@ -2073,6 +2202,12 @@ body {
   width: 230px;
 }
 
+@media (max-width: 600px) {
+  .footer-content-title {
+    display: none;
+  }
+}
+
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
@@ -2096,10 +2231,22 @@ body {
   }
 }
 
+@media (max-width: 680px) {
+  .loginbtn-user, .loginbtn-list, .user-name {
+    margin-right: 4%;
+  }
+}
+
 .user-wish {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+}
+
+@media (max-width: 680px) {
+  .user-wish {
+    width: 150px;
+  }
 }
 
 .user-name {
@@ -2353,6 +2500,12 @@ body {
   background: #ffe04c;
 }
 
+@media (max-width: 500px) {
+  .page-Btn {
+    display: none;
+  }
+}
+
 .Add-page, .Less-page {
   color: #7b9a48;
   border-radius: 50%;
@@ -2370,6 +2523,12 @@ body {
   background-color: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 500px) {
+  .btn-active {
+    display: block;
+  }
 }
 
 .searchBar-Area {
@@ -2951,6 +3110,12 @@ body {
   width: 230px;
 }
 
+@media (max-width: 600px) {
+  .footer-content-title {
+    display: none;
+  }
+}
+
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
@@ -2974,10 +3139,22 @@ body {
   }
 }
 
+@media (max-width: 680px) {
+  .loginbtn-user, .loginbtn-list, .user-name {
+    margin-right: 4%;
+  }
+}
+
 .user-wish {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+}
+
+@media (max-width: 680px) {
+  .user-wish {
+    width: 150px;
+  }
 }
 
 .user-name {
@@ -3231,6 +3408,12 @@ body {
   background: #ffe04c;
 }
 
+@media (max-width: 500px) {
+  .page-Btn {
+    display: none;
+  }
+}
+
 .Add-page, .Less-page {
   color: #7b9a48;
   border-radius: 50%;
@@ -3248,6 +3431,12 @@ body {
   background-color: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 500px) {
+  .btn-active {
+    display: block;
+  }
 }
 
 .searchBar-Area {
@@ -4490,6 +4679,12 @@ body {
   width: 230px;
 }
 
+@media (max-width: 600px) {
+  .footer-content-title {
+    display: none;
+  }
+}
+
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
@@ -4513,10 +4708,22 @@ body {
   }
 }
 
+@media (max-width: 680px) {
+  .loginbtn-user, .loginbtn-list, .user-name {
+    margin-right: 4%;
+  }
+}
+
 .user-wish {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+}
+
+@media (max-width: 680px) {
+  .user-wish {
+    width: 150px;
+  }
 }
 
 .user-name {
@@ -4770,6 +4977,12 @@ body {
   background: #ffe04c;
 }
 
+@media (max-width: 500px) {
+  .page-Btn {
+    display: none;
+  }
+}
+
 .Add-page, .Less-page {
   color: #7b9a48;
   border-radius: 50%;
@@ -4787,6 +5000,12 @@ body {
   background-color: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 500px) {
+  .btn-active {
+    display: block;
+  }
 }
 
 .searchBar-Area {
@@ -5572,6 +5791,12 @@ body {
   width: 230px;
 }
 
+@media (max-width: 600px) {
+  .footer-content-title {
+    display: none;
+  }
+}
+
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
@@ -5595,10 +5820,22 @@ body {
   }
 }
 
+@media (max-width: 680px) {
+  .loginbtn-user, .loginbtn-list, .user-name {
+    margin-right: 4%;
+  }
+}
+
 .user-wish {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+}
+
+@media (max-width: 680px) {
+  .user-wish {
+    width: 150px;
+  }
 }
 
 .user-name {
@@ -5852,6 +6089,12 @@ body {
   background: #ffe04c;
 }
 
+@media (max-width: 500px) {
+  .page-Btn {
+    display: none;
+  }
+}
+
 .Add-page, .Less-page {
   color: #7b9a48;
   border-radius: 50%;
@@ -5869,6 +6112,12 @@ body {
   background-color: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 500px) {
+  .btn-active {
+    display: block;
+  }
 }
 
 .searchBar-Area {
@@ -6666,6 +6915,12 @@ body {
   width: 230px;
 }
 
+@media (max-width: 600px) {
+  .footer-content-title {
+    display: none;
+  }
+}
+
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
@@ -6689,10 +6944,22 @@ body {
   }
 }
 
+@media (max-width: 680px) {
+  .loginbtn-user, .loginbtn-list, .user-name {
+    margin-right: 4%;
+  }
+}
+
 .user-wish {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+}
+
+@media (max-width: 680px) {
+  .user-wish {
+    width: 150px;
+  }
 }
 
 .user-name {
@@ -6946,6 +7213,12 @@ body {
   background: #ffe04c;
 }
 
+@media (max-width: 500px) {
+  .page-Btn {
+    display: none;
+  }
+}
+
 .Add-page, .Less-page {
   color: #7b9a48;
   border-radius: 50%;
@@ -6963,6 +7236,12 @@ body {
   background-color: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 500px) {
+  .btn-active {
+    display: block;
+  }
 }
 
 .searchBar-Area {
@@ -7653,6 +7932,12 @@ body {
   width: 230px;
 }
 
+@media (max-width: 600px) {
+  .footer-content-title {
+    display: none;
+  }
+}
+
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
@@ -7676,10 +7961,22 @@ body {
   }
 }
 
+@media (max-width: 680px) {
+  .loginbtn-user, .loginbtn-list, .user-name {
+    margin-right: 4%;
+  }
+}
+
 .user-wish {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+}
+
+@media (max-width: 680px) {
+  .user-wish {
+    width: 150px;
+  }
 }
 
 .user-name {
@@ -7933,6 +8230,12 @@ body {
   background: #ffe04c;
 }
 
+@media (max-width: 500px) {
+  .page-Btn {
+    display: none;
+  }
+}
+
 .Add-page, .Less-page {
   color: #7b9a48;
   border-radius: 50%;
@@ -7950,6 +8253,12 @@ body {
   background-color: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+@media (max-width: 500px) {
+  .btn-active {
+    display: block;
+  }
 }
 
 .searchBar-Area {

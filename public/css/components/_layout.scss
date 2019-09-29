@@ -230,6 +230,9 @@ padding-top:9%;
     img{
         width:230px;
     }
+    @include tab-size-s{
+        display: none;
+    }
 }
 .loginbtn-list{
     padding-top:1%;
@@ -251,11 +254,17 @@ padding-top:9%;
     @include tab-size-s{
       top:120px;
     }
+    @media (max-width:680px) {
+    margin-right: 4%;    
+    }
 }
 .user-wish{
     padding-top:0.5%; 
     font-family: "微軟正黑體", "新細明體", sans-serif; 
-    width: 120px;    
+    width: 120px; 
+    @media(max-width:680px){
+        width: 150px;
+    }   
 }
 .user-name{
 padding-top:0.5%;    
@@ -473,6 +482,9 @@ padding-top:0.5%;
     &:hover{
     background:#ffe04c ;
     }
+    @media (max-width:500px) {
+     display: none;   
+    }
 }
 .Add-page,.Less-page{
    color: #7b9a48;
@@ -489,9 +501,10 @@ padding-top:0.5%;
 .btn-active{
     background-color: #7b9a48;
     color: #fff;
-    
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
-
+    @media (max-width:500px) {
+    display:block;   
+    }
 }
 .searchBar-Area{
     font-size: 1.1rem;
