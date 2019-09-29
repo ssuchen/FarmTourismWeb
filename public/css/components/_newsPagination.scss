@@ -26,6 +26,7 @@
 
 }
 .newspage-main-title{
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
     margin-bottom:3%;
     margin-left:2%;
     font-size: 1.5rem;
@@ -33,6 +34,7 @@
 .newspage-img{
     width:90%;
    // height:460px;
+    border-radius: 5px;
     object-fit: cover;
     margin:0 auto;
     margin-top:5%;
@@ -86,12 +88,15 @@
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
 }
 .newspage-other{
-    .other-title { 
+    .other-title {
         display:flex;
         justify-content: space-between;
         margin-bottom: 3%;
         width: 85%;
         div{
+        font-weight: 530;
+        color: #7b9a48;
+        margin-bottom: 3%;
         font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
         font-size: 1.2rem;
         margin-top:5%;
@@ -101,11 +106,21 @@
         }
         }
     }
+    .other-more{
+         a{
+            color: gray;
+         &:hover{
+            color: #7b9a48; 
+         } 
+            
+        
+    }
+}
     .other-space{
+        border-radius: 5px;
         width:100%;
         padding:1.5% 0;
-        //align-items: center;
-        //margin:0 10%;
+       
         display: block;
         @include tab-size{
             margin: 0;
@@ -114,14 +129,17 @@
         }
     }
     .other-img{
-        
+        border-radius: 5px;
         width: 80%;
         height: 160px;
         background-color: #fff;
         //border:1px solid;
         padding:2.2%;
         box-sizing: border-box;
-        object-fit: cover;   
+        object-fit: cover; 
+        &:hover{
+        filter: brightness(1.2);    
+        }  
         @include tab-size{
             width: 25%;
             padding:1.6%;

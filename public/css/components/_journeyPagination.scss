@@ -34,7 +34,7 @@
 }
 .journeyPagination-content{
     box-sizing: border-box;
-    //border: 1px solid;
+    border-radius:10px;
     background-color: #fff;
     border-radius:5px;
     object-fit: cover;
@@ -47,10 +47,10 @@
     img{
     width:30%;     
     margin:3% 0;
-    border-radius: 5px;
+    border-radius:30px;
     margin-left:2%;
     //border: 6px solid #e9f1e7;
-    padding: 1.5%;
+    //padding: 1.5%;
     box-sizing: border-box;
     height: 300px;
     object-fit: cover;

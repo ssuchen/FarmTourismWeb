@@ -59,7 +59,7 @@ for(let i= 0 ; i<list ;i++){
     let web = data.XML_Head.Infos.Info[i].Website
     let text = data.XML_Head.Infos.Info[i].Description
     if(photo==""){
-       photo="img/change.jpg"
+       photo="img/lossimg.jpg"
     }
     if(web==""){
        web="暫無提供相關網址"
@@ -140,7 +140,7 @@ newarr.forEach(function(item,index){
     let name = item.Name
     let id = item.Id
     if(photo==""){
-        photo="img/change.jpg"
+        photo="img/lossimg.jpg"
     }
     let newspageOther = document.querySelector(".newspage-other");
 

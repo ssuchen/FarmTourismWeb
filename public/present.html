@@ -10,38 +10,28 @@
 </head>
 <body>
 <div class="wrap">
-        <div class="nav-bar">
-                <div class="nav-bar-width"> 
-                  <!-- <div class="" id="signOutBtn">signOutBtn</div>       -->
-                  <div class=""><a href="wishList.html"><i class="far fa-heart  loginbtn-list">  我的清單</i></a></div>
-                  <div class="loginbtn-user" >登入</div>
-                  <div class="logoutbtn-user" >登出</div>
-                </div>  
-        </div> 
-        <div class="login-box-success ">
-                  <div class="login-box-success-btn">
-                    <i class="login-box-btn-text fas fa-times"></i>
-                  </div>
-                 <div class=""> 登入成功!!</div>
-        </div>
-        <div class="logout-box-success ">
-                  <div class="logout-box-success-btn">
-                    <i class="logout-box-success-text fas fa-times"></i>
-                  </div>
-                  <div class=""> 登出成功!!</div>
-        </div>             
-        <div class="login-box">
-                <div class="login-box-btn">
-                  <i class="login-box-btn-text fas fa-times"></i>
-                </div>
-                    <h1>請登入帳號</h1>
-                    <div class="signinBtn">            
-                    <button id = "googleSingUpPopup">使用google登入</button>
-                    <button id = "faceSingUpPopup">使用facebook登入</button>
-                </div>
-                    
-        </div>
-        <div class="mobile-menu">
+    <div class="nav-bar">
+        <div class="nav-bar-width"> 
+          <div class="nav-bar-logo"><a href="index.html"><img src="img/LOGO-w-02.png" alt=""></a></div>
+          <div class="user-login">
+          <div class="user-wish"><a href="wishList.html"><i class="far fa-heart  loginbtn-list">  我的清單</i></a></div>
+          <div class="user-photo">
+            <!-- <img src="img/img_01.jpg" alt=""> -->
+          </div>
+          <div class="user-name"></div>
+          <div class="loginbtn-user" >登入</div>
+          <div class="logoutbtn-user" >登出</div>
+          </div>  
+        </div>  
+    </div> 
+    <ul class="new-menu">
+          <a href="news.html"><li>最新消息</li></a>
+          <a href="present.html"><li>農村伴手禮</li></a>
+          <a href="travel.html"><li> 休閒農業區</li></a>
+          <a href="journey.html"><li>農村小旅行</li></a>
+          <a href="food.html"><li class="menu-border-right">農村特色小吃</li></a>
+    </ul>
+    <div class="mobile-menu">
                 <div class="mobile-menu-title">
                 <div class="">
                   <img class="mobileLogo" src="img/mobile_LOGO.png" alt="">
@@ -51,21 +41,16 @@
                 </div>    
                 </div>            
              <ul class="mobile-menu-list">
+                <a href="news.html"><li>最新消息</li></a>
                 <a href="present.html"><li>農村伴手禮</li></a>
                 <a href="travel.html"><li>休閒農業區</li></a>
                 <a href="journey.html"><li>農村小旅行</li></a>
                 <a href="food.html"><li>農村特色小吃</li></a>
             </ul>    
-        </div>
+    </div>
     <div class="title">
     </div>
-    <ul class="menu">
-      <a href="present.html"><li>農村伴手禮</li></a>
-      <a href="travel.html"><li>休閒農業區</li></a>
-      <a href="journey.html"><li>農村小旅行</li></a>
-      <a href="food.html"><li>農村特色小吃</li></a>
-    </ul> 
-    <div class="main">
+    <div class="main mine-top">
         
         <div class="searchBar">
             <div class="travel-main-title">農村伴手禮</div>
@@ -89,6 +74,7 @@
             
         </div>
         <div class="present-main-content">
+            <div class="loading"><img src="img/Ellipsis-1s-128px.gif" alt=""></div>
         <!-- <div class="present-card">
             <div class="present-img">
                 <img src="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161215.jpg" alt="">  
@@ -128,9 +114,10 @@
         <div class="page-list"></div>    
         <div class="Add-page "><i class="fas fa-chevron-right"></i></div>
     </div>
+    <div class="img-fix fix-index-top"><img src="img/new_banner-05.png" alt=""></div>
     <div class="footer">
         <div class="footer-content">
-            <div class="footer-content-title">探索農村小旅行</div>
+            <div class="footer-content-title"><img src="img/footer-LOGO.png" alt=""></div>
             <ul class="footer-content-left">
                <li>地址</li>
                <li>電話</li>
@@ -143,6 +130,31 @@
             </ul>  
         </div>
        
+    </div>
+
+    <!-- 載入彈跳視窗 -->
+    <div class="login-box-success ">
+        <div class="login-box-success-btn">
+          <i class="login-box-btn-text fas fa-times"></i>
+        </div>
+       <div class=""> 登入成功!!</div>
+    </div>
+    <div class="logout-box-success ">
+        <div class="logout-box-success-btn">
+          <i class="logout-box-success-text fas fa-times"></i>
+        </div>
+        <div class=""> 登出成功!!</div>
+    </div>             
+    <div class="login-box">
+      <div class="login-box-btn">
+        <i class="login-box-btn-text fas fa-times"></i>
+      </div>
+          <h1>請登入帳號</h1>
+          <div class="signinBtn">            
+          <button id = "googleSingUpPopup">使用google登入</button>
+          <button id = "faceSingUpPopup">使用facebook登入</button>
+      </div>
+          
     </div>
 </div>
 

@@ -23,7 +23,8 @@ console.log(user)
         db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
             if(snapshop.docs==""){
                 db.collection("user").doc().set({
-                email: userEmail 
+                email: userEmail,
+                photo: userPhoto 
                 })
             }
         })
@@ -55,7 +56,9 @@ function foodRender(data){
      let place 
     
      let foodMainContent = document.querySelector(".food-main-content");
-
+     
+     let loading = document.querySelector(".loading");
+     loading.style.display="none";
 
      //載入第一筆資料
      for (let i = 0; i <12; i++) {
@@ -126,7 +129,8 @@ function foodRender(data){
 
         foodPlace.appendChild(foodCountry);
         foodPlace.appendChild(foodTown);
-
+        
+        
 
        
      }
@@ -270,10 +274,10 @@ function foodRender(data){
         +' class="food-card"><div class="food-card-left"><div class="food-img"><img src="'+ photo  
         +'" alt="" ><i class="far fa-heart like-btn food-likebtn" id="'+ id
         +'"></i></div></div><div class="food-card-right"><div class="food-title">'+name
-        +'<div class="food-tel">'+ tel 
+        +'</div><div class="food-tel">'+ tel 
         +'</div><div class="food-place"><div class="food-country">'+ country
         +'</div><div class="food-town">'+ town +'</div></div>'
-        +'</div><div class="food-text">'+ text
+        +'<div class="food-text">'+ text
         +'</div></div></a>'
         
     
@@ -281,6 +285,8 @@ function foodRender(data){
         
         let presentMainContent = document.querySelector('.food-main-content');
         presentMainContent.innerHTML = str;
+        
+        
 
         //願望清單
         checkBtnStyle();
@@ -410,10 +416,10 @@ function foodRender(data){
         +' class="food-card"><div class="food-card-left"><div class="food-img"><img src="'+ photo  
         +'" alt="" ><i class="far fa-heart like-btn food-likebtn" id="'+ id
         +'"></i></div></div><div class="food-card-right"><div class="food-title">'+name
-        +'<div class="food-tel">'+ tel 
+        +'</div><div class="food-tel">'+ tel 
         +'</div><div class="food-place"><div class="food-country">'+ country
         +'</div><div class="food-town">'+ town +'</div></div>'
-        +'</div><div class="food-text">'+ text
+        +'<div class="food-text">'+ text
         +'</div></div></a>'
 
     let foodMainContent = document.querySelector('.food-main-content');

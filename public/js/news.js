@@ -44,6 +44,10 @@ ajax("https://cors-anywhere.herokuapp.com/https://gis.taiwan.net.tw/XMLReleaseAL
 });
 
 function newsRender(data){
+    
+
+    let loading = document.querySelector(".loading");
+    loading.style.display="none";
 
 //抓出2019的資訊
     let arr=[]
@@ -76,7 +80,7 @@ function newsRender(data){
     let photo = newarr[i].Picture1;
     
     if(photo=="" || photo == undefined){
-        photo="img/change.jpg"
+        photo="img/lossimg.jpg"
     }
 
     let newsMainCintent = document.querySelector(".news-main-content"); 
@@ -261,7 +265,7 @@ function newsRender(data){
             let photo = newdata[p].Picture1;
             
             if(photo=="" || photo == undefined){
-                photo="img/change.jpg"
+                photo="img/lossimg.jpg"
             }
 
             str += '<a href="newsPagination.html?id='+ id

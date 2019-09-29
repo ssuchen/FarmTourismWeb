@@ -38,7 +38,7 @@ ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenDat
 function travelRender(data){
 let len = data.length;
 let perpage = 12;
-
+let travelMainContent
 let photo
 let name 
 let city
@@ -52,7 +52,6 @@ for( let i = 0 ; i<12; i++){
     town = data[i].Town;
 
     let id = data[i].ID;
-    let travelMainContent
 
     function renderCard(){
        if(name=="梨之鄉休閒農業區"){
@@ -60,9 +59,9 @@ for( let i = 0 ; i<12; i++){
        }else{
         photo = photo;   
        }
-
+    
     travelMainContent = document.querySelector('.travel-main-content');
-
+   
     let travelCard = document.createElement('a');
         travelCard.setAttribute('href','travelPagination.html?id='+ id );
         travelCard.setAttribute('class','travel-card');
@@ -92,7 +91,7 @@ for( let i = 0 ; i<12; i++){
         travelText.setAttribute('class','travel-text');
         travelText.textContent = town;
 
-
+    
     travelMainContent.appendChild(travelCard);
     travelCard.appendChild(travelImg);
     travelCard.appendChild(travelTitle);
@@ -104,6 +103,9 @@ for( let i = 0 ; i<12; i++){
     travelPlace.appendChild(travelText);
     };
     renderCard();
+    
+   let loading = document.querySelector(".loading");
+   loading.style.display="none";
 
     
 };

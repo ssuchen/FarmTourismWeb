@@ -56,6 +56,9 @@ function presentRender(data){
     let ProduceOrg
     let presentMainContent
 
+    let loading = document.querySelector(".loading");
+    loading.style.display="none";
+
     for( let i=0 ; i<12; i++){
         id = data[i].ID;
         name = data[i].Name;

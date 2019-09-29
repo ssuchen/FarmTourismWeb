@@ -47,6 +47,9 @@ function journeyRender(data){
 let len = data.length;
 let perpage = 12;
 
+let loading = document.querySelector(".loading");
+loading.style.display="none";
+
 for(let i =0 ;i<12 ;i++){
         let journeyTag
         let id = data[i].TravelSeq;
