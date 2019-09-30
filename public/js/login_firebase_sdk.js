@@ -26,6 +26,10 @@ let UserToken
 let provider
 
 firebase.auth().onAuthStateChanged(function(user){
+//願望清單事件監聽
+console.log("test1")
+renderWishlistCheck();
+console.log("test2")
 if(user != null){
   ChangeUserIn()
   //loginSuccess()
@@ -40,17 +44,6 @@ else{
 }
 
 })
-
-// firebase.auth().onAuthStateChanged(function(user) {
-//   if (user) {
-//     console.log(user)
-//     // User is signed in.
-//   } else {
-//     // No user is signed in.
-//     console.log("no")
-//   }
-// });
-
 
 //==========================
 //    建立google登入系統
@@ -202,6 +195,29 @@ function ChangeUserIn(){
 //===================================
 //===================================
   
+console.log(userName)
+function renderWishlistCheck (){
+let userwish = document.querySelector(".user-wish")
+userwish.addEventListener("click",function(){
+  console.log("test")
+  console.log(userName)
+  
+  if(userName!=undefined){
+    document.location.href="wishList.html";
+  }else{
+    alert("請先登入會員")
+  }
+})
+
+};
+
+
+
+
+//===================================
+//===================================
+
+
 
 //判斷會員是否登入
 // user = firebase.auth().currentUser;

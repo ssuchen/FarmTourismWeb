@@ -1,4 +1,3 @@
-//console.log("wish")
 
 //=======================================
 //  判斷是否登入會員 取得相關的會員資料
@@ -38,13 +37,14 @@ console.log(user)
         console.log(userName)
         navname.appendChild(navnameDiv);
         //navnameDiv.setAttribute("class","navname-Div");  
+        navphoto.style.display="block"
+        navname.style.display="block"
 
         
     }
     else{
       console.log("no")
-      navphoto.style.display="none"
-      navname.style.display="none"
+      document.location.href="index.html";
     
     }
    
@@ -107,12 +107,12 @@ db.collection("user").get().then(function(snapshop){
             let town = item.text
             let city = item.country
             let id = item.id
-            str += '<a  href= " travelPagination.html?id=' + id +'"class="wish-card"><div class="wish-img"><img src=' + photo 
+            str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
                 + '><i class="far fa-heart like-btn fas" data-tag="travel " id = '+ id
-                + '></i></div><div class="wish-title">' + name 
-                +'</div><div class="wish-place"><div class="wish-country">'
-                + city +'</div> <div class="wish-text">' + town + '</div></div></a>';
-            
+                + '></i></div><div class="travel-title">' + name 
+                +'</div><div class="travel-place"><div class="travel-country">'
+                + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
+                       
         })
         let travelMainContent = document.querySelector('.wish-main-content');
         travelMainContent.innerHTML = str;

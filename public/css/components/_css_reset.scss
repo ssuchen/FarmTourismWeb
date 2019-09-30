@@ -62,4 +62,14 @@ button{
 }
 select{
 	border:0px;
+	outline:none;
+	&:focus { outline: none; }
 }
+
+option::-ms-expand{ display: none; }
+option{
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari 和 Chrome */
+    appearance:none;
+}
+

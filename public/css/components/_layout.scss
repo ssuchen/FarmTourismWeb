@@ -1,8 +1,13 @@
 // body{
 //     background-color: #f8f6ec;
 // }
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskannada.css);
 .mine-top{
-padding-top:9%;
+padding-top:150px;
+@include tab-size-s{
+padding-top:80px;    
+}
 }
 .nav-bar{
     z-index: 51;
@@ -57,7 +62,7 @@ padding-top:9%;
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    //background-color: #3a5215;
+    display: none;
     img{
         width: 32px;
         height: 32px;
@@ -231,7 +236,6 @@ padding-top:9%;
     margin:0 auto;
     max-width: 1200px;
     align-items: center;
-    //padding:2%;
     display: flex;
     justify-content: center;
     color: #fff;
@@ -291,6 +295,7 @@ padding-top:9%;
 
 }
 .user-name{
+display: none;    
 padding-top:0.5%; 
 @media(max-width:1024px){
     width: 150px;
@@ -544,22 +549,112 @@ padding-top:0.5%;
 }
 .searchBar-Area{
     font-size: 1.1rem;
+    border-left:2px solid #97be57;
     outline:none;
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
-    // &:hover{
-    // background:#b8cf92 ;   
-    // }
+    option{
+    color: #000;
+    text-align: center;
+    }
+    @include phone-size {
+    border-left:0px;
+    border-bottom:2px solid #97be57;   
+    }
 }
 .searchBar-Country{
     font-size: 1.1rem;
+    border-left:2px solid #97be57;
     outline:none;
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    @include phone-size{
+        border-left:0px;
+        border-bottom:2px solid #97be57;   
+        }
+
 }
-.searchBar-Btn{
-    font-size: 1.1rem;
-    outline:none;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+
+
+.searchBar-group{
+    select{
+    width: 100%; 
+    padding:1%; 
+    //border:1px solid; 
+    text-align: center;
+    text-align-last: center;
+    
+
+    //取消向下預設箭頭
+    appearance:none;  
+    -moz-appearance:none;  
+    -webkit-appearance:none;
+    &::-ms-expand{ display: none; }
+
+    @include phone-size{
+        padding:2%;
+    }
+
+    }
+    option{
+        text-align: center;
+        text-align-last: center;
+    }
+    div{
+    width: 100%;
+    padding:1%;
+    background-color: #fff;
+    @include phone-size{
+      width: auto;
+      padding:2%;
+    }
+    }
+    display: flex;
+    width: 80%;
+    text-align: center;
+    @media(max-width: 680px){
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 3%;
+    margin-bottom:2%;
+    }
+    @include tab-size-s{
+        margin-bottom:0;
+    }
+    @include phone-size{
+        display: block;   
+    }
+    
+    .searchBar-Btn{
+        font-size: 1.1rem;
+        line-height: 24px;
+        background-color:#7b9a48;
+        color: #fff;
+        outline:none;
+        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+        &:active{
+        background-color:#97be57;
+        color: #000;
+        }
+    }   
+
+    
+
 }
+.searchBar-Input{
+    input{
+        width:300px;
+        border: 0px;
+        background-color: #fff;
+        outline: none;
+        @include tab-size{
+        width:200px;
+       
+        }
+        @include phone-size {
+          width: 100%;  
+        }
+    }
+}
+
 
 
 //footer 圖檔

@@ -260,14 +260,15 @@ console.log(user)
         navnameDiv.textContent = userName +"  你好!";
         console.log(userName)
         navname.appendChild(navnameDiv);
-        //navnameDiv.setAttribute("class","navname-Div");  
+        //navnameDiv.setAttribute("class","navname-Div"); 
+        navphoto.style.display="block"
+        navname.style.display="block" 
         
     }
     else{
       console.log("no")
       travelpageMessageBtn.style.display="none";
-      navphoto.style.display="none"
-      navname.style.display="none"
+
     }
    
 })

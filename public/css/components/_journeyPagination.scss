@@ -40,6 +40,7 @@
     object-fit: cover;
     margin:0 auto;
     display: flex;
+    box-shadow: 3px 3px 10px #ddddddf5;
     @include tab-size{
         display: block;
 
@@ -47,17 +48,15 @@
     img{
     width:30%;     
     margin:3% 0;
-    border-radius:30px;
+    border-radius:10px;
     margin-left:2%;
-    //border: 6px solid #e9f1e7;
-    //padding: 1.5%;
     box-sizing: border-box;
     height: 300px;
     object-fit: cover;
     @include tab-size{
         width: 100%;
         margin:0;
-        padding: 0;
+        padding: 3%;
     }    
     }
     .content-list{

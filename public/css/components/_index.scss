@@ -61,8 +61,17 @@ overflow: hidden;
     background-size: cover;
     height:600px;
     width: 100%;
+    display: flex;
+    justify-content: center;
     @media (max-width:468px) {
     height: 300px;    
+    }
+    p{
+    font-size: 3rem;
+    font-family:'Noto Sans Kannada', sans-serif, "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+    color: #fff;
+    margin:0 auto;
+    padding-top:30%;
     }
 }
 
@@ -73,10 +82,10 @@ overflow: hidden;
     background-image: url(../img/banner-02.jpg);
 }
 .banner-2{
-    background-image: url(../img/banner-06.jpg);
+    background-image: url(../img/banner-05.jpg);
 }
 .banner-3{
-    background-image: url(../img/banner-05.jpg);
+    background-image: url(../img/banner-06.jpg);
 }
 .banner{
     height: 400px;

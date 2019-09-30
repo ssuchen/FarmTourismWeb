@@ -45,13 +45,14 @@ travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
         navnameDiv.textContent = userName +"  你好!";
         console.log(userName)
         navname.appendChild(navnameDiv);
-        //navnameDiv.setAttribute("class","navname-Div");
+        
+        navphoto.style.display="block"
+        navname.style.display="block"
         
     }
     else{
     console.log("no")
-    navphoto.style.display="none"
-    navname.style.display="none"
+
     }
    
 })

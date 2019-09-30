@@ -29,13 +29,15 @@
 }
 .travelpage-img{
     width:90%;
-   // height:460px;
     object-fit: cover;
     margin:0 auto;
     margin-top:5%;
     display: flex;
+    border-radius: 10px;
+    @include tab-size{
+    padding-top: 5%;    
+    } 
 
-   // background:gray;
 }
 .travelpage-right{
     
@@ -61,6 +63,7 @@
     @include tab-size{
         margin: 0 auto;
         margin-bottom:5%;
+        margin-top: 10%;
         width: 90%;
     }
 }
@@ -130,13 +133,13 @@ width: 100%;
     text-align: center;
     color: #fff;
     background-color: #7b9a48;
-    border: 2px solid #7b9a48;
+    border: 1.5px solid #7b9a48;
     border-radius: 30px;
     padding:1%;
     font-size: 1.2rem;
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
     &:hover{
-        border:2px solid  #b8cf92 ;
+        border:1.5px solid  #b8cf92 ;
         background:#b8cf92 ;
     }
 }
@@ -190,9 +193,9 @@ width: 100%;
             margin-top:2%;
             color: #7b9a48;
             //background-color: #7b9a48;
-            border: 2px solid #7b9a48;
+            border: 1.5px solid #7b9a48;
         &:hover{
-            border:2px solid #7b9a48 ;
+            border:1.5px solid #7b9a48 ;
             background-color: #7b9a48;
             color: #fff;
         }
@@ -213,6 +216,9 @@ width: 100%;
     border-radius: 6px;
     background-color: #fff;
     margin-bottom: 10%;
+    @include tab-size{
+    padding:3%;
+    }
     div{
         width: 100%;
         height: 100%;
@@ -269,7 +275,7 @@ width: 100%;
         border-bottom:1px dashed  #b8cf92;
     }
     .other-img{
-        width: 23%;
+        width: 75px;
         height: 75px;
         border-radius: 50%;
         padding:1.5%;
@@ -277,6 +283,10 @@ width: 100%;
         object-fit: cover;
         &:hover{
         filter: brightness(1.2);
+        }
+        @include tab-size{
+            width: 100px;
+            height: 100px;
         }
      
     }

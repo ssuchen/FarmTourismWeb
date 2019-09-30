@@ -91,6 +91,8 @@
 .wish-main-text{
     padding-bottom: 2%;
     padding-top:1.2%;
+    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+    font-size: 1.5rem;
     text-align: center;
     width: 160px;
     @include tab-size{
@@ -103,11 +105,11 @@
     padding: 2% 1%;
     width: 150px;
     text-align: center;
-    border-bottom:5px solid #fff; 
+    border-bottom:5px solid  rgb(233, 241, 231); 
    
 }
 .wishBtn-click{
-    border-bottom:5px solid gray;  
+    border-bottom:5px solid #ffe04c;  
 }
 .wish-main-list{
     display: flex;
@@ -126,23 +128,7 @@
 .wish-country{
     margin-right:3%; 
 }
-.searchBar-Area{
- @include phone-size{
-    margin:5% 0;
- }
-}
-.searchBar-County{
-@include phone-size{
-    margin-bottom:5%;
-}  
-}
-.searchBar-Btn{
-    background:#fff;
-    &:active{
-        background: gray;
-       
-    }
-}
+
 .page-bar{
     display: flex;
     justify-content: center;

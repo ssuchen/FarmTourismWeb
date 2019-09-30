@@ -7,7 +7,10 @@ userEmail
 userPhoto
 user
 travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
- console.log(user)
+ //console.log(user)
+//  console.log("test1")
+//  renderWishlistCheck();
+//  console.log("test2")
  firebase.auth().onAuthStateChanged(function(user){
 
     let navname = document.querySelector(".user-name");
@@ -43,12 +46,14 @@ travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
         navnameDiv.textContent = userName +"  你好!";
         console.log(userName)
         navname.appendChild(navnameDiv);
-        //navnameDiv.setAttribute("class","navname-Div");        
+
+        navphoto.style.display="block"
+        navname.style.display="block"
+            
     }
     else{
       console.log("no")
-      navphoto.style.display="none"
-      navname.style.display="none"
+
     }
    
 })
@@ -133,6 +138,25 @@ let LeftBtn = document.querySelector(".index-play-left-btn");
             scroll.scrollLeft -= 300 ; 
     })
 
-//輪播效果
+//===================================
+//    願望清單頁面跳轉 判斷是否登入會員
+//===================================
+
+// console.log(userName)
+// function renderWishlistCheck (){
+// let userwish = document.querySelector(".user-wish")
+// userwish.addEventListener("click",function(){
+//   console.log("test")
+//   console.log(userName)
+  
+//   if(userName!=""){
+//     document.location.href="wish.html";
+//   }else{
+//     alert("請先登入會員")
+//   }
+// })
+
+// };
+
 
 
