@@ -15,10 +15,12 @@ body{
 .scroll-bar{
 position: relative;
 height: 600px;
+
 display: block;
 overflow: hidden;
 @media (max-width:600px) {
- height: 300px;    
+ height: 300px;  
+ padding-top:50px;  
 }
 
 }
@@ -138,7 +140,7 @@ overflow: hidden;
 .card-Text{
     text-decoration: none;
     color: #000;
-    line-height: 1.5rem;
+    line-height: 2rem;
     letter-spacing:0.1rem;
 
 }
@@ -190,15 +192,15 @@ overflow: hidden;
 }
 
 .index-about{
-    padding:6% 0;
-    padding-bottom: 6%;
+    padding:5% 2%;
     display: flex;
     //max-width: 1152px;
     max-width: 1000px;
     margin:0 auto;
-    @include tab-size-s{
+@include tab-size-s{
     display: block;
-    }
+    padding:5%;
+}
 }
 
 .index-about-img{
@@ -208,6 +210,7 @@ overflow: hidden;
     background-position: center center;
     background-size:cover;
     background-image: url(../img/img_05.jpg);
+    
     @media(max-width:768px){
         width: 250px;
         height: 250px;
@@ -216,6 +219,10 @@ overflow: hidden;
     @include tab-size-s{
         margin: 0 auto;
     }
+    // @include tab-size-L{
+    //     margin-left: 2%;
+    //     box-sizing: border-box;
+    // }
     
 }
 .index-about-bg{
@@ -245,9 +252,13 @@ img{
 }
 }
 .index-about-content{
-    line-height:1.5rem ;
-    font-size: 1.1rem;
+    line-height:2rem ;
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+    @include tab-size-L{
+        margin-right: 2%;
+        box-sizing: border-box;
+    }
+
 }
 
 .fix-index-bottom{
@@ -264,7 +275,6 @@ img{
 }
 .img-logo{
     display: flex;
-    
     padding-bottom:6%;
     border-top:16px solid #ffe04c;
     justify-content: center; 
@@ -273,13 +283,17 @@ img{
         margin-top:-150px;
         z-index: 30;
         max-width: 860px;
-    @media (max-width:800px) {
+    @media (max-width:860px) {
          max-width:100%;
     }
     @media(max-width:600px){
         display: none;
+        border-top:10px;
     }
 
+    }
+    @media(max-width:600px){
+        border-top:10px;
     }
     
 }
@@ -302,7 +316,7 @@ img{
     text-align: center;
     font-size: 1.5rem;
     margin-top:5%;
-    //margin-bottom:1.8%;
+    margin-bottom:3%;
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
     img{
         max-width: 210px;
@@ -371,7 +385,9 @@ img{
 .index-photobar-img{
     margin-top:-10%;
     @media (max-width:1600px) {
-    margin-top:-6%;    
+    margin-top:-6%; 
+    margin-right:5%;
+    margin-left:5%;   
     }
 
     display:flex;
@@ -390,9 +406,12 @@ img{
      @media (max-width:1160px) {
      height: 200px;    
      }
-     @media(max-width: 680px){
+     @media(max-width: 820px){
      height: 150px;    
-    }
+     }
+     @media(max-width: 680px){
+     height: 120px;    
+     }
      border-radius: 80px;
      margin:0 1.5%;
      margin-bottom:5%;      

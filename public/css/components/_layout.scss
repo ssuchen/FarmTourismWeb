@@ -11,7 +11,11 @@ padding-top:9%;
     position: fixed;
     height: 46px;
     @include tab-size-s{
-    //display:none;
+    bottom:0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
+    height:60px;
+    display: flex;
+    justify-content: space-between;
     }
     
 }
@@ -27,8 +31,16 @@ padding-top:9%;
 }
 .nav-bar-logo{
     img{
-     height: 38px;    
+     height: 38px; 
+    @media(max-width:1000px){
+    padding-left: 10%;
+    }   
     }
+    
+    @include tab-size-s{
+    display: none;
+    }
+    
    
 }
 .user-login{
@@ -129,14 +141,21 @@ padding-top:9%;
 .mobile-menu{
     display: none;
     background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
     @include tab-size-s{
         display:block;
+        top:0;
+        position: fixed;
+        width: 100%;
+        z-index: 50;
     }
 }
 .mobile-menu-title{
     display: none;
-    padding-top:46px;
-    //padding: 20px 0;
+    //padding-top:46px;
+    background-color: #fff;
+    background-color: rgb(233, 241, 231);
+    background-color: #7b9a48;
     justify-content: space-between;
     @include tab-size-s{
         display:flex;
@@ -145,7 +164,9 @@ padding-top:9%;
 }
 
 .mobileLogo{
-   max-width:250px;
+   margin-top:2%;
+   margin-bottom:2%;
+   max-width:200px;
    margin-left:18px;
 }
 
@@ -153,6 +174,7 @@ padding-top:9%;
    font-size:23px; 
    margin-right:5%;
    margin-top:3%; 
+   color: #fff;
 }
 
 .mobile-menu-list{
@@ -160,6 +182,7 @@ padding-top:9%;
     height: 0;
     transition: all 0.5s;  
     overflow: hidden;
+    color: #fff;
     li{
     text-align: center;
     font-size: 1.1rem;
@@ -200,6 +223,9 @@ padding-top:9%;
 .footer{
     height: 150px;
     background-color: #7b9a48;
+    @include tab-size-s{
+    padding-bottom:60px;
+    }
 } 
 .footer-content{
     margin:0 auto;
@@ -248,9 +274,6 @@ padding-top:9%;
         font-family:"Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
         }
 
-    // @include tab-size{
-    //     margin-top:10px; 
-    // }    
     @include tab-size-s{
       top:120px;
     }
@@ -262,29 +285,34 @@ padding-top:9%;
     padding-top:0.5%; 
     font-family: "微軟正黑體", "新細明體", sans-serif; 
     width: 120px; 
-    @media(max-width:680px){
+    @media(max-width:1024px){
         width: 150px;
-    }   
+    }  
+
 }
 .user-name{
-padding-top:0.5%;    
+padding-top:0.5%; 
+@media(max-width:1024px){
+    width: 150px;
+    text-align: center;
+}   
 }
 
 .loginbtn-user,.logoutbtn-user{
-
   padding: 0.5%;
   padding-top:2.5%;
   width: 60px;
   text-align: center;
   padding-bottom:2.5%;
-
-
   border:1px solid #fff;
   border-radius: 30px;
   &:hover{
       background-color: #fff;
       color:  #7b9a48;
   }
+  @media(max-width:1024px){
+    margin-right:10%;
+}   
 }
 .logoutbtn-user{
     display: none;
@@ -299,7 +327,8 @@ padding-top:0.5%;
         }
 
     @include tab-size{
-        margin-top:10px; 
+        margin-top:3px;
+        padding: 1%; 
     }    
     @include tab-size-s{
       top:120px;
@@ -311,20 +340,23 @@ padding-top:0.5%;
     padding: 5%;
     box-shadow: 3px 3px 5px #888888;
     width: 300px;
+    
     background-color: #fff;
+    background-image: url(../img/loginBox-01.png);
+    background-position: center center;
+    background-size:cover;
     position: fixed;
-    z-index: 10;
-    top:300px;
+    z-index: 60;
+    top:30%;
     margin-left: 45%;
-    transform: translate(-180px);
+    transform: translate(-150px);
     border: 1px solid #7b9a48;
     h1{
         padding-top:5%;
         font-size: 1.5rem;
         display: flex;
         justify-content: center;
-        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
-        
+        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;    
     }
 }
 .loginStatus{
@@ -419,10 +451,12 @@ padding-top:0.5%;
     height: 45px;
     border-radius:50%;
     background-color:#7b9a48;
-    position:absolute;
-    
+    position:absolute; 
     top:-15px;
     right:-10px;
+    &:hover{
+    background-color:#97b36a;    
+    }
 }
 .login-box-btn-text{
     color:#fff;
@@ -441,6 +475,7 @@ padding-top:0.5%;
     width: 100%;
     border: 0;
     padding: 3%;
+    box-sizing: border-box;
     margin-bottom:5%;
     cursor: pointer;
     &:hover{
@@ -452,12 +487,13 @@ padding-top:0.5%;
         margin:0 auto;
         color:#fff ;
         background: #5487b6;
+        box-sizing: border-box;
         width: 100%;
         border: 0;
         padding: 3%;
         cursor: pointer;
         &:hover{
-            background-color: gray;
+            background-color: #92b4d4;
         }    
 
 

@@ -2,6 +2,10 @@
 //       判斷有沒有登入
 //==========================   
 firebase.auth().onAuthStateChanged(function(user){
+
+    let navname = document.querySelector(".user-name");
+    let navphoto = document.querySelector(".user-photo");
+    
     if(user != null){
             //user = firebase.auth.currentUser;
             console.log(user)
@@ -21,9 +25,25 @@ firebase.auth().onAuthStateChanged(function(user){
                 }
             })
             console.log(userPhoto)
+
+
+            //將大頭照放入 navbar
+            let navimg = document.createElement("img");
+            navimg.setAttribute("src",userPhoto);
+            navphoto.appendChild(navimg)
+ 
+            //將名子放入 navbar
+            let navnameDiv = document.createElement("div");
+            navnameDiv.textContent = userName +"  你好!";
+            console.log(userName)
+            navname.appendChild(navnameDiv);
+            //navnameDiv.setAttribute("class","navname-Div");             
+
     }
     else{
     console.log("no")
+    navphoto.style.display="none"
+    navname.style.display="none"
     }
        
 })
