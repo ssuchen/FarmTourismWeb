@@ -78,14 +78,14 @@ overflow: hidden;
 .banner-1{
     background-image: url(../img/banner-01.jpg);
 }
-.banner-4{
+.banner-2{
     background-image: url(../img/banner-02.jpg);
 }
-.banner-2{
+.banner-3{
     background-image: url(../img/banner-05.jpg);
 }
-.banner-3{
-    background-image: url(../img/banner-06.jpg);
+.banner-4{
+    background-image: url(../img/banner-04.jpg);
 }
 .banner{
     height: 400px;
@@ -436,6 +436,11 @@ img{
 .index-photo-bar{
     display: flex;
     align-items: center;
+}
+.photobar-btn{
+    &:hover{
+    filter: brightness(1.2);    
+    }
 }
 .index-play-left-btn,.index-play-right-btn{
  font-size: 2rem;

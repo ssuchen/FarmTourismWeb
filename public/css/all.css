@@ -113,7 +113,7 @@ option {
   background: #7b9a48;
   width: 100%;
   position: fixed;
-  height: 46px;
+  height: 52px;
 }
 
 @media (max-width: 600px) {
@@ -261,17 +261,36 @@ option {
 
 .new-menu a {
   width: 230px;
-  border-bottom: 8px solid  #fff;
-}
-
-.new-menu a:hover {
-  border-bottom: 8px solid  #ffe04c;
 }
 
 .new-menu li {
   line-height: 65px;
   text-align: center;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   border-left: 1px #e5e5e5 solid;
+}
+
+.new-menu li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 8px;
+  background: #ffe04c;
+}
+
+.new-menu li:hover {
+  cursor: pointer;
+}
+
+.new-menu li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 .new-menu .menu-border-right {
@@ -348,19 +367,38 @@ option {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-bottom: 5px solid #fff;
+  border-bottom: 4px solid #fff;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.mobile-menu-list li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 4px;
+  background: #ffe04c;
 }
 
 .mobile-menu-list li:hover {
-  background-color: #fff;
-  border-bottom: 5px solid #ffe04c;
+  cursor: pointer;
+}
+
+.mobile-menu-list li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 @media (max-width: 600px) {
   .mobile-menu-list-show {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    height: 260px;
+    height: 255px;
   }
 }
 
@@ -437,14 +475,18 @@ option {
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
+  color: #fff;
+}
+
+.loginbtn-list div {
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
 }
 
 .loginbtn-user, .loginbtn-list, .user-name {
   padding: 0 10px;
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
-  color: #fff;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .loginbtn-user i, .loginbtn-list i, .user-name i {
@@ -467,6 +509,7 @@ option {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+  color: #fff;
 }
 
 @media (max-width: 1024px) {
@@ -488,11 +531,10 @@ option {
 }
 
 .loginbtn-user, .logoutbtn-user {
-  padding: 0.5%;
-  padding-top: 2.5%;
+  padding: 6px 2px;
   width: 60px;
   text-align: center;
-  padding-bottom: 2.5%;
+  color: #fff;
   border: 1px solid #fff;
   border-radius: 30px;
 }
@@ -513,7 +555,6 @@ option {
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   color: #fff;
-  font-size: 1.1rem;
 }
 
 .logoutbtn-user i {
@@ -936,6 +977,17 @@ option {
      object-fit: cover;
 }
 
+.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 150px;
+  padding-bottom: 200px;
+}
+
 body {
   background-color: #e9f1e7;
 }
@@ -1046,16 +1098,16 @@ body {
   background-image: url(../img/banner-01.jpg);
 }
 
-.banner-4 {
+.banner-2 {
   background-image: url(../img/banner-02.jpg);
 }
 
-.banner-2 {
+.banner-3 {
   background-image: url(../img/banner-05.jpg);
 }
 
-.banner-3 {
-  background-image: url(../img/banner-06.jpg);
+.banner-4 {
+  background-image: url(../img/banner-04.jpg);
 }
 
 .banner {
@@ -1530,6 +1582,11 @@ body {
           align-items: center;
 }
 
+.photobar-btn:hover {
+  -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
+}
+
 .index-play-left-btn, .index-play-right-btn {
   font-size: 2rem;
   color: #7b9a48;
@@ -1552,7 +1609,7 @@ body {
   background: #7b9a48;
   width: 100%;
   position: fixed;
-  height: 46px;
+  height: 52px;
 }
 
 @media (max-width: 600px) {
@@ -1700,17 +1757,36 @@ body {
 
 .new-menu a {
   width: 230px;
-  border-bottom: 8px solid  #fff;
-}
-
-.new-menu a:hover {
-  border-bottom: 8px solid  #ffe04c;
 }
 
 .new-menu li {
   line-height: 65px;
   text-align: center;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   border-left: 1px #e5e5e5 solid;
+}
+
+.new-menu li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 8px;
+  background: #ffe04c;
+}
+
+.new-menu li:hover {
+  cursor: pointer;
+}
+
+.new-menu li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 .new-menu .menu-border-right {
@@ -1787,19 +1863,38 @@ body {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-bottom: 5px solid #fff;
+  border-bottom: 4px solid #fff;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.mobile-menu-list li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 4px;
+  background: #ffe04c;
 }
 
 .mobile-menu-list li:hover {
-  background-color: #fff;
-  border-bottom: 5px solid #ffe04c;
+  cursor: pointer;
+}
+
+.mobile-menu-list li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 @media (max-width: 600px) {
   .mobile-menu-list-show {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    height: 260px;
+    height: 255px;
   }
 }
 
@@ -1876,14 +1971,18 @@ body {
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
+  color: #fff;
+}
+
+.loginbtn-list div {
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
 }
 
 .loginbtn-user, .loginbtn-list, .user-name {
   padding: 0 10px;
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
-  color: #fff;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .loginbtn-user i, .loginbtn-list i, .user-name i {
@@ -1906,6 +2005,7 @@ body {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+  color: #fff;
 }
 
 @media (max-width: 1024px) {
@@ -1927,11 +2027,10 @@ body {
 }
 
 .loginbtn-user, .logoutbtn-user {
-  padding: 0.5%;
-  padding-top: 2.5%;
+  padding: 6px 2px;
   width: 60px;
   text-align: center;
-  padding-bottom: 2.5%;
+  color: #fff;
   border: 1px solid #fff;
   border-radius: 30px;
 }
@@ -1952,7 +2051,6 @@ body {
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   color: #fff;
-  font-size: 1.1rem;
 }
 
 .logoutbtn-user i {
@@ -2373,6 +2471,17 @@ body {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 150px;
+  padding-bottom: 200px;
 }
 
 .mine-top {
@@ -2390,7 +2499,7 @@ body {
   background: #7b9a48;
   width: 100%;
   position: fixed;
-  height: 46px;
+  height: 52px;
 }
 
 @media (max-width: 600px) {
@@ -2538,17 +2647,36 @@ body {
 
 .new-menu a {
   width: 230px;
-  border-bottom: 8px solid  #fff;
-}
-
-.new-menu a:hover {
-  border-bottom: 8px solid  #ffe04c;
 }
 
 .new-menu li {
   line-height: 65px;
   text-align: center;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   border-left: 1px #e5e5e5 solid;
+}
+
+.new-menu li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 8px;
+  background: #ffe04c;
+}
+
+.new-menu li:hover {
+  cursor: pointer;
+}
+
+.new-menu li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 .new-menu .menu-border-right {
@@ -2625,19 +2753,38 @@ body {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-bottom: 5px solid #fff;
+  border-bottom: 4px solid #fff;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.mobile-menu-list li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 4px;
+  background: #ffe04c;
 }
 
 .mobile-menu-list li:hover {
-  background-color: #fff;
-  border-bottom: 5px solid #ffe04c;
+  cursor: pointer;
+}
+
+.mobile-menu-list li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 @media (max-width: 600px) {
   .mobile-menu-list-show {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    height: 260px;
+    height: 255px;
   }
 }
 
@@ -2714,14 +2861,18 @@ body {
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
+  color: #fff;
+}
+
+.loginbtn-list div {
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
 }
 
 .loginbtn-user, .loginbtn-list, .user-name {
   padding: 0 10px;
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
-  color: #fff;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .loginbtn-user i, .loginbtn-list i, .user-name i {
@@ -2744,6 +2895,7 @@ body {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+  color: #fff;
 }
 
 @media (max-width: 1024px) {
@@ -2765,11 +2917,10 @@ body {
 }
 
 .loginbtn-user, .logoutbtn-user {
-  padding: 0.5%;
-  padding-top: 2.5%;
+  padding: 6px 2px;
   width: 60px;
   text-align: center;
-  padding-bottom: 2.5%;
+  color: #fff;
   border: 1px solid #fff;
   border-radius: 30px;
 }
@@ -2790,7 +2941,6 @@ body {
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   color: #fff;
-  font-size: 1.1rem;
 }
 
 .logoutbtn-user i {
@@ -3211,6 +3361,17 @@ body {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 150px;
+  padding-bottom: 200px;
 }
 
 .travel-main-title {
@@ -3405,7 +3566,7 @@ body {
   background: #7b9a48;
   width: 100%;
   position: fixed;
-  height: 46px;
+  height: 52px;
 }
 
 @media (max-width: 600px) {
@@ -3553,17 +3714,36 @@ body {
 
 .new-menu a {
   width: 230px;
-  border-bottom: 8px solid  #fff;
-}
-
-.new-menu a:hover {
-  border-bottom: 8px solid  #ffe04c;
 }
 
 .new-menu li {
   line-height: 65px;
   text-align: center;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   border-left: 1px #e5e5e5 solid;
+}
+
+.new-menu li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 8px;
+  background: #ffe04c;
+}
+
+.new-menu li:hover {
+  cursor: pointer;
+}
+
+.new-menu li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 .new-menu .menu-border-right {
@@ -3640,19 +3820,38 @@ body {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-bottom: 5px solid #fff;
+  border-bottom: 4px solid #fff;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.mobile-menu-list li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 4px;
+  background: #ffe04c;
 }
 
 .mobile-menu-list li:hover {
-  background-color: #fff;
-  border-bottom: 5px solid #ffe04c;
+  cursor: pointer;
+}
+
+.mobile-menu-list li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 @media (max-width: 600px) {
   .mobile-menu-list-show {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    height: 260px;
+    height: 255px;
   }
 }
 
@@ -3729,14 +3928,18 @@ body {
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
+  color: #fff;
+}
+
+.loginbtn-list div {
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
 }
 
 .loginbtn-user, .loginbtn-list, .user-name {
   padding: 0 10px;
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
-  color: #fff;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .loginbtn-user i, .loginbtn-list i, .user-name i {
@@ -3759,6 +3962,7 @@ body {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+  color: #fff;
 }
 
 @media (max-width: 1024px) {
@@ -3780,11 +3984,10 @@ body {
 }
 
 .loginbtn-user, .logoutbtn-user {
-  padding: 0.5%;
-  padding-top: 2.5%;
+  padding: 6px 2px;
   width: 60px;
   text-align: center;
-  padding-bottom: 2.5%;
+  color: #fff;
   border: 1px solid #fff;
   border-radius: 30px;
 }
@@ -3805,7 +4008,6 @@ body {
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   color: #fff;
-  font-size: 1.1rem;
 }
 
 .logoutbtn-user i {
@@ -4226,6 +4428,17 @@ body {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 150px;
+  padding-bottom: 200px;
 }
 
 .present-main-title {
@@ -4611,7 +4824,7 @@ body {
 
 .travelpage-message-memo {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-  line-height: 1.2rem;
+  line-height: 2rem;
   margin: 0 2%;
   padding-bottom: 1%;
 }
@@ -4784,7 +4997,7 @@ body {
 }
 
 .travelpage-text {
-  line-height: 1.5rem;
+  line-height: 1.8rem;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
@@ -4986,7 +5199,8 @@ body {
 }
 
 .presentPagination-content .content-feature {
-  line-height: 1.5rem;
+  line-height: 1.8rem;
+  padding-top: 2%;
   font-size: 1.1rem;
 }
 
@@ -5190,7 +5404,7 @@ body {
   background: #7b9a48;
   width: 100%;
   position: fixed;
-  height: 46px;
+  height: 52px;
 }
 
 @media (max-width: 600px) {
@@ -5338,17 +5552,36 @@ body {
 
 .new-menu a {
   width: 230px;
-  border-bottom: 8px solid  #fff;
-}
-
-.new-menu a:hover {
-  border-bottom: 8px solid  #ffe04c;
 }
 
 .new-menu li {
   line-height: 65px;
   text-align: center;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   border-left: 1px #e5e5e5 solid;
+}
+
+.new-menu li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 8px;
+  background: #ffe04c;
+}
+
+.new-menu li:hover {
+  cursor: pointer;
+}
+
+.new-menu li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 .new-menu .menu-border-right {
@@ -5425,19 +5658,38 @@ body {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-bottom: 5px solid #fff;
+  border-bottom: 4px solid #fff;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.mobile-menu-list li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 4px;
+  background: #ffe04c;
 }
 
 .mobile-menu-list li:hover {
-  background-color: #fff;
-  border-bottom: 5px solid #ffe04c;
+  cursor: pointer;
+}
+
+.mobile-menu-list li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 @media (max-width: 600px) {
   .mobile-menu-list-show {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    height: 260px;
+    height: 255px;
   }
 }
 
@@ -5514,14 +5766,18 @@ body {
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
+  color: #fff;
+}
+
+.loginbtn-list div {
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
 }
 
 .loginbtn-user, .loginbtn-list, .user-name {
   padding: 0 10px;
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
-  color: #fff;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .loginbtn-user i, .loginbtn-list i, .user-name i {
@@ -5544,6 +5800,7 @@ body {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+  color: #fff;
 }
 
 @media (max-width: 1024px) {
@@ -5565,11 +5822,10 @@ body {
 }
 
 .loginbtn-user, .logoutbtn-user {
-  padding: 0.5%;
-  padding-top: 2.5%;
+  padding: 6px 2px;
   width: 60px;
   text-align: center;
-  padding-bottom: 2.5%;
+  color: #fff;
   border: 1px solid #fff;
   border-radius: 30px;
 }
@@ -5590,7 +5846,6 @@ body {
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   color: #fff;
-  font-size: 1.1rem;
 }
 
 .logoutbtn-user i {
@@ -6011,6 +6266,17 @@ body {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 150px;
+  padding-bottom: 200px;
 }
 
 .food-main-title {
@@ -6516,7 +6782,7 @@ body {
   background: #7b9a48;
   width: 100%;
   position: fixed;
-  height: 46px;
+  height: 52px;
 }
 
 @media (max-width: 600px) {
@@ -6664,17 +6930,36 @@ body {
 
 .new-menu a {
   width: 230px;
-  border-bottom: 8px solid  #fff;
-}
-
-.new-menu a:hover {
-  border-bottom: 8px solid  #ffe04c;
 }
 
 .new-menu li {
   line-height: 65px;
   text-align: center;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   border-left: 1px #e5e5e5 solid;
+}
+
+.new-menu li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 8px;
+  background: #ffe04c;
+}
+
+.new-menu li:hover {
+  cursor: pointer;
+}
+
+.new-menu li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 .new-menu .menu-border-right {
@@ -6751,19 +7036,38 @@ body {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-bottom: 5px solid #fff;
+  border-bottom: 4px solid #fff;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.mobile-menu-list li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 4px;
+  background: #ffe04c;
 }
 
 .mobile-menu-list li:hover {
-  background-color: #fff;
-  border-bottom: 5px solid #ffe04c;
+  cursor: pointer;
+}
+
+.mobile-menu-list li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 @media (max-width: 600px) {
   .mobile-menu-list-show {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    height: 260px;
+    height: 255px;
   }
 }
 
@@ -6840,14 +7144,18 @@ body {
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
+  color: #fff;
+}
+
+.loginbtn-list div {
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
 }
 
 .loginbtn-user, .loginbtn-list, .user-name {
   padding: 0 10px;
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
-  color: #fff;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .loginbtn-user i, .loginbtn-list i, .user-name i {
@@ -6870,6 +7178,7 @@ body {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+  color: #fff;
 }
 
 @media (max-width: 1024px) {
@@ -6891,11 +7200,10 @@ body {
 }
 
 .loginbtn-user, .logoutbtn-user {
-  padding: 0.5%;
-  padding-top: 2.5%;
+  padding: 6px 2px;
   width: 60px;
   text-align: center;
-  padding-bottom: 2.5%;
+  color: #fff;
   border: 1px solid #fff;
   border-radius: 30px;
 }
@@ -6916,7 +7224,6 @@ body {
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   color: #fff;
-  font-size: 1.1rem;
 }
 
 .logoutbtn-user i {
@@ -7337,6 +7644,17 @@ body {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 150px;
+  padding-bottom: 200px;
 }
 
 .tag-bar {
@@ -7836,7 +8154,7 @@ body {
   background: #7b9a48;
   width: 100%;
   position: fixed;
-  height: 46px;
+  height: 52px;
 }
 
 @media (max-width: 600px) {
@@ -7984,17 +8302,36 @@ body {
 
 .new-menu a {
   width: 230px;
-  border-bottom: 8px solid  #fff;
-}
-
-.new-menu a:hover {
-  border-bottom: 8px solid  #ffe04c;
 }
 
 .new-menu li {
   line-height: 65px;
   text-align: center;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   border-left: 1px #e5e5e5 solid;
+}
+
+.new-menu li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 8px;
+  background: #ffe04c;
+}
+
+.new-menu li:hover {
+  cursor: pointer;
+}
+
+.new-menu li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 .new-menu .menu-border-right {
@@ -8071,19 +8408,38 @@ body {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-bottom: 5px solid #fff;
+  border-bottom: 4px solid #fff;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.mobile-menu-list li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 4px;
+  background: #ffe04c;
 }
 
 .mobile-menu-list li:hover {
-  background-color: #fff;
-  border-bottom: 5px solid #ffe04c;
+  cursor: pointer;
+}
+
+.mobile-menu-list li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 @media (max-width: 600px) {
   .mobile-menu-list-show {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    height: 260px;
+    height: 255px;
   }
 }
 
@@ -8160,14 +8516,18 @@ body {
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
+  color: #fff;
+}
+
+.loginbtn-list div {
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
 }
 
 .loginbtn-user, .loginbtn-list, .user-name {
   padding: 0 10px;
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
-  color: #fff;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .loginbtn-user i, .loginbtn-list i, .user-name i {
@@ -8190,6 +8550,7 @@ body {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+  color: #fff;
 }
 
 @media (max-width: 1024px) {
@@ -8211,11 +8572,10 @@ body {
 }
 
 .loginbtn-user, .logoutbtn-user {
-  padding: 0.5%;
-  padding-top: 2.5%;
+  padding: 6px 2px;
   width: 60px;
   text-align: center;
-  padding-bottom: 2.5%;
+  color: #fff;
   border: 1px solid #fff;
   border-radius: 30px;
 }
@@ -8236,7 +8596,6 @@ body {
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   color: #fff;
-  font-size: 1.1rem;
 }
 
 .logoutbtn-user i {
@@ -8659,6 +9018,17 @@ body {
      object-fit: cover;
 }
 
+.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 150px;
+  padding-bottom: 200px;
+}
+
 .news-main-title {
   margin-left: 8%;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
@@ -8728,7 +9098,6 @@ body {
 @media (max-width: 510px) {
   .news-card {
     margin-bottom: 0;
-    height: 160px;
   }
 }
 
@@ -8780,6 +9149,7 @@ body {
 
 .news-title {
   font-size: 1.2rem;
+  line-height: 1.5rem;
   margin: 0;
 }
 
@@ -8886,6 +9256,12 @@ body {
   display: flex;
 }
 
+@media (max-width: 768px) {
+  .newspage-img {
+    padding-top: 5%;
+  }
+}
+
 .newspage-right {
   margin: 0 2%;
   width: 40%;
@@ -8907,6 +9283,7 @@ body {
 
 .newspage-name {
   font-size: 1.5rem;
+  line-height: 2rem;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin-bottom: 3%;
 }
@@ -8937,7 +9314,7 @@ body {
 }
 
 .newspage-text {
-  line-height: 1.5rem;
+  line-height: 2rem;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
@@ -9028,6 +9405,7 @@ body {
 @media (max-width: 768px) {
   .newspage-other .other-name {
     width: 100%;
+    line-height: 1.5rem;
     margin-left: 3%;
   }
 }
@@ -9047,7 +9425,7 @@ body {
   background: #7b9a48;
   width: 100%;
   position: fixed;
-  height: 46px;
+  height: 52px;
 }
 
 @media (max-width: 600px) {
@@ -9195,17 +9573,36 @@ body {
 
 .new-menu a {
   width: 230px;
-  border-bottom: 8px solid  #fff;
-}
-
-.new-menu a:hover {
-  border-bottom: 8px solid  #ffe04c;
 }
 
 .new-menu li {
   line-height: 65px;
   text-align: center;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   border-left: 1px #e5e5e5 solid;
+}
+
+.new-menu li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 8px;
+  background: #ffe04c;
+}
+
+.new-menu li:hover {
+  cursor: pointer;
+}
+
+.new-menu li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 .new-menu .menu-border-right {
@@ -9282,19 +9679,38 @@ body {
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-bottom: 5px solid #fff;
+  border-bottom: 4px solid #fff;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.mobile-menu-list li:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0;
+  left: 50%;
+  height: 4px;
+  background: #ffe04c;
 }
 
 .mobile-menu-list li:hover {
-  background-color: #fff;
-  border-bottom: 5px solid #ffe04c;
+  cursor: pointer;
+}
+
+.mobile-menu-list li:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 @media (max-width: 600px) {
   .mobile-menu-list-show {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    height: 260px;
+    height: 255px;
   }
 }
 
@@ -9371,14 +9787,18 @@ body {
 .loginbtn-list {
   padding-top: 1%;
   line-height: 60px;
+  color: #fff;
+}
+
+.loginbtn-list div {
+  font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
 }
 
 .loginbtn-user, .loginbtn-list, .user-name {
   padding: 0 10px;
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
-  color: #fff;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .loginbtn-user i, .loginbtn-list i, .user-name i {
@@ -9401,6 +9821,7 @@ body {
   padding-top: 0.5%;
   font-family: "微軟正黑體", "新細明體", sans-serif;
   width: 120px;
+  color: #fff;
 }
 
 @media (max-width: 1024px) {
@@ -9422,11 +9843,10 @@ body {
 }
 
 .loginbtn-user, .logoutbtn-user {
-  padding: 0.5%;
-  padding-top: 2.5%;
+  padding: 6px 2px;
   width: 60px;
   text-align: center;
-  padding-bottom: 2.5%;
+  color: #fff;
   border: 1px solid #fff;
   border-radius: 30px;
 }
@@ -9447,7 +9867,6 @@ body {
   cursor: pointer;
   font-family: Arial,"微軟正黑體", "新細明體", sans-serif;
   color: #fff;
-  font-size: 1.1rem;
 }
 
 .logoutbtn-user i {
@@ -9868,6 +10287,17 @@ body {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 150px;
+  padding-bottom: 200px;
 }
 
 .wish-main-title {
@@ -10032,7 +10462,7 @@ body {
 }
 
 .wishBtn-click {
-  border-bottom: 5px solid #ffe04c;
+  border-bottom: 5px solid #7b9a48;
 }
 
 .wish-main-list {

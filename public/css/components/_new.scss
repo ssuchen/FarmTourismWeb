@@ -45,7 +45,7 @@
     }
     @include phone-size{
         margin-bottom:0;
-        height: 160px;
+        //height: 160px;
     }
 }
 .news-card-left{
@@ -82,6 +82,7 @@
 }
 .news-title{
     font-size: 1.2rem;
+    line-height: 1.5rem;
     margin: 0 ;
 
 }

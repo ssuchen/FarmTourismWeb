@@ -14,7 +14,7 @@ padding-top:80px;
     background: #7b9a48;
     width: 100%;
     position: fixed;
-    height: 46px;
+    height: 52px;
     @include tab-size-s{
     bottom:0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
@@ -124,16 +124,32 @@ padding-top:80px;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
    a{
     width: 230px;
-    border-bottom:8px solid  #fff;
-    &:hover{
-    border-bottom:8px solid  #ffe04c;    
-    }
+    //border-bottom:8px solid  #fff;
+
    }
    li{
        line-height: 65px;
        text-align: center;
+       position: relative;
+       transition:0.3s;
        border-left: 1px #e5e5e5 solid;
-       
+       &:after{
+       position: absolute;
+       content: "";
+       bottom:0;
+       transition:0.3s;
+       width: 0;
+       left: 50%;
+       height: 8px;
+       background: #ffe04c;
+       }
+       &:hover{
+       cursor: pointer;
+       &:after{
+        width: 100%;
+        left:0;
+       }    
+        }   
    }
    .menu-border-right{
     border-right: 1px #e5e5e5 solid;
@@ -194,10 +210,27 @@ padding-top:80px;
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
     padding-top:15px;
     padding-bottom:15px;
-    border-bottom:5px solid #fff;
+    border-bottom:4px solid #fff;
+    position: relative;
+    transition:0.3s;
+    &:after{
+    position: absolute;
+    content: "";
+    bottom:0;
+    transition:0.3s;
+    width: 0;
+    left: 50%;
+    height: 4px;
+    background: #ffe04c;
+    }
     &:hover{
-        background-color: #fff;
-        border-bottom:5px solid #ffe04c;
+    cursor: pointer;
+    //background-color: #fff;
+    //border-bottom:5px solid #ffe04c;
+    &:after{
+    width: 100%;
+    left:0;
+    } 
     }   
     }
 }
@@ -205,7 +238,7 @@ padding-top:80px;
 .mobile-menu-list-show{ 
     @include tab-size-s{
         transition: all 0.5s;
-        height:260px;
+        height:255px;
         }
 }
 .main{
@@ -267,13 +300,16 @@ padding-top:80px;
 .loginbtn-list{
     padding-top:1%;
     line-height: 60px;
+    color: #fff; 
+    div{   
+    font-family: Arial,"微軟正黑體", "新細明體", sans-serif;     
+    }
 }
 .loginbtn-user,.loginbtn-list,.user-name{
     padding:0 10px;
     cursor: pointer;
     font-family: Arial,"微軟正黑體", "新細明體", sans-serif; 
-    color: #fff;
-    font-size: 1.1rem;
+    font-size: 1rem;
     i{
         font-family:"Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
         }
@@ -288,7 +324,8 @@ padding-top:80px;
 .user-wish{
     padding-top:0.5%; 
     font-family: "微軟正黑體", "新細明體", sans-serif; 
-    width: 120px; 
+    width: 120px;
+    color: #fff; 
     @media(max-width:1024px){
         width: 150px;
     }  
@@ -304,11 +341,10 @@ padding-top:0.5%;
 }
 
 .loginbtn-user,.logoutbtn-user{
-  padding: 0.5%;
-  padding-top:2.5%;
+  padding: 6px 2px;
   width: 60px;
   text-align: center;
-  padding-bottom:2.5%;
+  color: #fff;
   border:1px solid #fff;
   border-radius: 30px;
   &:hover{
@@ -321,22 +357,19 @@ padding-top:0.5%;
 }
 .logoutbtn-user{
     display: none;
-    //padding:0 10px;
-    //margin-top:2%;
     cursor: pointer;
     font-family: Arial,"微軟正黑體", "新細明體", sans-serif; 
     color: #fff;
-    font-size: 1.1rem;
     i{
-        font-family:"Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
-        }
+    font-family:"Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    }
 
     @include tab-size{
-        margin-top:3px;
-        padding: 1%; 
+    margin-top:3px;
+    padding: 1%; 
     }    
     @include tab-size-s{
-      top:120px;
+    top:120px;
     } 
 }
 .login-box{
@@ -669,4 +702,11 @@ padding-top:0.5%;
     width: 100%;
     object-fit: cover;
     }
+}
+
+.loading{
+    display: flex;
+    justify-content: center;
+    padding-top:150px;
+    padding-bottom:200px;
 }

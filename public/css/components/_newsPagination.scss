@@ -39,8 +39,10 @@
     margin:0 auto;
     margin-top:5%;
     display: flex;
-
-   // background:gray;
+    @include tab-size{
+    padding-top:5%;    
+    }
+    
 }
 .newspage-right{
     margin:0 2%;
@@ -60,6 +62,7 @@
 }
 .newspage-name{
     font-size: 1.5rem;
+    line-height: 2rem;
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
     margin-bottom:3%;
     
@@ -84,7 +87,7 @@
     margin-bottom:3%;
 }
 .newspage-text{
-    line-height: 1.5rem;
+    line-height: 2rem;
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
 }
 .newspage-other{
@@ -153,6 +156,7 @@
        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
     @include tab-size{
         width: 100%;
+        line-height: 1.5rem;
         margin-left: 3%;
     }
     }

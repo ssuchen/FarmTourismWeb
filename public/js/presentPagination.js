@@ -133,6 +133,9 @@ if(item.ID==UrlString && UrlString=="126"){
     
 }
 
+let loading = document.querySelector(".loading");
+loading.style.display="none";
+
 }
 );
 

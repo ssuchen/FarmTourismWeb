@@ -129,13 +129,8 @@ if(item.TravelSeq == UrlString){
 
 
 
-
-
-
-
-
-
-
+    let loading = document.querySelector(".loading");
+    loading.style.display="none";
 
 }
 });
