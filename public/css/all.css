@@ -3,14 +3,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url(//fonts.googleapis.com/earlyaccess/notosanskannada.css);
-@import url(//fonts.googleapis.com/earlyaccess/notosanskannada.css);
-@import url(//fonts.googleapis.com/earlyaccess/notosanskannada.css);
-@import url(//fonts.googleapis.com/earlyaccess/notosanskannada.css);
-@import url(//fonts.googleapis.com/earlyaccess/notosanskannada.css);
-@import url(//fonts.googleapis.com/earlyaccess/notosanskannada.css);
-@import url(//fonts.googleapis.com/earlyaccess/notosanskannada.css);
-@import url(//fonts.googleapis.com/earlyaccess/notosanskannada.css);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -110,7 +102,8 @@ option {
 
 .nav-bar {
   z-index: 51;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   width: 100%;
   position: fixed;
   height: 52px;
@@ -228,7 +221,6 @@ option {
   line-height: 50px;
   margin: 0 auto;
   font-size: 1.1rem;
-  background: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   text-align: center;
@@ -322,9 +314,9 @@ option {
 
 .mobile-menu-title {
   display: none;
-  background-color: #fff;
-  background-color: #e9f1e7;
   background-color: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -719,7 +711,7 @@ option {
 }
 
 .login-box-btn:hover {
-  background-color: #97b36a;
+  background-color: #99c355;
 }
 
 .login-box-btn-text {
@@ -740,7 +732,8 @@ option {
 #googleSingUpPopup {
   margin: 0 auto;
   color: #fff;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #86a752), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #86a752 0, #97be57 50%);
   width: 100%;
   border: 0;
   padding: 3%;
@@ -751,7 +744,8 @@ option {
 }
 
 #googleSingUpPopup:hover {
-  background-color: #b8cf92;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #b6e072), color-stop(50%, #badb80));
+  background: linear-gradient(90deg, #b6e072 0, #badb80 50%);
 }
 
 #faceSingUpPopup {
@@ -1606,7 +1600,8 @@ body {
 
 .nav-bar {
   z-index: 51;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   width: 100%;
   position: fixed;
   height: 52px;
@@ -1724,7 +1719,6 @@ body {
   line-height: 50px;
   margin: 0 auto;
   font-size: 1.1rem;
-  background: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   text-align: center;
@@ -1818,9 +1812,9 @@ body {
 
 .mobile-menu-title {
   display: none;
-  background-color: #fff;
-  background-color: #e9f1e7;
   background-color: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -2215,7 +2209,7 @@ body {
 }
 
 .login-box-btn:hover {
-  background-color: #97b36a;
+  background-color: #99c355;
 }
 
 .login-box-btn-text {
@@ -2236,7 +2230,8 @@ body {
 #googleSingUpPopup {
   margin: 0 auto;
   color: #fff;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #86a752), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #86a752 0, #97be57 50%);
   width: 100%;
   border: 0;
   padding: 3%;
@@ -2247,7 +2242,8 @@ body {
 }
 
 #googleSingUpPopup:hover {
-  background-color: #b8cf92;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #b6e072), color-stop(50%, #badb80));
+  background: linear-gradient(90deg, #b6e072 0, #badb80 50%);
 }
 
 #faceSingUpPopup {
@@ -2496,7 +2492,8 @@ body {
 
 .nav-bar {
   z-index: 51;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   width: 100%;
   position: fixed;
   height: 52px;
@@ -2614,7 +2611,6 @@ body {
   line-height: 50px;
   margin: 0 auto;
   font-size: 1.1rem;
-  background: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   text-align: center;
@@ -2708,9 +2704,9 @@ body {
 
 .mobile-menu-title {
   display: none;
-  background-color: #fff;
-  background-color: #e9f1e7;
   background-color: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -3105,7 +3101,7 @@ body {
 }
 
 .login-box-btn:hover {
-  background-color: #97b36a;
+  background-color: #99c355;
 }
 
 .login-box-btn-text {
@@ -3126,7 +3122,8 @@ body {
 #googleSingUpPopup {
   margin: 0 auto;
   color: #fff;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #86a752), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #86a752 0, #97be57 50%);
   width: 100%;
   border: 0;
   padding: 3%;
@@ -3137,7 +3134,8 @@ body {
 }
 
 #googleSingUpPopup:hover {
-  background-color: #b8cf92;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #b6e072), color-stop(50%, #badb80));
+  background: linear-gradient(90deg, #b6e072 0, #badb80 50%);
 }
 
 #faceSingUpPopup {
@@ -3563,7 +3561,8 @@ body {
 
 .nav-bar {
   z-index: 51;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   width: 100%;
   position: fixed;
   height: 52px;
@@ -3681,7 +3680,6 @@ body {
   line-height: 50px;
   margin: 0 auto;
   font-size: 1.1rem;
-  background: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   text-align: center;
@@ -3775,9 +3773,9 @@ body {
 
 .mobile-menu-title {
   display: none;
-  background-color: #fff;
-  background-color: #e9f1e7;
   background-color: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -4172,7 +4170,7 @@ body {
 }
 
 .login-box-btn:hover {
-  background-color: #97b36a;
+  background-color: #99c355;
 }
 
 .login-box-btn-text {
@@ -4193,7 +4191,8 @@ body {
 #googleSingUpPopup {
   margin: 0 auto;
   color: #fff;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #86a752), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #86a752 0, #97be57 50%);
   width: 100%;
   border: 0;
   padding: 3%;
@@ -4204,7 +4203,8 @@ body {
 }
 
 #googleSingUpPopup:hover {
-  background-color: #b8cf92;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #b6e072), color-stop(50%, #badb80));
+  background: linear-gradient(90deg, #b6e072 0, #badb80 50%);
 }
 
 #faceSingUpPopup {
@@ -5401,7 +5401,8 @@ body {
 
 .nav-bar {
   z-index: 51;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   width: 100%;
   position: fixed;
   height: 52px;
@@ -5519,7 +5520,6 @@ body {
   line-height: 50px;
   margin: 0 auto;
   font-size: 1.1rem;
-  background: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   text-align: center;
@@ -5613,9 +5613,9 @@ body {
 
 .mobile-menu-title {
   display: none;
-  background-color: #fff;
-  background-color: #e9f1e7;
   background-color: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -6010,7 +6010,7 @@ body {
 }
 
 .login-box-btn:hover {
-  background-color: #97b36a;
+  background-color: #99c355;
 }
 
 .login-box-btn-text {
@@ -6031,7 +6031,8 @@ body {
 #googleSingUpPopup {
   margin: 0 auto;
   color: #fff;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #86a752), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #86a752 0, #97be57 50%);
   width: 100%;
   border: 0;
   padding: 3%;
@@ -6042,7 +6043,8 @@ body {
 }
 
 #googleSingUpPopup:hover {
-  background-color: #b8cf92;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #b6e072), color-stop(50%, #badb80));
+  background: linear-gradient(90deg, #b6e072 0, #badb80 50%);
 }
 
 #faceSingUpPopup {
@@ -6779,7 +6781,8 @@ body {
 
 .nav-bar {
   z-index: 51;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   width: 100%;
   position: fixed;
   height: 52px;
@@ -6897,7 +6900,6 @@ body {
   line-height: 50px;
   margin: 0 auto;
   font-size: 1.1rem;
-  background: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   text-align: center;
@@ -6991,9 +6993,9 @@ body {
 
 .mobile-menu-title {
   display: none;
-  background-color: #fff;
-  background-color: #e9f1e7;
   background-color: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -7388,7 +7390,7 @@ body {
 }
 
 .login-box-btn:hover {
-  background-color: #97b36a;
+  background-color: #99c355;
 }
 
 .login-box-btn-text {
@@ -7409,7 +7411,8 @@ body {
 #googleSingUpPopup {
   margin: 0 auto;
   color: #fff;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #86a752), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #86a752 0, #97be57 50%);
   width: 100%;
   border: 0;
   padding: 3%;
@@ -7420,7 +7423,8 @@ body {
 }
 
 #googleSingUpPopup:hover {
-  background-color: #b8cf92;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #b6e072), color-stop(50%, #badb80));
+  background: linear-gradient(90deg, #b6e072 0, #badb80 50%);
 }
 
 #faceSingUpPopup {
@@ -8151,7 +8155,8 @@ body {
 
 .nav-bar {
   z-index: 51;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   width: 100%;
   position: fixed;
   height: 52px;
@@ -8269,7 +8274,6 @@ body {
   line-height: 50px;
   margin: 0 auto;
   font-size: 1.1rem;
-  background: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   text-align: center;
@@ -8363,9 +8367,9 @@ body {
 
 .mobile-menu-title {
   display: none;
-  background-color: #fff;
-  background-color: #e9f1e7;
   background-color: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -8760,7 +8764,7 @@ body {
 }
 
 .login-box-btn:hover {
-  background-color: #97b36a;
+  background-color: #99c355;
 }
 
 .login-box-btn-text {
@@ -8781,7 +8785,8 @@ body {
 #googleSingUpPopup {
   margin: 0 auto;
   color: #fff;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #86a752), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #86a752 0, #97be57 50%);
   width: 100%;
   border: 0;
   padding: 3%;
@@ -8792,7 +8797,8 @@ body {
 }
 
 #googleSingUpPopup:hover {
-  background-color: #b8cf92;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #b6e072), color-stop(50%, #badb80));
+  background: linear-gradient(90deg, #b6e072 0, #badb80 50%);
 }
 
 #faceSingUpPopup {
@@ -9422,7 +9428,8 @@ body {
 
 .nav-bar {
   z-index: 51;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   width: 100%;
   position: fixed;
   height: 52px;
@@ -9540,7 +9547,6 @@ body {
   line-height: 50px;
   margin: 0 auto;
   font-size: 1.1rem;
-  background: #7b9a48;
   color: #fff;
   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   text-align: center;
@@ -9634,9 +9640,9 @@ body {
 
 .mobile-menu-title {
   display: none;
-  background-color: #fff;
-  background-color: #e9f1e7;
   background-color: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #7b9a48), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #7b9a48 0, #97be57 50%);
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -10031,7 +10037,7 @@ body {
 }
 
 .login-box-btn:hover {
-  background-color: #97b36a;
+  background-color: #99c355;
 }
 
 .login-box-btn-text {
@@ -10052,7 +10058,8 @@ body {
 #googleSingUpPopup {
   margin: 0 auto;
   color: #fff;
-  background: #7b9a48;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #86a752), color-stop(50%, #97be57));
+  background: linear-gradient(90deg, #86a752 0, #97be57 50%);
   width: 100%;
   border: 0;
   padding: 3%;
@@ -10063,7 +10070,8 @@ body {
 }
 
 #googleSingUpPopup:hover {
-  background-color: #b8cf92;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #b6e072), color-stop(50%, #badb80));
+  background: linear-gradient(90deg, #b6e072 0, #badb80 50%);
 }
 
 #faceSingUpPopup {
