@@ -1,6 +1,4 @@
 
-
-
 .foodpage-main-content{
     display: flex;
     margin-bottom: 3.5%;
@@ -41,8 +39,6 @@
     margin:0 2%;
     width: 45%;
     box-sizing: border-box;
-    //border: 1px solid gray;
-    //height: 600px;
     @include tab-size{
         margin: 0 auto;
         width: 90%;
@@ -63,7 +59,6 @@
     div{
         width: 100%;
         height: 100%;
-        //background-color: gray;
     }
 
 }
@@ -73,13 +68,13 @@
 }
 .foodpage-name{
     font-size: 1.5rem;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-family:$main-font; 
     margin-bottom:3%;
 }
 .foodpage-place{
     display: flex;
     font-size: 1.3rem;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-family: $main-font; 
     margin-bottom:3%;
 }
 .foodpage-city{
@@ -87,22 +82,22 @@
 }
 .foodpage-tel{
     font-size: 1rem;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-family: $main-font; 
     margin-bottom:3%;
 }
 .foodpage-text{
     line-height: 1.5rem;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-family: $main-font; 
 }
 .foodpage-other{
     .other-title { 
         display:flex;
         justify-content: space-between;
         div{
-        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+        font-family: $main-font;
         font-size: 1.3rem;
         font-weight: 530;
-        color: #7b9a48;
+        color: $main-color-green;
         margin-top: 5%;
         margin-bottom: 3%;    
 
@@ -133,14 +128,14 @@
     }
     .other-name{
        padding-left:5%; 
-       font-size: 1.2rem;
-       font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+       font-size: 1rem;
+       font-family: $main-font; 
     }
     .other-more{
         a{
         color: gray;
         &:hover{
-        color:#7b9a48 ; 
+        color: $main-color-green; 
         }
         }
     }

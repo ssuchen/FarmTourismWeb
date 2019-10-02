@@ -1,5 +1,4 @@
-@import"size";
-@import"layout";
+
 .food-main-title{
     font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
     font-size: 1.5rem;
@@ -15,23 +14,7 @@
         text-align: center;
     }  
 }
-.searchBar{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    margin-bottom:3%;
-    @include tab-size-L {
-        padding: 0 3%;  
-        box-sizing: border-box;
-    }
-    @media(max-width: 680px){
-        display: block;
-        margin-bottom:0;
-        
-    }
- 
-}
+
 .searchBar-group{
     select{
     width: 100%; 
@@ -187,21 +170,10 @@
     margin:5% 0;
  }
 }
-.searchBar-County{
+.searchBar-Country{
 @include phone-size{
     margin-bottom:5%;
 }  
 }
-.searchBar-Btn{
-    background:#fff;
-    &:active{
-        background: gray;
-    }
-}
-.page-bar{
-    display: flex;
-    justify-content: center;
-    margin:5% 0;
-    align-items: center;
-}
+
 

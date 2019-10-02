@@ -1,17 +1,32 @@
-// body{
-//     background-color: #f8f6ec;
-// }
 
-@import url(//fonts.googleapis.com/earlyaccess/notosanskannada.css);
-.mine-top{
-padding-top:150px;
-@include tab-size-s{
-padding-top:80px;    
+
+
+//標準色
+$main-color-green:#7b9a48;
+$second-color-green:#b8cf92;
+$second-color-yellow:#ffe04c;
+
+//字體
+$main-font: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+
+body{
+    background-color: #e9f1e7;
 }
+
+.main{
+    max-width: 1152px;
+    margin: 0 auto;
+    //margin-bottom: 200px;
+}
+.mine-top{
+    padding-top:150px;
+    @include tab-size-s{
+    padding-top:80px;    
+    }
 }
 .nav-bar{
     z-index: 51;
-    background: #7b9a48;
+    background: linear-gradient(90deg, $main-color-green 0, #97be57 50%);
     width: 100%;
     position: fixed;
     height: 52px;
@@ -27,7 +42,6 @@ padding-top:80px;
 .nav-bar-width{
     margin:0 auto;
     max-width: 1000px;
-    //padding: 1%;
     height: 50px;
     align-items: center;
     display: flex;
@@ -73,40 +87,10 @@ padding-top:80px;
    background-color: #fff;
     display: flex;
     justify-content: center;
-    //padding:5% 0;
     img{
         width: 960px;
-        //max-width: 960px;
     }
   
-}
-.menu{
-    @include tab-size-s{
-        display:none;
-    }
-    a{      
-        width: 230px;
-        margin-left:5%;
-        margin-right:5%;
-        height: 50px;
-        line-height:50px;
-        margin:0 auto;
-        font-size: 1.1rem;
-        background: #7b9a48;
-        color: #fff;
-        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-        text-align: center;
-        &:hover{
-            background: #c9e49d;
-            color: #3a5215;
-        }
-    }
-  
-    max-width:1000px;
-    margin:0 auto;
-    margin-top:3%;
-    margin-bottom:3%;
-    display: flex;
 }
 .new-menu{
    z-index: 50;
@@ -116,7 +100,7 @@ padding-top:80px;
    display: flex; 
    
    height: 65px;
-   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+   font-family: $main-font;
    justify-content:center;
    background-color: #fff;
    font-size: 1.1rem;
@@ -124,8 +108,6 @@ padding-top:80px;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
    a{
     width: 230px;
-    //border-bottom:8px solid  #fff;
-
    }
    li{
        line-height: 65px;
@@ -141,7 +123,7 @@ padding-top:80px;
        width: 0;
        left: 50%;
        height: 8px;
-       background: #ffe04c;
+       background: $second-color-yellow;
        }
        &:hover{
        cursor: pointer;
@@ -173,10 +155,9 @@ padding-top:80px;
 }
 .mobile-menu-title{
     display: none;
-    //padding-top:46px;
     background-color: #fff;
     background-color: rgb(233, 241, 231);
-    background-color: #7b9a48;
+    background-color:$main-color-green;
     justify-content: space-between;
     @include tab-size-s{
         display:flex;
@@ -207,7 +188,7 @@ padding-top:80px;
     li{
     text-align: center;
     font-size: 1.1rem;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-family: $main-font;
     padding-top:15px;
     padding-bottom:15px;
     border-bottom:4px solid #fff;
@@ -221,12 +202,10 @@ padding-top:80px;
     width: 0;
     left: 50%;
     height: 4px;
-    background: #ffe04c;
+    background: $second-color-yellow;
     }
     &:hover{
     cursor: pointer;
-    //background-color: #fff;
-    //border-bottom:5px solid #ffe04c;
     &:after{
     width: 100%;
     left:0;
@@ -241,10 +220,6 @@ padding-top:80px;
         height:255px;
         }
 }
-.main{
-    max-width: 1152px;
-    margin: 0 auto;
-}
 .like-btn{
     position: absolute;
     top:5%;
@@ -254,13 +229,11 @@ padding-top:80px;
     right:8%;
     font-size: 1.8rem;
     color: #fff;
-    //color:#86aa4c;   
-    //opacity: 0.7;
 }
 
 .footer{
     height: 150px;
-    background-color: #7b9a48;
+    background-color:$main-color-green;
     @include tab-size-s{
     padding-bottom:60px;
     }
@@ -275,7 +248,7 @@ padding-top:80px;
     .footer-content-left{
         li{
             margin-top:10px;
-            font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+            font-family:$main-font; 
         }
         padding:0 2%;
     }
@@ -283,7 +256,7 @@ padding-top:80px;
     {
         li{
             margin-top:10px;
-            font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+            font-family: $main-font; 
         }
         padding:0 2%;
     }
@@ -302,16 +275,16 @@ padding-top:80px;
     line-height: 60px;
     color: #fff; 
     div{   
-    font-family: Arial,"微軟正黑體", "新細明體", sans-serif;     
+    font-family:$main-font;     
     }
 }
 .loginbtn-user,.loginbtn-list,.user-name{
     padding:0 10px;
     cursor: pointer;
-    font-family: Arial,"微軟正黑體", "新細明體", sans-serif; 
+    font-family:$main-font; 
     font-size: 1rem;
     i{
-        font-family:"Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+        font-family:$main-font; 
         }
 
     @include tab-size-s{
@@ -323,7 +296,7 @@ padding-top:80px;
 }
 .user-wish{
     padding-top:0.5%; 
-    font-family: "微軟正黑體", "新細明體", sans-serif; 
+    font-family: $main-font; 
     width: 120px;
     color: #fff; 
     @media(max-width:1024px){
@@ -349,7 +322,7 @@ padding-top:0.5%;
   border-radius: 30px;
   &:hover{
       background-color: #fff;
-      color:  #7b9a48;
+      color: $main-color-green;
   }
   @media(max-width:1024px){
     margin-right:10%;
@@ -358,10 +331,10 @@ padding-top:0.5%;
 .logoutbtn-user{
     display: none;
     cursor: pointer;
-    font-family: Arial,"微軟正黑體", "新細明體", sans-serif; 
+    font-family:$main-font; 
     color: #fff;
     i{
-    font-family:"Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-family:$main-font; 
     }
 
     @include tab-size{
@@ -388,18 +361,17 @@ padding-top:0.5%;
     top:30%;
     margin-left: 45%;
     transform: translate(-150px);
-    border: 1px solid #7b9a48;
+    border: 1px solid $main-color-green;
     h1{
         padding-top:5%;
         font-size: 1.5rem;
         display: flex;
         justify-content: center;
-        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;    
+        font-family: $main-font;    
     }
 }
 .loginStatus{
    display: none;
-   //display: block;
 }
 
 //登出成功視窗
@@ -416,7 +388,7 @@ padding-top:0.5%;
     top:300px;
     margin-left: 50%;
     transform: translate(-100px);
-    border: 1px solid #7b9a48;
+    border: 1px solid $main-color-green;
     div{
       text-align: center;
     }
@@ -425,7 +397,7 @@ padding-top:0.5%;
     width: 45px;
     height: 45px;
     border-radius:50%;
-    background-color:#7b9a48;
+    background-color: $main-color-green;
     position:absolute;
     top:-15px;
     right:-10px;
@@ -455,7 +427,7 @@ padding-top:0.5%;
     top:300px;
     margin-left: 50%;
     transform: translate(-100px);
-    border: 1px solid #7b9a48;
+    border: 1px solid $main-color-green;
     div{
       text-align: center;
     }
@@ -464,7 +436,7 @@ padding-top:0.5%;
     width: 45px;
     height: 45px;
     border-radius:50%;
-    background-color:#7b9a48;
+    background-color: $main-color-green;
     position:absolute;
     top:-15px;
     right:-10px;
@@ -488,7 +460,7 @@ padding-top:0.5%;
     width: 45px;
     height: 45px;
     border-radius:50%;
-    background-color:#7b9a48;
+    background-color:$main-color-green;
     position:absolute; 
     top:-15px;
     right:-10px;
@@ -509,7 +481,7 @@ padding-top:0.5%;
 #googleSingUpPopup{
     margin:0 auto;
     color:#fff ;
-    background: #7b9a48;
+    background: $main-color-green;
     width: 100%;
     border: 0;
     padding: 3%;
@@ -533,8 +505,6 @@ padding-top:0.5%;
         &:hover{
             background-color: #92b4d4;
         }    
-
-
 }
 .page-list{
     display: flex;
@@ -544,27 +514,25 @@ padding-top:0.5%;
     border-radius: 50%;
     background: rgb(199, 199, 199);
     color:#fff;
-    //color: #7b9a48;
-    //border:1px solid #7b9a48 ;
     text-align: center;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-family:$main-font; 
     line-height:35px;
     margin:3px;
     width: 35px;
     height: 35px;
     vertical-align: middle;
     &:hover{
-    background:#ffe04c ;
+    background:$second-color-yellow;
     }
     @media (max-width:500px) {
      display: none;   
     }
 }
 .Add-page,.Less-page{
-   color: #7b9a48;
+   color:$main-color-green;
    border-radius: 50%;
-   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
-   border:1px solid #7b9a48 ;
+   font-family: $main-font; 
+   border:1px solid $main-color-green;
    text-align: center;
    line-height:35px;
    margin:3px;
@@ -573,45 +541,59 @@ padding-top:0.5%;
    vertical-align: middle;
 }
 .btn-active{
-    background-color: #7b9a48;
+    background-color: $main-color-green;
     color: #fff;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-family:$main-font; 
     @media (max-width:500px) {
     display:block;   
     }
 }
+.searchBar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-bottom:3%;
+    @include tab-size-L {
+        padding: 0 3%;  
+        box-sizing: border-box;
+    }
+    @media(max-width: 680px){
+        display: block;
+        margin-bottom:0;
+        
+    }
+ 
+}
 .searchBar-Area{
     font-size: 1.1rem;
-    border-left:2px solid #97be57;
+    border-left:2px solid $second-color-green;
     outline:none;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-family: $main-font; 
     option{
     color: #000;
     text-align: center;
     }
     @include phone-size {
     border-left:0px;
-    border-bottom:2px solid #97be57;   
+    border-bottom:2px solid $second-color-green;   
     }
 }
 .searchBar-Country{
     font-size: 1.1rem;
-    border-left:2px solid #97be57;
+    border-left:2px solid $second-color-green;
     outline:none;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-family:$main-font ; 
     @include phone-size{
         border-left:0px;
-        border-bottom:2px solid #97be57;   
+        border-bottom:2px solid $second-color-green;   
         }
 
 }
-
-
 .searchBar-group{
     select{
     width: 100%; 
     padding:1%; 
-    //border:1px solid; 
     text-align: center;
     text-align-last: center;
     
@@ -659,10 +641,10 @@ padding-top:0.5%;
     .searchBar-Btn{
         font-size: 1.1rem;
         line-height: 24px;
-        background-color:#7b9a48;
+        background-color:$main-color-green;
         color: #fff;
         outline:none;
-        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+        font-family: $main-font; 
         &:active{
         background-color:#97be57;
         color: #000;
@@ -688,19 +670,30 @@ padding-top:0.5%;
     }
 }
 
-
-
 //footer 圖檔
 .img-fix{
     margin: 0 auto;
     width: 100%;
     overflow: hidden;
     display: flex;
+   
     justify-content: center;
     margin-bottom:-3%;
     img{
-    width: 100%;
+    width: 100%; 
+    margin-top: 6%;
     object-fit: cover;
+    @include tab-size{
+    margin-top: 12%;    
+    }
+    @include tab-size-s{
+    margin-top: 20%;    
+    }
+    @include tab-size-s{
+    margin-top: 30%;    
+    }
+    
+
     }
 }
 
@@ -710,3 +703,12 @@ padding-top:0.5%;
     padding-top:150px;
     padding-bottom:200px;
 }
+
+//分頁按鈕列
+.page-bar{
+    display: flex;
+    justify-content: center;
+    margin:5% 0;
+    align-items: center;
+}
+

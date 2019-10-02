@@ -1,6 +1,4 @@
 
-
-
 .travelpage-main-content{
     display: flex;
     margin-bottom: 3.5%;
@@ -18,8 +16,6 @@
     box-sizing: border-box;
     background-color: #fff;
     border-radius: 5px;
-    //border: 1px solid;
-    //height: 1000px;
     @include tab-size{
         margin: 0 auto;
         margin-bottom:5%;
@@ -39,8 +35,7 @@
     } 
 
 }
-.travelpage-right{
-    
+.travelpage-right{   
     margin:0 2%;
     width: 45%;
     box-sizing: border-box;
@@ -53,9 +48,7 @@
     margin:0 2%;
     margin-bottom: 2%;
     width: 96%;
-    //margin:0 auto;
     padding:2% 0;
-    //padding: 5%;
     box-sizing: border-box;
     border-radius:5px ;
     background-color: #fff;
@@ -70,14 +63,10 @@
 .travelpage-message-content{
     display: flex;
     padding:0.5% 0;
-    //border-radius:5px ;
-    //border-top:1px dashed  #b8cf92;
-    border-bottom:1.2px dashed  #b8cf92;
+    border-bottom:1.2px dashed  $second-color-green;
     width: 90%;
     margin: 0 auto;
     margin-bottom: 2%;
-    //background-color:#e9f1e7;
-
 
 }
 
@@ -97,24 +86,23 @@ width: 100%;
 
 
 .travelpage-message-text{
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+    font-family:$main-font;
     font-size: 1.2rem;
     margin-left:2%;
     margin-right:2%;
     margin-bottom: 2%;
     padding-bottom: 10px;
-    border-bottom:1px #7b9a48 solid;
+    border-bottom:1px $main-color-green solid;
 
 }
 .travelpage-message-memo{
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+    font-family: $main-font;
     line-height: 2rem;
     margin:0 2%;
     padding-bottom:1%;
-    //border-bottom:1px solid;
 }
 .travelpage-message-title{
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+    font-family: $main-font;
     display:flex;
     font-size: 1.2rem;
     margin: 1% 2%;
@@ -132,15 +120,15 @@ width: 100%;
     margin-bottom:5%;
     text-align: center;
     color: #fff;
-    background-color: #7b9a48;
-    border: 1.5px solid #7b9a48;
+    background-color: $main-color-green;
+    border: 1.5px solid $main-color-green;
     border-radius: 30px;
     padding:1%;
     font-size: 1.2rem;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+    font-family: $main-font;
     &:hover{
-        border:1.5px solid  #b8cf92 ;
-        background:#b8cf92 ;
+        border:1.5px solid  ;
+        background:$second-color-green ;
     }
 }
 
@@ -181,7 +169,7 @@ width: 100%;
         justify-content: center;
         .comment-submit-btn,.comment-cancel-btn{
             align-items: flex-start;
-            font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+            font-family: $main-font;
             padding:1%;
             line-height: 1.5rem;
             width: 100px;
@@ -191,12 +179,10 @@ width: 100%;
             border-radius: 30px;
             margin:0 1%;
             margin-top:2%;
-            color: #7b9a48;
-            //background-color: #7b9a48;
-            border: 1.5px solid #7b9a48;
+            color: $main-color-green;
+            border: 1.5px solid $main-color-green;
         &:hover{
-            border:1.5px solid #7b9a48 ;
-            background-color: #7b9a48;
+            background-color: $main-color-green;
             color: #fff;
         }
         } 
@@ -232,13 +218,13 @@ width: 100%;
 }
 .travelpage-name{
     font-size: 1.5rem;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-family: $main-font; 
     margin-bottom:3%;
 }
 .travelpage-place{
     display: flex;
     font-size: 1.3rem;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-family: $main-font; 
     margin-bottom:3%;
 }
 .travelpage-city{
@@ -246,12 +232,12 @@ width: 100%;
 }
 .travelpage-tel{
     font-size: 1rem;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-family: $main-font; 
     margin-bottom:3%;
 }
 .travelpage-text{
     line-height: 1.8rem;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+    font-family: $main-font; 
 }
 .travelpage-other{
     .other-title { 
@@ -259,10 +245,10 @@ width: 100%;
         justify-content: space-between;
         margin-bottom:5%;
         div{
-        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+        font-family: $main-font; 
         font-size: 1.3rem;
         font-weight: 530;
-        color: #7b9a48 ;
+        color: $main-color-green ;
         margin-top:5%;
         margin-bottom: 3%;
         }
@@ -272,7 +258,7 @@ width: 100%;
         display:flex;
         padding:1.5% 0;
         align-items: center;
-        border-bottom:1px dashed  #b8cf92;
+        border-bottom:1px dashed  $second-color-green;
     }
     .other-img{
         width: 75px;
@@ -293,13 +279,13 @@ width: 100%;
     .other-name{
        padding-left:5%; 
        font-size: 1.2rem;
-       font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
+       font-family:$main-font; 
     }
     .other-more{
         a{
         color: gray;
         &:hover{
-        color:#7b9a48 ; 
+        color:$main-color-green; 
         }
         }
 
