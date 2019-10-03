@@ -282,6 +282,7 @@ body{
     padding:0 10px;
     cursor: pointer;
     font-family:$main-font; 
+    color: #fff;
     font-size: 1rem;
     i{
         font-family:$main-font; 
@@ -295,6 +296,9 @@ body{
     }
 }
 .user-wish{
+    div{
+    cursor: pointer;
+    }
     padding-top:0.5%; 
     font-family: $main-font; 
     width: 120px;
@@ -305,8 +309,11 @@ body{
 
 }
 .user-name{
-display: none;    
-padding-top:0.5%; 
+display: none;   
+padding-top:0.5%;
+div{
+color: #fff;       
+} 
 @media(max-width:1024px){
     width: 150px;
     text-align: center;

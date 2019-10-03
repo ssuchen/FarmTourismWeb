@@ -116,9 +116,10 @@ for(let i =0 ;i<12 ;i++){
                 journeyMainContent.appendChild(journeyCard);
                 journeyCard.appendChild(journeyImg);
                 journeyCard.appendChild(journeyTitle);
-                journeyCard.appendChild(journeyGroup);
+               
 
-                journeyCard.appendChild(journeyText);            
+                journeyCard.appendChild(journeyText);  
+                journeyCard.appendChild(journeyGroup);          
                 journeyImg.appendChild(img);
                 journeyImg.appendChild(journeyBtn);
 
@@ -304,9 +305,9 @@ let pageList = document.querySelector('.page-list');
                 journeyMainContent.appendChild(journeyCard);
                 journeyCard.appendChild(journeyImg);
                 journeyCard.appendChild(journeyTitle);
-                journeyCard.appendChild(journeyGroup);
-
-                journeyCard.appendChild(journeyText);            
+                journeyCard.appendChild(journeyText);
+                
+                journeyCard.appendChild(journeyGroup);            
                 journeyImg.appendChild(img);
                 journeyImg.appendChild(journeyBtn);
       
@@ -468,9 +469,9 @@ for(let b=0 ; b<tagBtn.length ; b++){
             journeyMainContent.appendChild(journeyCard);
             journeyCard.appendChild(journeyImg);
             journeyCard.appendChild(journeyTitle);
-            journeyCard.appendChild(journeyGroup);
+            journeyCard.appendChild(journeyText);
 
-            journeyCard.appendChild(journeyText);            
+            journeyCard.appendChild(journeyGroup);            
             journeyImg.appendChild(img);
             journeyImg.appendChild(journeyBtn);
   

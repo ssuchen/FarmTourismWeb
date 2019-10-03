@@ -5,18 +5,17 @@
 
 travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
 // 有登入時 留言按鈕出現
- userName
- userEmail
- userPhoto
- user
-console.log(user)
- firebase.auth().onAuthStateChanged(function(user){
+userName
+userEmail
+userPhoto
+user
+
+firebase.auth().onAuthStateChanged(function(user){
 
     let navname = document.querySelector(".user-name");
     let navphoto = document.querySelector(".user-photo");
 
     if(user != null){
-        //user = firebase.auth.currentUser;
         console.log(user)
         userName = user.displayName; 
         console.log(userName)
@@ -36,14 +35,13 @@ console.log(user)
         navnameDiv.textContent = userName +"  你好!";
         console.log(userName)
         navname.appendChild(navnameDiv);
-        //navnameDiv.setAttribute("class","navname-Div");  
+    
         navphoto.style.display="block"
         navname.style.display="block"
 
         
     }
     else{
-      console.log("no")
       document.location.href="index.html";
     
     }
@@ -85,15 +83,13 @@ db.collection("user").get().then(function(snapshop){
     snapshop.docs.forEach(function(doc) {
         if(userEmail == doc.data().email){
         docID = doc.id
-        //console.log(doc.id)
+
         } 
     });
     //將符合email的資料放入陣列
     let list = db.collection("user").doc(docID).collection("travellist")
     list.get().then(function(snapshop){
-       // console.log(snapshop)
         snapshop.forEach(function(doc,index){
-            console.log()
         Travellist.push(doc.data())
         })
         let str=""
@@ -122,12 +118,9 @@ db.collection("user").get().then(function(snapshop){
         for(let b = 0 ;b<btn.length ; b++){
         btn[b].addEventListener("click",function(e){
             e.preventDefault();
-            //console.log(btn[b].id)
             list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
                 snapshop.docs.forEach(function(doc){
-                    //console.log(doc.data())
-                    //console.log(doc.id)
-                    list.doc(doc.id).delete()
+                    list.doc(doc.id).delete();
                 })
             })
             wishTravelText();
@@ -168,19 +161,17 @@ db.collection("user").get().then(function(snapshop){
         Presentlist.push(doc.data())
         })
         let str=""
-        //console.log(Presentlist.length)
         if(Presentlist.length > 12){
         alert("收藏頁放不下太多願望")
         Presentlist.length = 12;
         }
-        //console.log(Presentlist)
         Presentlist.forEach(function(item){
-            //console.log(Presentlist)
             let name = item.title
             let photo = item.img
             let text = item.text
             let city = item.country
             let id = item.id
+
             str += '<a href="presentPagination.html?id='+ id
             +'" class="present-card"><div class="present-img"><img src="' + photo
             +'"><i class="far fa-heart like-btn fas" aria-hidden="true" id = '+ id 
@@ -196,15 +187,11 @@ db.collection("user").get().then(function(snapshop){
 
         //點擊愛心按鈕 刪除卡片
         let btn = document.querySelectorAll(".like-btn")  
-        //console.log(btn) 
         for(let b = 0 ;b<btn.length ; b++){
                 btn[b].addEventListener("click",function(e){
                     e.preventDefault();
-                    //console.log(btn[b].id)
                     list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
                         snapshop.docs.forEach(function(doc){
-                            // console.log(doc.data())
-                            // console.log(doc.id)
                             list.doc(doc.id).delete();
                         })
                     })
@@ -301,7 +288,6 @@ db.collection("user").get().then(function(snapshop){
                 journeyImg.appendChild(journeyBtn);
 
                 for(let i=0 ;i<tag.length;i++){
-                   // console.log(tag[i])
                     journeyTag = document.createElement("div");
                     journeyTag.setAttribute("class","journey-tag");
                     journeyTag.textContent= tag[i];
@@ -313,15 +299,11 @@ db.collection("user").get().then(function(snapshop){
 
         //點擊愛心按鈕 刪除卡片
         let btn = document.querySelectorAll(".like-btn")  
-        //console.log(btn) 
         for(let b = 0 ;b<btn.length ; b++){
             btn[b].addEventListener("click",function(e){
             e.preventDefault();
-            //console.log(btn[b].id)
             list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
             snapshop.docs.forEach(function(doc){
-            // console.log(doc.data())
-            // console.log(doc.id)
             list.doc(doc.id).delete();
             })
             })
@@ -365,7 +347,6 @@ db.collection("user").get().then(function(snapshop){
                 Foodlist.length = 12;
             }   
             Foodlist.forEach(function(item){
-               // console.log(Foodlist)
                 let name = item.title
                 let tel = item.tel
                 let photo = item.img
@@ -389,15 +370,11 @@ db.collection("user").get().then(function(snapshop){
 
                     //點擊愛心按鈕 刪除卡片
             let btn = document.querySelectorAll(".like-btn")  
-            //console.log(btn) 
             for(let b = 0 ;b<btn.length ; b++){
             btn[b].addEventListener("click",function(e){
             e.preventDefault();
-            //console.log(btn[b].id)
             list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
             snapshop.docs.forEach(function(doc){
-            // console.log(doc.data())
-            // console.log(doc.id)
             list.doc(doc.id).delete();
             })
             })

@@ -165,10 +165,12 @@ overflow: hidden;
     margin:5% 0;
 }
 .index-more-btn{
+    cursor: pointer;
     a{
         color: #fff;
         :hover{
             color:$main-color-green;
+            
         }
     }
     height: 30px;
@@ -422,7 +424,7 @@ img{
 }
 .index-play-left-btn,.index-play-right-btn{
     font-size: 2rem;
-    color:$main-color-green;
+    color: $main-color-green;
     font-size: 3rem;
     margin-bottom: 10%;
 }

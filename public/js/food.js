@@ -61,8 +61,6 @@ ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenDat
 });
 
 function foodRender(data){
-    // console.log(data)
-
      //所有食物的總數
      let len = data.length;
      let perpage = 12;

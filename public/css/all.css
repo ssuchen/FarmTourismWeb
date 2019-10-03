@@ -448,6 +448,7 @@ body {
   padding: 0 10px;
   cursor: pointer;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  color: #fff;
   font-size: 1rem;
 }
 
@@ -474,6 +475,10 @@ body {
   color: #fff;
 }
 
+.user-wish div {
+  cursor: pointer;
+}
+
 @media (max-width: 1024px) {
   .user-wish {
     width: 150px;
@@ -483,6 +488,10 @@ body {
 .user-name {
   display: none;
   padding-top: 0.5%;
+}
+
+.user-name div {
+  color: #fff;
 }
 
 @media (max-width: 1024px) {
@@ -1241,6 +1250,7 @@ body {
 }
 
 .index-more-btn {
+  cursor: pointer;
   height: 30px;
   width: 120px;
   line-height: 30px;
@@ -3213,7 +3223,7 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-bottom: 2%;
+  margin-top: 3%;
 }
 
 .journey-tag {

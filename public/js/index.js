@@ -7,17 +7,13 @@ userEmail
 userPhoto
 user
 travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
- //console.log(user)
-//  console.log("test1")
-//  renderWishlistCheck();
-//  console.log("test2")
- firebase.auth().onAuthStateChanged(function(user){
+
+firebase.auth().onAuthStateChanged(function(user){
 
     let navname = document.querySelector(".user-name");
     let navphoto = document.querySelector(".user-photo");
 
     if(user != null){
-        //user = firebase.auth.currentUser;
         console.log(user)
         userName = user.displayName; 
         console.log(userName)
@@ -52,7 +48,6 @@ travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
             
     }
     else{
-      console.log("no")
 
     }
    
@@ -65,7 +60,6 @@ travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
 });
 
 function newRender(data){
- //let len = data.XML_Head.Infos.Info.length
 //抓出2019的資訊
 let arr=[]
 let list = data.XML_Head.Infos.Info
@@ -92,29 +86,28 @@ for( let i=0; i<5 ;i++ ){
     let title = newarr[i].Name;
     let text = newarr[i].Description.slice(0,50)+"...";
     let time = newarr[i].Start.slice(0,10);
-    //console.log(id)
     
     //最新消息DOM元素
-     let indexMainCrad = document.createElement('div');
-         indexMainCrad.setAttribute('class','index-main-crad');
-     let cardTitle = document.createElement('div');
-         cardTitle.setAttribute('class','card-title');
-         cardTitle.textContent = title;
-     let cardText = document.createElement('a');
-         cardText.setAttribute('href',"newsPagination.html?id="+id);
-         cardText.setAttribute('class','card-Text');
-         cardText.textContent = text ;
-     let cardTime = document.createElement('p');
-         cardTime.setAttribute('class','card-time');
-         cardTime.textContent = time ;
+    let indexMainCrad = document.createElement('div');
+        indexMainCrad.setAttribute('class','index-main-crad');
+    let cardTitle = document.createElement('div');
+        cardTitle.setAttribute('class','card-title');
+        cardTitle.textContent = title;
+    let cardText = document.createElement('a');
+        cardText.setAttribute('href',"newsPagination.html?id="+id);
+        cardText.setAttribute('class','card-Text');
+        cardText.textContent = text ;
+    let cardTime = document.createElement('p');
+        cardTime.setAttribute('class','card-time');
+        cardTime.textContent = time ;
 
 
 
-     let indexMainRight = document.querySelector('.index-main-content');
-     indexMainRight.appendChild(indexMainCrad);
-     indexMainCrad.appendChild(cardTitle);
-     indexMainCrad.appendChild(cardText);
-     indexMainCrad.appendChild(cardTime);
+    let indexMainRight = document.querySelector('.index-main-content');
+        indexMainRight.appendChild(indexMainCrad);
+        indexMainCrad.appendChild(cardTitle);
+        indexMainCrad.appendChild(cardText);
+        indexMainCrad.appendChild(cardTime);
 
 
 
@@ -138,25 +131,7 @@ let LeftBtn = document.querySelector(".index-play-left-btn");
             scroll.scrollLeft -= 300 ; 
     })
 
-//===================================
-//    願望清單頁面跳轉 判斷是否登入會員
-//===================================
 
-// console.log(userName)
-// function renderWishlistCheck (){
-// let userwish = document.querySelector(".user-wish")
-// userwish.addEventListener("click",function(){
-//   console.log("test")
-//   console.log(userName)
-  
-//   if(userName!=""){
-//     document.location.href="wish.html";
-//   }else{
-//     alert("請先登入會員")
-//   }
-// })
-
-// };
 
 
 
