@@ -1,62 +1,10 @@
-//============================
-//     判斷是否有登入會員 
-//============================
-
-travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
-// 有登入時 留言按鈕出現
- userName
- userEmail
- userPhoto
- user
-console.log(user)
- firebase.auth().onAuthStateChanged(function(user){
-     
-    let navname = document.querySelector(".user-name");
-    let navphoto = document.querySelector(".user-photo");
-
-    if(user != null){
-        //user = firebase.auth.currentUser;
-        console.log(user)
-        userName = user.displayName; 
-        console.log(userName)
-        userEmail = user.email
-        console.log(userEmail)
-        userPhoto = user.photoURL;   
-        console.log(userPhoto)
-
-        //將大頭照放入 navbar
-        let navimg = document.createElement("img");
-        navimg.setAttribute("src",userPhoto);
-        navphoto.appendChild(navimg)
- 
-        //將名子放入 navbar
-        let navnameDiv = document.createElement("div");
-        navnameDiv.textContent = userName +"  你好!";
-        console.log(userName)
-        navname.appendChild(navnameDiv);
-        //navnameDiv.setAttribute("class","navname-Div");  
-        navphoto.style.display="block"
-        navname.style.display="block"      
-        
-    }
-    else{
-      console.log("no")
-      
-    }
-   
-})
-
-//============================================
 
 //抓到網址的query string    
 let Idstring = location.href;
-//console.log(Idstring);
 //將字串轉成url
 let url = new URL(Idstring);
-//console.log(url)
 //找到id後方的字串
 let UrlString = url.searchParams.get('id');
-console.log(UrlString)
     
 ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAgriculturalProduce.aspx",function(response){
     presentpageRender(response)
@@ -67,7 +15,7 @@ function presentpageRender(data){
 //抓出此產品的地點    
 let Placetext 
 //畫出產品列表    
-data.forEach(function(item,index){ 
+data.forEach(function(item){ 
 if(item.ID==UrlString){
     let name = item.Name;
     let ProduceOrg = item.ProduceOrg;
@@ -140,7 +88,6 @@ loading.style.display="none";
 );
 
 //判斷產地若相同且不是相同的產品
-
 let newobj = []
 data.forEach(function(item,index){
     let Saleplace = item.SalePlace.substr(0,3);
@@ -160,7 +107,6 @@ newobj.forEach(function(item,index){
     if(index<10){
        
         let presentOther = document.querySelector('.present-other');
-
         let otherPresent = document.createElement("a");
             otherPresent.setAttribute("class","other-present");
             otherPresent.setAttribute("href","presentPagination.html?id="+item.ID );
@@ -172,7 +118,6 @@ newobj.forEach(function(item,index){
             otherName.textContent = item.Name;
 
             presentOther.appendChild(otherPresent);
-            //presentOther.appendChild(otherPresent);
             otherPresent.appendChild(otherImg);
             otherPresent.appendChild(otherName);
 

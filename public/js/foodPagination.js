@@ -1,63 +1,10 @@
 
-//============================
-//  留言按鈕 判斷是否有登入會員 
-//============================
-
-travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
-// 有登入時 留言按鈕出現
- userName
- userEmail
- userPhoto
- user
-console.log(user)
- firebase.auth().onAuthStateChanged(function(user){
-    
-    let navname = document.querySelector(".user-name");
-    let navphoto = document.querySelector(".user-photo");
-
-    if(user != null){
-        //user = firebase.auth.currentUser;
-        console.log(user)
-        userName = user.displayName; 
-        console.log(userName)
-        userEmail = user.email
-        console.log(userEmail)
-        userPhoto = user.photoURL;   
-        console.log(userPhoto)
-
-        //將大頭照放入 navbar
-        let navimg = document.createElement("img");
-        navimg.setAttribute("src",userPhoto);
-        navphoto.appendChild(navimg)
-
-        //將名子放入 navbar
-        let navnameDiv = document.createElement("div");
-        navnameDiv.textContent = userName +"  你好!";
-        console.log(userName)
-        navname.appendChild(navnameDiv);
-        
-        navphoto.style.display="block"
-        navname.style.display="block"
-
-        
-    }
-    else{
-      console.log("no")
-
-    }
-   
-})
-
-
 //抓到網址的query string    
 let Idstring = location.href;
-//console.log(Idstring);
 //將字串轉成url
 let url = new URL(Idstring);
-//console.log(url)
 //找到id後方的字串
 let UrlString = url.searchParams.get('id');
-//console.log(UrlString)
     
 ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx",function(response){
     foodpageRender(response)
@@ -69,23 +16,14 @@ function foodpageRender(data){
     let name
 
     data.forEach(function(item,index){  
-        //渲染出id位置關資料  
-        if(UrlString===item.ID){
-         
-        console.log(item)
-        city = item.City;
-        console.log(city)    
-        photo = item.PicURL;
-        console.log(photo)
+        if(UrlString===item.ID){ 
+        city = item.City;           
+        photo = item.PicURL;  
         name = item.Name;
-        console.log(name)
 
         let tel = item.Tel;
-        console.log(tel)
         let town = item.Town;
-        console.log(town)
         let introduction = item.HostWords;
-        console.log(introduction)
         let coordinate = item.Coordinate;
         let foodpageLeft = document.querySelector(".foodpage-left");
             
@@ -119,7 +57,7 @@ function foodpageRender(data){
             
             
 
-            //建立google map 標籤
+        //建立google map 標籤
         let foodpageMap = document.querySelector(".foodpage-map");
         let maplink = document.createElement("iframe");
             maplink.setAttribute("width","100%");
@@ -129,10 +67,7 @@ function foodpageRender(data){
             maplink.setAttribute("marginheight","0");
             maplink.setAttribute("marginwidth","0");
             maplink.setAttribute("src","https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+ coordinate +"&z=16&output=embed&t=");
-            //切換成空景模式
-            //maplink.setAttribute("src","https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+ coordinate +"&z=16&output=embed&t=h");
             
-
             foodpageLeft.appendChild(foodpageImg);
             foodpageLeft.appendChild(foodpageContent);
 
@@ -147,20 +82,14 @@ function foodpageRender(data){
 
             foodpageMap.appendChild(maplink);
 
-
-
         }
-        //console.log(item.ID)
-        
-        
                
     });
-    //找出相關的位置的景點
     //創新陣列 將塞選的資料放入
     let newplace=[];
-    data.forEach(function(item,index){
+    data.forEach(function(item){
        if(city===item.City && UrlString !== item.ID){
-        newplace.push(item);
+       newplace.push(item);
        }
     });
 

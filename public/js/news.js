@@ -1,62 +1,3 @@
-//============================
-//    判斷是否有登入會員 
-//============================
-
-travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
-// 有登入時 留言按鈕出現
- userName
- userEmail
- userPhoto
- user
-console.log(user)
- firebase.auth().onAuthStateChanged(function(user){
-     
-    let navname = document.querySelector(".user-name");
-    let navphoto = document.querySelector(".user-photo");
-
-    if(user != null){
-        //user = firebase.auth.currentUser;
-        console.log(user)
-        userName = user.displayName; 
-        console.log(userName)
-        userEmail = user.email
-        console.log(userEmail)
-        userPhoto = user.photoURL;   
-        console.log(userPhoto)
-
-        //設定一個user欄位 給他
-        db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
-                    if(snapshop.docs==""){
-                        db.collection("user").doc().set({
-                        email: userEmail,
-                        photo: userPhoto 
-                        })
-                    }
-        })
-
-         //將大頭照放入 navbar
-         let navimg = document.createElement("img");
-         navimg.setAttribute("src",userPhoto);
-         navphoto.appendChild(navimg)
- 
-         //將名子放入 navbar
-         let navnameDiv = document.createElement("div");
-         navnameDiv.textContent = userName +"  你好!";
-         console.log(userName)
-         navname.appendChild(navnameDiv);
-        
-         navphoto.style.display="block"
-         navname.style.display="block"
-
-        
-    }
-    else{
-      console.log("no")
-
-
-    }
-   
-})
 
 //最新消息 資料
 ajax("https://cors-anywhere.herokuapp.com/https://gis.taiwan.net.tw/XMLReleaseALL_public/activity_C_f.json",function(response){
@@ -65,34 +6,32 @@ ajax("https://cors-anywhere.herokuapp.com/https://gis.taiwan.net.tw/XMLReleaseAL
 
 function newsRender(data){
     
-
     let loading = document.querySelector(".loading");
     loading.style.display="none";
 
-//抓出2019的資訊
+    //抓出2019的資訊
     let arr=[]
     let list = data.XML_Head.Infos.Info
     for(let a= 0;a< list.length ;a++){
         let year = data.XML_Head.Infos.Info[a].Start.slice(0,4);
         if( year=="2019"){
         arr.push(data.XML_Head.Infos.Info[a]);
-        }
-    }
-//抓出最新50筆
+        };
+    };
+    //抓出最新50筆
     let newarr=[]
     arr.forEach(function(item,index){
     let max = arr.length
     let min = max-49
     if(index<max && min<index){
-     newarr.push(item)
-    }
-    })
+    newarr.push(item)
+    };
+    });
 
-//第一次算出頁面
+    //第一次算出頁面
     for (let i = 0; i <6; i++) {
     //最新消息 資料
     let id = newarr[i].Id;
-    //console.log(id)  
     let title = newarr[i].Name;
     let Org =  newarr[i].Org;
     let text = newarr[i].Description.slice(0,50)+"...";
@@ -100,7 +39,7 @@ function newsRender(data){
     let photo = newarr[i].Picture1;
     
     if(photo=="" || photo == undefined){
-        photo="img/lossimg.jpg"
+    photo="img/lossimg.jpg"
     }
 
     let newsMainCintent = document.querySelector(".news-main-content"); 
@@ -160,11 +99,10 @@ function newsRender(data){
 //      頁數判斷功能
 //+++++++++++++++++++++++++++
 
-//產品頁數
+    //產品頁數
     let len = newarr.length;
     let perpage = 6;
     let page = Math.ceil(len/perpage); 
-   // console.log(page)
 
     //產品頁數 掛的 html 標籤
     let pageList = document.querySelector('.page-list');
@@ -189,40 +127,38 @@ function newsRender(data){
     //重新更新按鈕列表
     function updateBtnlist (){
         let Btnstr = "";
-        let max = nextpage+3
-        let min = nextpage-2 
+        let max = nextpage+3;
+        let min = nextpage-2;
         
         if( min<0 || min==0 ){
-            min=1;
-            max=6;
+        min=1;
+        max=6;
         }
         if(max > page){
-            max = page+1;
+        max = page+1;
         }
         for( let i= min; max > i; i++){
-        Btnstr += '<div class="page-Btn" id="'+i+ '">'+i+'</div>';
-        pageList.innerHTML = Btnstr;   
+            Btnstr += '<div class="page-Btn" id="'+i+ '">'+i+'</div>';
+            pageList.innerHTML = Btnstr;   
         };
         let text =document.getElementById(nextpage);
         text.classList.add('btn-active');
     };
     //更新點擊按鈕事件
     function clickbtn(){
-        //重新定義監聽的按鈕
-        let pageBtn =  document.querySelectorAll('.page-Btn');
-        for(let i =0 ; i<pageBtn.length ; i++){
-            pageBtn[i].addEventListener("click",function(){
-                //重新定義點擊的按鈕數字
-                nextpage = parseInt(pageBtn[i].innerHTML); 
-                
-                //改變按鈕 樣式
-                changeBtnStyle();
-
-                //重新 更換內容資料的函式
-                renderPage();
-            })
+    //重新定義監聽的按鈕
+    let pageBtn =  document.querySelectorAll('.page-Btn');
+    for(let i =0 ; i<pageBtn.length ; i++){
+        pageBtn[i].addEventListener("click",function(){
+        //重新定義點擊的按鈕數字
+        nextpage = parseInt(pageBtn[i].innerHTML);                 
+        //改變按鈕 樣式
+        changeBtnStyle();
+        //重新 更換內容資料的函式
+        renderPage();
+        });
            
-        }
+    };
     }; 
     
     //---------------觸發更換按鈕------------
@@ -234,19 +170,16 @@ function newsRender(data){
         function changeBtnStyle(){
             //1.先移除原有
             let removeClass = document.querySelector('.btn-active');
-            //console.log(removeClass)
                 removeClass.classList.remove('btn-active'); 
             //2.再加入指定的按鈕css屬性
             if( nextpage == undefined){
-                choseBtn = pageBtn[i].id 
-               // console.log(choseBtn)
+            choseBtn = pageBtn[i].id 
             }
             else{
-                choseBtn = nextpage
+            choseBtn = nextpage
             }
-           // console.log(choseBtn)
             let clickBtn = document.getElementById(choseBtn);
-                clickBtn.classList.add("btn-active");
+            clickBtn.classList.add("btn-active");
 
             //重新定義 nextpage 將內容定義為 undefined   
             nextpage = undefined;    
@@ -255,7 +188,6 @@ function newsRender(data){
         //更換內容資料的函式
         pageBtn[i].addEventListener('click',renderPage);
         function renderPage(){
-        //console.log(choseBtn)
         //抓出每頁最大及最小的筆數編號  當前頁數 * 每頁需要的資料筆數
         let min =(choseBtn*perpage)- perpage +1;
         let max =(choseBtn*perpage);
@@ -269,7 +201,6 @@ function newsRender(data){
             //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
             if(num>=min && num<=max ){
                newdata.push(item)   
-              // console.log(item.Name) 
             }  
         });
 
@@ -307,14 +238,14 @@ function newsRender(data){
     let AddPageBtn = document.querySelector('.Add-page');
         AddPageBtn.addEventListener("click",function(){
         if(choseBtn==undefined){
-           choseBtn = 1 ;
+        choseBtn = 1 ;
         }
         if(choseBtn==page){
-           alert('最後一頁了');
-           return;
+        alert('最後一頁了');
+        return;
         }
         if(choseBtn == 1 && page == 1 ){
-            return;
+        return;
         }    
         nextpage = parseInt(choseBtn) + 1; 
 
@@ -331,14 +262,12 @@ function newsRender(data){
     let LessPageBtn = document.querySelector('.Less-page');
         LessPageBtn.addEventListener("click",function(){
         if(choseBtn==undefined){
-                choseBtn = 1 ;
+        choseBtn = 1 ;
         }
         if(choseBtn == 1){
-                return;
+        return;
         }    
         nextpage = parseInt(choseBtn) - 1; 
-
-
         //更改按鈕列表
         updateBtnlist();
         clickbtn();

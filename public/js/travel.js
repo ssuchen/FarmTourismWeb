@@ -1,54 +1,3 @@
-//==========================
-//       判斷有沒有登入
-//==========================   
-firebase.auth().onAuthStateChanged(function(user){
-
-    let navname = document.querySelector(".user-name");
-    let navphoto = document.querySelector(".user-photo");
-    
-    if(user != null){
-            //user = firebase.auth.currentUser;
-            console.log(user)
-            userName = user.displayName; 
-            userEmail = user.email
-            userPhoto = user.photoURL; 
-            //console.log(userName)
-            //console.log(userEmail)
-            //設定一個user欄位 給他
-            db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
-                if(snapshop.docs==""){
-                    db.collection("user").doc().set({
-                    email: userEmail,
-                    photo: userPhoto 
-                    
-                    })
-                }
-            })
-            console.log(userPhoto)
-
-
-            //將大頭照放入 navbar
-            let navimg = document.createElement("img");
-            navimg.setAttribute("src",userPhoto);
-            navphoto.appendChild(navimg)
- 
-            //將名子放入 navbar
-            let navnameDiv = document.createElement("div");
-            navnameDiv.textContent = userName +"  你好!";
-            console.log(userName)
-            navname.appendChild(navnameDiv);
-            //navnameDiv.setAttribute("class","navname-Div");
-            navphoto.style.display="block"
-            navname.style.display="block"             
-
-    }
-    else{
-    console.log("no")
-    }
-       
-})
-//==========================
-//==========================
 
 //休閒農業區 資料
 ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx",function(response){
@@ -74,11 +23,11 @@ for( let i = 0 ; i<12; i++){
     let id = data[i].ID;
 
     function renderCard(){
-       if(name=="梨之鄉休閒農業區"){
+        if(name=="梨之鄉休閒農業區"){
         photo="https://images.unsplash.com/photo-1471194402529-8e0f5a675de6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-       }else{
+        }else{
         photo = photo;   
-       }
+        }
     
     travelMainContent = document.querySelector('.travel-main-content');
    
@@ -175,29 +124,26 @@ function updateBtnlist(){
 
     }
     for( let i= min; max > i; i++){
-    Btnstr += '<div class="page-Btn" id="'+i+ '">'+i+'</div>';
-    pageList.innerHTML = Btnstr;   
+        Btnstr += '<div class="page-Btn" id="'+i+ '">'+i+'</div>';
+        pageList.innerHTML = Btnstr;   
     };
     let text =document.getElementById(nextpage);
     text.classList.add('btn-active'); 
-    };
+};
 
 
 function clickbtn(){
     //更新所點選的按鈕所對應的資料
     let pageBtn =  document.querySelectorAll('.page-Btn');
     for(let i=0 ; i<pageBtn.length; i++){
-    pageBtn[i].addEventListener('click',function(){ 
- 
-    //重新定義點擊的按鈕數字
-    nextpage = parseInt(pageBtn[i].innerHTML); 
-                
-    //改變按鈕 樣式
-    changeBtnStyle();
-         
-    //重新 更換內容資料的函式
-    renderPage();
-    });
+        pageBtn[i].addEventListener('click',function(){ 
+        //重新定義點擊的按鈕數字
+        nextpage = parseInt(pageBtn[i].innerHTML);                 
+        //改變按鈕 樣式
+        changeBtnStyle();         
+        //重新 更換內容資料的函式
+        renderPage();
+        });
      
     };
 };
@@ -205,7 +151,6 @@ function clickbtn(){
 //---------------觸發更換按鈕------------
 
     for(let i=0 ; i< pageBtn.length ; i++){ 
-
     pageBtn[i].addEventListener('click',changeBtnStyle);
     
     //更換按鈕樣式的函式
@@ -215,10 +160,10 @@ function clickbtn(){
             removeClass.classList.remove('btn-active');
         //2.再加入指定的按鈕css屬性 
         if( nextpage == undefined){
-            choseBtn = pageBtn[i].id 
+        choseBtn = pageBtn[i].id 
         }
         else{
-            choseBtn = nextpage
+        choseBtn = nextpage
         }     
         let clickBtn = document.getElementById(choseBtn);
             clickBtn.classList.add("btn-active");      
@@ -253,15 +198,14 @@ function clickbtn(){
         //將新的頁數資料重新放上網頁
         let str=""
         for(let p = 0 ; p<newdata.length ; p++){
-             let photo = newdata[p].Photo; 
-             let name = newdata[p].Name;
-             let city = newdata[p].City;
-             let town = newdata[p].Town;
-             let id = newdata[p].ID;
+            let photo = newdata[p].Photo; 
+            let name = newdata[p].Name;
+            let city = newdata[p].City;
+            let town = newdata[p].Town;
+            let id = newdata[p].ID;
         
             if(name== "中崙漁業休閒農場" || name== "淞濤田園休閒農場"  || name=="梨之鄉休閒農業區" || name=="清香休閒農場"||
             name=="春園休閒農場"){
-               // photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
                photo="https://images.unsplash.com/photo-1471194402529-8e0f5a675de6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
             }else{
             photo = photo;   
@@ -288,16 +232,15 @@ function clickbtn(){
     //下一頁按鈕
     let AddPageBtn = document.querySelector('.Add-page');
         AddPageBtn.addEventListener("click",function(){
-            //console.log(choseBtn)
         if(choseBtn==undefined){
-           choseBtn = 1 ;
+        choseBtn = 1 ;
         }
         if(choseBtn==page){
-           alert('最後一頁了');
-           return;
+        alert('最後一頁了');
+        return;
         }
         if(choseBtn == 1 && page == 1 ){
-            return;
+        return;
         }    
         nextpage = parseInt(choseBtn) + 1; 
 
@@ -314,13 +257,12 @@ function clickbtn(){
     let LessPageBtn = document.querySelector('.Less-page');
         LessPageBtn.addEventListener("click",function(){
         if(choseBtn==undefined){
-                choseBtn = 1 ;
+        choseBtn = 1 ;
         }
         if(choseBtn == 1){
-                return;
+        return;
         }    
         nextpage = parseInt(choseBtn) - 1; 
-
 
         //更改按鈕列表
         updateBtnlist();
@@ -328,7 +270,8 @@ function clickbtn(){
         //更改按鈕樣式   
         changeBtnStyle();
         //更改內容資料
-        renderPage();           
+        renderPage();   
+
         });
 
    //======================
@@ -353,33 +296,33 @@ function clickbtn(){
      //建立新陣列
      searchdata=[];    
     //篩選相對應的資料 
-   // console.log(searchInput)
-        data.forEach(function(item,index){
-          //  console.log(data)
+   
+    data.forEach(function(item){
+
         //如果選取對應的城市    
         if(searchBarCountry === item.City){       
-            searchdata.push(item);
+        searchdata.push(item);
         }
         //如果搜尋列 輸入 鄉鎮或是縣市
         if(searchInput === item.City ||  searchInput === item.Town){
-            searchdata.push(item);
+        searchdata.push(item);
         }
         if(searchBarArea==="all" || searchBarCountry==="all"){
-            status=false;//如果沒有輸入的話
+        status=false;//如果沒有輸入的話
         }
-        });
-        //如果沒有得到輸入值
-        if( status == false && searchInput==""){
-        alert("請點選或輸入搜尋地");
-        location.reload();
-        };
-        //將新的頁數資料重新放上網頁
-        let str=""
+    });
+    //如果沒有得到輸入值
+    if( status == false && searchInput==""){
+    alert("請點選或輸入搜尋地");
+    location.reload();
+    };
+    //將新的頁數資料重新放上網頁
+    let str=""
        
-        let len = searchdata.length
-        for(let p = 0 ; p < len ; p++){  
+    let len = searchdata.length
+    for(let p = 0 ; p < len ; p++){  
         if(len>12){
-            len=12
+        len=12
         }
         let photo = searchdata[p].Photo; 
         let name = searchdata[p].Name;
@@ -389,7 +332,6 @@ function clickbtn(){
 
         if(name== "中崙漁業休閒農場" || name== "淞濤田園休閒農場"  || name=="梨之鄉休閒農業區" || name=="清香休閒農場"||
         name=="春園休閒農場"){
-        // photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
         photo="https://images.unsplash.com/photo-1471194402529-8e0f5a675de6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
         }else{
         photo = photo;   
@@ -411,31 +353,29 @@ function clickbtn(){
         //願望清單
         checkBtnStyle();
         checkBtn();
-        } 
+    } 
         
-        //算出頁數按鈕總數
-        //console.log( "資料長度"+searchdata.length)
-        let pagelen = Math.ceil(searchdata.length/12)
-        //console.log("總頁數"+pagelen)
+    //算出頁數按鈕總數
+    let pagelen = Math.ceil(searchdata.length/12)
 
-        //重新寫出按鈕
-        nextpage = 1
-        page = pagelen    
-        updateBtnlist();
-        clickbtn();
+    //重新寫出按鈕
+    nextpage = 1
+    page = pagelen    
+    updateBtnlist();
+    clickbtn();
     })
 
     //=========================================
     //  從 firebase得到願望清單 並改變愛心樣式
     //=========================================
-     let btnNum  
+    let btnNum  
     function checkBtnStyle(){
         let docID 
         let docIDArr=[]
         db.collection("user").onSnapshot(function(snapshop){
             snapshop.docs.forEach(function(doc){
                 if(userEmail == doc.data().email){
-                    docID = doc.id;
+                docID = doc.id;
                 }
             });
         let travellist = db.collection("user").doc(docID).collection("travellist"); 
@@ -446,12 +386,12 @@ function clickbtn(){
             })
             let btn =document.querySelectorAll(".like-btn");
             for(let i= 0 ; i<btn.length ;i++){
-            docIDArr.forEach(function(item){
+                docIDArr.forEach(function(item){
                 if(btn[i].id==item){
-                  btn[i].classList.add("fas");
+                btn[i].classList.add("fas");
                 }
                 
-            })
+                })
             }
         
         })   
@@ -469,7 +409,7 @@ function clickbtn(){
         btn[i].addEventListener("click",function(e){
         e.preventDefault();
         if(userEmail == undefined){
-            alert("請登入會員")
+        alert("請登入會員")
         }
         btnNum = btn[i].id ; 
         let docID 
@@ -478,34 +418,33 @@ function clickbtn(){
         db.collection("user").onSnapshot(function(snapshop){
             snapshop.docs.forEach(function(doc){ 
                 if(userEmail == doc.data().email){
-                    docID = doc.id;
+                docID = doc.id;
                 }
             });  
-        let travellist = db.collection("user").doc(docID).collection("travellist"); 
-        travellist.where("id","==",btnNum).get().then(function(snapshop){
+            let travellist = db.collection("user").doc(docID).collection("travellist"); 
+            travellist.where("id","==",btnNum).get().then(function(snapshop){
             snapshop.docs.forEach(function(doc){
             if(doc.data().id != undefined){
-               clickID = doc.data().id
-               deleteID = doc.id  
+            clickID = doc.data().id;
+            deleteID = doc.id;
             }
             });
             if(clickID === undefined){
-                btn[i].classList.add("fas");
-                //將表單送入firebase
-                likebtnAdd()
-                //檢查 firebase 的清單 重新放入樣式
-                checkBtnStyle()
+            btn[i].classList.add("fas");
+            //將表單送入firebase
+            likebtnAdd();
+            //檢查 firebase 的清單 重新放入樣式
+            checkBtnStyle();
           
-
             }else{
-                //將表單從firebase上移除
-                btn[i].classList.remove("fas");
-                let deleteDoc = db.collection("user").doc(docID).collection("travellist").doc(deleteID)
-                deleteDoc.delete()
-                //檢查 firebase 的清單 重新放入樣式
-                checkBtnStyle()
+            //將表單從firebase上移除
+            btn[i].classList.remove("fas");
+            let deleteDoc = db.collection("user").doc(docID).collection("travellist").doc(deleteID)
+            deleteDoc.delete();
+            //檢查 firebase 的清單 重新放入樣式
+            checkBtnStyle();
             }   
-        }
+            }
         )
         });
 
@@ -519,26 +458,26 @@ function clickbtn(){
     //將表單送到 firebase
     //===================
     function likebtnAdd(){
-          let btnID = btnNum
-          let country
-          let id 
-          let img 
-          let text 
-          let title     
+        let btnID = btnNum
+        let country
+        let id 
+        let img 
+        let text 
+        let title     
           
-          for(let a=0;a<data.length;a++){
+        for(let a=0;a<data.length;a++){
             if(data[a].ID == btnID){
-              country = data[a].City;
-              id =data[a].ID;
-              img = data[a].Photo;
-              text = data[a].Town;
-              title = data[a].Name;
+            country = data[a].City;
+            id =data[a].ID;
+            img = data[a].Photo;
+            text = data[a].Town;
+            title = data[a].Name;
 
             }
-          }
+        }
 
-          //將點取資訊放入firebase 
-          db.collection("user").get().then(function(snapshop){
+        //將點取資訊放入firebase 
+        db.collection("user").get().then(function(snapshop){
             let docID         
             snapshop.docs.forEach(function(doc) {
                 //將符合email的資料放入陣列           
@@ -554,7 +493,7 @@ function clickbtn(){
             text:text,
             title:title,
             }); 
-          })
+        })
         
     };
       

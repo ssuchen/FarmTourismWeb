@@ -27,13 +27,37 @@ firebase.auth().onAuthStateChanged(function(user){
 //願望清單事件監聽
 renderWishlistCheck();
 if(user != null){
-  ChangeUserIn();
-  userName = user.displayName; 
-}
-else{
-  console.log("no")
+    ChangeUserIn();
+    userName = user.displayName; 
+    userEmail = user.email;
+    userPhoto = user.photoURL;   
+
+    let navname = document.querySelector(".user-name");
+    let navphoto = document.querySelector(".user-photo");
+    //設定一個user欄位 給他
+    db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
+        if(snapshop.docs==""){
+            db.collection("user").doc().set({
+            email: userEmail,
+            photo: userPhoto 
+            });
+        };
+    });    
   
+    //將大頭照放入 navbar
+    let navimg = document.createElement("img");
+    navimg.setAttribute("src",userPhoto);
+    navphoto.appendChild(navimg);
+
+    //將名子放入 navbar
+    let navnameDiv = document.createElement("div");
+    navnameDiv.textContent = userName +"  你好!";
+    navname.appendChild(navnameDiv);
+
+    navphoto.style.display="block";
+    navname.style.display="block";
 }
+
 
 });
 
@@ -41,47 +65,40 @@ else{
 //    建立google登入系統
 //==========================
 let btnGooglePopup = document.getElementById('googleSingUpPopup');
-btnGooglePopup.onclick = function() {
+    btnGooglePopup.onclick = function() {
     provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-    // 可以獲得 Google 提供 token，token可透過 Google API 獲得其他數據。  
+    firebase.auth().signInWithPopup(provider).then(function(result) { 
     UserToken = result.credential.accessToken;
-    let user = result.user;
-    console.log(user)
     //console.log("google登入")
     location.reload();
     }); 
-
-}
+    };
 
 //==========================
 //  建立 facebook 登入系統
 //==========================
 let btnFacePopup = document.getElementById('faceSingUpPopup');
-btnFacePopup.onclick = function(){
-provider = new firebase.auth.FacebookAuthProvider();
+    btnFacePopup.onclick = function(){
+    provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function(result) {
     let user = result.user;
-    console.log(user)
     //console.log("fb登入")
-    location.reload()
+    location.reload();
 
     });
-
-};
+    };
 
 //==========================
 //          會員登出
 //==========================
 let signOutbtn=document.querySelector(".logoutbtn-user");
-signOutbtn.onclick = function(){
+    signOutbtn.onclick = function(){
     firebase.auth().signOut().then(function() {
-    console.log("已登出")
     location.reload();
     });
-};
+    };
 
-//============================
+//============================  
 //    顯示與關閉 登入對話框
 //============================
 
@@ -101,13 +118,13 @@ let loginBoxBtn = document.querySelector(".login-box-btn");
 //===================================
 //      "登入"與"登出"文字切換
 //===================================
-
 //當登入成功時 "登入" 文字更改成 "登出"
+
 function ChangeUserIn(){
-    let logintext = document.querySelector(".loginbtn-user");
-        logintext.style.display="none";
-    let logouttext = document.querySelector(".logoutbtn-user");
-        logouttext.style.display="block";
+let logintext = document.querySelector(".loginbtn-user");
+    logintext.style.display="none";
+let logouttext = document.querySelector(".logoutbtn-user");
+    logouttext.style.display="block";
 };
 
 //===================================
@@ -118,14 +135,11 @@ function ChangeUserIn(){
 function renderWishlistCheck (){
 let userwish = document.querySelector(".user-wish")
     userwish.addEventListener("click",function(){
-    console.log("test")
-    console.log(userName)
-  
     if(userName!=undefined){
     document.location.href="wishList.html";
     }else{
     alert("請先登入會員");
     }
-    })
+    });
 
 };

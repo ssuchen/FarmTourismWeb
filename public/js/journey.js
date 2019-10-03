@@ -1,62 +1,3 @@
-//============================
-//  判斷是否有登入會員 
-//============================
-
-travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
-// 有登入時 留言按鈕出現
- userName
- userEmail
- userPhoto
- user
-console.log(user)
- firebase.auth().onAuthStateChanged(function(user){
-    
-    let navname = document.querySelector(".user-name");
-    let navphoto = document.querySelector(".user-photo");
-
-    if(user != null){
-        //user = firebase.auth.currentUser;
-        console.log(user)
-        userName = user.displayName; 
-        console.log(userName)
-        userEmail = user.email
-        console.log(userEmail)
-        userPhoto = user.photoURL;   
-        console.log(userPhoto)
-
-        //設定一個user欄位 給他
-        db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
-                    if(snapshop.docs==""){
-                        db.collection("user").doc().set({
-                        email: userEmail,
-                        photo: userPhoto 
-                        })
-                    }
-        })
-
-        //將大頭照放入 navbar
-        let navimg = document.createElement("img");
-        navimg.setAttribute("src",userPhoto);
-        navphoto.appendChild(navimg)
-
-        //將名子放入 navbar
-        let navnameDiv = document.createElement("div");
-        navnameDiv.textContent = userName +"  你好!";
-        console.log(userName)
-        navname.appendChild(navnameDiv);
-         
-        navphoto.style.display="block"
-        navname.style.display="block"
-
-
-    }
-    else{
-    console.log("no")
-   
-    }
-   
-})
-
 
 ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/RuralTravelData.aspx",function(response){
     journeyRender(response)
@@ -70,75 +11,73 @@ let loading = document.querySelector(".loading");
 loading.style.display="none";
 
 for(let i =0 ;i<12 ;i++){
-        let journeyTag
-        let id = data[i].TravelSeq;
-        let name = data[i].Title;
-        let photo = data[i].PhotoUrl;
-        let text = data[i].Contents.substr(0,38)+"...";
-        let tag = data[i].TravelType;
+    let journeyTag
+    let id = data[i].TravelSeq;
+    let name = data[i].Title;
+    let photo = data[i].PhotoUrl;
+    let text = data[i].Contents.substr(0,38)+"...";
+    let tag = data[i].TravelType;
         
-        //將tag 字串分開成陣列
-        let arr=[]
-        for(t=0 ;t<tag.length;t++){
-            let gettag = tag.substr(t*9,4);
-            if(gettag!==""){
-            arr.push(gettag)    
-            }  
-        };
+    //將tag 字串分開成陣列
+    let arr=[]
+    for(t=0 ;t<tag.length;t++){
+        let gettag = tag.substr(t*9,4);
+        if(gettag!==""){
+        arr.push(gettag)    
+        }  
+    };
 
-        function renderCard(){
+    function renderCard(){
+        let journeyMainContent = document.querySelector(".journey-main-content");
+        let journeyCard = document.createElement("a");
+            journeyCard.setAttribute("class","journey-card")
+            journeyCard.setAttribute("href","journeyPagination.html?id="+id)
+        let journeyImg = document.createElement("div");
+            journeyImg.setAttribute("class","journey-img");
+        let img = document.createElement("img");
+            img.setAttribute("src",photo);
+        let journeyBtn = document.createElement("i");
+            journeyBtn.setAttribute("class","far fa-heart like-btn");
+            journeyBtn.setAttribute("id",id); 
 
-            let journeyMainContent = document.querySelector(".journey-main-content");
-            let journeyCard = document.createElement("a");
-                journeyCard.setAttribute("class","journey-card")
-                journeyCard.setAttribute("href","journeyPagination.html?id="+id)
-            let journeyImg = document.createElement("div");
-                journeyImg.setAttribute("class","journey-img");
-            let img = document.createElement("img");
-                img.setAttribute("src",photo);
-            let journeyBtn = document.createElement("i");
-                journeyBtn.setAttribute("class","far fa-heart like-btn");
-                journeyBtn.setAttribute("id",id); 
+        let journeyTitle = document.createElement("div");
+            journeyTitle.setAttribute("class","journey-title");
+            journeyTitle.textContent = name;
 
-            let journeyTitle = document.createElement("div");
-                journeyTitle.setAttribute("class","journey-title");
-                journeyTitle.textContent = name;
-                //console.log( journeyTitle)
-
-            let journeyGroup = document.createElement("div");
-                journeyGroup.setAttribute("class","journey-group");
+        let journeyGroup = document.createElement("div");
+            journeyGroup.setAttribute("class","journey-group");
                  
 
-            let journeyText = document.createElement("div");
-                journeyText.setAttribute("class","journey-text");
-                journeyText.textContent = text ;
+        let journeyText = document.createElement("div");
+            journeyText.setAttribute("class","journey-text");
+            journeyText.textContent = text ;
                 
-                journeyMainContent.appendChild(journeyCard);
-                journeyCard.appendChild(journeyImg);
-                journeyCard.appendChild(journeyTitle);
+            journeyMainContent.appendChild(journeyCard);
+            journeyCard.appendChild(journeyImg);
+            journeyCard.appendChild(journeyTitle);
                
 
-                journeyCard.appendChild(journeyText);  
-                journeyCard.appendChild(journeyGroup);          
-                journeyImg.appendChild(img);
-                journeyImg.appendChild(journeyBtn);
+            journeyCard.appendChild(journeyText);  
+            journeyCard.appendChild(journeyGroup);          
+            journeyImg.appendChild(img);
+            journeyImg.appendChild(journeyBtn);
 
       
 
-                //將 tag 放入 journey-group的迴圈
-                arr.forEach(function(item,index){
-                    journeyTag = document.createElement("div");
-                    journeyTag.setAttribute("class","journey-tag");
-                    tag = item;
-                    journeyTag.textContent = tag;
-                    journeyGroup.appendChild(journeyTag);
-                });
+        //將 tag 放入 journey-group的迴圈
+            arr.forEach(function(item){
+                journeyTag = document.createElement("div");
+                journeyTag.setAttribute("class","journey-tag");
+                tag = item;
+                journeyTag.textContent = tag;
+                journeyGroup.appendChild(journeyTag);
+            });
 
 
 
 
-        }
-        renderCard();
+    };
+    renderCard();
 };
 
 //+++++++++++++++++++++++++++
@@ -152,7 +91,7 @@ let page = Math.ceil(len/perpage);
 let pageList = document.querySelector('.page-list');
     //第一次產出頁數按鈕
     for( let i=0 ; i<5; i++){
-    let pageBtn = document.createElement('div');
+        let pageBtn = document.createElement('div');
         pageBtn.setAttribute('class','page-Btn');
         pageBtn.setAttribute('id',i+1);
         pageBtn.textContent = i+1;
@@ -160,7 +99,7 @@ let pageList = document.querySelector('.page-list');
 
     };
     let activebtn = document.getElementById("1");
-        activebtn.classList.add("btn-active");
+    activebtn.classList.add("btn-active");
    
     // 頁數按鈕 監聽事件    
     let pageBtn =  document.querySelectorAll('.page-Btn');
@@ -171,85 +110,80 @@ let pageList = document.querySelector('.page-list');
     //---------------更新按鈕列---------------
     //重新更新按鈕列表
     function updateBtnlist(){
-    let Btnstr =""
-    let max = nextpage+3;
-    let min = nextpage-2; 
+        let Btnstr =""
+        let max = nextpage+3;
+        let min = nextpage-2; 
 
-    if( min<0 || min==0 && page > 5 ){
-    min=1;
-    max=6;
-
-    }
-    if(max > page){
-    max = page+1;
-
-    }
-    for( let i= min; max > i; i++){
-    Btnstr += '<div class="page-Btn" id="'+i+ '">'+i+'</div>';
-    pageList.innerHTML = Btnstr;   
-    };
-    let text =document.getElementById(nextpage);
-    text.classList.add('btn-active'); 
+        if( min<0 || min==0 && page > 5 ){
+        min=1;
+        max=6;
+        };
+        if(max > page){
+        max = page+1;
+        };
+        for( let i= min; max > i; i++){
+        Btnstr += '<div class="page-Btn" id="'+i+ '">'+i+'</div>';
+        pageList.innerHTML = Btnstr;   
+        };
+        let text =document.getElementById(nextpage);
+        text.classList.add('btn-active'); 
     };
 
     //更新點擊按鈕事件
     function clickbtn() {
-    //重新定義點擊的按鈕
+        //重新定義點擊的按鈕
         let pageBtn = document.querySelectorAll(".page-Btn");
             for( let i=0;i<pageBtn.length ;i++){
-              pageBtn[i].addEventListener("click",function(){
-                  nextpage = parseInt(pageBtn[i].innerHTML);
-  
-                 //改變按鈕 樣式
-                 changeBtnStyle();
-                 //重新 更換內容資料的函式
-                 renderPage();
-              })
+                pageBtn[i].addEventListener("click",function(){
+                nextpage = parseInt(pageBtn[i].innerHTML);  
+                //改變按鈕 樣式
+                changeBtnStyle();
+                //重新 更換內容資料的函式
+                renderPage();
+            })
             }
     };
   
    //---------------觸發更換按鈕------------
     
     for( let i=0 ; i<pageBtn.length ; i++){
-       pageBtn[i].addEventListener("click",changeBtnStyle); 
+        pageBtn[i].addEventListener("click",changeBtnStyle); 
 
-       //更換按鈕樣式的函式
-       function changeBtnStyle(){
-        //1.先移除原有
-        let removeClass = document.querySelector('.btn-active');
-        removeClass.classList.remove('btn-active'); 
-        //2.再加入指定的按鈕css屬性
-        if( nextpage == undefined){
-        choseBtn = pageBtn[i].id 
-        }
-        else{
-        choseBtn = nextpage
-        }
-        let clickBtn = document.getElementById(choseBtn);
-           clickBtn.classList.add("btn-active");
+        //更換按鈕樣式的函式
+        function changeBtnStyle(){
+            //1.先移除原有
+            let removeClass = document.querySelector('.btn-active');
+            removeClass.classList.remove('btn-active'); 
+            //2.再加入指定的按鈕css屬性
+            if( nextpage == undefined){
+            choseBtn = pageBtn[i].id 
+            }
+            else{
+            choseBtn = nextpage
+            }
+            let clickBtn = document.getElementById(choseBtn);
+            clickBtn.classList.add("btn-active");
 
-        //重新定義 nextpage 將內容定義為 undefined   
-        nextpage = undefined;    
+            //重新定義 nextpage 將內容定義為 undefined   
+            nextpage = undefined;    
         };
     
         //更換內容資料的函式
         pageBtn[i].addEventListener("click",renderPage);
 
-        function renderPage(){
-       
+        function renderPage(){       
         //抓出每頁最大及最小筆數編號 當前頁數 * 每頁需要的資料筆數
         let min =(choseBtn*perpage)-perpage +1;
         let max = (choseBtn*perpage);
         let pagedata
         let newdata=[];
         if(searchdata!=""){
-       pagedata = searchdata;
-
+        pagedata = searchdata;
         }
         else{
         pagedata = data ;     
         }
-        //console.log(data)
+
         pagedata.forEach(function(item,index){
         //利用陣列索引 索引從0開始 所以要加1
         let num = index+1
@@ -273,10 +207,10 @@ let pageList = document.querySelector('.page-list');
             //將tag 字串分開成陣列
             let arr=[]
             for(t=0 ;t<tag.length;t++){
-            let gettag = tag.substr(t*9,4);
-            if(gettag!==""){
-            arr.push(gettag)    
-            }  
+                let gettag = tag.substr(t*9,4);
+                if(gettag!==""){
+                arr.push(gettag)    
+                }  
             };
 
             let journeyCard = document.createElement("a");
@@ -358,10 +292,10 @@ let pageList = document.querySelector('.page-list');
     let LessPageBtn = document.querySelector('.Less-page');
         LessPageBtn.addEventListener("click",function(){
         if(choseBtn==undefined){
-            choseBtn = 1 ;
+        choseBtn = 1 ;
         }
         if(choseBtn == 1){
-            return;
+        return;
         }    
         nextpage = parseInt(choseBtn) - 1; 
 
@@ -394,7 +328,7 @@ for(let b=0 ; b<tagBtn.length ; b++){
     if( removeClass == null){
         removeClass = null
     }else{
-      removeClass.classList.remove('tag-active');
+        removeClass.classList.remove('tag-active');
     }
     tagBtn[b].classList.add('tag-active');
     //選取點選樣式的數值
@@ -406,7 +340,6 @@ for(let b=0 ; b<tagBtn.length ; b++){
         let arr=[]
         for(t=0 ;t<tag.length;t++){
             let gettag = tag.substr(t*9,4);
-            let id = item.TravelSeq
             if(gettag!==""){
             arr.push(gettag)   
             }  
@@ -419,7 +352,6 @@ for(let b=0 ; b<tagBtn.length ; b++){
         };  
     });
     let len = searchdata.length;
-    //console.log(len)
     if(len>12){
         len=12
     }
@@ -433,7 +365,6 @@ for(let b=0 ; b<tagBtn.length ; b++){
         let text = searchdata[l].Contents.substr(0,38)+"...";
         let tag = searchdata[l].TravelType;
         
-        //console.log("test")
         //將tag 字串分開成陣列
         let arr=[]
         for(t=0 ;t<tag.length;t++){   
@@ -523,19 +454,19 @@ for(let b=0 ; b<tagBtn.length ; b++){
             });
         let journeylist = db.collection("user").doc(docID).collection("journeylist"); 
             journeylist.get().then(function(snapshop){
-            snapshop.docs.forEach(function(doc){
-                let clickId = doc.data().id
-                docIDArr.push(clickId)
-            })
+                snapshop.docs.forEach(function(doc){
+                    let clickId = doc.data().id
+                    docIDArr.push(clickId)
+                })
             let btn =document.querySelectorAll(".like-btn");
-            for(let i= 0 ; i<btn.length ;i++){
-            docIDArr.forEach(function(item){
-                if(btn[i].id==item){
-                  btn[i].classList.add("fas");
-                }
+                for(let i= 0 ; i<btn.length ;i++){
+                docIDArr.forEach(function(item){
+                    if(btn[i].id==item){
+                        btn[i].classList.add("fas");
+                    }
                 
-            })
-            }
+                })
+                }
         
         })   
         });
@@ -548,7 +479,6 @@ for(let b=0 ; b<tagBtn.length ; b++){
    //=========================================
     function checkBtn(){
     let btn = document.querySelectorAll(".like-btn");
-    //console.log(btn)
     for(let i = 0 ;i<btn.length ; i++){
         btn[i].addEventListener("click",function(e){
         e.preventDefault();
@@ -574,20 +504,18 @@ for(let b=0 ; b<tagBtn.length ; b++){
             }
             });
             if(clickID === undefined){
-                btn[i].classList.add("fas");
-                //將表單送入firebase
-                likebtnAdd()
-                //檢查 firebase 的清單 重新放入樣式
-                checkBtnStyle()
-          
-
+            btn[i].classList.add("fas");
+            //將表單送入firebase
+            likebtnAdd();
+            //檢查 firebase 的清單 重新放入樣式
+            checkBtnStyle();
             }else{
-                //將表單從firebase上移除
-                btn[i].classList.remove("fas");
-                let deleteDoc = db.collection("user").doc(docID).collection("journeylist").doc(deleteID)
-                deleteDoc.delete()
-                //檢查 firebase 的清單 重新放入樣式
-                checkBtnStyle()
+            //將表單從firebase上移除
+            btn[i].classList.remove("fas");
+            let deleteDoc = db.collection("user").doc(docID).collection("journeylist").doc(deleteID)
+            deleteDoc.delete();
+            //檢查 firebase 的清單 重新放入樣式
+            checkBtnStyle();
             }   
         }
         )
@@ -610,50 +538,44 @@ for(let b=0 ; b<tagBtn.length ; b++){
           let text 
           let title     
           for(let a=0;a<data.length;a++){
-             // console.log(data[a].TravelSeq)
-             // console.log(btnID)
             if(data[a].TravelSeq == btnID){
-              console.log(data[a])  
-              //console.log(tag)
-              tag = data[a].TravelType;            
-              id = data[a].TravelSeq;        
-              img = data[a].PhotoUrl;         
-              text = data[a].Contents.substr(0,38)+"...";             
-              title = data[a].Title;
+            tag = data[a].TravelType;            
+            id = data[a].TravelSeq;        
+            img = data[a].PhotoUrl;         
+            text = data[a].Contents.substr(0,38)+"...";             
+            title = data[a].Title;
               
             }
           }
           //將點取資訊放入firebase 
-          db.collection("user").get().then(function(snapshop){
-            let docID         
-            snapshop.docs.forEach(function(doc) {
-                //將符合email的資料放入陣列           
-                if(userEmail == doc.data().email){
-                    docID = doc.id
-                }; 
-            });
-            let journeylist = db.collection("user").doc(docID).collection("journeylist")
-            console.log(tag)
+        db.collection("user").get().then(function(snapshop){
+        let docID         
+        snapshop.docs.forEach(function(doc) {
+            //將符合email的資料放入陣列           
+            if(userEmail == doc.data().email){
+            docID = doc.id
+            }; 
+        });
+        let journeylist = db.collection("user").doc(docID).collection("journeylist")
 
-              //將tag 字串分開成陣列
-            let arr=[]
-            for(t=0 ;t<tag.length;t++){
+        //將tag 字串分開成陣列
+        let arr=[]
+        for(t=0 ;t<tag.length;t++){
             let gettag = tag.substr(t*9,4);
             if(gettag!==""){
             arr.push(gettag)    
             }  
-            };
-            journeylist.add({
-            id:id,
-            img:img,
-            tag:arr,
-            text:text,
-            title:title,
-            }); 
-          })
+        };
+        journeylist.add({
+        id:id,
+        img:img,
+        tag:arr,
+        text:text,
+        title:title,
+        }); 
+        })
         
     };
-
 
 
 }

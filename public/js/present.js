@@ -1,62 +1,3 @@
-//============================
-//  留言按鈕 判斷是否有登入會員 
-//============================
-
-travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
-// 有登入時 留言按鈕出現
- userName
- userEmail
- userPhoto
- user
-
- firebase.auth().onAuthStateChanged(function(user){
-
-    let navname = document.querySelector(".user-name");
-    let navphoto = document.querySelector(".user-photo");
-    
-    if(user != null){
-        //user = firebase.auth.currentUser;
-        //console.log(user)
-        userName = user.displayName; 
-        //console.log(userName)
-        userEmail = user.email
-        //console.log(userEmail)
-        userPhoto = user.photoURL;   
-        //console.log(userPhoto)
-
-        //設定一個user欄位 給他
-        db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
-            if(snapshop.docs==""){
-                db.collection("user").doc().set({
-                email: userEmail,
-                photo: userPhoto 
-                })
-            }
-        })
-        console.log(userPhoto)
-
-        //將大頭照放入 navbar
-        let navimg = document.createElement("img");
-        navimg.setAttribute("src",userPhoto);
-        navphoto.appendChild(navimg)
- 
-        //將名子放入 navbar
-        let navnameDiv = document.createElement("div");
-        navnameDiv.textContent = userName +"  你好!";
-        console.log(userName)
-        navname.appendChild(navnameDiv);
-        
-        navphoto.style.display="block"
-        navname.style.display="block"
-        
-    }
-    else{
-    console.log("no")
-
-    }
-   
-})
-
 
 //特色伴手禮 資料
 ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAgriculturalProduce.aspx",function(response){
@@ -86,7 +27,6 @@ function presentRender(data){
         ProduceOrg = data[i].ProduceOrg;
         
         function renderCard(){
-
             presentMainContent = document.querySelector('.present-main-content');
             
             let presentCard = document.createElement('a');
@@ -128,10 +68,9 @@ function presentRender(data){
            
             presentPlace.appendChild(presentCounty);
             presentPlace.appendChild(presentText);
-            }
-            renderCard();
 
-       
+        };
+        ;renderCard();   
     }
     //+++++++++++++++++++++++++++
     //      頁數判斷功能
@@ -168,15 +107,15 @@ function presentRender(data){
         let min = nextpage-5 
         
         if( min<0 || min==0 ){
-            min=1;
-            max=11;
+        min=1;
+        max=11;
         }
         if(max > page){
-            max = page+1;
+        max = page+1;
         }
         for( let i= min; max > i; i++){
-        Btnstr += '<div class="page-Btn" id="'+i+ '">'+i+'</div>';
-        pageList.innerHTML = Btnstr;   
+            Btnstr += '<div class="page-Btn" id="'+i+ '">'+i+'</div>';
+            pageList.innerHTML = Btnstr;   
         };
         let text =document.getElementById(nextpage);
         text.classList.add('btn-active');
@@ -210,17 +149,14 @@ function presentRender(data){
         function changeBtnStyle(){
             //1.先移除原有
             let removeClass = document.querySelector('.btn-active');
-            //console.log(removeClass)
                 removeClass.classList.remove('btn-active'); 
             //2.再加入指定的按鈕css屬性
             if( nextpage == undefined){
                 choseBtn = pageBtn[i].id 
-               // console.log(choseBtn)
             }
             else{
                 choseBtn = nextpage
             }
-           // console.log(choseBtn)
             let clickBtn = document.getElementById(choseBtn);
                 clickBtn.classList.add("btn-active");
 
@@ -231,11 +167,9 @@ function presentRender(data){
         //更換內容資料的函式
         pageBtn[i].addEventListener('click',renderPage);
         function renderPage(){
-        //console.log(choseBtn)
         //抓出每頁最大及最小的筆數編號  當前頁數 * 每頁需要的資料筆數
         let min =(choseBtn*perpage)- perpage +1;
         let max =(choseBtn*perpage);
-
 
         let newdata = [];
         let pagedata
@@ -251,7 +185,6 @@ function presentRender(data){
             //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
             if(num>=min && num<=max ){
                newdata.push(item)   
-               console.log(item.Name) 
             }  
         });
 
@@ -478,7 +411,6 @@ function presentRender(data){
     //=========================================
     function checkBtn(){
     let btn = document.querySelectorAll(".like-btn");
-    //console.log(btn)
     for(let i = 0 ;i<btn.length ; i++){
         btn[i].addEventListener("click",function(e){
         e.preventDefault();
@@ -512,12 +444,12 @@ function presentRender(data){
           
 
             }else{
-                //將表單從firebase上移除
-                btn[i].classList.remove("fas");
-                let deleteDoc = db.collection("user").doc(docID).collection("presentlist").doc(deleteID)
-                deleteDoc.delete()
-                //檢查 firebase 的清單 重新放入樣式
-                checkBtnStyle()
+            //將表單從firebase上移除
+            btn[i].classList.remove("fas");
+            let deleteDoc = db.collection("user").doc(docID).collection("presentlist").doc(deleteID)
+            deleteDoc.delete();
+            //檢查 firebase 的清單 重新放入樣式
+            checkBtnStyle();
             }   
         }
         )
@@ -533,40 +465,39 @@ function presentRender(data){
     //將表單送到 firebase
     //===================
     function likebtnAdd(){
-          let btnID = btnNum
-          let country
-          let id 
-          let img 
-          let text 
-          let title     
-          for(let a=0;a<data.length;a++){
+        let btnID = btnNum
+        let country
+        let id 
+        let img 
+        let text 
+        let title     
+        for(let a=0;a<data.length;a++){
             if(data[a].ID == btnID){
               country = data[a].SalePlace.substr(0,3);
               id =data[a].ID;
               img = data[a].Column1;
               text = data[a].ProduceOrg;
               title = data[a].Name;
-
             }
-          }
-          //將點取資訊放入firebase 
-          db.collection("user").get().then(function(snapshop){
-            let docID         
-            snapshop.docs.forEach(function(doc) {
-                //將符合email的資料放入陣列           
-                if(userEmail == doc.data().email){
-                    docID = doc.id
-                }; 
-            });
-            let presentlist = db.collection("user").doc(docID).collection("presentlist")
-            presentlist.add({
-            id:id,
-            country:country,
-            img:img,
-            text:text,
-            title:title,
-            }); 
-          })
+        }
+        //將點取資訊放入firebase 
+        db.collection("user").get().then(function(snapshop){
+        let docID         
+        snapshop.docs.forEach(function(doc) {
+            //將符合email的資料放入陣列           
+            if(userEmail == doc.data().email){
+            docID = doc.id
+            }; 
+        });
+        let presentlist = db.collection("user").doc(docID).collection("presentlist")
+        presentlist.add({
+        id:id,
+        country:country,
+        img:img,
+        text:text,
+        title:title,
+        }); 
+        });
         
     };
 }

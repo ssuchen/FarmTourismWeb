@@ -1,59 +1,3 @@
-//============================
-//  留言按鈕 判斷是否有登入會員 
-//============================
-
-travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
-// 有登入時 留言按鈕出現
- userName
- userEmail
- userPhoto
- user
-console.log(user)
- firebase.auth().onAuthStateChanged(function(user){
-     
-    let navname = document.querySelector(".user-name");
-    let navphoto = document.querySelector(".user-photo");
-
-    if(user != null){
-        //user = firebase.auth.currentUser;
-        console.log(user)
-        userName = user.displayName; 
-        console.log(userName)
-        userEmail = user.email
-        console.log(userEmail)
-        userPhoto = user.photoURL;   
-        console.log(userPhoto)
-        //設定一個user欄位 給他
-        db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
-            if(snapshop.docs==""){
-                db.collection("user").doc().set({
-                email: userEmail,
-                photo: userPhoto 
-                })
-            }
-        })
-
-        //將大頭照放入 navbar
-        let navimg = document.createElement("img");
-        navimg.setAttribute("src",userPhoto);
-        navphoto.appendChild(navimg)
-
-        //將名子放入 navbar
-        let navnameDiv = document.createElement("div");
-        navnameDiv.textContent = userName +"  你好!";
-        console.log(userName)
-        navname.appendChild(navnameDiv);
-        
-        navphoto.style.display="block"
-        navname.style.display="block"
-    }
-    else{
-    console.log("no")
-    
-    }
-   
-})
-
 
 //特色小吃 資料
 ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx",function(response){
@@ -61,23 +5,19 @@ ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenDat
 });
 
 function foodRender(data){
-     //所有食物的總數
-     let len = data.length;
-     let perpage = 12;
-     let id 
-     let name 
-     let photo 
-     let Address 
-     let Text
-     let place 
-    
-     let foodMainContent = document.querySelector(".food-main-content");
+    //所有食物的總數
+    let len = data.length;
+    let perpage = 12;
+    let id 
+    let name 
+    let photo    
+    let foodMainContent = document.querySelector(".food-main-content");
      
-     let loading = document.querySelector(".loading");
-     loading.style.display="none";
+    let loading = document.querySelector(".loading");
+    loading.style.display="none";
 
      //載入第一筆資料
-     for (let i = 0; i <12; i++) {
+    for (let i = 0; i <12; i++) {
       
         id = data[i].ID
         name = data[i].Name
@@ -127,8 +67,6 @@ function foodRender(data){
             foodText.setAttribute("class","food-text");
             foodText.textContent = text +" ...";
 
-
-
         foodMainContent.appendChild(foodCard);
         foodCard.appendChild(foodCardLeft);
         foodCard.appendChild(foodCardRight);
@@ -146,23 +84,19 @@ function foodRender(data){
         foodPlace.appendChild(foodCountry);
         foodPlace.appendChild(foodTown);
         
-        
-
        
-     }
+    }
     //+++++++++++++++++++++++++++
     //      頁數判斷功能
     //+++++++++++++++++++++++++++
 
     //產品頁數
-    let page = Math.ceil(len/perpage); 
-    
+    let page = Math.ceil(len/perpage);     
     let pageList = document.querySelector(".page-list");
-    //console.log( pageList)
 
     //第一次產出頁數按鈕
     for( let i = 0 ; i<10 ; i++){
-    let pageBtn = document.createElement("div");
+        let pageBtn = document.createElement("div");
         pageBtn.setAttribute("class","page-Btn");
         pageBtn.setAttribute("id",i+1);
         pageBtn.textContent = i+1;
@@ -180,44 +114,40 @@ function foodRender(data){
 
     //重新更新按鈕列表
     function updateBtnlist(){
-    let Btnstr = "";
-    let max = nextpage +5;
-    let min = nextpage -5;
-    console.log(max)
-    console.log(min)
-    if(min<0 || min==0){
+        let Btnstr = "";
+        let max = nextpage +5;
+        let min = nextpage -5;
+        if(min<0 || min==0){
         min = 1;
         max = 11;     
-    }
-    if( max>page){
+        }
+        if( max>page){
         max = page +1;
-    }
-    for( let i = min; max>i ;i++){
-    Btnstr += '<div class="page-Btn" id="'+i+ '">'+i+'</div>';
-    pageList.innerHTML = Btnstr; 
-    };
-    let text =document.getElementById(nextpage);
+        }
+        for( let i = min; max>i ;i++){
+            Btnstr += '<div class="page-Btn" id="'+i+ '">'+i+'</div>';
+            pageList.innerHTML = Btnstr; 
+        };
+        let text =document.getElementById(nextpage);
         text.classList.add('btn-active');
 
     };
 
-
-
     //更新點擊按鈕事件
     function clickbtn() {
-      //重新定義點擊的按鈕
-      let pageBtn = document.querySelectorAll(".page-Btn");
+        //重新定義點擊的按鈕
+        let pageBtn = document.querySelectorAll(".page-Btn");
         for( let i=0;i<pageBtn.length ;i++){
             pageBtn[i].addEventListener("click",function(){
-                nextpage = parseInt(pageBtn[i].innerHTML);
+            nextpage = parseInt(pageBtn[i].innerHTML);
 
-               //改變按鈕 樣式
-               changeBtnStyle();
+            //改變按鈕 樣式
+            changeBtnStyle();
 
-               //重新 更換內容資料的函式
-               renderPage();
-            })
-        }
+            //重新 更換內容資料的函式
+            renderPage();
+            });
+        };
     };
 
 
@@ -230,17 +160,14 @@ function foodRender(data){
         function changeBtnStyle(){
             //1.先移除原有
             let removeClass = document.querySelector('.btn-active');
-            //console.log(removeClass)
                 removeClass.classList.remove('btn-active'); 
             //2.再加入指定的按鈕css屬性
             if( nextpage == undefined){
-                choseBtn = pageBtn[i].id 
-               // console.log(choseBtn)
+            choseBtn = pageBtn[i].id 
             }
             else{
-                choseBtn = nextpage
+            choseBtn = nextpage
             }
-           // console.log(choseBtn)
             let clickBtn = document.getElementById(choseBtn);
                 clickBtn.classList.add("btn-active");
 
@@ -250,57 +177,53 @@ function foodRender(data){
 
         //更換內容資料的函式
         pageBtn[i].addEventListener("click",renderPage);
-        function renderPage(){
-        
+        function renderPage(){  
         //抓出每頁最大及最小的筆數編號  當前頁數 * 每頁需要的資料筆數
-        let min =(choseBtn*perpage) - perpage +1;
-        let max =(choseBtn*perpage);
-        let newdata =[];
-        if(searchdata!=""){
-        pagedata = searchdata;
+            let min =(choseBtn*perpage) - perpage +1;
+            let max =(choseBtn*perpage);
+            let newdata =[];
+            if(searchdata!=""){
+            pagedata = searchdata;
+            }
+            else{
+            pagedata = data ;     
+            }
+            pagedata.forEach(function(item,index){
 
-        }
-        else{
-        pagedata = data ;     
-        }
-        pagedata.forEach(function(item,index){
             //利用陣列索引 索引從0開始 所以要加1
             let num = index+1
             //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
             if(num>=min && num<=max){
                 newdata.push(item)   
             } 
-        });
+            });
 
         //將新的頁數資料重新放上網頁
         let str=""
+        for (let p = 0; p < newdata.length; p++) {           
+            id = newdata[p].ID
+            name = newdata[p].Name
+            photo = newdata[p].PicURL
+            address = newdata[p].Address
+            text = newdata[p].HostWords.substr(0,35)
+            country = newdata[p].City
+            town = newdata[p].Town
+            tel = newdata[p].Tel
 
-        for (let p = 0; p < newdata.length; p++) {
-           
-        id = newdata[p].ID
-        name = newdata[p].Name
-        photo = newdata[p].PicURL
-        address = newdata[p].Address
-        text = newdata[p].HostWords.substr(0,35)
-        country = newdata[p].City
-        town = newdata[p].Town
-        tel = newdata[p].Tel
-
-        str += '<a  href="foodPagination.html?id="'+ id 
-        +' class="food-card"><div class="food-card-left"><div class="food-img"><img src="'+ photo  
-        +'" alt="" ><i class="far fa-heart like-btn food-likebtn" id="'+ id
-        +'"></i></div></div><div class="food-card-right"><div class="food-title">'+name
-        +'</div><div class="food-tel">'+ tel 
-        +'</div><div class="food-place"><div class="food-country">'+ country
-        +'</div><div class="food-town">'+ town +'</div></div>'
-        +'<div class="food-text">'+ text
-        +'</div></div></a>'
-        
-    
-        }
+            str += '<a  href="foodPagination.html?id="'+ id 
+            +' class="food-card"><div class="food-card-left"><div class="food-img"><img src="'+ photo  
+            +'" alt="" ><i class="far fa-heart like-btn food-likebtn" id="'+ id
+            +'"></i></div></div><div class="food-card-right"><div class="food-title">'+name
+            +'</div><div class="food-tel">'+ tel 
+            +'</div><div class="food-place"><div class="food-country">'+ country
+            +'</div><div class="food-town">'+ town +'</div></div>'
+            +'<div class="food-text">'+ text
+            +'</div></div></a>'
+            
+        };
         
         let presentMainContent = document.querySelector('.food-main-content');
-        presentMainContent.innerHTML = str;
+            presentMainContent.innerHTML = str;
         
         
 
@@ -322,11 +245,11 @@ function foodRender(data){
        choseBtn = 1 ;
     }
     if(choseBtn==page){
-       alert('最後一頁了');
-       return;
+    alert('最後一頁了');
+    return;
     }
     if(choseBtn == 1 && page == 1 ){
-        return;
+    return;
     }    
     nextpage = parseInt(choseBtn) + 1; 
 
@@ -343,10 +266,10 @@ function foodRender(data){
     let LessPageBtn = document.querySelector('.Less-page');
         LessPageBtn.addEventListener("click",function(){
         if(choseBtn==undefined){
-                choseBtn = 1 ;
+        choseBtn = 1 ;
         }
         if(choseBtn == 1){
-                return;
+        return;
         }    
         nextpage = parseInt(choseBtn) - 1; 
 
@@ -360,8 +283,6 @@ function foodRender(data){
         renderPage();  
         
         });
-
-
 
 
     //+++++++++++++++++++++++++++
@@ -406,8 +327,8 @@ function foodRender(data){
     
     //如果沒有得到輸入值
     if( status == false && searchInput==""){
-        alert("請點選或輸入搜尋地");
-        location.reload();
+    alert("請點選或輸入搜尋地");
+    location.reload();
     };
 
     //將新的頁數資料重新放上網頁
@@ -415,20 +336,19 @@ function foodRender(data){
     let len = searchdata.length
 
     for(let p = 0; p<len ; p++){
-    if(len>12){
+        if(len>12){
         len=12
-    }
-    
-    id = searchdata[p].ID
-    name = searchdata[p].Name
-    photo = searchdata[p].PicURL
-    address = searchdata[p].Address
-    text = searchdata[p].HostWords.substr(0,35)
-    country = searchdata[p].City
-    town = searchdata[p].Town
-    tel = searchdata[p].Tel
+        }
+        id = searchdata[p].ID
+        name = searchdata[p].Name
+        photo = searchdata[p].PicURL
+        address = searchdata[p].Address
+        text = searchdata[p].HostWords.substr(0,35)
+        country = searchdata[p].City
+        town = searchdata[p].Town
+        tel = searchdata[p].Tel
 
-    str += '<a  href="foodPagination.html?id="'+ id 
+        str += '<a  href="foodPagination.html?id="'+ id 
         +' class="food-card"><div class="food-card-left"><div class="food-img"><img src="'+ photo  
         +'" alt="" ><i class="far fa-heart like-btn food-likebtn" id="'+ id
         +'"></i></div></div><div class="food-card-right"><div class="food-title">'+name
@@ -483,15 +403,14 @@ function foodRender(data){
            
             let btn =document.querySelectorAll(".like-btn");
             for(let i= 0 ; i<btn.length ;i++){
-            docIDArr.forEach(function(item){
-                if(btn[i].id==item){
-                  btn[i].classList.add("fas");
-                }
-                
-            })
-            }
+                docIDArr.forEach(function(item){
+                    if(btn[i].id==item){
+                    btn[i].classList.add("fas");
+                    }                
+            });
+            };
         
-        })   
+        });   
         });
       
     };
@@ -506,8 +425,8 @@ function foodRender(data){
         btn[i].addEventListener("click",function(e){
         e.preventDefault();
         if(userEmail == undefined){
-            alert("請登入會員")
-        }
+        alert("請登入會員")
+        };
         btnNum = btn[i].id ; 
         let docID 
         let clickID
@@ -515,39 +434,38 @@ function foodRender(data){
         db.collection("user").onSnapshot(function(snapshop){
             snapshop.docs.forEach(function(doc){ 
                 if(userEmail == doc.data().email){
-                    docID = doc.id;
+                docID = doc.id;
                 }
             });  
         let foodlist = db.collection("user").doc(docID).collection("foodlist"); 
         foodlist.where("id","==",btnNum).get().then(function(snapshop){
             snapshop.docs.forEach(function(doc){
             if(doc.data().id != undefined){
-               clickID = doc.data().id
-               deleteID = doc.id  
+            clickID = doc.data().id
+            deleteID = doc.id  
             }
             });
             if(clickID === undefined){
-                btn[i].classList.add("fas");
-                //將表單送入firebase
-                likebtnAdd()
-                //檢查 firebase 的清單 重新放入樣式
-                checkBtnStyle()
+            btn[i].classList.add("fas");
+            //將表單送入firebase
+            likebtnAdd();
+            //檢查 firebase 的清單 重新放入樣式
+            checkBtnStyle();
           
-
             }else{
-                //將表單從firebase上移除
-                btn[i].classList.remove("fas");
-                let deleteDoc = db.collection("user").doc(docID).collection("foodlist").doc(deleteID)
-                deleteDoc.delete()
-                //檢查 firebase 的清單 重新放入樣式
-                checkBtnStyle()
+            //將表單從firebase上移除
+            btn[i].classList.remove("fas");
+            let deleteDoc = db.collection("user").doc(docID).collection("foodlist").doc(deleteID)
+            deleteDoc.delete();
+            //檢查 firebase 的清單 重新放入樣式
+            checkBtnStyle();
             }   
         }
         )
         });
 
-        })
-    }
+        });
+    };
     
     };
     checkBtn();
@@ -556,35 +474,35 @@ function foodRender(data){
     //將表單送到 firebase
     //===================
     function likebtnAdd(){
-          let btnID = btnNum
-          let country
-          let id 
-          let img 
-          let text 
-          let title    
-          let town 
-          let tel
+        let btnID = btnNum
+        let country
+        let id 
+        let img 
+        let text 
+        let title    
+        let town 
+        let tel
           
-          for(let a=0;a<data.length;a++){
+        for(let a=0;a<data.length;a++){
             if(data[a].ID == btnID){
-              country = data[a].City;
-              id = data[a].ID;
-              tel = data[a].Tel;
-              img = data[a].PicURL;
-              text = data[a].HostWords.substr(0,35);
-              title = data[a].Name;
-              town = data[a].Town;
+            country = data[a].City;
+            id = data[a].ID;
+            tel = data[a].Tel;
+            img = data[a].PicURL;
+            text = data[a].HostWords.substr(0,35);
+            title = data[a].Name;
+            town = data[a].Town;
 
             }
-          }
+        }
 
-          //將點取資訊放入firebase 
-          db.collection("user").get().then(function(snapshop){
-            let docID         
+        //將點取資訊放入firebase 
+        db.collection("user").get().then(function(snapshop){
+        let docID         
             snapshop.docs.forEach(function(doc) {
                 //將符合email的資料放入陣列           
                 if(userEmail == doc.data().email){
-                    docID = doc.id
+                docID = doc.id
                 }; 
             });
             let foodlist = db.collection("user").doc(docID).collection("foodlist")

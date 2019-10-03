@@ -1,62 +1,9 @@
-//============================
-//  留言按鈕 判斷是否有登入會員 
-//============================
-
-travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
-// 有登入時 留言按鈕出現
- userName
- userEmail
- userPhoto
- user
-console.log(user)
- firebase.auth().onAuthStateChanged(function(user){
-
-    let navname = document.querySelector(".user-name");
-    let navphoto = document.querySelector(".user-photo");
-
-    if(user != null){
-        //user = firebase.auth.currentUser;
-        console.log(user)
-        userName = user.displayName; 
-        console.log(userName)
-        userEmail = user.email
-        console.log(userEmail)
-        userPhoto = user.photoURL;   
-        console.log(userPhoto)
-        
-        //將大頭照放入 navbar
-        let navimg = document.createElement("img");
-        navimg.setAttribute("src",userPhoto);
-        navphoto.appendChild(navimg)
- 
-        //將名子放入 navbar
-        let navnameDiv = document.createElement("div");
-        navnameDiv.textContent = userName +"  你好!";
-        console.log(userName)
-        navname.appendChild(navnameDiv);
-        
-        navphoto.style.display="block"
-        navname.style.display="block"
-        
-    }
-    else{
-      console.log("no")
- 
-    }
-   
-})
-
-//===========================
-
-//抓到網址的query string    
+  
 let Idstring = location.href;
-//console.log(Idstring);
 //將字串轉成url
 let url = new URL(Idstring);
-//console.log(url)
 //找到id後方的字串
 let UrlString = url.searchParams.get('id');
-//console.log(UrlString)
     
 ajax("https://cors-anywhere.herokuapp.com/https://gis.taiwan.net.tw/XMLReleaseALL_public/activity_C_f.json",function(response){
     newspageRender(response)
@@ -69,7 +16,6 @@ let list = data.XML_Head.Infos.Info.length
 for(let i= 0 ; i<list ;i++){
     let id = data.XML_Head.Infos.Info[i].Id
     if(UrlString == id){
-    //console.log( data.XML_Head.Infos.Info[i])
     let name = data.XML_Head.Infos.Info[i].Name
     let city = data.XML_Head.Infos.Info[i].Org
     let photo = data.XML_Head.Infos.Info[i].Picture1
@@ -133,7 +79,7 @@ let arr=[]
 for(let a= 0;a< list ;a++){
     let year = data.XML_Head.Infos.Info[a].Start.slice(0,4);
     if( year=="2019"){
-    arr.push(data.XML_Head.Infos.Info[a]);
+        arr.push(data.XML_Head.Infos.Info[a]);
     }
 }
 //抓出最新10筆
@@ -142,14 +88,14 @@ arr.forEach(function(item,index){
 let max = arr.length
 let min = max-10
 if(index<max && min<index){
- newarr.push(item)
+    newarr.push(item)
 }
 })
 
 //隨機打亂 陣列中 物件順序
 newarr.sort(function(){
-return Math.random() - 0.5;
- });
+    return Math.random() - 0.5;
+});
 
 
 newarr.forEach(function(item,index){
@@ -158,7 +104,7 @@ newarr.forEach(function(item,index){
     let name = item.Name
     let id = item.Id
     if(photo==""){
-        photo="img/lossimg.jpg"
+    photo="img/lossimg.jpg"
     }
     let newspageOther = document.querySelector(".newspage-other");
 

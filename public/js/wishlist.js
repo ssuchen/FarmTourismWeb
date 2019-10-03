@@ -1,55 +1,5 @@
 
 //=======================================
-//  判斷是否登入會員 取得相關的會員資料
-//=======================================
-
-travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
-// 有登入時 留言按鈕出現
-userName
-userEmail
-userPhoto
-user
-
-firebase.auth().onAuthStateChanged(function(user){
-
-    let navname = document.querySelector(".user-name");
-    let navphoto = document.querySelector(".user-photo");
-
-    if(user != null){
-        console.log(user)
-        userName = user.displayName; 
-        console.log(userName)
-        userEmail = user.email
-        console.log(userEmail)
-        userPhoto = user.photoURL;   
-        console.log(userPhoto)
-
-        
-        //將大頭照放入 navbar
-        let navimg = document.createElement("img");
-        navimg.setAttribute("src",userPhoto);
-        navphoto.appendChild(navimg)
- 
-        //將名子放入 navbar
-        let navnameDiv = document.createElement("div");
-        navnameDiv.textContent = userName +"  你好!";
-        console.log(userName)
-        navname.appendChild(navnameDiv);
-    
-        navphoto.style.display="block"
-        navname.style.display="block"
-
-        
-    }
-    else{
-      document.location.href="index.html";
-    
-    }
-   
-})
-
-
-//=======================================
 //  切換  按鈕 樣式(css出現底線)
 //=======================================
 
@@ -57,11 +7,9 @@ let wishBtn = document.querySelectorAll(".wish-btn");
 for(let i=0 ;i<wishBtn.length;i++){
     wishBtn[i].addEventListener("click",function(){
         let removeBtn = document.querySelector(".wishBtn-click");
-        removeBtn.classList.remove('wishBtn-click')
+        removeBtn.classList.remove('wishBtn-click');
         wishBtn[i].classList.add("wishBtn-click");
-
     })
-
 
 }
 
@@ -76,8 +24,7 @@ wishTravel.addEventListener("click",wishTravelText);
 function wishTravelText(){
 let Travellist=[]   
 
-db.collection("user").get().then(function(snapshop){
-    
+db.collection("user").get().then(function(snapshop){   
     let docID
     //獲得 doc 的 id
     snapshop.docs.forEach(function(doc) {
@@ -128,11 +75,9 @@ db.collection("user").get().then(function(snapshop){
         }   
 
 
-    })
+    });
     
-    })
- 
-
+    }) 
 }
 
 

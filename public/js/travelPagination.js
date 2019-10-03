@@ -1,12 +1,9 @@
 //抓到網址的query string    
 let Idstring = location.href;
-//console.log(Idstring);
 //將字串轉成url
 let url = new URL(Idstring);
-//console.log(url)
 //找到id後方的字串
 let UrlString = url.searchParams.get('id');
-console.log(UrlString)
     
 ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx",function(response){
     travelpageRender(response)
@@ -21,12 +18,10 @@ function travelpageRender(data){
         //渲染出id位置關資料  
         if(item.Name== "中崙漁業休閒農場" || item.Name == "淞濤田園休閒農場"  || item.Name =="梨之鄉休閒農業區" || item.Name =="清香休閒農場"||
         name=="春園休閒農場" ){
-            // photo="https://ezgo.coa.gov.tw/Uploads/opendata/BuyItem/APPLY_D/20151026161106.jpg"
             item.Photo="https://images.unsplash.com/photo-1471194402529-8e0f5a675de6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
         }
        
         if(UrlString===item.ID){
- 
         city = item.City;    
         photo = item.Photo;
         name = item.Name;
@@ -76,9 +71,7 @@ function travelpageRender(data){
             maplink.setAttribute("marginheight","0");
             maplink.setAttribute("marginwidth","0");
             maplink.setAttribute("src","https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+ coordinate +"&z=16&output=embed&t=");
-            //切換成空景模式
-            //maplink.setAttribute("src","https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+ coordinate +"&z=16&output=embed&t=h");
-            
+                       
             travelpageLeft.appendChild(travelpageImg);
             travelpageLeft.appendChild(travelpageContent);
 
@@ -93,7 +86,6 @@ function travelpageRender(data){
 
             travelpageMap.appendChild(maplink);
 
-            console.log("test1")
            //============================
            //  抓取firebase 資料
            //============================
@@ -110,13 +102,11 @@ function travelpageRender(data){
                     MessageArr.push(doc.data())
                 } 
             });    
-            console.log("test2")
-            console.log(MessageArr)
             let len = MessageArr.length
             if(len>8){
-                len = 8
+            len = 8
             }else{
-                len = len
+            len = len
             }
 
             renderMessage();
@@ -135,8 +125,7 @@ function travelpageRender(data){
 
                let travelpageMessageContentRight = document.createElement("div");
                travelpageMessageContentRight.setAttribute("class","travelpage-message-content-right");
-               //let ContentleftImg = document.createElement("div")
-              // ContentleftImg.setAttribute("src","https://lh3.googleusercontent.com/a-/AAuE7mAxk116vUO0nKbU2d3TxEZwM4qMCKDOFiDuZd67");
+
                let leftImg= document.createElement("img")
                leftImg.setAttribute("src",photo)
 
@@ -162,7 +151,6 @@ function travelpageRender(data){
                travelpageMessage.appendChild(travelpageMessageContent);
                travelpageMessageContent.appendChild(travelpageMessageContentLeft);
                travelpageMessageContent.appendChild(travelpageMessageContentRight);
-               //travelpageMessageContentleft.appendChild(ContentleftImg);
                travelpageMessageContentLeft.appendChild(leftImg)
 
 
@@ -221,63 +209,19 @@ function travelpageRender(data){
         
     })
         
-}
+};
 
-
-//============================
-//  留言按鈕 判斷是否有登入會員 
-//============================
 
  travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
 // 有登入時 留言按鈕出現
- userName
- userEmail
- userPhoto
- user
-console.log(user)
- firebase.auth().onAuthStateChanged(function(user){
+firebase.auth().onAuthStateChanged(function(user){
+    if(user == null){
+    travelpageMessageBtn.style.display="none";
+    } 
+});
 
-    let navname = document.querySelector(".user-name");
-    let navphoto = document.querySelector(".user-photo");
-    
-    if(user != null){
-        //user = firebase.auth.currentUser;
-        console.log(user)
-        userName = user.displayName; 
-        console.log(userName)
-        userEmail = user.email
-        console.log(userEmail)
-        userPhoto = user.photoURL;   
-        console.log(userPhoto)
 
-        //將大頭照放入 navbar
-        let navimg = document.createElement("img");
-        navimg.setAttribute("src",userPhoto);
-        navphoto.appendChild(navimg)
-
-        //將名子放入 navbar
-        let navnameDiv = document.createElement("div");
-        navnameDiv.textContent = userName +"  你好!";
-        console.log(userName)
-        navname.appendChild(navnameDiv);
-        //navnameDiv.setAttribute("class","navname-Div"); 
-        navphoto.style.display="block"
-        navname.style.display="block" 
-        
-    }
-    else{
-      console.log("no")
-      travelpageMessageBtn.style.display="none";
-
-    }
-   
-})
-
-//===========================
-//===========================
-
-let travelpageMessageComment = document.querySelector(".travelpage-message-comment");
-    
+let travelpageMessageComment = document.querySelector(".travelpage-message-comment");    
 //按下留言按鈕 留言視窗出現
     travelpageMessageBtn.addEventListener("click",function(){
         travelpageMessageComment.style.display="block";
@@ -292,7 +236,6 @@ let commentCancelBtn = document.querySelector(".comment-cancel-btn");
     });
 
 //按下送出評論 評論送出
-//let commentSubmitBtn = document.querySelector(".comment-submit-btn");
 let commentInput = document.querySelector(".comment-input");
 let commentInputValue
 let formMessage = document.querySelector("#formMessage");
@@ -311,9 +254,7 @@ formMessage.addEventListener("submit",function(e){
 })
 
 function pushMessage(){
-    console.log(UrlString)
     let Today=new Date();
-    console.log(typeof(UrlString))
     let messagedoc = db.collection("comment").doc();    
     messagedoc.set({
         id:UrlString,
