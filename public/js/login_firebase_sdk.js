@@ -32,8 +32,8 @@ if(user != null){
     userEmail = user.email;
     userPhoto = user.photoURL;   
 
-    let navname = document.querySelector(".user-name");
-    let navphoto = document.querySelector(".user-photo");
+    let navName = document.querySelector(".user-name");
+    let navPhoto = document.querySelector(".user-photo");
     //設定一個user欄位 給他
     db.collection("user").where("email","==",userEmail).get().then(function(snapshop){
         if(snapshop.docs==""){
@@ -45,17 +45,17 @@ if(user != null){
     });    
   
     //將大頭照放入 navbar
-    let navimg = document.createElement("img");
-    navimg.setAttribute("src",userPhoto);
-    navphoto.appendChild(navimg);
+    let navImg = document.createElement("img");
+    navImg.setAttribute("src",userPhoto);
+    navPhoto.appendChild(navimg);
 
     //將名子放入 navbar
     let navnameDiv = document.createElement("div");
     navnameDiv.textContent = userName +"  你好!";
-    navname.appendChild(navnameDiv);
+    navName.appendChild(navnameDiv);
 
-    navphoto.style.display="block";
-    navname.style.display="block";
+    navPhoto.style.display="block";
+    navName.style.display="block";
 }
 
 
@@ -66,12 +66,12 @@ if(user != null){
 //==========================
 let btnGooglePopup = document.getElementById('googleSingUpPopup');
     btnGooglePopup.onclick = function() {
-    provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function(result) { 
-    UserToken = result.credential.accessToken;
-    //console.log("google登入")
-    location.reload();
-    }); 
+        provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(function(result) { 
+            UserToken = result.credential.accessToken;
+            //console.log("google登入")
+            location.reload();
+        }); 
     };
 
 //==========================
@@ -79,13 +79,13 @@ let btnGooglePopup = document.getElementById('googleSingUpPopup');
 //==========================
 let btnFacePopup = document.getElementById('faceSingUpPopup');
     btnFacePopup.onclick = function(){
-    provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-    let user = result.user;
-    //console.log("fb登入")
-    location.reload();
+        provider = new firebase.auth.FacebookAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            let user = result.user;
+            //console.log("fb登入")
+            location.reload();
 
-    });
+        });
     };
 
 //==========================
@@ -93,9 +93,9 @@ let btnFacePopup = document.getElementById('faceSingUpPopup');
 //==========================
 let signOutbtn=document.querySelector(".logoutbtn-user");
     signOutbtn.onclick = function(){
-    firebase.auth().signOut().then(function() {
-    location.reload();
-    });
+        firebase.auth().signOut().then(function() {
+            location.reload();
+        });
     };
 
 //============================  
@@ -106,12 +106,12 @@ let loginBox = document.querySelector(".login-box");
 let loginBtn = document.querySelector('.loginbtn-user'); 
 
     loginBtn.addEventListener('click',function(){ 
-    loginBox.style.display="block";
+        loginBox.style.display="block";
     });
 
 let loginBoxBtn = document.querySelector(".login-box-btn");
     loginBoxBtn.addEventListener("click",function(){
-    loginBox.style.display="none";
+        loginBox.style.display="none";
     });
  
 
@@ -120,10 +120,10 @@ let loginBoxBtn = document.querySelector(".login-box-btn");
 //===================================
 //當登入成功時 "登入" 文字更改成 "登出"
 
-function ChangeUserIn(){
-let logintext = document.querySelector(".loginbtn-user");
+function changeUserIn(){
+    let logintext = document.querySelector(".loginbtn-user");
     logintext.style.display="none";
-let logouttext = document.querySelector(".logoutbtn-user");
+    let logouttext = document.querySelector(".logoutbtn-user");
     logouttext.style.display="block";
 };
 
@@ -133,13 +133,13 @@ let logouttext = document.querySelector(".logoutbtn-user");
 //===================================
   
 function renderWishlistCheck (){
-let userwish = document.querySelector(".user-wish")
+    let userwish = document.querySelector(".user-wish")
     userwish.addEventListener("click",function(){
-    if(userName!=undefined){
-    document.location.href="wishList.html";
-    }else{
-    alert("請先登入會員");
-    }
+        if(userName!=undefined){
+            document.location.href="wishList.html";
+        }else{
+            alert("請先登入會員");
+        }
     });
 
 };

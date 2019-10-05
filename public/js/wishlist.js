@@ -22,60 +22,59 @@ wishTravelText();
 let wishTravel=document.querySelector("#wishTravel");
 wishTravel.addEventListener("click",wishTravelText);
 function wishTravelText(){
-let Travellist=[]   
+    let TravelList=[]   
+    db.collection("user").get().then(function(snapshop){   
+        let docID
+        //獲得 doc 的 id
+        snapshop.docs.forEach(function(doc){
+            if(userEmail == doc.data().email){
+                docID = doc.id;
 
-db.collection("user").get().then(function(snapshop){   
-    let docID
-    //獲得 doc 的 id
-    snapshop.docs.forEach(function(doc) {
-        if(userEmail == doc.data().email){
-        docID = doc.id
-
-        } 
-    });
-    //將符合email的資料放入陣列
-    let list = db.collection("user").doc(docID).collection("travellist")
-    list.get().then(function(snapshop){
-        snapshop.forEach(function(doc,index){
-        Travellist.push(doc.data())
-        })
-        let str=""
-        if(Travellist.length > 12){
-        alert("收藏頁放不下太多願望")
-        Travellist.length = 12
-        }
-        Travellist.forEach(function(item){
-            let name = item.title
-            let photo = item.img
-            let town = item.text
-            let city = item.country
-            let id = item.id
-            str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
+            } 
+        });
+        //將符合email的資料放入陣列
+        let list = db.collection("user").doc(docID).collection("travellist")
+        list.get().then(function(snapshop){
+            snapshop.forEach(function(doc){
+                TravelList.push(doc.data());
+            })
+            let str=""
+            if(TravelList.length > 12){
+                alert("收藏頁放不下太多願望");
+                TravelList.length = 12;
+            }
+            TravelList.forEach(function(item){
+                let name = item.title;
+                let photo = item.img;
+                let town = item.text;
+                let city = item.country;
+                let id = item.id;
+                str += '<a  href= " travelPagination.html?id=' + id +'"class="travel-card"><div class="travel-img"><img src=' + photo 
                 + '><i class="far fa-heart like-btn fas" data-tag="travel " id = '+ id
                 + '></i></div><div class="travel-title">' + name 
                 +'</div><div class="travel-place"><div class="travel-country">'
                 + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
                        
-        })
-        let travelMainContent = document.querySelector('.wish-main-content');
-        travelMainContent.innerHTML = str;
-
-        //點擊愛心按鈕 刪除卡片
-        let btn = document.querySelectorAll(".like-btn")   
-        for(let b = 0 ;b<btn.length ; b++){
-        btn[b].addEventListener("click",function(e){
-            e.preventDefault();
-            list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
-                snapshop.docs.forEach(function(doc){
-                    list.doc(doc.id).delete();
-                })
             })
-            wishTravelText();
-        }) 
-        }   
+            let travelMainContent = document.querySelector('.wish-main-content');
+            travelMainContent.innerHTML = str;
+
+            //點擊愛心按鈕 刪除卡片
+            let btn = document.querySelectorAll(".like-btn")   
+            for(let b = 0 ;b<btn.length ; b++){
+                btn[b].addEventListener("click",function(e){
+                    e.preventDefault();
+                    list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
+                        snapshop.docs.forEach(function(doc){
+                            list.doc(doc.id).delete();
+                        })
+                    })
+                    wishTravelText();
+                }) 
+            }   
 
 
-    });
+        });
     
     }) 
 }
@@ -88,51 +87,50 @@ db.collection("user").get().then(function(snapshop){
 let wishPresent=document.querySelector("#wishPresent");
 wishPresent.addEventListener("click",wishPresentText);
 function wishPresentText(){
-let Presentlist=[]
-db.collection("user").get().then(function(snapshop){
+    let PresentList=[]
+    db.collection("user").get().then(function(snapshop){ 
     
-    let docID
-    //獲得 doc 的 id
-    snapshop.docs.forEach(function(doc) {
-        if(userEmail == doc.data().email){
-        docID = doc.id
-        } 
-    });
-    //將符合email的資料放入陣列
-    let list = db.collection("user").doc(docID).collection("presentlist")    
-    list.get().then(function(snapshop){
+        let docID
+        //獲得 doc 的 id
+        snapshop.docs.forEach(function(doc) {
+            if(userEmail == doc.data().email){
+                docID = doc.id;
+            } 
+        });
+        //將符合email的資料放入陣列
+        let list = db.collection("user").doc(docID).collection("presentlist")    
+        list.get().then(function(snapshop){
+            snapshop.forEach(function(doc){
+                PresentList.push(doc.data());
+            })
+            let str=""
+            if(PresentList.length > 12){
+                alert("收藏頁放不下太多願望");
+                PresentList.length = 12;
+            }
+            PresentList.forEach(function(item){
+                let name = item.title;
+                let photo = item.img;
+                let text = item.text;
+                let city = item.country;
+                let id = item.id;
 
-        snapshop.forEach(function(doc){
-        Presentlist.push(doc.data())
-        })
-        let str=""
-        if(Presentlist.length > 12){
-        alert("收藏頁放不下太多願望")
-        Presentlist.length = 12;
-        }
-        Presentlist.forEach(function(item){
-            let name = item.title
-            let photo = item.img
-            let text = item.text
-            let city = item.country
-            let id = item.id
+                str += '<a href="presentPagination.html?id='+ id
+                +'" class="present-card"><div class="present-img"><img src="' + photo
+                +'"><i class="far fa-heart like-btn fas" aria-hidden="true" id = '+ id 
+                +'></i></div><div class="present-title">'+ name
+                +'</div><div class="present-place"><div class="presentCountry">'+ city
+                +' | </div><div class="present-text">'+ text
+                +'</div></div></a>'
 
-            str += '<a href="presentPagination.html?id='+ id
-            +'" class="present-card"><div class="present-img"><img src="' + photo
-            +'"><i class="far fa-heart like-btn fas" aria-hidden="true" id = '+ id 
-            +'></i></div><div class="present-title">'+ name
-            +'</div><div class="present-place"><div class="presentCountry">'+ city
-            +' | </div><div class="present-text">'+ text
-            +'</div></div></a>'
-
-        })
-        let PresentMainContent = document.querySelector('.wish-main-content');
-        PresentMainContent.innerHTML = str;
+            })
+            let PresentMainContent = document.querySelector('.wish-main-content');
+            PresentMainContent.innerHTML = str;
         
 
-        //點擊愛心按鈕 刪除卡片
-        let btn = document.querySelectorAll(".like-btn")  
-        for(let b = 0 ;b<btn.length ; b++){
+            //點擊愛心按鈕 刪除卡片
+            let btn = document.querySelectorAll(".like-btn")  
+            for(let b = 0 ;b<btn.length ; b++){
                 btn[b].addEventListener("click",function(e){
                     e.preventDefault();
                     list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
@@ -142,19 +140,16 @@ db.collection("user").get().then(function(snapshop){
                     })
                     wishPresentText();
                 }) 
-        };  
+            };  
 
 
         
 
-    })
+        })
 
 
 
     })
-
- 
-
 }
 
 
@@ -166,60 +161,59 @@ let wishJourney=document.querySelector("#wishJourney");
 wishJourney.addEventListener("click",wishJourneyText);
 function wishJourneyText(){
 
-let Journeylist=[]
-db.collection("user").get().then(function(snapshop){
+    let JourneyList=[]
+    db.collection("user").get().then(function(snapshop){
     
-    let docID
-    //獲得 doc 的 id
-    snapshop.docs.forEach(function(doc) {
-        if(userEmail == doc.data().email){
-        docID = doc.id
-        } 
-    });
-    //將符合email的資料放入陣列
-    let list = db.collection("user").doc(docID).collection("journeylist")    
-    list.get().then(function(snapshop){
-
-        snapshop.forEach(function(doc){
-        Journeylist.push(doc.data())
-        })
-        let journeyMainContent = document.querySelector('.wish-main-content');
-            journeyMainContent.innerHTML=""
+        let docID
+        //獲得 doc 的 id
+        snapshop.docs.forEach(function(doc) {
+            if(userEmail == doc.data().email){
+                docID = doc.id;
+            } 
+        });
+        //將符合email的資料放入陣列
+        let list = db.collection("user").doc(docID).collection("journeylist")    
+        list.get().then(function(snapshop){
+            snapshop.forEach(function(doc){
+                JourneyList.push(doc.data());
+            })
+            let journeyMainContent = document.querySelector('.wish-main-content');
+            journeyMainContent.innerHTML="";
         
-        if(Journeylist.length > 12){
-            alert("收藏頁放不下太多願望")
-            Journeylist.length = 12;
-        }    
+            if(JourneyList.length > 12){
+                alert("收藏頁放不下太多願望");
+                JourneyList.length = 12;
+            }    
 
-        Journeylist.forEach(function(item){
-            let city = item.country
-            let id = item.id
-            let photo = item.img
-            let tag = item.tag
-            let text = item.text
-            let name = item.title
+            JourneyList.forEach(function(item){
+                let city = item.country;
+                let id = item.id;
+                let photo = item.img;
+                let tag = item.tag;
+                let text = item.text;
+                let name = item.title;
 
-            let journeyTag 
-            let journeyCard = document.createElement("a");
-                journeyCard.setAttribute("class","journey-card")
-                journeyCard.setAttribute("href","journeyPagination.html?id="+id)
-            let journeyImg = document.createElement("div");
+                let journeyTag 
+                let journeyCard = document.createElement("a");
+                journeyCard.setAttribute("class","journey-card");
+                journeyCard.setAttribute("href","journeyPagination.html?id="+id);
+                let journeyImg = document.createElement("div");
                 journeyImg.setAttribute("class","journey-img");
-            let img = document.createElement("img");
+                let img = document.createElement("img");
                 img.setAttribute("src",photo);
-            let journeyBtn = document.createElement("i");
+                let journeyBtn = document.createElement("i");
                 journeyBtn.setAttribute("class","far fa-heart like-btn fas");
                 journeyBtn.setAttribute("id",id);
 
-            let journeyTitle = document.createElement("div");
+                let journeyTitle = document.createElement("div");
                 journeyTitle.setAttribute("class","journey-title");
                 journeyTitle.textContent = name;
 
-            let journeyGroup = document.createElement("div");
+                let journeyGroup = document.createElement("div");
                 journeyGroup.setAttribute("class","journey-group");
                  
 
-            let journeyText = document.createElement("div");
+                let journeyText = document.createElement("div");
                 journeyText.setAttribute("class","journey-text");
                 journeyText.textContent = text ;
                 
@@ -240,25 +234,25 @@ db.collection("user").get().then(function(snapshop){
                 }
             
 
+            })
+
+            //點擊愛心按鈕 刪除卡片
+            let btn = document.querySelectorAll(".like-btn");  
+            for(let b = 0 ;b<btn.length ; b++){
+                btn[b].addEventListener("click",function(e){
+                    e.preventDefault();
+                    list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
+                        snapshop.docs.forEach(function(doc){
+                            list.doc(doc.id).delete();
+                        })
+                    })
+                    wishJourneyText();
+                }) 
+            };  
+
         })
-
-        //點擊愛心按鈕 刪除卡片
-        let btn = document.querySelectorAll(".like-btn")  
-        for(let b = 0 ;b<btn.length ; b++){
-            btn[b].addEventListener("click",function(e){
-            e.preventDefault();
-            list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
-            snapshop.docs.forEach(function(doc){
-            list.doc(doc.id).delete();
-            })
-            })
-            wishJourneyText();
-            }) 
-        };  
-
-    })
     
-})
+    })
 }
 
 //=======================================
@@ -269,14 +263,14 @@ let wishFood =document.querySelector("#wishFood");
 wishFood.addEventListener("click",wishFoodText);
 function wishFoodText(){
    
-let Foodlist=[]
-db.collection("user").get().then(function(snapshop){
+    let FoodList=[]
+    db.collection("user").get().then(function(snapshop){
         
         let docID
         //獲得 doc 的 id
         snapshop.docs.forEach(function(doc) {
             if(userEmail == doc.data().email){
-            docID = doc.id
+                docID = doc.id;
             } 
         });
         //將符合email的資料放入陣列
@@ -284,21 +278,21 @@ db.collection("user").get().then(function(snapshop){
         list.get().then(function(snapshop){
     
             snapshop.forEach(function(doc){
-            Foodlist.push(doc.data())
+                FoodList.push(doc.data());
             })
             let str=""
-            if(Foodlist.length > 12){
-                alert("收藏頁放不下太多願望")
-                Foodlist.length = 12;
+            if(FoodList.length > 12){
+                alert("收藏頁放不下太多願望");
+                FoodList.length = 12;
             }   
-            Foodlist.forEach(function(item){
-                let name = item.title
-                let tel = item.tel
-                let photo = item.img
-                let town = item.town
-                let text = item.text                
-                let city = item.country
-                let id = item.id
+            FoodList.forEach(function(item){
+                let name = item.title;
+                let tel = item.tel;
+                let photo = item.img;
+                let town = item.town;
+                let text = item.text;            
+                let city = item.country;
+                let id = item.id;
                 str += '<a href="foodPagination.html?id='+ id
                 +'" class="food-card"><div class="food-card-left"><div class="food-img"><img src="'+ photo
                 +'"><i class="far fa-heart like-btn food-likebtn fas"aria-hidden="true" id="'+ id 
@@ -316,22 +310,22 @@ db.collection("user").get().then(function(snapshop){
                     //點擊愛心按鈕 刪除卡片
             let btn = document.querySelectorAll(".like-btn")  
             for(let b = 0 ;b<btn.length ; b++){
-            btn[b].addEventListener("click",function(e){
-            e.preventDefault();
-            list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
-            snapshop.docs.forEach(function(doc){
-            list.doc(doc.id).delete();
-            })
-            })
-            wishFoodText();
-            }) 
+                btn[b].addEventListener("click",function(e){
+                    e.preventDefault();
+                    list.where("id","==",btn[b].id).onSnapshot(function(snapshop){
+                        snapshop.docs.forEach(function(doc){
+                            list.doc(doc.id).delete();
+                        })
+                    })
+                    wishFoodText();
+                }) 
             };  
 
             
     
         })
         
-})
+    })
 
 }
 

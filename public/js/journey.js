@@ -4,51 +4,51 @@ ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenDat
 });
 function journeyRender(data){
 
-let len = data.length;
-let perpage = 12;
+    let len = data.length;
+    let perPage = 12;
 
-let loading = document.querySelector(".loading");
-loading.style.display="none";
+    let loading = document.querySelector(".loading");
+    loading.style.display="none";
 
-for(let i =0 ;i<12 ;i++){
-    let journeyTag
-    let id = data[i].TravelSeq;
-    let name = data[i].Title;
-    let photo = data[i].PhotoUrl;
-    let text = data[i].Contents.substr(0,38)+"...";
-    let tag = data[i].TravelType;
+    for(let i =0 ;i<12 ;i++){
+        let journeyTag
+        let id = data[i].TravelSeq;
+        let name = data[i].Title;
+        let photo = data[i].PhotoUrl;
+        let text = data[i].Contents.substr(0,38)+"...";
+        let tag = data[i].TravelType;
         
-    //將tag 字串分開成陣列
-    let arr=[]
-    for(t=0 ;t<tag.length;t++){
-        let gettag = tag.substr(t*9,4);
-        if(gettag!==""){
-        arr.push(gettag)    
-        }  
-    };
+        //將tag 字串分開成陣列
+        let arr=[]
+        for(t=0 ;t<tag.length;t++){
+            let getTag = tag.substr(t*9,4);
+            if(getTag!==""){
+                arr.push(getTag)    
+            }  
+        };
 
-    function renderCard(){
-        let journeyMainContent = document.querySelector(".journey-main-content");
-        let journeyCard = document.createElement("a");
+        function renderCard(){
+            let journeyMainContent = document.querySelector(".journey-main-content");
+            let journeyCard = document.createElement("a");
             journeyCard.setAttribute("class","journey-card")
             journeyCard.setAttribute("href","journeyPagination.html?id="+id)
-        let journeyImg = document.createElement("div");
+            let journeyImg = document.createElement("div");
             journeyImg.setAttribute("class","journey-img");
-        let img = document.createElement("img");
+            let img = document.createElement("img");
             img.setAttribute("src",photo);
-        let journeyBtn = document.createElement("i");
+            let journeyBtn = document.createElement("i");
             journeyBtn.setAttribute("class","far fa-heart like-btn");
             journeyBtn.setAttribute("id",id); 
 
-        let journeyTitle = document.createElement("div");
+            let journeyTitle = document.createElement("div");
             journeyTitle.setAttribute("class","journey-title");
             journeyTitle.textContent = name;
 
-        let journeyGroup = document.createElement("div");
+            let journeyGroup = document.createElement("div");
             journeyGroup.setAttribute("class","journey-group");
                  
 
-        let journeyText = document.createElement("div");
+            let journeyText = document.createElement("div");
             journeyText.setAttribute("class","journey-text");
             journeyText.textContent = text ;
                 
@@ -64,7 +64,7 @@ for(let i =0 ;i<12 ;i++){
 
       
 
-        //將 tag 放入 journey-group的迴圈
+            //將 tag 放入 journey-group的迴圈
             arr.forEach(function(item){
                 journeyTag = document.createElement("div");
                 journeyTag.setAttribute("class","journey-tag");
@@ -76,19 +76,19 @@ for(let i =0 ;i<12 ;i++){
 
 
 
+        };
+        renderCard();
     };
-    renderCard();
-};
 
-//+++++++++++++++++++++++++++
-//      頁數判斷功能
-//+++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++
+    //      頁數判斷功能
+    //+++++++++++++++++++++++++++
 
-//農場頁數
-let page = Math.ceil(len/perpage);
+    //農場頁數
+    let page = Math.ceil(len/perPage);
 
-//農場頁數 掛的 html 標籤
-let pageList = document.querySelector('.page-list');
+    //農場頁數 掛的 html 標籤
+    let pageList = document.querySelector('.page-list');
     //第一次產出頁數按鈕
     for( let i=0 ; i<5; i++){
         let pageBtn = document.createElement('div');
@@ -98,34 +98,34 @@ let pageList = document.querySelector('.page-list');
         pageList.appendChild(pageBtn);
 
     };
-    let activebtn = document.getElementById("1");
-    activebtn.classList.add("btn-active");
+    let activeBtn = document.getElementById("1");
+    activeBtn.classList.add("btn-active");
    
     // 頁數按鈕 監聽事件    
     let pageBtn =  document.querySelectorAll('.page-Btn');
     let choseBtn
-    let nextpage    
+    let nextPage    
     let searchdata=[]
 
     //---------------更新按鈕列---------------
     //重新更新按鈕列表
     function updateBtnlist(){
-        let Btnstr =""
-        let max = nextpage+3;
-        let min = nextpage-2; 
+        let btnStr =""
+        let max = nextPage+3;
+        let min = nextPage-2; 
 
         if( min<0 || min==0 && page > 5 ){
-        min=1;
-        max=6;
+            min=1;
+            max=6;
         };
         if(max > page){
-        max = page+1;
+            max = page+1;
         };
         for( let i= min; max > i; i++){
-        Btnstr += '<div class="page-Btn" id="'+i+ '">'+i+'</div>';
-        pageList.innerHTML = Btnstr;   
+            btnStr += '<div class="page-Btn" id="'+i+ '">'+i+'</div>';
+            pageList.innerHTML = btnStr;   
         };
-        let text =document.getElementById(nextpage);
+        let text =document.getElementById(nextPage);
         text.classList.add('btn-active'); 
     };
 
@@ -135,11 +135,11 @@ let pageList = document.querySelector('.page-list');
         let pageBtn = document.querySelectorAll(".page-Btn");
             for( let i=0;i<pageBtn.length ;i++){
                 pageBtn[i].addEventListener("click",function(){
-                nextpage = parseInt(pageBtn[i].innerHTML);  
-                //改變按鈕 樣式
-                changeBtnStyle();
-                //重新 更換內容資料的函式
-                renderPage();
+                    nextPage = parseInt(pageBtn[i].innerHTML);  
+                    //改變按鈕 樣式
+                    changeBtnStyle();
+                    //重新 更換內容資料的函式
+                    renderPage();
             })
             }
     };
@@ -155,17 +155,17 @@ let pageList = document.querySelector('.page-list');
             let removeClass = document.querySelector('.btn-active');
             removeClass.classList.remove('btn-active'); 
             //2.再加入指定的按鈕css屬性
-            if( nextpage == undefined){
-            choseBtn = pageBtn[i].id 
+            if( nextPage == undefined){
+                choseBtn = pageBtn[i].id 
             }
             else{
-            choseBtn = nextpage
+                choseBtn = nextPage
             }
             let clickBtn = document.getElementById(choseBtn);
             clickBtn.classList.add("btn-active");
 
-            //重新定義 nextpage 將內容定義為 undefined   
-            nextpage = undefined;    
+            //重新定義 nextPage 將內容定義為 undefined   
+            nextPage = undefined;    
         };
     
         //更換內容資料的函式
@@ -173,89 +173,89 @@ let pageList = document.querySelector('.page-list');
 
         function renderPage(){       
         //抓出每頁最大及最小筆數編號 當前頁數 * 每頁需要的資料筆數
-        let min =(choseBtn*perpage)-perpage +1;
-        let max = (choseBtn*perpage);
-        let pagedata
-        let newdata=[];
-        if(searchdata!=""){
-        pagedata = searchdata;
-        }
-        else{
-        pagedata = data ;     
-        }
+            let min =(choseBtn*perPage)-perPage +1;
+            let max = (choseBtn*perPage);
+            let pageData
+            let newData=[];
+            if(searchData!=""){
+                pageData = searchData;
+            }
+            else{
+                pageData = data ;     
+            }
 
-        pagedata.forEach(function(item,index){
-        //利用陣列索引 索引從0開始 所以要加1
-        let num = index+1
-        //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
-        if(num>=min && num<=max){
-        newdata.push(item)   
-        }
+        pageData.forEach(function(item,index){
+            //利用陣列索引 索引從0開始 所以要加1
+            let num = index+1
+            //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
+            if(num>=min && num<=max){
+                newData.push(item)   
+            }
         })
         
         //將新的頁數資料重新放上網頁
         let journeyMainContent = document.querySelector(".journey-main-content");
-            journeyMainContent.innerHTML=""; 
+        journeyMainContent.innerHTML=""; 
   
-        for (let p = 0; p < newdata.length; p++){
-            let id = newdata[p].TravelSeq;
-            let name = newdata[p].Title;
-            let photo = newdata[p].PhotoUrl;
-            let text = newdata[p].Contents.substr(0,38)+"...";
-            let tag = newdata[p].TravelType;
+        for (let p = 0; p < newData.length; p++){
+            let id = newData[p].TravelSeq;
+            let name = newData[p].Title;
+            let photo = newData[p].PhotoUrl;
+            let text = newData[p].Contents.substr(0,38)+"...";
+            let tag = newData[p].TravelType;
 
             //將tag 字串分開成陣列
             let arr=[]
             for(t=0 ;t<tag.length;t++){
-                let gettag = tag.substr(t*9,4);
-                if(gettag!==""){
-                arr.push(gettag)    
+                let getTag = tag.substr(t*9,4);
+                if(getTag!==""){
+                    arr.push(getTag)    
                 }  
             };
 
             let journeyCard = document.createElement("a");
-                journeyCard.setAttribute("class","journey-card")
-                journeyCard.setAttribute("href","journeyPagination.html?id="+id)
+            journeyCard.setAttribute("class","journey-card")
+            journeyCard.setAttribute("href","journeyPagination.html?id="+id)
             let journeyImg = document.createElement("div");
-                journeyImg.setAttribute("class","journey-img");
+            journeyImg.setAttribute("class","journey-img");
             let img = document.createElement("img");
-                img.setAttribute("src",photo);
+            img.setAttribute("src",photo);
             
             let journeyBtn = document.createElement("i");
-                journeyBtn.setAttribute("class","far fa-heart like-btn");
-                journeyBtn.setAttribute("id",id);                
+            journeyBtn.setAttribute("class","far fa-heart like-btn");
+            journeyBtn.setAttribute("id",id);                
 
             let journeyTitle = document.createElement("div");
-                journeyTitle.setAttribute("class","journey-title");
-                journeyTitle.textContent = name;
+            journeyTitle.setAttribute("class","journey-title");
+            journeyTitle.textContent = name;
                 
             let journeyGroup = document.createElement("div");
-                journeyGroup.setAttribute("class","journey-group");
+            journeyGroup.setAttribute("class","journey-group");
                  
             let journeyText = document.createElement("div");
-                journeyText.setAttribute("class","journey-text");
-                journeyText.textContent = text ;
+            journeyText.setAttribute("class","journey-text");
+            journeyText.textContent = text ;
                 
-                journeyMainContent.appendChild(journeyCard);
-                journeyCard.appendChild(journeyImg);
-                journeyCard.appendChild(journeyTitle);
-                journeyCard.appendChild(journeyText);
+            journeyMainContent.appendChild(journeyCard);
+            journeyCard.appendChild(journeyImg);
+            journeyCard.appendChild(journeyTitle);
+            journeyCard.appendChild(journeyText);
                 
-                journeyCard.appendChild(journeyGroup);            
-                journeyImg.appendChild(img);
-                journeyImg.appendChild(journeyBtn);
+            journeyCard.appendChild(journeyGroup);            
+            journeyImg.appendChild(img);
+            journeyImg.appendChild(journeyBtn);
       
 
-                //將 tag 放入 journey-group的迴圈
-                arr.forEach(function(item,index){
-                    journeyTag = document.createElement("div");
-                    journeyTag.setAttribute("class","journey-tag");
-                    tag = item;
-                    journeyTag.textContent = tag;
-                    journeyGroup.appendChild(journeyTag);
-                });
+            //將 tag 放入 journey-group的迴圈
+            arr.forEach(function(item){
+                journeyTag = document.createElement("div");
+                journeyTag.setAttribute("class","journey-tag");
+                tag = item;
+                journeyTag.textContent = tag;
+                journeyGroup.appendChild(journeyTag);
+            });
    
-         } 
+        } 
         //願望清單
         checkBtnStyle();
         checkBtn();
@@ -266,18 +266,18 @@ let pageList = document.querySelector('.page-list');
 
     //下一頁按鈕
     let AddPageBtn = document.querySelector('.Add-page');
-        AddPageBtn.addEventListener("click",function(){
+    AddPageBtn.addEventListener("click",function(){
         if(choseBtn==undefined){
-        choseBtn = 1 ;
+            choseBtn = 1 ;
         }
         if(choseBtn==page){
-        alert('最後一頁了');
-        return;
+            alert('最後一頁了');
+            return;
         }
         if(choseBtn == 1 && page == 1 ){
-        return;
+            return;
         }    
-        nextpage = parseInt(choseBtn) + 1; 
+        nextPage = parseInt(choseBtn) + 1; 
 
         //更改按鈕列表
         updateBtnlist();
@@ -286,20 +286,18 @@ let pageList = document.querySelector('.page-list');
         changeBtnStyle();
         //更改內容資料
         renderPage();
-        });
+    });
 
     //上一頁按鈕
     let LessPageBtn = document.querySelector('.Less-page');
-        LessPageBtn.addEventListener("click",function(){
+    LessPageBtn.addEventListener("click",function(){
         if(choseBtn==undefined){
-        choseBtn = 1 ;
+            choseBtn = 1 ;
         }
         if(choseBtn == 1){
-        return;
+            return;
         }    
-        nextpage = parseInt(choseBtn) - 1; 
-
-
+        nextPage = parseInt(choseBtn) - 1; 
         //更改按鈕列表
         updateBtnlist();
         clickbtn();
@@ -307,7 +305,7 @@ let pageList = document.querySelector('.page-list');
         changeBtnStyle();
         //更改內容資料
         renderPage();           
-        });
+    });
 
 
 
@@ -333,25 +331,25 @@ for(let b=0 ; b<tagBtn.length ; b++){
     tagBtn[b].classList.add('tag-active');
     //選取點選樣式的數值
     let btnValue = tagBtn[b].innerHTML; 
-    searchdata=[];  
-    data.forEach(function(item,index){
+    searchData=[];  
+    data.forEach(function(item){
         let tag = item.TravelType
         //將tag 字串分開成陣列
         let arr=[]
         for(t=0 ;t<tag.length;t++){
-            let gettag = tag.substr(t*9,4);
-            if(gettag!==""){
-            arr.push(gettag)   
+            let getTag = tag.substr(t*9,4);
+            if(getTag!==""){
+            arr.push(getTag)   
             }  
         };
         //比對選取的 tag 與 資料相符的放入searchdata
         for(let a=0; a<arr.length ;a++){
             if(arr[a]==btnValue){
-            searchdata.push(item)
+            searchData.push(item)
             }
         };  
     });
-    let len = searchdata.length;
+    let len = searchData.length;
     if(len>12){
         len=12
     }
@@ -359,18 +357,18 @@ for(let b=0 ; b<tagBtn.length ; b++){
     journeyMainContent.innerHTML=""; 
     for (let l = 0; l < len; l++) {
         let journeyTag
-        let id = searchdata[l].TravelSeq;
-        let name = searchdata[l].Title;
-        let photo = searchdata[l].PhotoUrl;
-        let text = searchdata[l].Contents.substr(0,38)+"...";
-        let tag = searchdata[l].TravelType;
+        let id = searchData[l].TravelSeq;
+        let name = searchData[l].Title;
+        let photo = searchData[l].PhotoUrl;
+        let text = searchData[l].Contents.substr(0,38)+"...";
+        let tag = searchData[l].TravelType;
         
         //將tag 字串分開成陣列
         let arr=[]
         for(t=0 ;t<tag.length;t++){   
-        let gettag = tag.substr(t*9,4);
-        if(gettag!==""){
-        arr.push(gettag)    
+        let getTag = tag.substr(t*9,4);
+        if(getTag!==""){
+        arr.push(getTag)    
         }  
         };
 
@@ -420,19 +418,16 @@ for(let b=0 ; b<tagBtn.length ; b++){
     }
     
     //算出頁數按鈕總數   
-    let pagelen = Math.ceil(searchdata.length/12);
+    let pageLen = Math.ceil(searchdata.length/12);
     //重新寫出按鈕
-    nextpage = 1
-    page = pagelen    
+    nextPage = 1
+    page = pageLen    
     updateBtnlist();
     clickbtn();
 
     //願望清單
     checkBtnStyle();
     checkBtn(); 
-            
-
-    
 
     }
 
@@ -452,8 +447,8 @@ for(let b=0 ; b<tagBtn.length ; b++){
                     docID = doc.id;
                 }
             });
-        let journeylist = db.collection("user").doc(docID).collection("journeylist"); 
-            journeylist.get().then(function(snapshop){
+        let journeyList = db.collection("user").doc(docID).collection("journeylist"); 
+            journeyList.get().then(function(snapshop){
                 snapshop.docs.forEach(function(doc){
                     let clickId = doc.data().id
                     docIDArr.push(clickId)
@@ -495,8 +490,8 @@ for(let b=0 ; b<tagBtn.length ; b++){
                     docID = doc.id;
                 }
             });  
-        let journeylist = db.collection("user").doc(docID).collection("journeylist"); 
-        journeylist.where("id","==",btnNum).get().then(function(snapshop){
+        let journeyList = db.collection("user").doc(docID).collection("journeylist"); 
+        journeyList.where("id","==",btnNum).get().then(function(snapshop){
             snapshop.docs.forEach(function(doc){
             if(doc.data().id != undefined){
                clickID = doc.data().id
@@ -556,17 +551,17 @@ for(let b=0 ; b<tagBtn.length ; b++){
             docID = doc.id
             }; 
         });
-        let journeylist = db.collection("user").doc(docID).collection("journeylist")
+        let journeyList = db.collection("user").doc(docID).collection("journeylist")
 
         //將tag 字串分開成陣列
         let arr=[]
         for(t=0 ;t<tag.length;t++){
-            let gettag = tag.substr(t*9,4);
-            if(gettag!==""){
-            arr.push(gettag)    
+            let getTag = tag.substr(t*9,4);
+            if(getTag!==""){
+            arr.push(getTag)    
             }  
         };
-        journeylist.add({
+        journeyList.add({
         id:id,
         img:img,
         tag:arr,
