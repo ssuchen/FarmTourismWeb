@@ -1,4 +1,19 @@
-
+.foodpage-main-title{
+    font-family:$main-font;
+    font-size: 1.5rem;
+    margin-left: 2%;
+    @media(max-width: 680px){
+        padding-bottom: 2%;
+        padding-left:5%;
+        }
+    @include tab-size-s{
+        padding-top:3%;
+    }
+    @include phone-size{
+        padding-bottom:2.8%;
+        text-align: center;
+    }  
+}
 .foodpage-main-content{
     display: flex;
     margin-bottom: 3.5%;

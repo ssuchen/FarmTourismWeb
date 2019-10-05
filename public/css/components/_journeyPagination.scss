@@ -1,10 +1,15 @@
 
 .journeyPagination-main-content{
-    margin-bottom: 3.5%;
+    margin-bottom: 8%;
+    padding-top: 100px;
     @include tab-size{
         margin-top:4%;
+        padding-top: 0px;
         display: block;
+
     }
+
+    
 }
 .journeyPagination-left{
     margin:0 2%;    
@@ -74,7 +79,7 @@
          margin:1% 0;
     }
     .content-feature{
-        line-height:1.5rem;
+        line-height:2rem;
         font-size: 1.1rem;
         padding-bottom: 3%;
         @include tab-size{
@@ -95,4 +100,3 @@
        }
     }
 }
-

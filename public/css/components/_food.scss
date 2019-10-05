@@ -1,7 +1,7 @@
 
 .food-main-title{
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-    font-size: 1.5rem;
+    font-family:$main-font;
+    font-size: 1.3rem;
     @media(max-width: 680px){
         padding-bottom: 2%;
         padding-left:5%;
@@ -19,7 +19,6 @@
     select{
     width: 100%; 
     padding:1%; 
-    //border:1px solid; 
     text-align: center;
     text-align-last: center;
 
@@ -129,7 +128,7 @@
     left:5%;
 }
 .food-title{
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+    font-family:$main-font;
     font-size: 1.5rem;
     margin:3% 0 ;
 
@@ -140,21 +139,21 @@
     flex-wrap: wrap;
 }
 .food-textcontent{
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+    font-family:$main-font;
     margin-top:3%;
 }
 .food-tel{
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+    font-family:$main-font;
     margin:3% 0 ;
 
 }
 .food-place{
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+    font-family:$main-font;
     margin:3% 0; 
     display: flex;
 }
 .food-country{
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+    font-family:$main-font;
     margin-right:3%; 
 }
 .food-address{
@@ -162,7 +161,7 @@
     line-height: 1.2rem;
 }
 .food-text{
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+    font-family:$main-font;
     line-height: 1.2rem;
 }
 .searchBar-Area{

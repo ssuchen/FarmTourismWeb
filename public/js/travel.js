@@ -195,7 +195,7 @@ function travelRender(data){
 
             //將新的頁數資料重新放上網頁
             let str=""
-            for(let p = 0 ; p<newdata.length ; p++){
+            for(let p = 0 ; p<newData.length ; p++){
                 let photo = newData[p].Photo; 
                 let name = newData[p].Name;
                 let city = newData[p].City;

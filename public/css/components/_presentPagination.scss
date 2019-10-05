@@ -1,8 +1,6 @@
 
 .presentPagination-main-content{
-    //display: flex;
     margin-bottom: 3.5%;
-    //border: 1px solid;
     @include tab-size{
         margin-top:4%;
         display: block;
@@ -34,7 +32,7 @@
     a{
         color: gray;
         &:hover{
-        color: #7b9a48;  
+        color:$main-color-green;  
         }
     }
 }
@@ -55,7 +53,6 @@
     margin:3% 0;
     margin-left:2%;
     border-radius:15px;
-    //padding: 1.5%;
     box-sizing: border-box;
     height: 300px;
     object-fit: cover;
@@ -117,10 +114,11 @@
         top:0;
         margin-right:1%;
         margin-top:12%;
-        color:#7b9a48;
+        color:$main-color-green;
+        cursor: pointer;
         font-size: 3.5rem;
         &:hover{
-        color: #b8cf92;
+        color:$second-color-green;
         }
         @include tab-size-L{
             margin-top:13%;
@@ -139,12 +137,13 @@
         position: absolute;
         margin-left:1%;
         margin-top:12%;
+        cursor: pointer;
         right:0;
         top:0;     
-        color:#7b9a48;
+        color:$main-color-green;
         font-size: 3.5rem;
         &:hover{
-        color: #b8cf92;
+        color: $second-color-green;
         }
         @include tab-size-L{
             margin-top:13%;
@@ -164,7 +163,6 @@
     display: flex;
     width: 90%;
     margin: 0 auto;
-    //border:1px solid;
     scroll-behavior:smooth;
     overflow: auto;
     overflow-x: hidden;

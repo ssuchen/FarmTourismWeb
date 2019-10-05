@@ -145,6 +145,9 @@ overflow: hidden;
 
 }
 
+.index-main-crad-href{
+    cursor: pointer;   
+}
 .index-main-left{
     align-items: center;
     box-sizing: border-box;
@@ -424,7 +427,11 @@ img{
 }
 .index-play-left-btn,.index-play-right-btn{
     font-size: 2rem;
+    cursor: pointer; 
     color: $main-color-green;
     font-size: 3rem;
     margin-bottom: 10%;
+    &:hover{
+    color: $second-color-green;    
+    }
 }

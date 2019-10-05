@@ -105,7 +105,7 @@ function journeyRender(data){
     let pageBtn =  document.querySelectorAll('.page-Btn');
     let choseBtn
     let nextPage    
-    let searchdata=[]
+    let searchData=[]
 
     //---------------更新按鈕列---------------
     //重新更新按鈕列表
@@ -418,7 +418,7 @@ for(let b=0 ; b<tagBtn.length ; b++){
     }
     
     //算出頁數按鈕總數   
-    let pageLen = Math.ceil(searchdata.length/12);
+    let pageLen = Math.ceil(searchData.length/12);
     //重新寫出按鈕
     nextPage = 1
     page = pageLen    

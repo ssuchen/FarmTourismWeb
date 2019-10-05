@@ -34,12 +34,15 @@ function newRender(data){
     
         //最新消息DOM元素
         let indexMainCrad = document.createElement('div');
-        indexMainCrad.setAttribute('class','index-main-crad');
+        indexMainCrad.setAttribute('class','index-main-crad');  
+        let indexMainCradHref = document.createElement("a");
+        indexMainCradHref.setAttribute('href',"newsPagination.html?id="+id);
+        indexMainCradHref.setAttribute('class',"index-main-crad-href");
         let cardTitle = document.createElement('div');
         cardTitle.setAttribute('class','card-title');
         cardTitle.textContent = title;
         let cardText = document.createElement('a');
-        cardText.setAttribute('href',"newsPagination.html?id="+id);
+        
         cardText.setAttribute('class','card-Text');
         cardText.textContent = text ;
         let cardTime = document.createElement('p');
@@ -48,9 +51,11 @@ function newRender(data){
 
         let indexMainRight = document.querySelector('.index-main-content');
         indexMainRight.appendChild(indexMainCrad);
-        indexMainCrad.appendChild(cardTitle);
-        indexMainCrad.appendChild(cardText);
-        indexMainCrad.appendChild(cardTime);
+
+        indexMainCrad.appendChild(indexMainCradHref);
+        indexMainCradHref.appendChild(cardTitle);
+        indexMainCradHref.appendChild(cardText);
+        indexMainCradHref.appendChild(cardTime);
     }
  
 
@@ -61,14 +66,14 @@ function newRender(data){
 let RightBtn = document.querySelector(".index-play-right-btn");
 RightBtn.addEventListener("click",function(){
     let scroll = document.querySelector(".index-play-img")
-    scroll.scrollLeft += 300 ; 
+    scroll.scrollLeft += 383 ; 
 });
 
 //左移的按鈕
 let LeftBtn = document.querySelector(".index-play-left-btn");
 LeftBtn.addEventListener("click",function(){
     let scroll = document.querySelector(".index-play-img")
-    scroll.scrollLeft -= 300 ; 
+    scroll.scrollLeft -= 383 ; 
 });
 
 

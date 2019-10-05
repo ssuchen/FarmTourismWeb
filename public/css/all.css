@@ -748,6 +748,7 @@ body {
 }
 
 .page-Btn {
+  cursor: pointer;
   border-radius: 50%;
   background: #c7c7c7;
   color: #fff;
@@ -825,6 +826,7 @@ body {
 
 .searchBar-Area {
   font-size: 1.1rem;
+  cursor: pointer;
   border-left: 2px solid #b8cf92;
   outline: none;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
@@ -843,6 +845,7 @@ body {
 }
 
 .searchBar-Country {
+  cursor: pointer;
   font-size: 1.1rem;
   border-left: 2px solid #b8cf92;
   outline: none;
@@ -925,6 +928,7 @@ body {
 }
 
 .searchBar-group .searchBar-Btn {
+  cursor: pointer;
   font-size: 1.1rem;
   line-height: 24px;
   background-color: #7b9a48;
@@ -1017,6 +1021,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.Less-page:hover, .Add-page:hover {
+  cursor: pointer;
+  color: #b8cf92;
 }
 
 .banner {
@@ -1215,6 +1224,10 @@ body {
   color: #000;
   line-height: 2rem;
   letter-spacing: 0.1rem;
+}
+
+.index-main-crad-href {
+  cursor: pointer;
 }
 
 .index-main-left {
@@ -1609,9 +1622,14 @@ body {
 
 .index-play-left-btn, .index-play-right-btn {
   font-size: 2rem;
+  cursor: pointer;
   color: #7b9a48;
   font-size: 3rem;
   margin-bottom: 10%;
+}
+
+.index-play-left-btn:hover, .index-play-right-btn:hover {
+  color: #b8cf92;
 }
 
 .travel-main-title {
@@ -2454,6 +2472,7 @@ body {
   margin-right: 1%;
   margin-top: 12%;
   color: #7b9a48;
+  cursor: pointer;
   font-size: 3.5rem;
 }
 
@@ -2485,6 +2504,7 @@ body {
   position: absolute;
   margin-left: 1%;
   margin-top: 12%;
+  cursor: pointer;
   right: 0;
   top: 0;
   color: #7b9a48;
@@ -2613,8 +2633,8 @@ body {
 }
 
 .food-main-title {
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-  font-size: 1.5rem;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-size: 1.3rem;
 }
 
 @media (max-width: 680px) {
@@ -2795,7 +2815,7 @@ body {
 }
 
 .food-title {
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   font-size: 1.5rem;
   margin: 3% 0;
 }
@@ -2812,17 +2832,17 @@ body {
 }
 
 .food-textcontent {
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin-top: 3%;
 }
 
 .food-tel {
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin: 3% 0;
 }
 
 .food-place {
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin: 3% 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2830,7 +2850,7 @@ body {
 }
 
 .food-country {
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin-right: 3%;
 }
 
@@ -2840,7 +2860,7 @@ body {
 }
 
 .food-text {
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   line-height: 1.2rem;
 }
 
@@ -2853,6 +2873,32 @@ body {
 @media (max-width: 510px) {
   .searchBar-Country {
     margin-bottom: 5%;
+  }
+}
+
+.foodpage-main-title {
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-size: 1.5rem;
+  margin-left: 2%;
+}
+
+@media (max-width: 680px) {
+  .foodpage-main-title {
+    padding-bottom: 2%;
+    padding-left: 5%;
+  }
+}
+
+@media (max-width: 600px) {
+  .foodpage-main-title {
+    padding-top: 3%;
+  }
+}
+
+@media (max-width: 510px) {
+  .foodpage-main-title {
+    padding-bottom: 2.8%;
+    text-align: center;
   }
 }
 
@@ -3107,6 +3153,7 @@ body {
 }
 
 .tag-Btn {
+  cursor: pointer;
   padding: 1%;
   margin: 0.5% 5px;
   width: 150px;
@@ -3166,7 +3213,7 @@ body {
   transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
   transition: transform 0.5s, -webkit-transform 0.5s;
-  height: 490px;
+  height: 560px;
 }
 
 .journey-card:hover {
@@ -3195,6 +3242,7 @@ body {
 .journey-img img {
   width: 100%;
   height: 100%;
+  background-size: center center;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -3202,7 +3250,9 @@ body {
 .journey-title {
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin: 3% 0;
+  line-height: 1.6rem;
   font-size: 1.2rem;
+  letter-spacing: 0.1rem;
 }
 
 .journey-main-content {
@@ -3238,7 +3288,7 @@ body {
 }
 
 .journey-text {
-  line-height: 1.3rem;
+  line-height: 1.5rem;
 }
 
 @media (max-width: 510px) {
@@ -3281,12 +3331,14 @@ body {
 }
 
 .journeyPagination-main-content {
-  margin-bottom: 3.5%;
+  margin-bottom: 8%;
+  padding-top: 100px;
 }
 
 @media (max-width: 768px) {
   .journeyPagination-main-content {
     margin-top: 4%;
+    padding-top: 0px;
     display: block;
   }
 }
@@ -3392,7 +3444,7 @@ body {
 }
 
 .journeyPagination-content .content-feature {
-  line-height: 1.5rem;
+  line-height: 2rem;
   font-size: 1.1rem;
   padding-bottom: 3%;
 }
@@ -3440,6 +3492,7 @@ body {
 
 @media (max-width: 510px) {
   .news-main-title {
+    margin-left: 0%;
     text-align: center;
   }
 }
@@ -3619,6 +3672,13 @@ body {
   margin-bottom: 3%;
   margin-left: 2%;
   font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .newspage-main-title {
+    margin-left: 0;
+    text-align: center;
+  }
 }
 
 .newspage-img {

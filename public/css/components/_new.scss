@@ -12,6 +12,7 @@
         padding-top:3%;
     }
     @include phone-size{
+        margin-left:0%; 
         text-align: center;
     }  
 }

@@ -34,6 +34,7 @@
     }
 }
 .tag-Btn{
+    cursor: pointer;
     padding:1%;
     margin:0.5% 5px;
     width: 150px;
@@ -75,7 +76,7 @@
     max-width: 300px;
     transform: scale(0.95);
     transition: transform 0.5s;
-    height: 490px;
+    height: 560px;
     &:hover{
         box-shadow: 3px 3px 8px #a3a2a2; 
         transform: scale(1);
@@ -94,18 +95,20 @@
     img{
       width: 100%;
       height: 100%;
+      background-size:center center ;
       object-fit: cover;   
     }
     width: 100%;
     height: 60%;
-    //background-color: gray;
     border-radius: 5px;
     
 }
 .journey-title{
     font-family:$main-font;
     margin: 3% 0;
+    line-height: 1.6rem;
     font-size: 1.2rem;
+    letter-spacing: 0.1rem;
 
 }
 .journey-main-content{
@@ -131,7 +134,7 @@
     border:1px solid  #a5b68c;
 }
 .journey-text{
-    line-height: 1.3rem;
+    line-height: 1.5rem;
 }
 .searchBar-Area{
  @include phone-size{

@@ -518,6 +518,7 @@ color: #fff;
 }
 
 .page-Btn{
+    cursor: pointer;
     border-radius: 50%;
     background: rgb(199, 199, 199);
     color:#fff;
@@ -574,6 +575,7 @@ color: #fff;
 }
 .searchBar-Area{
     font-size: 1.1rem;
+    cursor: pointer;
     border-left:2px solid $second-color-green;
     outline:none;
     font-family: $main-font; 
@@ -587,6 +589,7 @@ color: #fff;
     }
 }
 .searchBar-Country{
+    cursor: pointer;
     font-size: 1.1rem;
     border-left:2px solid $second-color-green;
     outline:none;
@@ -646,6 +649,7 @@ color: #fff;
     }
     
     .searchBar-Btn{
+        cursor: pointer;
         font-size: 1.1rem;
         line-height: 24px;
         background-color:$main-color-green;
@@ -719,3 +723,9 @@ color: #fff;
     align-items: center;
 }
 
+.Less-page,.Add-page {
+    &:hover{
+        cursor: pointer;    
+        color: $second-color-green;    
+    }
+}
