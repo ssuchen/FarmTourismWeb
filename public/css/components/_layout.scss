@@ -233,6 +233,7 @@ body{
 
 .footer{
     height: 150px;
+    position: relative;
     background-color:$main-color-green;
     @include tab-size-s{
     padding-bottom:60px;
@@ -380,84 +381,6 @@ color: #fff;
 .loginStatus{
    display: none;
 }
-
-// //登出成功視窗
-// .logout-box-success {
-//     display: none;
-//     padding:5%;
-//     border-radius: 10px;
-//     padding: 5%;
-//     box-shadow: 3px 3px 5px #888888;
-//     width: 200px;
-//     background-color: #fff;
-//     position: fixed;
-//     z-index: 10;
-//     top:300px;
-//     margin-left: 50%;
-//     transform: translate(-100px);
-//     border: 1px solid $main-color-green;
-//     div{
-//       text-align: center;
-//     }
-// } 
-// .logout-box-success-btn{
-//     width: 45px;
-//     height: 45px;
-//     border-radius:50%;
-//     background-color: $main-color-green;
-//     position:absolute;
-//     top:-15px;
-//     right:-10px;
-// }
-// .logout-box-success-text {
-//     color:#fff;
-//     display: flex;
-//     font-size: 1.5rem;
-//     margin-left:50%;
-//     transform: translate(-10px); 
-//     margin-top:23%;
-//     justify-content: center;
-// }
-
-
-// //登入成功視窗
-// .login-box-success {
-//     display: none;
-//     padding:5%;
-//     border-radius: 10px;
-//     padding: 5%;
-//     box-shadow: 3px 3px 5px #888888;
-//     width: 200px;
-//     background-color: #fff;
-//     position: fixed;
-//     z-index: 10;
-//     top:300px;
-//     margin-left: 50%;
-//     transform: translate(-100px);
-//     border: 1px solid $main-color-green;
-//     div{
-//       text-align: center;
-//     }
-// } 
-// .login-box-success-btn{
-//     width: 45px;
-//     height: 45px;
-//     border-radius:50%;
-//     background-color: $main-color-green;
-//     position:absolute;
-//     top:-15px;
-//     right:-10px;
-// }
-// .login-box-success-text{
-//     color:#fff;
-//     display: flex;
-//     font-size: 1.5rem;
-//     margin-left:50%;
-//     transform: translate(-10px); 
-//     margin-top:23%;
-//     justify-content: center;
-// }
-
 
 
 //會員登入視窗
@@ -748,4 +671,23 @@ color: #fff;
 }
 .fixed{ 
     overflow-y:hidden;
+}
+.scroll-top{
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer; 
+    border-radius: 50%;
+    right: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $second-color-green;
+    position: fixed;
+    bottom:70px;
+    z-index: 99;
+    &:hover{
+        background-color: #97be57;
+    }
 }

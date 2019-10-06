@@ -19,3 +19,8 @@ function ajax(src,callback){
      xhr.send(null)
 };
   
+//移至最上面
+let goTop = document.querySelector(".scroll-top");
+goTop.addEventListener("click",function(){
+    window.scrollTo(0,0);
+})
