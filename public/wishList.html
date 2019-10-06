@@ -8,8 +8,9 @@
     <script src="https://kit.fontawesome.com/ab3a164183.js"></script>
     <title>farm web-wish</title>
 </head>
-<body>
+<body class="body">
 <div class="wrap">
+    <div class="cover"></div>
     <div class="nav-bar">
         <div class="nav-bar-width"> 
             <div class="nav-bar-logo"><a href="index.html"><img src="img/LOGO-w-02.png" alt=""></a></div>
@@ -77,30 +78,35 @@
             </ul>  
         </div>       
     </div>
-    <!-- 載入彈跳視窗 -->
-    <div class="login-box-success ">
-            <div class="login-box-success-btn">
-              <i class="login-box-btn-text fas fa-times"></i>
-            </div>
-           <div class=""> 登入成功!!</div>
-    </div>
-    <div class="logout-box-success ">
-            <div class="logout-box-success-btn">
-              <i class="logout-box-success-text fas fa-times"></i>
-            </div>
-            <div class=""> 登出成功!!</div>
-    </div>             
-    <div class="login-box">
-          <div class="login-box-btn">
+
+<!-- 載入彈跳視窗 -->
+
+    <!-- 會員登入視窗 -->
+    <div class="alert-box login-box">
+        <div class="box-btn">
             <i class="login-box-btn-text fas fa-times"></i>
-          </div>
-              <h1>請登入帳號</h1>
-              <div class="signinBtn">            
-              <button id = "googleSingUpPopup">使用google登入</button>
-              <button id = "faceSingUpPopup">使用facebook登入</button>
-          </div>
-              
+        </div>
+        <h1>請登入帳號</h1>
+        <div class="signinBtn">            
+            <button id = "googleSingUpPopup">使用google登入</button>
+            <button id = "faceSingUpPopup">使用facebook登入</button>
+        </div>   
     </div>
+    <!-- "請登入會員" 視窗 -->
+    <div class="alert-box please-login-box">
+        <div class="box-btn">
+            <i class="login-box-btn-text fas fa-times"></i>
+        </div>
+        <h1>請登入會員</h1>
+    </div>
+    <!-- "放不下太多願望" 視窗 -->
+    <div class="alert-box toomush-wish-box">
+        <div class="box-btn">
+            <i class="login-box-btn-text fas fa-times"></i>
+        </div>
+        <h1>放不下太多願望喔!!</h1>
+    </div>
+    
 </div>
 <!-- 載入 firebase -->
 <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
@@ -110,5 +116,6 @@
 </body>
 <script src="js/all.js"></script>
 <script src="js/login_firebase_sdk.js"></script>
+<script src="js/alert.js"></script>
 <script src="js/wishlist.js"></script>
 </html>

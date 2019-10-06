@@ -8,8 +8,9 @@
     <script src="https://kit.fontawesome.com/ab3a164183.js"></script>
     <title>farm web-travel</title>
 </head>
-<body>
+<body class="body">
 <div class="wrap">
+    <div class="cover"></div>
     <div class="nav-bar">
         <div class="nav-bar-width"> 
             <div class="nav-bar-logo"><a href="index.html"><img src="img/LOGO-w-02.png" alt=""></a></div>
@@ -71,49 +72,7 @@
             
         </div>
         <div class="travel-main-content">
-            <div class="loading"><img src="img/Ellipsis-1s-128px.gif" alt=""></div>
-            <!-- <div class="travel-card">
-            <div class="travel-img">
-                <i class="far fa-heart like-btn fas "></i>
-                <img src="img/20151111165433.jpg" alt="">  
-            </div>
-            <div class="travel-title">黃金小鎮休閒農業區</div>
-            <div class="travel-place">
-                <div class="travel-country">苗栗縣</div> 
-                <div class="travel-text">公館鄉</div> 
-            </div>                                      
-            </div> -->
-            <!-- <div class="travel-card">
-                <div class="travel-img">
-                    <img src="img/20151111165433.jpg" alt="">  
-                </div>
-                <div class="travel-title">黃金小鎮休閒農業區</div>
-                <div class="travel-place">
-                    <div class="travel-county">苗栗縣</div> 
-                    <div class="travel-text">公館鄉</div> 
-                </div>                                      
-            </div>
-            <div class="travel-card">
-                <div class="travel-img">
-                        <img src="img/20151111165433.jpg" alt="">  
-                    </div>
-                    <div class="travel-title">黃金小鎮休閒農業區</div>
-                        <div class="travel-place">
-                        <div class="travel-county">苗栗縣</div> 
-                        <div class="travel-text">公館鄉</div> 
-                 </div>                                      
-            </div>
-            <div class="travel-card">
-                    <div class="travel-img">
-                        <img src="img/20151111165433.jpg" alt="">  
-                    </div>
-                    <div class="travel-title">黃金小鎮休閒農業區</div>
-                        <div class="travel-place">
-                            <div class="travel-county">苗栗縣</div> 
-                            <div class="travel-text">公館鄉</div> 
-                    </div>                                      
-            </div>
-                          -->
+            <div class="loading"><img src="img/Ellipsis-1s-128px.gif" alt=""></div>            
         </div>    
     </div>
     <div class="page-bar">
@@ -135,32 +94,37 @@
                <li>(02)2381-2991</li>
                <li>星期一至星期五，上午9:00 到下午6:00</li>
             </ul>  
-        </div>
-       
-    </div>   
+        </div>       
+    </div> 
+    
     <!-- 載入彈跳視窗 -->
-    <div class="login-box-success ">
-        <div class="login-box-success-btn">
+
+    <!-- 會員登入視窗 -->
+    <div class="alert-box login-box">
+        <div class="box-btn">
             <i class="login-box-btn-text fas fa-times"></i>
         </div>
-        <div class=""> 登入成功!!</div>
-    </div>
-    <div class="logout-box-success ">
-        <div class="logout-box-success-btn">
-            <i class="logout-box-success-text fas fa-times"></i>
-        </div>
-        <div class=""> 登出成功!!</div>
-    </div>             
-    <div class="login-box">
-        <div class="login-box-btn">
-            <i class="login-box-btn-text fas fa-times"></i>
-        </div>
-        <h1>請登入帳號</h1>
+         <h1>請登入帳號</h1>
         <div class="signinBtn">            
             <button id = "googleSingUpPopup">使用google登入</button>
             <button id = "faceSingUpPopup">使用facebook登入</button>
-        </div>                    
+        </div>   
     </div>
+    <!-- "請登入會員" 視窗 -->
+    <div class="alert-box please-login-box">
+        <div class="box-btn">
+            <i class="login-box-btn-text fas fa-times"></i>
+        </div>
+        <h1>請登入會員</h1>
+    </div>
+    <!-- "最後一頁" 視窗 -->
+    <div class="alert-box lest-page-box">
+        <div class="box-btn">
+            <i class="login-box-btn-text fas fa-times"></i>
+        </div>
+        <h1>最後一頁囉!!</h1>
+    </div>
+   
 </div>
 <!-- 載入 firebase -->
 <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
@@ -171,5 +135,6 @@
 <script src="js/all.js"></script>
 <script src="js/search.js"></script>
 <script src="js/login_firebase_sdk.js"></script>
+<script src="js/alert.js"></script>
 <script src="js/travel.js"></script>
 </html>

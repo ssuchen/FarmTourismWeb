@@ -271,7 +271,12 @@ function journeyRender(data){
             choseBtn = 1 ;
         }
         if(choseBtn==page){
-            alert('最後一頁了');
+           // alert('最後一頁了');
+            let lestPageBox = document.querySelector(".lest-page-box");
+            lestPageBox.classList.add('box-open');
+            cover.style.display="block";
+            body.classList.add("fixed");
+
             return;
         }
         if(choseBtn == 1 && page == 1 ){
@@ -478,7 +483,11 @@ for(let b=0 ; b<tagBtn.length ; b++){
         btn[i].addEventListener("click",function(e){
         e.preventDefault();
         if(userEmail == undefined){
-            alert("請登入會員")
+            //alert("請登入會員")
+            let pleaseLoginBox = document.querySelector(".please-login-box");
+            pleaseLoginBox.classList.add('box-open');
+            cover.style.display="block";
+            body.classList.add("fixed");
         }
         btnNum = btn[i].id ; 
         let docID 

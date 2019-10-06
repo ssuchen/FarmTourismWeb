@@ -1,7 +1,7 @@
 
-let Idstring = location.href;
-let url = new URL(Idstring);
-let UrlString = url.searchParams.get('id');
+let idstring = location.href;
+let url = new URL(idstring);
+let urlString = url.searchParams.get('id');
 
 ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/RuralTravelData.aspx",function(response){
     journeypageRender(response)
@@ -9,7 +9,7 @@ ajax("https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenDat
 
 function journeypageRender(data){
     data.forEach(function(item){
-        if(item.TravelSeq == UrlString){
+        if(item.TravelSeq == urlString){
             let photo = item.PhotoUrl;
             let date = item.cDate.substr(0,10);
             let tag = item.TravelType;

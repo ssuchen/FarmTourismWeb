@@ -243,8 +243,12 @@ function foodRender(data){
             choseBtn = 1 ;
         }
         if(choseBtn==page){
-            alert('最後一頁了');
-        return;
+            let lestPageBox = document.querySelector(".lest-page-box");
+            lestPageBox.classList.add('box-open');
+            cover.style.display="block";
+            body.classList.add("fixed");
+
+            return;
         }
         if(choseBtn == 1 && page == 1 ){
             return;
@@ -323,9 +327,18 @@ function foodRender(data){
     
         //如果沒有得到輸入值
         if( status == false && searchInput==""){
-            alert("請點選或輸入搜尋地");
-            location.reload();
+      
+            let searchBox = document.querySelector(".search-box");
+            searchBox.classList.add('box-open');
+            cover.style.display="block";
+            body.classList.add("fixed");
+            
         };
+
+        let searchBoxBtn = document.querySelector(".search-box-btn");
+        searchBoxBtn.addEventListener("click",function(){
+            location.reload();
+        })
 
         //將新的頁數資料重新放上網頁
         let str=""
@@ -422,7 +435,11 @@ function foodRender(data){
             btn[i].addEventListener("click",function(e){
                 e.preventDefault();
                 if(userEmail == undefined){
-                    alert("請登入會員")
+                    //alert("請登入會員")
+                    let pleaseLoginBox = document.querySelector(".please-login-box");
+                    pleaseLoginBox.classList.add('box-open');
+                    cover.style.display="block";
+                    body.classList.add("fixed");
                 };
                 btnNum = btn[i].id ; 
                 let docID 

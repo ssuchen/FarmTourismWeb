@@ -241,7 +241,11 @@ function newsRender(data){
             choseBtn = 1 ;
         }
         if(choseBtn==page){
-            alert('最後一頁了');
+            let lestPageBox = document.querySelector(".lest-page-box");
+            lestPageBox.classList.add('box-open');
+            cover.style.display="block";
+            body.classList.add("fixed");
+            
             return;
         }
         if(choseBtn == 1 && page == 1 ){

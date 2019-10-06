@@ -27,7 +27,7 @@ firebase.auth().onAuthStateChanged(function(user){
 //願望清單事件監聽
 renderWishlistCheck();
 if(user != null){
-    ChangeUserIn();
+    changeUserIn();
     userName = user.displayName; 
     userEmail = user.email;
     userPhoto = user.photoURL;   
@@ -47,7 +47,7 @@ if(user != null){
     //將大頭照放入 navbar
     let navImg = document.createElement("img");
     navImg.setAttribute("src",userPhoto);
-    navPhoto.appendChild(navimg);
+    navPhoto.appendChild(navImg);
 
     //將名子放入 navbar
     let navnameDiv = document.createElement("div");
@@ -94,26 +94,10 @@ let btnFacePopup = document.getElementById('faceSingUpPopup');
 let signOutbtn=document.querySelector(".logoutbtn-user");
     signOutbtn.onclick = function(){
         firebase.auth().signOut().then(function() {
-            location.reload();
+            location.href="index.html";
+            
         });
     };
-
-//============================  
-//    顯示與關閉 登入對話框
-//============================
-
-let loginBox = document.querySelector(".login-box"); 
-let loginBtn = document.querySelector('.loginbtn-user'); 
-
-    loginBtn.addEventListener('click',function(){ 
-        loginBox.style.display="block";
-    });
-
-let loginBoxBtn = document.querySelector(".login-box-btn");
-    loginBoxBtn.addEventListener("click",function(){
-        loginBox.style.display="none";
-    });
- 
 
 //===================================
 //      "登入"與"登出"文字切換
@@ -134,11 +118,14 @@ function changeUserIn(){
   
 function renderWishlistCheck (){
     let userwish = document.querySelector(".user-wish")
+    let pleaseLoginBox =document.querySelector(".please-login-box")
     userwish.addEventListener("click",function(){
         if(userName!=undefined){
             document.location.href="wishList.html";
         }else{
-            alert("請先登入會員");
+            pleaseLoginBox.classList.add('box-open');
+            cover.style.display="block";
+            body.classList.add("fixed");
         }
     });
 

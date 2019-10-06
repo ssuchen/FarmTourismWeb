@@ -352,7 +352,7 @@ color: #fff;
     top:120px;
     } 
 }
-.login-box{
+.alert-box{
     display: none;
     border-radius: 10px;
     padding: 5%;
@@ -381,89 +381,90 @@ color: #fff;
    display: none;
 }
 
-//登出成功視窗
-.logout-box-success {
-    display: none;
-    padding:5%;
-    border-radius: 10px;
-    padding: 5%;
-    box-shadow: 3px 3px 5px #888888;
-    width: 200px;
-    background-color: #fff;
-    position: fixed;
-    z-index: 10;
-    top:300px;
-    margin-left: 50%;
-    transform: translate(-100px);
-    border: 1px solid $main-color-green;
-    div{
-      text-align: center;
-    }
-} 
-.logout-box-success-btn{
-    width: 45px;
-    height: 45px;
-    border-radius:50%;
-    background-color: $main-color-green;
-    position:absolute;
-    top:-15px;
-    right:-10px;
-}
-.logout-box-success-text {
-    color:#fff;
-    display: flex;
-    font-size: 1.5rem;
-    margin-left:50%;
-    transform: translate(-10px); 
-    margin-top:23%;
-    justify-content: center;
-}
+// //登出成功視窗
+// .logout-box-success {
+//     display: none;
+//     padding:5%;
+//     border-radius: 10px;
+//     padding: 5%;
+//     box-shadow: 3px 3px 5px #888888;
+//     width: 200px;
+//     background-color: #fff;
+//     position: fixed;
+//     z-index: 10;
+//     top:300px;
+//     margin-left: 50%;
+//     transform: translate(-100px);
+//     border: 1px solid $main-color-green;
+//     div{
+//       text-align: center;
+//     }
+// } 
+// .logout-box-success-btn{
+//     width: 45px;
+//     height: 45px;
+//     border-radius:50%;
+//     background-color: $main-color-green;
+//     position:absolute;
+//     top:-15px;
+//     right:-10px;
+// }
+// .logout-box-success-text {
+//     color:#fff;
+//     display: flex;
+//     font-size: 1.5rem;
+//     margin-left:50%;
+//     transform: translate(-10px); 
+//     margin-top:23%;
+//     justify-content: center;
+// }
 
 
-//登入成功視窗
-.login-box-success {
-    display: none;
-    padding:5%;
-    border-radius: 10px;
-    padding: 5%;
-    box-shadow: 3px 3px 5px #888888;
-    width: 200px;
-    background-color: #fff;
-    position: fixed;
-    z-index: 10;
-    top:300px;
-    margin-left: 50%;
-    transform: translate(-100px);
-    border: 1px solid $main-color-green;
-    div{
-      text-align: center;
-    }
-} 
-.login-box-success-btn{
-    width: 45px;
-    height: 45px;
-    border-radius:50%;
-    background-color: $main-color-green;
-    position:absolute;
-    top:-15px;
-    right:-10px;
-}
-.login-box-success-text{
-    color:#fff;
-    display: flex;
-    font-size: 1.5rem;
-    margin-left:50%;
-    transform: translate(-10px); 
-    margin-top:23%;
-    justify-content: center;
-}
+// //登入成功視窗
+// .login-box-success {
+//     display: none;
+//     padding:5%;
+//     border-radius: 10px;
+//     padding: 5%;
+//     box-shadow: 3px 3px 5px #888888;
+//     width: 200px;
+//     background-color: #fff;
+//     position: fixed;
+//     z-index: 10;
+//     top:300px;
+//     margin-left: 50%;
+//     transform: translate(-100px);
+//     border: 1px solid $main-color-green;
+//     div{
+//       text-align: center;
+//     }
+// } 
+// .login-box-success-btn{
+//     width: 45px;
+//     height: 45px;
+//     border-radius:50%;
+//     background-color: $main-color-green;
+//     position:absolute;
+//     top:-15px;
+//     right:-10px;
+// }
+// .login-box-success-text{
+//     color:#fff;
+//     display: flex;
+//     font-size: 1.5rem;
+//     margin-left:50%;
+//     transform: translate(-10px); 
+//     margin-top:23%;
+//     justify-content: center;
+// }
+
 
 
 //會員登入視窗
 .signinBtn{
     margin-top:6%; 
 }
-.login-box-btn{
+.box-btn{
     width: 45px;
     height: 45px;
     border-radius:50%;
@@ -728,4 +729,23 @@ color: #fff;
         cursor: pointer;    
         color: $second-color-green;    
     }
+}
+
+.box-open{
+    display: block;
+}
+.cover{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 60;
+    overflow-y:auto;
+}
+.fixed{ 
+    overflow-y:hidden;
 }

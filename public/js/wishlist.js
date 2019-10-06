@@ -14,6 +14,16 @@ for(let i=0 ;i<wishBtn.length;i++){
 }
 
 wishTravelText();
+
+
+//太多願望清單 視窗
+function tooManyWishes(){
+    let tooManyWishesBox = document.querySelector(".toomush-wish-box");
+    tooManyWishesBox.classList.add('box-open');
+    cover.style.display="block";
+    body.classList.add("fixed");
+}
+
 //=======================================
 //  切換 wishTravel 按鈕 切換相對應的內容
 //=======================================
@@ -29,7 +39,6 @@ function wishTravelText(){
         snapshop.docs.forEach(function(doc){
             if(userEmail == doc.data().email){
                 docID = doc.id;
-
             } 
         });
         //將符合email的資料放入陣列
@@ -40,7 +49,8 @@ function wishTravelText(){
             })
             let str=""
             if(TravelList.length > 12){
-                alert("收藏頁放不下太多願望");
+                //alert("收藏頁放不下太多願望");
+                tooManyWishes();
                 TravelList.length = 12;
             }
             TravelList.forEach(function(item){
@@ -56,6 +66,9 @@ function wishTravelText(){
                 + city +'</div> <div class="travel-text">' + town + '</div></div></a>';
                        
             })
+            if(TravelList.length < 1){
+                str="願望清單空空的喔!!";
+            }
             let travelMainContent = document.querySelector('.wish-main-content');
             travelMainContent.innerHTML = str;
 
@@ -98,14 +111,15 @@ function wishPresentText(){
             } 
         });
         //將符合email的資料放入陣列
-        let list = db.collection("user").doc(docID).collection("presentlist")    
+        let list = db.collection("user").doc(docID).collection("presentlist")   
         list.get().then(function(snapshop){
             snapshop.forEach(function(doc){
                 PresentList.push(doc.data());
             })
             let str=""
             if(PresentList.length > 12){
-                alert("收藏頁放不下太多願望");
+                //alert("收藏頁放不下太多願望");
+                tooManyWishes();
                 PresentList.length = 12;
             }
             PresentList.forEach(function(item){
@@ -124,6 +138,9 @@ function wishPresentText(){
                 +'</div></div></a>'
 
             })
+            if(PresentList.length < 1){
+                str="願望清單空空的喔!!";
+            }
             let PresentMainContent = document.querySelector('.wish-main-content');
             PresentMainContent.innerHTML = str;
         
@@ -178,15 +195,16 @@ function wishJourneyText(){
                 JourneyList.push(doc.data());
             })
             let journeyMainContent = document.querySelector('.wish-main-content');
+            let str
             journeyMainContent.innerHTML="";
         
             if(JourneyList.length > 12){
-                alert("收藏頁放不下太多願望");
+                //alert("收藏頁放不下太多願望");
+                tooManyWishes();
                 JourneyList.length = 12;
             }    
 
             JourneyList.forEach(function(item){
-                let city = item.country;
                 let id = item.id;
                 let photo = item.img;
                 let tag = item.tag;
@@ -236,6 +254,11 @@ function wishJourneyText(){
 
             })
 
+            if(JourneyList.length < 1){
+                str="願望清單空空的喔!!"
+                journeyMainContent.innerHTML=str;
+            }
+
             //點擊愛心按鈕 刪除卡片
             let btn = document.querySelectorAll(".like-btn");  
             for(let b = 0 ;b<btn.length ; b++){
@@ -282,7 +305,8 @@ function wishFoodText(){
             })
             let str=""
             if(FoodList.length > 12){
-                alert("收藏頁放不下太多願望");
+                //alert("收藏頁放不下太多願望");
+                tooManyWishes();
                 FoodList.length = 12;
             }   
             FoodList.forEach(function(item){
@@ -303,6 +327,9 @@ function wishFoodText(){
                 +'</div></div><div class="food-text">'+ text
                 +'</div></food-card-right></a>'
             })
+            if(FoodList.length < 1){
+                str="願望清單空空的喔!!";
+            }
             let foodMainContent = document.querySelector('.wish-main-content');
             foodMainContent.innerHTML = str;
             

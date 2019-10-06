@@ -243,14 +243,18 @@ formMessage.addEventListener("submit",function(e){
     e.preventDefault();
     commentInputValue = commentInput.value;
     if(commentInputValue==""){
-        alert("請輸入訊息");
+        //alert("請輸入訊息"); 
+        let pleaseWriteBox = document.querySelector(".please-write-box");
+        pleaseWriteBox.classList.add('box-open');
+        cover.style.display="block";
+        body.classList.add("fixed");
+
     }else{
         pushMessage();
         //清空表單資訊
         commentInput.value="";
     }
     
-
 })
 
 function pushMessage(){
