@@ -8,6 +8,9 @@
     }
 }
 
+.travelpage-loding-show{
+    display: none;
+}
 .travelpage-left{
     box-shadow: 3px 3px 10px #ddddddf5;
     margin:0 2%;    
@@ -53,6 +56,7 @@
     border-radius:5px ;
     background-color: #fff;
     box-shadow:3px 3px 10px #ddddddf5 ;
+   // display: none;
     @include tab-size{
         margin: 0 auto;
         margin-bottom:5%;

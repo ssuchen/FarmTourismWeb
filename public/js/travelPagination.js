@@ -22,6 +22,10 @@ function travelpageRender(data){
         }
        
         if(urlString===item.ID){
+           
+            let travelpageLodingShow = document.querySelector(".travelpage-loding-show");
+            travelpageLodingShow.style.display = "block";
+
             city = item.City;    
             photo = item.Photo;
             name = item.Name;
@@ -118,8 +122,8 @@ function travelpageRender(data){
                         let photo = MessageArr[i].photo;             
                         //============================
                         //留言板功能
+
                         let travelpageMessage = document.querySelector(".travelpage-message");
-             
                         let travelpageMessageContent = document.createElement("div");
                         travelpageMessageContent.setAttribute("class","travelpage-message-content");
 
@@ -166,7 +170,8 @@ function travelpageRender(data){
 
             });
 
-
+            let loading = document.querySelector(".loading");
+            loading.style.display="none";
         }
                
     });

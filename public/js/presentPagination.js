@@ -77,7 +77,8 @@ function presentpageRender(data){
             +'</div><div class="content-feature">'+ item.Feature
             +'</div></div></div>'
 
-            presentPaginationContent.innerHTML = str
+            presentPaginationContent.innerHTML = str;
+
     
         }
 
@@ -105,6 +106,10 @@ newObj.sort(function(){
 //抓出前10筆資訊
 newObj.forEach(function(item,index){
     if(index<10){
+
+        
+        let presentRight = document.querySelector(".present-right");
+        presentRight.style.display="block";
        
         let presentOther = document.querySelector('.present-other');
         let otherPresent = document.createElement("a");
