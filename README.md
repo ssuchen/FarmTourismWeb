@@ -16,3 +16,4 @@ see [FarmTourism](https://framweb-79896.firebaseapp.com/)
 website by Facebook Social Plugin<br>
 ## Image
 ![image](https://github.com/ssuchen/FarmTourismWeb/blob/master/readme_img-01.jpg)
+![image](https://github.com/ssuchen/FarmTourismWeb/blob/master/readme_img-02.jpg)
