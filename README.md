@@ -2,8 +2,10 @@
 
 Taiwan's leisure farms has rich culture, and unique cuisines.<br>
 By built the website, people could further know farm and country beauty in Taiwan.<br>
+
 ## Web link
 see [FarmTourism](https://framweb-79896.firebaseapp.com/)
+
 ## Introduction
 * Responsive web design<br> 
 * Used Firebase to create comment system and wish list<br> 
@@ -13,4 +15,5 @@ see [FarmTourism](https://framweb-79896.firebaseapp.com/)
 * Used carousel slider to show different campaigns Add Facebook fan page to<br> 
 website by Facebook Social Plugin<br>
 ## Image
-
+![image](https://github.com/ssuchen/FarmTourismWeb/blob/master/001-3.jpg)
+![image](https://github.com/ssuchen/FarmTourismWeb/blob/master/001-3.PNG)
