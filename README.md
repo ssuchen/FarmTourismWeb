@@ -15,5 +15,4 @@ see [FarmTourism](https://framweb-79896.firebaseapp.com/)
 * Used carousel slider to show different campaigns Add Facebook fan page to<br> 
 website by Facebook Social Plugin<br>
 ## Image
-![image](https://github.com/ssuchen/FarmTourismWeb/blob/master/001-3.jpg)
-![image](https://github.com/ssuchen/FarmTourismWeb/blob/master/001-3.PNG)
+![image](https://github.com/ssuchen/FarmTourismWeb/blob/master/1010._AppWorkSchool%E5%B1%A5%E6%AD%B7-03.jpg)
