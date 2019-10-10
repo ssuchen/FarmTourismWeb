@@ -12,4 +12,4 @@ see [FarmTourism](https://framweb-79896.firebaseapp.com/)
 * Connected to government's open data API<br>  
 * Used carousel slider to show different campaigns Add Facebook fan page to<br> 
 website by Facebook Social Plugin<br>
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
