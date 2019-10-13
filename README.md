@@ -6,6 +6,16 @@ By built the website, people could further know farm and country beauty in Taiwa
 ## Web link
 see [FarmTourism](https://framweb-79896.firebaseapp.com/)
 
+## Programming Language
+* JavaScritp
+## Fornt-End
+* HTML
+* CSS(SCSS)
+* AJAX
+## Cloud Services
+* Firebase Cloud Firstore 
+* Firebase Authentication 
+* Firebase Hosting
 ## Introduction
 * Responsive web design<br> 
 * Used Firebase to create comment system and wish list<br> 
