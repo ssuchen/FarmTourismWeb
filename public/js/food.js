@@ -420,7 +420,7 @@ function foodRender(data) {
         }
       });
     });
-  }
+  };
   checkBtnStyle();
 
   //=========================================
@@ -484,7 +484,7 @@ function foodRender(data) {
         });
       });
     }
-  }
+  };
   checkBtn();
 
   //===================
@@ -537,6 +537,6 @@ function foodRender(data) {
           town: town
         });
       });
-  }
-}
+  };
+};
 search();

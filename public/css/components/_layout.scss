@@ -666,7 +666,7 @@ color: #fff;
     right: 0;
     background-color: #000;
     opacity: 0.5;
-    z-index: 60;
+    z-index: 59;
     overflow-y:auto;
 }
 .fixed{ 
@@ -686,7 +686,7 @@ color: #fff;
     background-color: $second-color-green;
     position: fixed;
     bottom:70px;
-    z-index: 99;
+    z-index: 58;
     &:hover{
         background-color: #97be57;
     }

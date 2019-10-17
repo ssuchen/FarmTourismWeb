@@ -328,7 +328,6 @@ function travelRender(data) {
       cover.style.display = "block";
       body.classList.add("fixed");
     }
-
     let searchBoxBtn = document.querySelector(".search-box-btn");
     searchBoxBtn.addEventListener("click", function() {
       location.reload();

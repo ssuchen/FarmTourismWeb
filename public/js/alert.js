@@ -14,10 +14,6 @@ loginBtn.addEventListener("click", function() {
   body.classList.add("fixed");
 });
 
-//最後一頁視窗
-
-//let lestPageBox = document.querySelector(".lest-page-box");
-
 // 關閉彈跳視窗
 let boxClose = document.querySelectorAll(".alert-box");
 let boxBtn = document.querySelectorAll(".box-btn");

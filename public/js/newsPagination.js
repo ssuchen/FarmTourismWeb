@@ -120,4 +120,4 @@ function newsPageRender(data) {
       otherSpace.appendChild(otherName);
     }
   });
-}
+};

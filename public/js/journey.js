@@ -1,7 +1,7 @@
 ajax(
   "https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/RuralTravelData.aspx",
   function(response) {
-    journeyRender(response);
+    journeyRender(response)
   }
 );
 function journeyRender(data) {
@@ -134,7 +134,7 @@ function journeyRender(data) {
         renderPage();
       });
     }
-  }
+  };
 
   //---------------觸發更換按鈕------------
 
@@ -157,7 +157,7 @@ function journeyRender(data) {
 
       //重新定義 nextPage 將內容定義為 undefined
       nextPage = undefined;
-    }
+    };
 
     //更換內容資料的函式
     pageBtn[i].addEventListener("click", renderPage);
@@ -247,7 +247,7 @@ function journeyRender(data) {
       //願望清單
       checkBtnStyle();
       checkBtn();
-    }
+    };
   }
 
   //下一頁按鈕
@@ -411,7 +411,7 @@ function journeyRender(data) {
       //願望清單
       checkBtnStyle();
       checkBtn();
-    }
+    };
   }
 
   //=========================================
@@ -510,7 +510,7 @@ function journeyRender(data) {
         });
       });
     }
-  }
+  };
   checkBtn();
 
   //===================
@@ -564,5 +564,5 @@ function journeyRender(data) {
           title: title
         });
       });
-  }
-}
+  };
+};

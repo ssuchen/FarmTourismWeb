@@ -59,18 +59,25 @@ function newRender(data) {
     indexMainCradHref.appendChild(cardText);
     indexMainCradHref.appendChild(cardTime);
   }
-}
+};
 
+document.addEventListener("DOMContentLoaded",function(){
 //右移的按鈕
 let RightBtn = document.querySelector(".index-play-right-btn");
-RightBtn.addEventListener("click", function() {
-  let scroll = document.querySelector(".index-play-img");
-  scroll.scrollLeft += 383;
-});
-
+RightBtn.addEventListener("click",moveRight);
 //左移的按鈕
 let LeftBtn = document.querySelector(".index-play-left-btn");
-LeftBtn.addEventListener("click", function() {
+LeftBtn.addEventListener("click",moveLeft);
+
+});
+
+function moveRight(){
+  let scroll = document.querySelector(".index-play-img");
+  scroll.scrollLeft += 383;
+};
+
+function moveLeft(){
   let scroll = document.querySelector(".index-play-img");
   scroll.scrollLeft -= 383;
-});
+};
+
