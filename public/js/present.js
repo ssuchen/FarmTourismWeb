@@ -288,7 +288,6 @@ function presentRender(data) {
 
     //取得使用 者輸入的文字
     let searchInput = document.querySelector(".searchBar-Input-text").value;
-    //console.log(searchInput)
     //清空資料 並重新放上資訊
     presentMainContent = document.querySelector(".present-main-content");
     presentMainContent.innerHTML = "";
@@ -406,7 +405,7 @@ function presentRender(data) {
         }
       });
     });
-  }
+  };
   checkBtnStyle();
 
   //=========================================
@@ -470,7 +469,7 @@ function presentRender(data) {
         });
       });
     }
-  }
+  };
   checkBtn();
 
   //===================
@@ -515,6 +514,6 @@ function presentRender(data) {
           title: title
         });
       });
-  }
-}
+  };
+};
 search();

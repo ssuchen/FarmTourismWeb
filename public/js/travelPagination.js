@@ -206,7 +206,7 @@ function travelpageRender(data) {
               travelpageMessageTitle.appendChild(travelpageMessageTime);
               travelpageMessageContentRight.appendChild(travelpageMessageMemo);
             }
-          }
+          };
         });
 
       let loading = document.querySelector(".loading");

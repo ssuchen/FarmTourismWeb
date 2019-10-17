@@ -948,7 +948,7 @@ body {
   right: 0;
   background-color: #000;
   opacity: 0.5;
-  z-index: 60;
+  z-index: 59;
   overflow-y: auto;
 }
 
@@ -976,7 +976,7 @@ body {
   background-color: #b8cf92;
   position: fixed;
   bottom: 70px;
-  z-index: 99;
+  z-index: 58;
 }
 
 .scroll-top:hover {

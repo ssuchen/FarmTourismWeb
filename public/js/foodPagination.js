@@ -123,4 +123,4 @@ function foodpageRender(data) {
       otherSpace.appendChild(otherName);
     }
   });
-}
+};

@@ -74,7 +74,6 @@ btnGooglePopup.onclick = function() {
     .signInWithPopup(provider)
     .then(function(result) {
       UserToken = result.credential.accessToken;
-      //console.log("google登入")
       location.reload();
     });
 };
@@ -90,7 +89,6 @@ btnFacePopup.onclick = function() {
     .signInWithPopup(provider)
     .then(function(result) {
       let user = result.user;
-      //console.log("fb登入")
       location.reload();
     });
 };

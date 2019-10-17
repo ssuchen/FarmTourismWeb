@@ -2,7 +2,7 @@
 ajax(
   "https://cors-anywhere.herokuapp.com/https://gis.taiwan.net.tw/XMLReleaseALL_public/activity_C_f.json",
   function(response) {
-    newsRender(response);
+    newsRender(response)
   }
 );
 
@@ -156,7 +156,7 @@ function newsRender(data) {
         renderPage();
       });
     }
-  }
+  };
 
   //---------------觸發更換按鈕------------
 
@@ -278,4 +278,4 @@ function newsRender(data) {
     //更改內容資料
     renderPage();
   });
-}
+};
