@@ -28,12 +28,12 @@ function journeypageRender(data) {
       }
 
       let journeyPaginationLeft = document.querySelector(
-        ".journeyPagination-left"
+        ".journeypagination-left"
       );
       let journeyPaginationContent = document.createElement("div");
       journeyPaginationContent.setAttribute(
         "class",
-        "journeyPagination-content"
+        "journeypagination-content"
       );
       let contentImg = document.createElement("img");
       contentImg.setAttribute("class", "content-img");

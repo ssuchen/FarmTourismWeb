@@ -27,7 +27,7 @@ function presentpageRender(data) {
       placeText = salePlace.substr(0, 3);
 
       let presentPaginationContent = document.querySelector(
-        ".presentPagination-content"
+        ".presentpagination-content"
       );
 
       let otherImg = document.createElement("img");
@@ -68,11 +68,11 @@ function presentpageRender(data) {
     }
     if (item.ID == urlString && urlString == "126") {
       let presentPaginationContent = document.querySelector(
-        ".presentPagination-content"
+        ".presentpagination-content"
       );
 
       str =
-        '<div class="presentPagination-content"><img class="other-img" src="' +
+        '<div class="presentpagination-content"><img class="other-img" src="' +
         item.Column1 +
         '"><div class="content-list"><div class="content-title">' +
         item.Name +

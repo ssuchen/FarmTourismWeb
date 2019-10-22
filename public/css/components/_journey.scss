@@ -33,7 +33,7 @@
     padding:0 5%;
     }
 }
-.tag-Btn{
+.tag-btn{
     cursor: pointer;
     padding:1%;
     margin:0.5% 5px;
@@ -136,17 +136,17 @@
 .journey-text{
     line-height: 1.5rem;
 }
-.searchBar-Area{
+.searchbar-area{
  @include phone-size{
     margin:5% 0;
  }
 }
-.searchBar-Country{
+.searchbar-country{
 @include phone-size{
     margin-bottom:5%;
 }  
 }
-.searchBar-Btn{
+.searchbar-btn{
     background:#fff;
     &:active{
         background: gray;

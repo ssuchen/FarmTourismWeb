@@ -95,7 +95,7 @@ function foodRender(data) {
   //第一次產出頁數按鈕
   for (let i = 0; i < 10; i++) {
     let pageBtn = document.createElement("div");
-    pageBtn.setAttribute("class", "page-Btn");
+    pageBtn.setAttribute("class", "page-btn");
     pageBtn.setAttribute("id", i + 1);
     pageBtn.textContent = i + 1;
     pageList.appendChild(pageBtn);
@@ -104,7 +104,7 @@ function foodRender(data) {
   activeBtn.classList.add("btn-active");
 
   // 頁數按鈕 監聽事件
-  let pageBtn = document.querySelectorAll(".page-Btn");
+  let pageBtn = document.querySelectorAll(".page-btn");
   let nextPage;
   let choseBtn;
 
@@ -123,7 +123,7 @@ function foodRender(data) {
       max = page + 1;
     }
     for (let i = min; max > i; i++) {
-      btnStr += '<div class="page-Btn" id="' + i + '">' + i + "</div>";
+      btnStr += '<div class="page-btn" id="' + i + '">' + i + "</div>";
       pageList.innerHTML = btnStr;
     }
     let text = document.getElementById(nextPage);
@@ -133,7 +133,7 @@ function foodRender(data) {
   //更新點擊按鈕事件
   function clickBtn() {
     //重新定義點擊的按鈕
-    let pageBtn = document.querySelectorAll(".page-Btn");
+    let pageBtn = document.querySelectorAll(".page-btn");
     for (let i = 0; i < pageBtn.length; i++) {
       pageBtn[i].addEventListener("click", function() {
         nextPage = parseInt(pageBtn[i].innerHTML);
@@ -202,9 +202,9 @@ function foodRender(data) {
         tel = newData[p].Tel;
 
         str +=
-          '<a  href="foodPagination.html?id="' +
+          '<a  href="foodPagination.html?id='+
           id +
-          ' class="food-card"><div class="food-card-left"><div class="food-img"><img src="' +
+          '" class="food-card"><div class="food-card-left"><div class="food-img"><img src="' +
           photo +
           '" alt="" ><i class="far fa-heart like-btn food-likebtn" id="' +
           id +
@@ -219,7 +219,7 @@ function foodRender(data) {
           "</div></div>" +
           '<div class="food-text">' +
           text +
-          "</div></div></a>";
+          "...</div></div></a>";
       }
 
       let presentMainContent = document.querySelector(".food-main-content");
@@ -232,7 +232,7 @@ function foodRender(data) {
   }
 
   //下一頁按鈕
-  let addPageBtn = document.querySelector(".Add-page");
+  let addPageBtn = document.querySelector(".add-page");
   addPageBtn.addEventListener("click", function() {
     if (choseBtn == undefined) {
       choseBtn = 1;
@@ -260,7 +260,7 @@ function foodRender(data) {
   });
 
   //上一頁按鈕
-  let lessPageBtn = document.querySelector(".Less-page");
+  let lessPageBtn = document.querySelector(".less-page");
   lessPageBtn.addEventListener("click", function() {
     if (choseBtn == undefined) {
       choseBtn = 1;
@@ -282,16 +282,16 @@ function foodRender(data) {
   //      搜尋列 功能
   //+++++++++++++++++++++++++++
 
-  let searchBtn = document.querySelector(".searchBar-Btn");
+  let searchBtn = document.querySelector(".searchbar-btn");
   let searchData = [];
   searchBtn.addEventListener("click", function() {
     //取得使用者選取的 地方區域
-    let searchBarArea = document.querySelector(".searchBar-Area").value;
+    let searchBarArea = document.querySelector(".searchbar-area").value;
     //取得使用者選取的 縣市
-    let searchBarCountry = document.querySelector(".searchBar-Country").value;
+    let searchBarCountry = document.querySelector(".searchbar-country").value;
 
     //取得使用 者輸入的文字
-    let searchInput = document.querySelector(".searchBar-Input-text").value;
+    let searchInput = document.querySelector(".searchbar-input-text").value;
 
     //清空資料 並重新放上資訊
     presentMainContent = document.querySelector(".food-main-content");
@@ -332,7 +332,25 @@ function foodRender(data) {
     //將新的頁數資料重新放上網頁
     let str = "";
     let len = searchData.length;
+    let foodMainContent 
+    let btnlist = document.querySelector(".page-bar");
+    
+    if(len === 0){  
+      str = "找不到相關資訊";
+      foodMainContent = document.querySelector(".food-main-content");
+      let foodMainContentText = document.createElement("div");
+      foodMainContentText.setAttribute("class","food-main-content-text");
+      foodMainContentText.textContent = str;
+      foodMainContent.appendChild(foodMainContentText);
+      
+    }
 
+    if(len===0){
+      btnlist.style.display="none";
+    }else{
+      btnlist.style.display="flex";
+    }
+   
     for (let p = 0; p < len; p++) {
       if (len > 12) {
         len = 12;
@@ -347,9 +365,9 @@ function foodRender(data) {
       tel = searchData[p].Tel;
 
       str +=
-        '<a  href="foodPagination.html?id="' +
+        '<a  href="foodPagination.html?id=' +
         id +
-        ' class="food-card"><div class="food-card-left"><div class="food-img"><img src="' +
+        '" class="food-card"><div class="food-card-left"><div class="food-img"><img src="' +
         photo +
         '" alt="" ><i class="far fa-heart like-btn food-likebtn" id="' +
         id +
@@ -364,13 +382,13 @@ function foodRender(data) {
         "</div></div>" +
         '<div class="food-text">' +
         text +
-        "</div></div></a>";
-
-      let foodMainContent = document.querySelector(".food-main-content");
+        "...</div></div></a>";
+        
+      foodMainContent = document.querySelector(".food-main-content");
       foodMainContent.innerHTML = str;
 
       //將搜尋列清空
-      let inputClear = document.querySelector(".searchBar-Input-text");
+      let inputClear = document.querySelector(".searchbar-input-text");
       inputClear.value = "";
     }
     //算出頁數按鈕總數
@@ -380,7 +398,7 @@ function foodRender(data) {
     page = pageLen;
     updateBtnlist();
     clickBtn();
-
+    
     //願望清單
     checkBtnStyle();
     checkBtn();

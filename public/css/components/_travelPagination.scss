@@ -56,7 +56,6 @@
     border-radius:5px ;
     background-color: #fff;
     box-shadow:3px 3px 10px #ddddddf5 ;
-   // display: none;
     @include tab-size{
         margin: 0 auto;
         margin-bottom:5%;
@@ -74,8 +73,7 @@
 
 }
 
-.travelpage-message-content-left{
-    
+.travelpage-message-content-left{   
     margin-left:2%;
     margin-right:1%;
     img{
@@ -155,11 +153,9 @@ width: 100%;
 
     .comment-title{
         font-size: 1.2rem;
-        //margin-left:2%;
         margin-bottom:1.6%;
     }
     .comment-input{
-       // display: flex;
         width:96%;
         border-radius: 5px;
         margin:0 auto;

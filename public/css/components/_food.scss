@@ -15,7 +15,13 @@
     }  
 }
 
-.searchBar-group{
+.food-main-content-text{
+    padding-top: 10%;
+    padding-bottom:50%;
+    font-size: 1.2rem;
+    font-family: $main-font;
+}
+.searchbar-group{
     select{
     width: 100%; 
     padding:1%; 
@@ -40,7 +46,6 @@
     div{
     width: 100%;
     padding:1%;
-    //border:1px solid;
     @include phone-size{
       width: auto;
       padding:2%;
@@ -62,7 +67,7 @@
         display: block;   
     }
 }
-.searchBar-Input{
+.searchbar-input{
     input{
         width:300px;
         border: 0px;
@@ -164,12 +169,12 @@
     font-family:$main-font;
     line-height: 1.2rem;
 }
-.searchBar-Area{
+.searchbar-area{
  @include phone-size{
     margin:5% 0;
  }
 }
-.searchBar-Country{
+.searchbar-country{
 @include phone-size{
     margin-bottom:5%;
 }  

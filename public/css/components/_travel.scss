@@ -1,5 +1,4 @@
-//@import"size";
-//@import"layout";
+
 .travel-main-title{
     font-family:$main-font;
     font-size: 1.5rem;
@@ -15,7 +14,7 @@
         text-align: center;
     }  
 }
-.searchBar{
+.searchbar{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -81,6 +80,12 @@
     justify-content:center;
     flex-wrap: wrap;
 }
+.travel-main-content-text{
+    padding-top: 10%;
+    padding-bottom: 50%;
+    font-size: 1.2rem;
+    font-family: $main-font;
+}
 .travel-textcontent{
     margin-top:3%;
 }
@@ -94,17 +99,17 @@
 .travel-country{
    margin-right:3%; 
 }
-.searchBar-Area{
+.searchbar-area{
  @include phone-size{
     margin:5% 0;
  }
 }
-.searchBar-Country{
+.searchbar-country{
 @include phone-size{
     margin-bottom:5%;
 }  
 }
-.searchBar-Btn{
+.searchbar-btn{
     background:$main-color-green;
     &:active{
         background:  #d8f1b0;
@@ -115,5 +120,8 @@
     justify-content: center;
     margin:5% 0;
     align-items: center;
+}
+.page-bar-none{
+    display: none;
 }
 
