@@ -83,7 +83,7 @@ function presentRender(data) {
   //第一次產出頁數按鈕
   for (let i = 0; i < 10; i++) {
     let pageBtn = document.createElement("div");
-    pageBtn.setAttribute("class", "page-Btn");
+    pageBtn.setAttribute("class", "page-btn");
     pageBtn.setAttribute("id", i + 1);
     pageBtn.textContent = i + 1;
     pageList.appendChild(pageBtn);
@@ -92,7 +92,7 @@ function presentRender(data) {
   activebtn.classList.add("btn-active");
 
   // 頁數按鈕 監聽事件
-  let pageBtn = document.querySelectorAll(".page-Btn");
+  let pageBtn = document.querySelectorAll(".page-btn");
   let nextpage;
   let choseBtn;
 
@@ -112,7 +112,7 @@ function presentRender(data) {
       max = page + 1;
     }
     for (let i = min; max > i; i++) {
-      Btnstr += '<div class="page-Btn" id="' + i + '">' + i + "</div>";
+      Btnstr += '<div class="page-btn" id="' + i + '">' + i + "</div>";
       pageList.innerHTML = Btnstr;
     }
     let text = document.getElementById(nextpage);
@@ -122,7 +122,7 @@ function presentRender(data) {
   //更新點擊按鈕事件
   function clickbtn() {
     //重新定義監聽的按鈕
-    let pageBtn = document.querySelectorAll(".page-Btn");
+    let pageBtn = document.querySelectorAll(".page-btn");
     for (let i = 0; i < pageBtn.length; i++) {
       pageBtn[i].addEventListener("click", function() {
         //重新定義點擊的按鈕數字
@@ -216,7 +216,7 @@ function presentRender(data) {
   }
 
   //下一頁按鈕
-  let addPageBtn = document.querySelector(".Add-page");
+  let addPageBtn = document.querySelector(".add-page");
   addPageBtn.addEventListener("click", function() {
     if (choseBtn == undefined) {
       choseBtn = 1;
@@ -244,7 +244,7 @@ function presentRender(data) {
   });
 
   //上一頁按鈕
-  let lessPageBtn = document.querySelector(".Less-page");
+  let lessPageBtn = document.querySelector(".less-page");
   lessPageBtn.addEventListener("click", function() {
     if (choseBtn == undefined) {
       choseBtn = 1;
@@ -267,13 +267,13 @@ function presentRender(data) {
   //      搜尋列 功能
   //+++++++++++++++++++++++++++
 
-  let searchBtn = document.querySelector(".searchBar-Btn");
+  let searchBtn = document.querySelector(".searchbar-btn");
   let searchdata = [];
   searchBtn.addEventListener("click", function() {
     //取得使用者選取的 地方區域
-    let searchBarArea = document.querySelector(".searchBar-Area").value;
+    let searchBarArea = document.querySelector(".searchbar-area").value;
     //取得使用者選取的 縣市
-    let searchBarCountry = document.querySelector(".searchBar-Country").value;
+    let searchBarCountry = document.querySelector(".searchbar-country").value;
 
     //將資料庫文字與判斷做修改
     if (searchBarCountry == "臺北市") {
@@ -287,7 +287,7 @@ function presentRender(data) {
     }
 
     //取得使用 者輸入的文字
-    let searchInput = document.querySelector(".searchBar-Input-text").value;
+    let searchInput = document.querySelector(".searchbar-input-text").value;
     //清空資料 並重新放上資訊
     presentMainContent = document.querySelector(".present-main-content");
     presentMainContent.innerHTML = "";
@@ -327,6 +327,23 @@ function presentRender(data) {
     //將新的頁數資料重新放上網頁
     let str = "";
     let len = searchdata.length;
+    let btnlist = document.querySelector(".page-bar");
+    
+    if(len===0){
+      str="找不到相關資訊";
+      let presentMainContent = document.querySelector(".present-main-content");
+      let presentMainContentText = document.createElement("div");
+      presentMainContentText.setAttribute("class","present-main-content-text");
+      presentMainContentText.textContent = str;
+      presentMainContent.appendChild(presentMainContentText);
+    }
+
+    if(len===0){
+      btnlist.style.display="none";
+    }else{
+      btnlist.style.display="flex";
+    }
+
     for (let p = 0; p < len; p++) {
       if (len > 12) {
         len = 12;
@@ -355,7 +372,7 @@ function presentRender(data) {
       presentMainContent.innerHTML = str;
 
       //將搜尋列清空
-      let InputClear = document.querySelector(".searchBar-Input-text");
+      let InputClear = document.querySelector(".searchbar-input-text");
       InputClear.value = "";
 
       //願望清單

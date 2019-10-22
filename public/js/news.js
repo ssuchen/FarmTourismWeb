@@ -107,7 +107,7 @@ function newsRender(data) {
   //第一次產出頁數按鈕
   for (let i = 0; i < 5; i++) {
     let pageBtn = document.createElement("div");
-    pageBtn.setAttribute("class", "page-Btn");
+    pageBtn.setAttribute("class", "page-btn");
     pageBtn.setAttribute("id", i + 1);
     pageBtn.textContent = i + 1;
     pageList.appendChild(pageBtn);
@@ -116,7 +116,7 @@ function newsRender(data) {
   activeBtn.classList.add("btn-active");
 
   // 頁數按鈕 監聽事件
-  let pageBtn = document.querySelectorAll(".page-Btn");
+  let pageBtn = document.querySelectorAll(".page-btn");
   let nextPage;
   let choseBtn;
 
@@ -136,7 +136,7 @@ function newsRender(data) {
       max = page + 1;
     }
     for (let i = min; max > i; i++) {
-      Btnstr += '<div class="page-Btn" id="' + i + '">' + i + "</div>";
+      Btnstr += '<div class="page-btn" id="' + i + '">' + i + "</div>";
       pageList.innerHTML = Btnstr;
     }
     let text = document.getElementById(nextPage);
@@ -145,7 +145,7 @@ function newsRender(data) {
   //更新點擊按鈕事件
   function clickbtn() {
     //重新定義監聽的按鈕
-    let pageBtn = document.querySelectorAll(".page-Btn");
+    let pageBtn = document.querySelectorAll(".page-btn");
     for (let i = 0; i < pageBtn.length; i++) {
       pageBtn[i].addEventListener("click", function() {
         //重新定義點擊的按鈕數字
@@ -233,7 +233,7 @@ function newsRender(data) {
   }
 
   //下一頁按鈕
-  let addPageBtn = document.querySelector(".Add-page");
+  let addPageBtn = document.querySelector(".add-page");
   addPageBtn.addEventListener("click", function() {
     if (choseBtn == undefined) {
       choseBtn = 1;
@@ -261,7 +261,7 @@ function newsRender(data) {
   });
 
   //上一頁按鈕
-  let lessPageBtn = document.querySelector(".Less-page");
+  let lessPageBtn = document.querySelector(".less-page");
   lessPageBtn.addEventListener("click", function() {
     if (choseBtn == undefined) {
       choseBtn = 1;

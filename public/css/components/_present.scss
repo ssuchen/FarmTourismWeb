@@ -65,6 +65,12 @@
     flex-wrap: wrap;
     font-size: 1rem;
 }
+.present-main-content-text{
+    padding-top: 10%;
+    padding-bottom: 50%;
+    font-size: 1.2rem;
+    font-family: $main-font;
+}
 .present-textcontent{
     margin-top:4%;
 }
@@ -76,17 +82,17 @@
     margin-right:2%; 
     margin-bottom: 2%;
 }
-.searchBar-Area{
+.searchbar-area{
  @include phone-size{
     margin:5% 0;
  }
 }
-.searchBar-Country{
+.searchbar-country{
 @include phone-size{
     margin-bottom:5%;
 }  
 }
-.searchBar-Btn{
+.searchbar-btn{
     background:#fff;
     &:active{
         background: gray;

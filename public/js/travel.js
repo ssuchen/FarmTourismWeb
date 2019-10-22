@@ -93,7 +93,7 @@ function travelRender(data) {
   //第一次產出頁數按鈕
   for (let i = 0; i < 10; i++) {
     let pageBtn = document.createElement("div");
-    pageBtn.setAttribute("class", "page-Btn");
+    pageBtn.setAttribute("class", "page-btn");
     pageBtn.setAttribute("id", i + 1);
     pageBtn.textContent = i + 1;
     pageList.appendChild(pageBtn);
@@ -102,7 +102,7 @@ function travelRender(data) {
   activeBtn.classList.add("btn-active");
 
   // 頁數按鈕 監聽事件
-  let pageBtn = document.querySelectorAll(".page-Btn");
+  let pageBtn = document.querySelectorAll(".page-btn");
   let choseBtn;
   let nextPage;
 
@@ -121,7 +121,7 @@ function travelRender(data) {
       max = page + 1;
     }
     for (let i = min; max > i; i++) {
-      btnStr += '<div class="page-Btn" id="' + i + '">' + i + "</div>";
+      btnStr += '<div class="page-btn" id="' + i + '">' + i + "</div>";
       pageList.innerHTML = btnStr;
     }
     let text = document.getElementById(nextPage);
@@ -130,7 +130,7 @@ function travelRender(data) {
 
   function clickBtn() {
     //更新所點選的按鈕所對應的資料
-    let pageBtn = document.querySelectorAll(".page-Btn");
+    let pageBtn = document.querySelectorAll(".page-btn");
     for (let i = 0; i < pageBtn.length; i++) {
       pageBtn[i].addEventListener("click", function() {
         //重新定義點擊的按鈕數字
@@ -235,7 +235,7 @@ function travelRender(data) {
   }
 
   //下一頁按鈕
-  let addPageBtn = document.querySelector(".Add-page");
+  let addPageBtn = document.querySelector(".add-page");
   addPageBtn.addEventListener("click", function() {
     if (choseBtn == undefined) {
       choseBtn = 1;
@@ -265,7 +265,7 @@ function travelRender(data) {
   });
 
   //上一頁按鈕
-  let lessPageBtn = document.querySelector(".Less-page");
+  let lessPageBtn = document.querySelector(".less-page");
   lessPageBtn.addEventListener("click", function() {
     if (choseBtn == undefined) {
       choseBtn = 1;
@@ -287,16 +287,16 @@ function travelRender(data) {
   //======================
   //      搜尋列 功能
   //======================
-  let searchBtn = document.querySelector(".searchBar-Btn");
+  let searchBtn = document.querySelector(".searchbar-btn");
   let searchData = [];
   searchBtn.addEventListener("click", function() {
     //取得使用者選取的 地方區域
-    let searchBarArea = document.querySelector(".searchBar-Area").value;
+    let searchBarArea = document.querySelector(".searchbar-area").value;
     //取得使用者選取的 縣市
 
-    let searchBarCountry = document.querySelector(".searchBar-Country").value;
+    let searchBarCountry = document.querySelector(".searchbar-country").value;
     //取得使用 者輸入的文字
-    let searchInput = document.querySelector(".searchBar-Input-text").value;
+    let searchInput = document.querySelector(".searchbar-input-text").value;
 
     //清空資料 並重新放上資訊
     travelMainContent = document.querySelector(".travel-main-content");
@@ -335,8 +335,20 @@ function travelRender(data) {
 
     //將新的頁數資料重新放上網頁
     let str = "";
-
+    let btnlist = document.querySelector(".page-bar");
     let len = searchData.length;
+    if(len===0){
+      btnlist.style.display="none";
+    }else{
+      btnlist.style.display="flex";
+    }
+    if(len === 0){
+      str = "找不到相關資訊";
+      let travelMainContentText = querySelector("div");
+      travelMainContentText.setAttribute("class","travel-main-content-text");
+      travelMainContent.appendChild(travelMainContentText);
+    }
+
     for (let p = 0; p < len; p++) {
       if (len > 12) {
         len = 12;
@@ -373,12 +385,10 @@ function travelRender(data) {
         '</div> <div class="travel-text">' +
         town +
         "</div></div></a>";
-
-      let travelMainContent = document.querySelector(".travel-main-content");
       travelMainContent.innerHTML = str;
 
       //將搜尋列清空
-      let inputClear = document.querySelector(".searchBar-Input-text");
+      let inputClear = document.querySelector(".searchbar-input-text");
       inputClear.value = "";
 
       //願望清單

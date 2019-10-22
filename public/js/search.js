@@ -1,12 +1,12 @@
 
 let searchBarArea 
 function search() {
-  searchBarArea = document.querySelector(".searchBar-Area");
+  searchBarArea = document.querySelector(".searchbar-area");
   searchBarArea.addEventListener("change",selectPlace);
 }
 function selectPlace(){
   let select = searchBarArea.value;
-  let country = document.querySelector(".searchBar-Country");
+  let country = document.querySelector(".searchbar-country");
   let str;
   switch (select) {
     case "North":

@@ -85,7 +85,7 @@ function journeyRender(data) {
   //第一次產出頁數按鈕
   for (let i = 0; i < 5; i++) {
     let pageBtn = document.createElement("div");
-    pageBtn.setAttribute("class", "page-Btn");
+    pageBtn.setAttribute("class", "page-btn");
     pageBtn.setAttribute("id", i + 1);
     pageBtn.textContent = i + 1;
     pageList.appendChild(pageBtn);
@@ -94,7 +94,7 @@ function journeyRender(data) {
   activeBtn.classList.add("btn-active");
 
   // 頁數按鈕 監聽事件
-  let pageBtn = document.querySelectorAll(".page-Btn");
+  let pageBtn = document.querySelectorAll(".page-btn");
   let choseBtn;
   let nextPage;
   let searchData = [];
@@ -114,7 +114,7 @@ function journeyRender(data) {
       max = page + 1;
     }
     for (let i = min; max > i; i++) {
-      btnStr += '<div class="page-Btn" id="' + i + '">' + i + "</div>";
+      btnStr += '<div class="page-btn" id="' + i + '">' + i + "</div>";
       pageList.innerHTML = btnStr;
     }
     let text = document.getElementById(nextPage);
@@ -124,7 +124,7 @@ function journeyRender(data) {
   //更新點擊按鈕事件
   function clickbtn() {
     //重新定義點擊的按鈕
-    let pageBtn = document.querySelectorAll(".page-Btn");
+    let pageBtn = document.querySelectorAll(".page-btn");
     for (let i = 0; i < pageBtn.length; i++) {
       pageBtn[i].addEventListener("click", function() {
         nextPage = parseInt(pageBtn[i].innerHTML);
@@ -251,7 +251,7 @@ function journeyRender(data) {
   }
 
   //下一頁按鈕
-  let AddPageBtn = document.querySelector(".Add-page");
+  let AddPageBtn = document.querySelector(".add-page");
   AddPageBtn.addEventListener("click", function() {
     if (choseBtn == undefined) {
       choseBtn = 1;
@@ -280,7 +280,7 @@ function journeyRender(data) {
   });
 
   //上一頁按鈕
-  let LessPageBtn = document.querySelector(".Less-page");
+  let LessPageBtn = document.querySelector(".less-page");
   LessPageBtn.addEventListener("click", function() {
     if (choseBtn == undefined) {
       choseBtn = 1;
@@ -302,7 +302,7 @@ function journeyRender(data) {
   //      搜尋列 功能
   //+++++++++++++++++++++++++++
 
-  let tagBtn = document.querySelectorAll(".tag-Btn");
+  let tagBtn = document.querySelectorAll(".tag-btn");
 
   for (let b = 0; b < tagBtn.length; b++) {
     tagBtn[b].addEventListener("click", tagClick);

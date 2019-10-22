@@ -165,7 +165,7 @@ body{
 
 }
 
-.mobileLogo{
+.mobile-logo{
    margin-top:2%;
    margin-bottom:2%;
    max-width:200px;
@@ -384,7 +384,7 @@ color: #fff;
 
 
 //會員登入視窗
-.signinBtn{
+.signin-btn{
     margin-top:6%; 
 }
 .box-btn{
@@ -441,7 +441,7 @@ color: #fff;
     display: flex;
 }
 
-.page-Btn{
+.page-btn{
     cursor: pointer;
     border-radius: 50%;
     background: rgb(199, 199, 199);
@@ -460,7 +460,7 @@ color: #fff;
      display: none;   
     }
 }
-.Add-page,.Less-page{
+.add-page,.less-page{
    color:$main-color-green;
    border-radius: 50%;
    font-family: $main-font; 
@@ -480,7 +480,7 @@ color: #fff;
     display:block;   
     }
 }
-.searchBar{
+.searchbar{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -497,7 +497,7 @@ color: #fff;
     }
  
 }
-.searchBar-Area{
+.searchbar-area{
     font-size: 1.1rem;
     cursor: pointer;
     border-left:2px solid $second-color-green;
@@ -512,7 +512,7 @@ color: #fff;
     border-bottom:2px solid $second-color-green;   
     }
 }
-.searchBar-Country{
+.searchbar-country{
     cursor: pointer;
     font-size: 1.1rem;
     border-left:2px solid $second-color-green;
@@ -524,7 +524,7 @@ color: #fff;
         }
 
 }
-.searchBar-group{
+.searchbar-group{
     select{
     width: 100%; 
     padding:1%; 
@@ -572,7 +572,7 @@ color: #fff;
         display: block;   
     }
     
-    .searchBar-Btn{
+    .searchbar-btn{
         cursor: pointer;
         font-size: 1.1rem;
         line-height: 24px;
@@ -589,7 +589,7 @@ color: #fff;
     
 
 }
-.searchBar-Input{
+.searchbar-input{
     input{
         width:300px;
         border: 0px;
@@ -647,7 +647,7 @@ color: #fff;
     align-items: center;
 }
 
-.Less-page,.Add-page {
+.less-page,.add-page {
     &:hover{
         cursor: pointer;    
         color: $second-color-green;    
