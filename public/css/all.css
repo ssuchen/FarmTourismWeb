@@ -883,14 +883,14 @@ body {
 
 .img-fix img {
   width: 100%;
-  margin-top: 6%;
+  margin-top: 10%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 @media (max-width: 768px) {
   .img-fix img {
-    margin-top: 12%;
+    margin-top: 15%;
   }
 }
 
