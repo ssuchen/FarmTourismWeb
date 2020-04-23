@@ -3,14 +3,14 @@ let url = new URL(idstring);
 let urlString = url.searchParams.get("id");
 
 ajax(
-  "https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/RuralTravelData.aspx",
-  function(response) {
+  "https://cors-anywhere.herokuapp.com/https://data.coa.gov.tw/Service/OpenData/RuralTravelData.aspx",
+  function (response) {
     journeypageRender(response);
   }
 );
 
 function journeypageRender(data) {
-  data.forEach(function(item) {
+  data.forEach(function (item) {
     if (item.TravelSeq == urlString) {
       let photo = item.PhotoUrl;
       let date = item.cDate.substr(0, 10);
@@ -72,7 +72,7 @@ function journeypageRender(data) {
       contentJourneygroup.appendChild(contentFeature);
 
       //將 tag 放入 journey-group的迴圈
-      arr.forEach(function(item) {
+      arr.forEach(function (item) {
         journeyTag = document.createElement("div");
         journeyTag.setAttribute("class", "journeypagination-tag");
         tag = item;

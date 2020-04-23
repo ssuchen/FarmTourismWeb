@@ -1,7 +1,7 @@
 //特色小吃 資料
 ajax(
-  "https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx",
-  function(response) {
+  "https://cors-anywhere.herokuapp.com/https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx",
+  function (response) {
     foodRender(response);
   }
 );
@@ -135,7 +135,7 @@ function foodRender(data) {
     //重新定義點擊的按鈕
     let pageBtn = document.querySelectorAll(".page-btn");
     for (let i = 0; i < pageBtn.length; i++) {
-      pageBtn[i].addEventListener("click", function() {
+      pageBtn[i].addEventListener("click", function () {
         nextPage = parseInt(pageBtn[i].innerHTML);
         //改變按鈕 樣式
         changeBtnStyle();
@@ -180,7 +180,7 @@ function foodRender(data) {
       } else {
         pageData = data;
       }
-      pageData.forEach(function(item, index) {
+      pageData.forEach(function (item, index) {
         //利用陣列索引 索引從0開始 所以要加1
         let num = index + 1;
         //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
@@ -202,7 +202,7 @@ function foodRender(data) {
         tel = newData[p].Tel;
 
         str +=
-          '<a  href="foodPagination.html?id='+
+          '<a  href="foodPagination.html?id=' +
           id +
           '" class="food-card"><div class="food-card-left"><div class="food-img"><img src="' +
           photo +
@@ -233,7 +233,7 @@ function foodRender(data) {
 
   //下一頁按鈕
   let addPageBtn = document.querySelector(".add-page");
-  addPageBtn.addEventListener("click", function() {
+  addPageBtn.addEventListener("click", function () {
     if (choseBtn == undefined) {
       choseBtn = 1;
     }
@@ -261,7 +261,7 @@ function foodRender(data) {
 
   //上一頁按鈕
   let lessPageBtn = document.querySelector(".less-page");
-  lessPageBtn.addEventListener("click", function() {
+  lessPageBtn.addEventListener("click", function () {
     if (choseBtn == undefined) {
       choseBtn = 1;
     }
@@ -284,7 +284,7 @@ function foodRender(data) {
 
   let searchBtn = document.querySelector(".searchbar-btn");
   let searchData = [];
-  searchBtn.addEventListener("click", function() {
+  searchBtn.addEventListener("click", function () {
     //取得使用者選取的 地方區域
     let searchBarArea = document.querySelector(".searchbar-area").value;
     //取得使用者選取的 縣市
@@ -302,7 +302,7 @@ function foodRender(data) {
     searchData = [];
     //篩選相對應的資料
 
-    data.forEach(function(item) {
+    data.forEach(function (item) {
       //如果選取對應的城市
       if (searchInput === item.City) {
         searchData.push(item);
@@ -325,32 +325,31 @@ function foodRender(data) {
     }
 
     let searchBoxBtn = document.querySelector(".search-box-btn");
-    searchBoxBtn.addEventListener("click", function() {
+    searchBoxBtn.addEventListener("click", function () {
       location.reload();
     });
 
     //將新的頁數資料重新放上網頁
     let str = "";
     let len = searchData.length;
-    let foodMainContent 
+    let foodMainContent;
     let btnlist = document.querySelector(".page-bar");
-    
-    if(len === 0){  
+
+    if (len === 0) {
       str = "找不到相關資訊";
       foodMainContent = document.querySelector(".food-main-content");
       let foodMainContentText = document.createElement("div");
-      foodMainContentText.setAttribute("class","food-main-content-text");
+      foodMainContentText.setAttribute("class", "food-main-content-text");
       foodMainContentText.textContent = str;
       foodMainContent.appendChild(foodMainContentText);
-      
     }
 
-    if(len===0){
-      btnlist.style.display="none";
-    }else{
-      btnlist.style.display="flex";
+    if (len === 0) {
+      btnlist.style.display = "none";
+    } else {
+      btnlist.style.display = "flex";
     }
-   
+
     for (let p = 0; p < len; p++) {
       if (len > 12) {
         len = 12;
@@ -383,7 +382,7 @@ function foodRender(data) {
         '<div class="food-text">' +
         text +
         "...</div></div></a>";
-        
+
       foodMainContent = document.querySelector(".food-main-content");
       foodMainContent.innerHTML = str;
 
@@ -398,7 +397,7 @@ function foodRender(data) {
     page = pageLen;
     updateBtnlist();
     clickBtn();
-    
+
     //願望清單
     checkBtnStyle();
     checkBtn();
@@ -412,25 +411,22 @@ function foodRender(data) {
   function checkBtnStyle() {
     let docID;
     let docIDArr = [];
-    db.collection("user").onSnapshot(function(snapshop) {
-      snapshop.docs.forEach(function(doc) {
+    db.collection("user").onSnapshot(function (snapshop) {
+      snapshop.docs.forEach(function (doc) {
         if (userEmail == doc.data().email) {
           docID = doc.id;
         }
       });
-      let foodlist = db
-        .collection("user")
-        .doc(docID)
-        .collection("foodlist");
-      foodlist.get().then(function(snapshop) {
-        snapshop.docs.forEach(function(doc) {
+      let foodlist = db.collection("user").doc(docID).collection("foodlist");
+      foodlist.get().then(function (snapshop) {
+        snapshop.docs.forEach(function (doc) {
           let clickId = doc.data().id;
           docIDArr.push(clickId);
         });
 
         let btn = document.querySelectorAll(".like-btn");
         for (let i = 0; i < btn.length; i++) {
-          docIDArr.forEach(function(item) {
+          docIDArr.forEach(function (item) {
             if (btn[i].id == item) {
               btn[i].classList.add("fas");
             }
@@ -438,7 +434,7 @@ function foodRender(data) {
         }
       });
     });
-  };
+  }
   checkBtnStyle();
 
   //=========================================
@@ -447,7 +443,7 @@ function foodRender(data) {
   function checkBtn() {
     let btn = document.querySelectorAll(".like-btn");
     for (let i = 0; i < btn.length; i++) {
-      btn[i].addEventListener("click", function(e) {
+      btn[i].addEventListener("click", function (e) {
         e.preventDefault();
         if (userEmail == undefined) {
           //alert("請登入會員")
@@ -460,8 +456,8 @@ function foodRender(data) {
         let docID;
         let clickID;
         let deleteID;
-        db.collection("user").onSnapshot(function(snapshop) {
-          snapshop.docs.forEach(function(doc) {
+        db.collection("user").onSnapshot(function (snapshop) {
+          snapshop.docs.forEach(function (doc) {
             if (userEmail == doc.data().email) {
               docID = doc.id;
             }
@@ -473,8 +469,8 @@ function foodRender(data) {
           foodlist
             .where("id", "==", btnNum)
             .get()
-            .then(function(snapshop) {
-              snapshop.docs.forEach(function(doc) {
+            .then(function (snapshop) {
+              snapshop.docs.forEach(function (doc) {
                 if (doc.data().id != undefined) {
                   clickID = doc.data().id;
                   deleteID = doc.id;
@@ -502,7 +498,7 @@ function foodRender(data) {
         });
       });
     }
-  };
+  }
   checkBtn();
 
   //===================
@@ -533,18 +529,15 @@ function foodRender(data) {
     //將點取資訊放入firebase
     db.collection("user")
       .get()
-      .then(function(snapshop) {
+      .then(function (snapshop) {
         let docID;
-        snapshop.docs.forEach(function(doc) {
+        snapshop.docs.forEach(function (doc) {
           //將符合email的資料放入陣列
           if (userEmail == doc.data().email) {
             docID = doc.id;
           }
         });
-        let foodlist = db
-          .collection("user")
-          .doc(docID)
-          .collection("foodlist");
+        let foodlist = db.collection("user").doc(docID).collection("foodlist");
         foodlist.add({
           country: country,
           id: id,
@@ -552,9 +545,9 @@ function foodRender(data) {
           tel: tel,
           text: text,
           title: title,
-          town: town
+          town: town,
         });
       });
-  };
-};
+  }
+}
 search();

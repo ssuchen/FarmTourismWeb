@@ -6,8 +6,8 @@ let url = new URL(idstring);
 let urlString = url.searchParams.get("id");
 
 ajax(
-  "https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx",
-  function(response) {
+  "https://cors-anywhere.herokuapp.com/https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx",
+  function (response) {
     foodpageRender(response);
   }
 );
@@ -17,7 +17,7 @@ function foodpageRender(data) {
   let photo;
   let name;
 
-  data.forEach(function(item, index) {
+  data.forEach(function (item, index) {
     if (urlString === item.ID) {
       city = item.City;
       photo = item.PicURL;
@@ -90,19 +90,19 @@ function foodpageRender(data) {
   });
   //創新陣列 將塞選的資料放入
   let newPlace = [];
-  data.forEach(function(item) {
+  data.forEach(function (item) {
     if (city === item.City && urlString !== item.ID) {
       newPlace.push(item);
     }
   });
 
   //隨機打亂 陣列中 物件順序
-  newPlace.sort(function() {
+  newPlace.sort(function () {
     return Math.random() - 0.5;
   });
 
   //抓出前面5筆資訊
-  newPlace.forEach(function(item, index) {
+  newPlace.forEach(function (item, index) {
     if (index < 5) {
       let foodpageOther = document.querySelector(".foodpage-other");
       let name = item.Name;
@@ -123,4 +123,4 @@ function foodpageRender(data) {
       otherSpace.appendChild(otherName);
     }
   });
-};
+}
