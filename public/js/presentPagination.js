@@ -6,8 +6,8 @@ let url = new URL(idstring);
 let urlString = url.searchParams.get("id");
 
 ajax(
-  "https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAgriculturalProduce.aspx",
-  function(response) {
+  "https://cors-anywhere.herokuapp.com/https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAgriculturalProduce.aspx",
+  function (response) {
     presentpageRender(response);
   }
 );
@@ -16,7 +16,7 @@ function presentpageRender(data) {
   //抓出此產品的地點
   let placeText;
   //畫出產品列表
-  data.forEach(function(item) {
+  data.forEach(function (item) {
     if (item.ID == urlString) {
       let name = item.Name;
       let produceOrg = item.ProduceOrg;
@@ -95,7 +95,7 @@ function presentpageRender(data) {
 
   //判斷產地若相同且不是相同的產品
   let newObj = [];
-  data.forEach(function(item) {
+  data.forEach(function (item) {
     let salePlace = item.SalePlace.substr(0, 3);
     text = salePlace.substr(0, 3);
     if (text === placeText && urlString !== item.ID) {
@@ -104,12 +104,12 @@ function presentpageRender(data) {
   });
 
   //打亂陣列中的物件排序
-  newObj.sort(function() {
+  newObj.sort(function () {
     return Math.random() - 0.5;
   });
 
   //抓出前10筆資訊
-  newObj.forEach(function(item, index) {
+  newObj.forEach(function (item, index) {
     if (index < 10) {
       let presentRight = document.querySelector(".present-right");
       presentRight.style.display = "block";
@@ -134,14 +134,14 @@ function presentpageRender(data) {
 
 //右移的按鈕
 let rightBtn = document.querySelector(".present-right-btn");
-rightBtn.addEventListener("click", function() {
+rightBtn.addEventListener("click", function () {
   let scroll = document.querySelector(".present-other");
   scroll.scrollLeft += 300;
 });
 
 //左移的按鈕
 let leftBtn = document.querySelector(".present-left-btn");
-leftBtn.addEventListener("click", function() {
+leftBtn.addEventListener("click", function () {
   let scroll = document.querySelector(".present-other");
   scroll.scrollLeft -= 300;
 });

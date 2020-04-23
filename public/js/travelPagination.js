@@ -6,8 +6,8 @@ let url = new URL(idstring);
 let urlString = url.searchParams.get("id");
 
 ajax(
-  "https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx",
-  function(response) {
+  "https://cors-anywhere.herokuapp.com/https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx",
+  function (response) {
     travelpageRender(response);
   }
 );
@@ -17,7 +17,7 @@ function travelpageRender(data) {
   let photo;
   let name;
 
-  data.forEach(function(item) {
+  data.forEach(function (item) {
     //渲染出id位置關資料
     if (
       item.Name == "中崙漁業休閒農場" ||
@@ -112,12 +112,12 @@ function travelpageRender(data) {
       //抓取遞減的資訊
       db.collection("comment")
         .orderBy("time", "asc")
-        .onSnapshot(function(snapshop) {
+        .onSnapshot(function (snapshop) {
           MessageArr = [];
           let travelpageMessage = document.querySelector(".travelpage-message");
           travelpageMessage.innerHTML =
             '<div class="travelpage-message-text">留言評價</div>';
-          snapshop.docs.forEach(function(doc) {
+          snapshop.docs.forEach(function (doc) {
             if (doc.data().id == urlString) {
               MessageArr.push(doc.data());
             }
@@ -206,7 +206,7 @@ function travelpageRender(data) {
               travelpageMessageTitle.appendChild(travelpageMessageTime);
               travelpageMessageContentRight.appendChild(travelpageMessageMemo);
             }
-          };
+          }
         });
 
       let loading = document.querySelector(".loading");
@@ -216,19 +216,19 @@ function travelpageRender(data) {
   //找出相關的位置的景點
   //創新陣列 將塞選的資料放入
   let newPlace = [];
-  data.forEach(function(item) {
+  data.forEach(function (item) {
     if (city === item.City && urlString !== item.ID) {
       newPlace.push(item);
     }
   });
 
   //隨機打亂 陣列中 物件順序
-  newPlace.sort(function() {
+  newPlace.sort(function () {
     return Math.random() - 0.5;
   });
 
   //抓出前面5筆資訊
-  newPlace.forEach(function(item, index) {
+  newPlace.forEach(function (item, index) {
     if (index < 5) {
       let travelpageOther = document.querySelector(".travelpage-other");
       let name = item.Name;
@@ -253,7 +253,7 @@ function travelpageRender(data) {
 
 travelpageMessageBtn = document.querySelector(".travelpage-message-btn");
 // 有登入時 留言按鈕出現
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
   if (user == null) {
     travelpageMessageBtn.style.display = "none";
   }
@@ -263,14 +263,14 @@ let travelpageMessageComment = document.querySelector(
   ".travelpage-message-comment"
 );
 //按下留言按鈕 留言視窗出現
-travelpageMessageBtn.addEventListener("click", function() {
+travelpageMessageBtn.addEventListener("click", function () {
   travelpageMessageComment.style.display = "block";
   travelpageMessageBtn.style.display = "none";
 });
 
 //按下取消評論 視窗關閉
 let commentCancelBtn = document.querySelector(".comment-cancel-btn");
-commentCancelBtn.addEventListener("click", function() {
+commentCancelBtn.addEventListener("click", function () {
   travelpageMessageComment.style.display = "none";
   travelpageMessageBtn.style.display = "block";
 });
@@ -279,7 +279,7 @@ commentCancelBtn.addEventListener("click", function() {
 let commentInput = document.querySelector(".comment-input");
 let commentInputValue;
 let formMessage = document.querySelector("#formMessage");
-formMessage.addEventListener("submit", function(e) {
+formMessage.addEventListener("submit", function (e) {
   e.preventDefault();
   commentInputValue = commentInput.value;
   if (commentInputValue == "") {
@@ -304,6 +304,10 @@ function pushMessage() {
     photo: userPhoto,
     text: commentInputValue,
     time:
-      Today.getFullYear() + "." + (Today.getMonth() + 1) + "." + Today.getDate()
+      Today.getFullYear() +
+      "." +
+      (Today.getMonth() + 1) +
+      "." +
+      Today.getDate(),
   });
 }

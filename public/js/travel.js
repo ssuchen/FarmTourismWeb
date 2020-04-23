@@ -1,12 +1,13 @@
 //休閒農業區 資料
 ajax(
-  "https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx",
-  function(response) {
+  "https://cors-anywhere.herokuapp.com/https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx",
+  function (response) {
     travelRender(response);
   }
 );
 
 function travelRender(data) {
+  console.log(data);
   let len = data.length;
   let perPage = 12;
   let travelMainContent;
@@ -132,7 +133,7 @@ function travelRender(data) {
     //更新所點選的按鈕所對應的資料
     let pageBtn = document.querySelectorAll(".page-btn");
     for (let i = 0; i < pageBtn.length; i++) {
-      pageBtn[i].addEventListener("click", function() {
+      pageBtn[i].addEventListener("click", function () {
         //重新定義點擊的按鈕數字
         nextPage = parseInt(pageBtn[i].innerHTML);
         //改變按鈕 樣式
@@ -178,7 +179,7 @@ function travelRender(data) {
       } else {
         pageData = data;
       }
-      pageData.forEach(function(item, index) {
+      pageData.forEach(function (item, index) {
         //利用陣列索引 索引從0開始 所以要加1
         let num = index + 1;
         //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
@@ -236,7 +237,7 @@ function travelRender(data) {
 
   //下一頁按鈕
   let addPageBtn = document.querySelector(".add-page");
-  addPageBtn.addEventListener("click", function() {
+  addPageBtn.addEventListener("click", function () {
     if (choseBtn == undefined) {
       choseBtn = 1;
     }
@@ -266,7 +267,7 @@ function travelRender(data) {
 
   //上一頁按鈕
   let lessPageBtn = document.querySelector(".less-page");
-  lessPageBtn.addEventListener("click", function() {
+  lessPageBtn.addEventListener("click", function () {
     if (choseBtn == undefined) {
       choseBtn = 1;
     }
@@ -289,7 +290,7 @@ function travelRender(data) {
   //======================
   let searchBtn = document.querySelector(".searchbar-btn");
   let searchData = [];
-  searchBtn.addEventListener("click", function() {
+  searchBtn.addEventListener("click", function () {
     //取得使用者選取的 地方區域
     let searchBarArea = document.querySelector(".searchbar-area").value;
     //取得使用者選取的 縣市
@@ -307,7 +308,7 @@ function travelRender(data) {
     searchData = [];
     //篩選相對應的資料
 
-    data.forEach(function(item) {
+    data.forEach(function (item) {
       //如果選取對應的城市
       if (searchBarCountry === item.City) {
         searchData.push(item);
@@ -329,7 +330,7 @@ function travelRender(data) {
       body.classList.add("fixed");
     }
     let searchBoxBtn = document.querySelector(".search-box-btn");
-    searchBoxBtn.addEventListener("click", function() {
+    searchBoxBtn.addEventListener("click", function () {
       location.reload();
     });
 
@@ -337,15 +338,15 @@ function travelRender(data) {
     let str = "";
     let btnlist = document.querySelector(".page-bar");
     let len = searchData.length;
-    if(len===0){
-      btnlist.style.display="none";
-    }else{
-      btnlist.style.display="flex";
+    if (len === 0) {
+      btnlist.style.display = "none";
+    } else {
+      btnlist.style.display = "flex";
     }
-    if(len === 0){
+    if (len === 0) {
       str = "找不到相關資訊";
       let travelMainContentText = querySelector("div");
-      travelMainContentText.setAttribute("class","travel-main-content-text");
+      travelMainContentText.setAttribute("class", "travel-main-content-text");
       travelMainContent.appendChild(travelMainContentText);
     }
 
@@ -413,8 +414,8 @@ function travelRender(data) {
   function checkBtnStyle() {
     let docID;
     let docIDArr = [];
-    db.collection("user").onSnapshot(function(snapshop) {
-      snapshop.docs.forEach(function(doc) {
+    db.collection("user").onSnapshot(function (snapshop) {
+      snapshop.docs.forEach(function (doc) {
         if (userEmail == doc.data().email) {
           docID = doc.id;
         }
@@ -423,14 +424,14 @@ function travelRender(data) {
         .collection("user")
         .doc(docID)
         .collection("travellist");
-      travelList.get().then(function(snapshop) {
-        snapshop.docs.forEach(function(doc) {
+      travelList.get().then(function (snapshop) {
+        snapshop.docs.forEach(function (doc) {
           let clickId = doc.data().id;
           docIDArr.push(clickId);
         });
         let btn = document.querySelectorAll(".like-btn");
         for (let i = 0; i < btn.length; i++) {
-          docIDArr.forEach(function(item) {
+          docIDArr.forEach(function (item) {
             if (btn[i].id == item) {
               btn[i].classList.add("fas");
             }
@@ -447,7 +448,7 @@ function travelRender(data) {
   function checkBtn() {
     let btn = document.querySelectorAll(".like-btn");
     for (let i = 0; i < btn.length; i++) {
-      btn[i].addEventListener("click", function(e) {
+      btn[i].addEventListener("click", function (e) {
         e.preventDefault();
         if (userEmail == undefined) {
           //alert("請登入會員");
@@ -460,8 +461,8 @@ function travelRender(data) {
         let docID;
         let clickID;
         let deleteID;
-        db.collection("user").onSnapshot(function(snapshop) {
-          snapshop.docs.forEach(function(doc) {
+        db.collection("user").onSnapshot(function (snapshop) {
+          snapshop.docs.forEach(function (doc) {
             if (userEmail == doc.data().email) {
               docID = doc.id;
             }
@@ -473,8 +474,8 @@ function travelRender(data) {
           travelList
             .where("id", "==", btnNum)
             .get()
-            .then(function(snapshop) {
-              snapshop.docs.forEach(function(doc) {
+            .then(function (snapshop) {
+              snapshop.docs.forEach(function (doc) {
                 if (doc.data().id != undefined) {
                   clickID = doc.data().id;
                   deleteID = doc.id;
@@ -530,9 +531,9 @@ function travelRender(data) {
     //將點取資訊放入firebase
     db.collection("user")
       .get()
-      .then(function(snapshop) {
+      .then(function (snapshop) {
         let docID;
-        snapshop.docs.forEach(function(doc) {
+        snapshop.docs.forEach(function (doc) {
           //將符合email的資料放入陣列
           if (userEmail == doc.data().email) {
             docID = doc.id;
@@ -547,7 +548,7 @@ function travelRender(data) {
           country: country,
           img: img,
           text: text,
-          title: title
+          title: title,
         });
       });
   }

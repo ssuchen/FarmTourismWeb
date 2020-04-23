@@ -1,7 +1,7 @@
 //特色伴手禮 資料
 ajax(
-  "https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAgriculturalProduce.aspx",
-  function(response) {
+  "https://cors-anywhere.herokuapp.com/https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAgriculturalProduce.aspx",
+  function (response) {
     presentRender(response);
   }
 );
@@ -124,7 +124,7 @@ function presentRender(data) {
     //重新定義監聽的按鈕
     let pageBtn = document.querySelectorAll(".page-btn");
     for (let i = 0; i < pageBtn.length; i++) {
-      pageBtn[i].addEventListener("click", function() {
+      pageBtn[i].addEventListener("click", function () {
         //重新定義點擊的按鈕數字
         nextpage = parseInt(pageBtn[i].innerHTML);
 
@@ -173,7 +173,7 @@ function presentRender(data) {
       } else {
         pagedata = data;
       }
-      pagedata.forEach(function(item, index) {
+      pagedata.forEach(function (item, index) {
         //利用陣列索引 索引從0開始 所以要加1
         let num = index + 1;
         //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
@@ -217,7 +217,7 @@ function presentRender(data) {
 
   //下一頁按鈕
   let addPageBtn = document.querySelector(".add-page");
-  addPageBtn.addEventListener("click", function() {
+  addPageBtn.addEventListener("click", function () {
     if (choseBtn == undefined) {
       choseBtn = 1;
     }
@@ -245,7 +245,7 @@ function presentRender(data) {
 
   //上一頁按鈕
   let lessPageBtn = document.querySelector(".less-page");
-  lessPageBtn.addEventListener("click", function() {
+  lessPageBtn.addEventListener("click", function () {
     if (choseBtn == undefined) {
       choseBtn = 1;
     }
@@ -269,7 +269,7 @@ function presentRender(data) {
 
   let searchBtn = document.querySelector(".searchbar-btn");
   let searchdata = [];
-  searchBtn.addEventListener("click", function() {
+  searchBtn.addEventListener("click", function () {
     //取得使用者選取的 地方區域
     let searchBarArea = document.querySelector(".searchbar-area").value;
     //取得使用者選取的 縣市
@@ -297,7 +297,7 @@ function presentRender(data) {
     searchdata = [];
     //篩選相對應的資料
 
-    data.forEach(function(item, index) {
+    data.forEach(function (item, index) {
       //如果選取對應的城市
       if (searchInput === item.SalePlace.substr(0, 3)) {
         searchdata.push(item);
@@ -320,7 +320,7 @@ function presentRender(data) {
     }
 
     let searchBoxBtn = document.querySelector(".search-box-btn");
-    searchBoxBtn.addEventListener("click", function() {
+    searchBoxBtn.addEventListener("click", function () {
       location.reload();
     });
 
@@ -328,20 +328,20 @@ function presentRender(data) {
     let str = "";
     let len = searchdata.length;
     let btnlist = document.querySelector(".page-bar");
-    
-    if(len===0){
-      str="找不到相關資訊";
+
+    if (len === 0) {
+      str = "找不到相關資訊";
       let presentMainContent = document.querySelector(".present-main-content");
       let presentMainContentText = document.createElement("div");
-      presentMainContentText.setAttribute("class","present-main-content-text");
+      presentMainContentText.setAttribute("class", "present-main-content-text");
       presentMainContentText.textContent = str;
       presentMainContent.appendChild(presentMainContentText);
     }
 
-    if(len===0){
-      btnlist.style.display="none";
-    }else{
-      btnlist.style.display="flex";
+    if (len === 0) {
+      btnlist.style.display = "none";
+    } else {
+      btnlist.style.display = "flex";
     }
 
     for (let p = 0; p < len; p++) {
@@ -397,8 +397,8 @@ function presentRender(data) {
   function checkBtnStyle() {
     let docID;
     let docIDArr = [];
-    db.collection("user").onSnapshot(function(snapshop) {
-      snapshop.docs.forEach(function(doc) {
+    db.collection("user").onSnapshot(function (snapshop) {
+      snapshop.docs.forEach(function (doc) {
         if (userEmail == doc.data().email) {
           docID = doc.id;
         }
@@ -407,14 +407,14 @@ function presentRender(data) {
         .collection("user")
         .doc(docID)
         .collection("presentlist");
-      presentlist.get().then(function(snapshop) {
-        snapshop.docs.forEach(function(doc) {
+      presentlist.get().then(function (snapshop) {
+        snapshop.docs.forEach(function (doc) {
           let clickId = doc.data().id;
           docIDArr.push(clickId);
         });
         let btn = document.querySelectorAll(".like-btn");
         for (let i = 0; i < btn.length; i++) {
-          docIDArr.forEach(function(item) {
+          docIDArr.forEach(function (item) {
             if (btn[i].id == item) {
               btn[i].classList.add("fas");
             }
@@ -422,7 +422,7 @@ function presentRender(data) {
         }
       });
     });
-  };
+  }
   checkBtnStyle();
 
   //=========================================
@@ -431,7 +431,7 @@ function presentRender(data) {
   function checkBtn() {
     let btn = document.querySelectorAll(".like-btn");
     for (let i = 0; i < btn.length; i++) {
-      btn[i].addEventListener("click", function(e) {
+      btn[i].addEventListener("click", function (e) {
         e.preventDefault();
         if (userEmail == undefined) {
           //alert("請登入會員")
@@ -444,8 +444,8 @@ function presentRender(data) {
         let docID;
         let clickID;
         let deleteID;
-        db.collection("user").onSnapshot(function(snapshop) {
-          snapshop.docs.forEach(function(doc) {
+        db.collection("user").onSnapshot(function (snapshop) {
+          snapshop.docs.forEach(function (doc) {
             if (userEmail == doc.data().email) {
               docID = doc.id;
             }
@@ -457,8 +457,8 @@ function presentRender(data) {
           presentlist
             .where("id", "==", btnNum)
             .get()
-            .then(function(snapshop) {
-              snapshop.docs.forEach(function(doc) {
+            .then(function (snapshop) {
+              snapshop.docs.forEach(function (doc) {
                 if (doc.data().id != undefined) {
                   clickID = doc.data().id;
                   deleteID = doc.id;
@@ -486,7 +486,7 @@ function presentRender(data) {
         });
       });
     }
-  };
+  }
   checkBtn();
 
   //===================
@@ -511,9 +511,9 @@ function presentRender(data) {
     //將點取資訊放入firebase
     db.collection("user")
       .get()
-      .then(function(snapshop) {
+      .then(function (snapshop) {
         let docID;
-        snapshop.docs.forEach(function(doc) {
+        snapshop.docs.forEach(function (doc) {
           //將符合email的資料放入陣列
           if (userEmail == doc.data().email) {
             docID = doc.id;
@@ -528,9 +528,9 @@ function presentRender(data) {
           country: country,
           img: img,
           text: text,
-          title: title
+          title: title,
         });
       });
-  };
-};
+  }
+}
 search();

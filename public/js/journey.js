@@ -1,7 +1,7 @@
 ajax(
-  "https://cors-anywhere.herokuapp.com/http://data.coa.gov.tw/Service/OpenData/RuralTravelData.aspx",
-  function(response) {
-    journeyRender(response)
+  "https://cors-anywhere.herokuapp.com/https://data.coa.gov.tw/Service/OpenData/RuralTravelData.aspx",
+  function (response) {
+    journeyRender(response);
   }
 );
 function journeyRender(data) {
@@ -62,7 +62,7 @@ function journeyRender(data) {
       journeyImg.appendChild(journeyBtn);
 
       //將 tag 放入 journey-group的迴圈
-      arr.forEach(function(item) {
+      arr.forEach(function (item) {
         journeyTag = document.createElement("div");
         journeyTag.setAttribute("class", "journey-tag");
         tag = item;
@@ -126,7 +126,7 @@ function journeyRender(data) {
     //重新定義點擊的按鈕
     let pageBtn = document.querySelectorAll(".page-btn");
     for (let i = 0; i < pageBtn.length; i++) {
-      pageBtn[i].addEventListener("click", function() {
+      pageBtn[i].addEventListener("click", function () {
         nextPage = parseInt(pageBtn[i].innerHTML);
         //改變按鈕 樣式
         changeBtnStyle();
@@ -134,7 +134,7 @@ function journeyRender(data) {
         renderPage();
       });
     }
-  };
+  }
 
   //---------------觸發更換按鈕------------
 
@@ -157,7 +157,7 @@ function journeyRender(data) {
 
       //重新定義 nextPage 將內容定義為 undefined
       nextPage = undefined;
-    };
+    }
 
     //更換內容資料的函式
     pageBtn[i].addEventListener("click", renderPage);
@@ -174,7 +174,7 @@ function journeyRender(data) {
         pageData = data;
       }
 
-      pageData.forEach(function(item, index) {
+      pageData.forEach(function (item, index) {
         //利用陣列索引 索引從0開始 所以要加1
         let num = index + 1;
         //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
@@ -236,7 +236,7 @@ function journeyRender(data) {
         journeyImg.appendChild(journeyBtn);
 
         //將 tag 放入 journey-group的迴圈
-        arr.forEach(function(item) {
+        arr.forEach(function (item) {
           journeyTag = document.createElement("div");
           journeyTag.setAttribute("class", "journey-tag");
           tag = item;
@@ -247,12 +247,12 @@ function journeyRender(data) {
       //願望清單
       checkBtnStyle();
       checkBtn();
-    };
+    }
   }
 
   //下一頁按鈕
   let AddPageBtn = document.querySelector(".add-page");
-  AddPageBtn.addEventListener("click", function() {
+  AddPageBtn.addEventListener("click", function () {
     if (choseBtn == undefined) {
       choseBtn = 1;
     }
@@ -281,7 +281,7 @@ function journeyRender(data) {
 
   //上一頁按鈕
   let LessPageBtn = document.querySelector(".less-page");
-  LessPageBtn.addEventListener("click", function() {
+  LessPageBtn.addEventListener("click", function () {
     if (choseBtn == undefined) {
       choseBtn = 1;
     }
@@ -318,7 +318,7 @@ function journeyRender(data) {
       //選取點選樣式的數值
       let btnValue = tagBtn[b].innerHTML;
       searchData = [];
-      data.forEach(function(item) {
+      data.forEach(function (item) {
         let tag = item.TravelType;
         //將tag 字串分開成陣列
         let arr = [];
@@ -391,7 +391,7 @@ function journeyRender(data) {
         journeyImg.appendChild(journeyBtn);
 
         //將 tag 放入 journey-group的迴圈
-        arr.forEach(function(item, index) {
+        arr.forEach(function (item, index) {
           journeyTag = document.createElement("div");
           journeyTag.setAttribute("class", "journey-tag");
           tag = item;
@@ -411,7 +411,7 @@ function journeyRender(data) {
       //願望清單
       checkBtnStyle();
       checkBtn();
-    };
+    }
   }
 
   //=========================================
@@ -421,8 +421,8 @@ function journeyRender(data) {
   function checkBtnStyle() {
     let docID;
     let docIDArr = [];
-    db.collection("user").onSnapshot(function(snapshop) {
-      snapshop.docs.forEach(function(doc) {
+    db.collection("user").onSnapshot(function (snapshop) {
+      snapshop.docs.forEach(function (doc) {
         if (userEmail == doc.data().email) {
           docID = doc.id;
         }
@@ -431,14 +431,14 @@ function journeyRender(data) {
         .collection("user")
         .doc(docID)
         .collection("journeylist");
-      journeyList.get().then(function(snapshop) {
-        snapshop.docs.forEach(function(doc) {
+      journeyList.get().then(function (snapshop) {
+        snapshop.docs.forEach(function (doc) {
           let clickId = doc.data().id;
           docIDArr.push(clickId);
         });
         let btn = document.querySelectorAll(".like-btn");
         for (let i = 0; i < btn.length; i++) {
-          docIDArr.forEach(function(item) {
+          docIDArr.forEach(function (item) {
             if (btn[i].id == item) {
               btn[i].classList.add("fas");
             }
@@ -455,7 +455,7 @@ function journeyRender(data) {
   function checkBtn() {
     let btn = document.querySelectorAll(".like-btn");
     for (let i = 0; i < btn.length; i++) {
-      btn[i].addEventListener("click", function(e) {
+      btn[i].addEventListener("click", function (e) {
         e.preventDefault();
         if (userEmail == undefined) {
           //alert("請登入會員")
@@ -468,8 +468,8 @@ function journeyRender(data) {
         let docID;
         let clickID;
         let deleteID;
-        db.collection("user").onSnapshot(function(snapshop) {
-          snapshop.docs.forEach(function(doc) {
+        db.collection("user").onSnapshot(function (snapshop) {
+          snapshop.docs.forEach(function (doc) {
             if (userEmail == doc.data().email) {
               docID = doc.id;
             }
@@ -481,8 +481,8 @@ function journeyRender(data) {
           journeyList
             .where("id", "==", btnNum)
             .get()
-            .then(function(snapshop) {
-              snapshop.docs.forEach(function(doc) {
+            .then(function (snapshop) {
+              snapshop.docs.forEach(function (doc) {
                 if (doc.data().id != undefined) {
                   clickID = doc.data().id;
                   deleteID = doc.id;
@@ -510,7 +510,7 @@ function journeyRender(data) {
         });
       });
     }
-  };
+  }
   checkBtn();
 
   //===================
@@ -535,9 +535,9 @@ function journeyRender(data) {
     //將點取資訊放入firebase
     db.collection("user")
       .get()
-      .then(function(snapshop) {
+      .then(function (snapshop) {
         let docID;
-        snapshop.docs.forEach(function(doc) {
+        snapshop.docs.forEach(function (doc) {
           //將符合email的資料放入陣列
           if (userEmail == doc.data().email) {
             docID = doc.id;
@@ -561,8 +561,8 @@ function journeyRender(data) {
           img: img,
           tag: arr,
           text: text,
-          title: title
+          title: title,
         });
       });
-  };
-};
+  }
+}
