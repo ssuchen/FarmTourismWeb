@@ -3,9 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
     <link rel="stylesheet" href="css/all.css">
-    <script src="https://kit.fontawesome.com/ab3a164183.js"></script> 
+
+    <script src="https://kit.fontawesome.com/ab3a164183.js"></script>
    <title>farm web</title>
   </head>
   <body class="body">
@@ -18,7 +22,9 @@
         <div class="nav-bar-width"> 
             <div class="nav-bar-logo"><a href="index.html"><img src="img/LOGO-w-02.png" alt=""></a></div>
             <div class="user-login">
-                <div class="user-wish"><div><i class="far fa-heart  loginbtn-list"></i>我的清單</div></div>
+                <div class="user-wish">
+                    <div><i class="far fa-heart  loginbtn-list"></i>我的清單</div>
+                </div>
                 <div class="user-photo"></div>
                 <div class="user-name"></div>
                 <div class="loginbtn-user" >登入</div>
@@ -26,13 +32,13 @@
             </div>  
         </div>  
     </div> 
-    <ul class="new-menu">
+    <!-- <ul class="new-menu">
         <a href="news.html"><li>最新消息</li></a>
         <a href="present.html"><li>農村伴手禮</li></a>
         <a href="travel.html"><li> 休閒農業區</li></a>
         <a href="journey.html"><li>農村小旅行</li></a>
         <a href="food.html"><li class="menu-border-right">農村特色小吃</li></a>
-    </ul> 
+    </ul>  -->
     <div class="mobile-menu">
         <div class="mobile-menu-title">
             <div class="">
@@ -50,15 +56,48 @@
         <a href="food.html"><li>農村特色小吃</li></a>
       </ul>    
     </div>
-    <div class="scroll-bar">
+    <!-- <div class="scroll-bar">
         <div class="scroll-banner banner-1" id="pic1"></div> 
         <div class="scroll-banner banner-2" id="pic2"></div>  
         <div class="scroll-banner banner-3" id="pic3"></div> 
         <div class="scroll-banner banner-4" id="pic4"></div>     
+    </div> -->
+    <!-- swiper -->
+     <!-- Swiper -->
+  <div class="swiper-container">
+    
+    <div class="swiper-banner-logo-position">
+          <div class="swiper-banner-logo">
+              <img class="swiper-banner-img" src="https://img.lovepik.com/original_origin_pic/19/01/02/83414ed3bfbce4482bbeed9279919048.png_wh860.png" alt="">
+          </div>  
     </div>
-    <div class="img-logo-bg">
-    <div class="img-logo "><img src="img/pic_banner-02.png" alt=""></div></div> 
-    <div class="index-photobar-bg">
+    <div class="swiper-wrapper">  
+      <div class="swiper-slide swiper-slide-1">Slide 1</div>
+      <div class="swiper-slide swiper-slide-2">Slide 2</div>
+      <div class="swiper-slide swiper-slide-3">Slide 3</div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+  <!-- wave animate -->
+  <div class="ocean">
+    <div class="wave"></div>
+  </div>
+    <ul class="new-menu">
+        <a href="news.html"><li>最新消息</li></a>
+        <a href="present.html"><li>農村伴手禮</li></a>
+        <a href="travel.html"><li> 休閒農業區</li></a>
+        <a href="journey.html"><li>農村小旅行</li></a>
+        <a href="food.html"><li class="menu-border-right">農村特色小吃</li></a>
+    </ul> 
+
+    <!-- <div class="img-logo-bg">
+    <div class="img-logo "><img src="img/pic_banner-02.png" alt=""></div></div>  -->
+    <!-- 圖片按鈕列 -->
+    <!-- <div class="index-photobar-bg">
         <div class="index-photobar">      
             <div class="index-photobar-img">
                 <div class="photobar-btn"><a href="travel.html"><img src="img/summer-7.jpg" alt="">鄉村畜牧</a></div>
@@ -67,7 +106,8 @@
                 <div class="photobar-btn"><a href="journey.html"><img src="img/summer-3.jpg" alt="">鄉村體驗</a></div>
             </div>
         </div>
-    </div>
+    </div> -->
+    
     <div class="index-main">        
         <div class="index-main-left">
         <!-- 臉書粉絲團 -->
@@ -173,9 +213,15 @@
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js"></script>
 
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <script src="js/swiper.js"></script>    
+
     <script src="js/all.js"></script>
     <script src="js/login_firebase_sdk.js"></script>
     <script src="js/alert.js"></script>
     <script src="js/index.js"></script>
+
   </body>
 </html>

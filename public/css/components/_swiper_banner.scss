@@ -1,0 +1,99 @@
+//標準色
+$main-color-green: #15713d;
+$second-color-green: #b8cf92;
+$second-color-yellow: #ffe04c;
+//swiper components
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center center;
+}
+.swiper-slide-1 {
+  background-image: url(../img/banner-bg-01.jpg);
+}
+.swiper-slide-2 {
+  background-image: url(../img/banner-bg-02.jpg);
+}
+.swiper-slide-3 {
+  background-image: url(../img/banner-bg-03.jpg);
+}
+.swiper-wrapper {
+  height: 800px;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+}
+.swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+}
+.swiper-pagination-bullet-active {
+  background-color: $second-color-yellow;
+}
+//banner btn distance
+.swiper-container-horizontal
+  > .swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin-left: 20px;
+}
+//banner logo
+.swiper-banner-logo-position {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  //background-color: red;
+  z-index: 49;
+}
+.swiper-banner-logo {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  margin-top: 350px;
+  z-index: 48;
+  //position: absolute;
+  //background-image: url(https://img.lovepik.com/original_origin_pic/19/01/02/83414ed3bfbce4482bbeed9279919048.png_wh860.png);
+  //background-color: #fff;
+}
+.swiper-pagination,
+.swiper-button-next,
+.swiper-button-prev {
+  z-index: 50;
+}
+.swiper-banner-img {
+  width: 100%;
+  height: 100%;
+}
