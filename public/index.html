@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
     <link rel="stylesheet" href="css/all.css">
-
     <script src="https://kit.fontawesome.com/ab3a164183.js"></script>
+    <!-- css animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
    <title>farm web</title>
   </head>
   <body class="body">
@@ -64,17 +65,19 @@
     </div> -->
     <!-- swiper -->
      <!-- Swiper -->
-  <div class="swiper-container">
-    
+  <div class="swiper-container">  
     <div class="swiper-banner-logo-position">
-          <div class="swiper-banner-logo">
-              <img class="swiper-banner-img" src="https://img.lovepik.com/original_origin_pic/19/01/02/83414ed3bfbce4482bbeed9279919048.png_wh860.png" alt="">
-          </div>  
+        <div class="swiper-banner-logo animated bounceInDown">
+            <img class="swiper-banner-img" src="img/pic_banner-02.svg" alt="">          
+        </div> 
+        <div class="swiper-banner-bird ">
+            <img class="animated bounceInUp delay-1s" src="../public/img/bird-01.svg" alt="">
+        </div>
     </div>
     <div class="swiper-wrapper">  
-      <div class="swiper-slide swiper-slide-1">Slide 1</div>
-      <div class="swiper-slide swiper-slide-2">Slide 2</div>
-      <div class="swiper-slide swiper-slide-3">Slide 3</div>
+      <div class="swiper-slide swiper-slide-1"></div>
+      <div class="swiper-slide swiper-slide-2"></div>
+      <div class="swiper-slide swiper-slide-3"></div>
     </div>
     <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
@@ -82,33 +85,43 @@
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
   </div>
-  <!-- wave animate -->
-  <div class="ocean">
-    <div class="wave"></div>
-  </div>
-    <ul class="new-menu">
-        <a href="news.html"><li>最新消息</li></a>
-        <a href="present.html"><li>農村伴手禮</li></a>
-        <a href="travel.html"><li> 休閒農業區</li></a>
-        <a href="journey.html"><li>農村小旅行</li></a>
-        <a href="food.html"><li class="menu-border-right">農村特色小吃</li></a>
+  <div class="wave"></div>
+  <div class="TreeBranch-position bird-position">
+    <img src="../public/img/bird-02.png" alt="">
+</div>
+    <ul class="new-menu animated fadeInUp delay-1s ">
+        <a href="news.html">
+            <i class="far fa-2x fa-newspaper "></i>
+            <li>最新消息</li></a>
+        <a href="present.html">
+            <i class="fas fa-gifts fa-2x"></i>
+            <li>農村伴手禮</li></a>
+        <a href="travel.html">
+            <i class="fas fa-2x fa-tractor"></i>
+            <li> 休閒農業區</li></a>
+        <a href="journey.html">
+            <i class="fas fa-2x fa-bicycle"></i>
+            <li>農村小旅行</li></a>
+        <a href="food.html">
+            <i class="fas fa-2x fa-utensils"></i>
+            <li class="menu-border-right">農村特色小吃</li></a>
     </ul> 
-
-    <!-- <div class="img-logo-bg">
-    <div class="img-logo "><img src="img/pic_banner-02.png" alt=""></div></div>  -->
-    <!-- 圖片按鈕列 -->
-    <!-- <div class="index-photobar-bg">
-        <div class="index-photobar">      
-            <div class="index-photobar-img">
-                <div class="photobar-btn"><a href="travel.html"><img src="img/summer-7.jpg" alt="">鄉村畜牧</a></div>
-                <div class="photobar-btn"><a href="food.html"><img src="img/summer-6.jpg" alt="">農食教育</a></div>
-                <div class="photobar-btn"><a href="present.html"><img src="img/summer-2.jpg" alt="">農村好物</a></div>
-                <div class="photobar-btn"><a href="journey.html"><img src="img/summer-3.jpg" alt="">鄉村體驗</a></div>
-            </div>
+    <div class="index-main-bg">
+        <div class="TreeBranch-position">
+            <img src="../public/img/branch_01.png" alt="">
         </div>
-    </div> -->
-    
-    <div class="index-main">        
+        <div class="ribbon-position">
+            <img src="img/word_news-01.svg" alt="">        
+        </div>
+        <div class="ribbon-position-text">
+            <div class="ribbon-title">
+                <div class="ribbon-title-bg"></div>
+                <h3>最新消息</h3>
+                <div class="ribbon-title-bg"></div>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, in laborum perspiciatis facilis delectus quia dignissimos placeat autem quasi voluptatem eaque ullam, exercitationem facere incidunt sequi!</p>
+        </div>
+        <div class="index-main">        
         <div class="index-main-left">
         <!-- 臉書粉絲團 -->
         <div class="fb-blog">               
@@ -123,26 +136,78 @@
         <div class="index-main-title">最新活動資訊</div>
         <div class="index-main-content"></div>
         <div class="index-btn-position">
-            <div class="index-more-btn"><a href="news.html">more</a></div>  
+            <div class="index-more-btn"><a href="news.html">more</a>
+                <i class="fas fa-arrow-right"></i>
+            </div>  
         </div>
     </div>        
-    </div>
-    <div class="banner banner-5"></div>
-    <div class="index-about-bg">
-        <div class="index-about">
-          <div class="index-about-img"></div>
-          <div class="index-about-text">
-              <div class="index-about-title">關於農村小旅行</div>
-              <div class="index-about-content">台灣地區多山的環境特質，孕育著豐富與多元化的自然資源，行政院農業委員會水土保持局自76年起以鄉（鎮、市、區）為對象，依各地區特性規劃產業發展、維護公共設施、改善生活環境、保護文物設施及環境等，
-                各社區秉持坡地農村既有資源，發展出不同特色。在資訊多元發展潮流中，資訊傳播已融入現代生活，有鑑於此，水土保持局以網路社群為媒介，
-                建置本網站，將各區之水土保持治理成果、景觀、生態、體驗、故事等特色，透過網站推廣至全國民眾。</div>
-          </div>
         </div>
     </div>
+       
+    <!-- <div class="img-logo-bg">
+    <div class="img-logo "><img src="img/pic_banner-02.png" alt=""></div></div>  -->
+    <!-- 圖片按鈕列 -->
+    <!-- <div class="index-photobar-bg">
+        <div class="index-photobar">      
+            <div class="index-photobar-img">
+                <div class="photobar-btn"><a href="travel.html"><img src="img/summer-7.jpg" alt="">鄉村畜牧</a></div>
+                <div class="photobar-btn"><a href="food.html"><img src="img/summer-6.jpg" alt="">農食教育</a></div>
+                <div class="photobar-btn"><a href="present.html"><img src="img/summer-2.jpg" alt="">農村好物</a></div>
+                <div class="photobar-btn"><a href="journey.html"><img src="img/summer-3.jpg" alt="">鄉村體驗</a></div>
+            </div>
+        </div>
+    </div> -->
+    <div class="wave wave-green"></div>
+    <div class="TreeBranch-position TreeBranch-position-right">
+        <img src="../public/img/branch_01.png" alt="">
+    </div>
     <div class="index-play-bg">
+        <!-- ribbon -->
+        <div class="ribbon-position">
+            <img src="img/word_farms-01.svg" alt="">        
+        </div>
+        <div class="ribbon-position-text">
+            <div class="ribbon-title">
+                <div class="ribbon-title-bg"></div>
+                    <h3>農村推薦</h3>
+                    <div class="ribbon-title-bg"></div>
+                </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, in laborum perspiciatis facilis delectus quia dignissimos placeat autem quasi voluptatem eaque ullam, exercitationem facere incidunt sequi!</p>
+        </div>    
         <div class="index-play">      
-        <div class="index-play-title">農村推薦體驗</div>
-        <div class="index-photo-bar">
+        <!-- <div class="index-play-title">農村推薦體驗</div> -->
+        <div class="index-play-photo">
+            <div class="index-play-photo-img">
+                <div class="index-play-photo-round-bg ">
+                    <img class="animated fadeIn delay-3s" src="/public/img/summer-pic-Round-dg.png">                
+                </div>
+               <img class="animated fadeIn delay-2s" src="../public/img/index-play-img01.png" alt="">
+                <div class="index-play-photo-text">參與自然的豐收</div>
+                <div class="index-play-photo-line"></div>
+            </div>
+            <div class="index-play-photo-img">
+                <div class="index-play-photo-round-bg">
+                    <img class="animated fadeIn delay-3s" src="/public/img/summer-pic-Round-y.png">                
+                </div>
+               <img class="animated fadeIn delay-2s" src="../public/img/index-play-img02.png" alt="">
+                <div class="index-play-photo-text">多元文化的參與</div>
+                <div class="index-play-photo-line"></div>
+            </div>
+            <div class="index-play-photo-img">
+                <div class="index-play-photo-round-bg">
+                    <img class="animated fadeIn delay-3s" src="/public/img/summer-pic-Round-g.png">                
+                </div>
+               <img class="animated fadeIn delay-2s" src="../public/img/index-play-img03.png" alt="">
+                <div class="index-play-photo-text">了解天然生態</div>
+                <div class="index-play-photo-line"></div>
+            </div>
+        </div>
+        <div class="index-play-btn-position">
+            <div class="index-more-btn animated fadeInUp delay-1s"><a href="travel.html">
+                more</a><i class="fas fa-arrow-right"></i></div>  
+        </div>
+        <!-- 輪播按鈕列 -->
+        <!-- <div class="index-photo-bar">
             <div class="index-play-left-btn">
                 <i class="fas fa-angle-left"></i>
             </div>
@@ -158,11 +223,40 @@
         <div class="index-play-right-btn">
             <i class="fas fa-angle-right"></i>
         </div>
-        </div>
+        </div> -->
       </div>    
     </div>
-    <div class="img-fix fix-index-top"><img src="img/new_banner-05.png" alt=""></div>
+    <!-- <div class="banner banner-5"></div> -->  
+    <div class="wave"></div>  
+    <div class="TreeBranch-position">
+        <img src="../public/img/branch_01.png" alt="">
+    </div>
+    <div class="index-about-bg">
+        <!-- ribbon -->
+        <div class="ribbon-position">
+            <img src="img/word_about-01.svg" alt="">        
+        </div>
+        <div class="ribbon-position-text">
+            <div class="ribbon-title">
+                <div class="ribbon-title-bg"></div>
+                <h3>關於我們</h3>
+                <div class="ribbon-title-bg"></div>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, in laborum perspiciatis facilis delectus quia dignissimos placeat autem quasi voluptatem eaque ullam, exercitationem facere incidunt sequi!</p>
+        </div>
+        <div class="index-about">
+          <div class="index-about-img"></div>
+          <div class="index-about-text">
+              <div class="index-about-title">關於農村小旅行</div>
+              <div class="index-about-content">台灣地區多山的環境特質，孕育著豐富與多元化的自然資源，行政院農業委員會水土保持局自76年起以鄉（鎮、市、區）為對象，依各地區特性規劃產業發展、維護公共設施、改善生活環境、保護文物設施及環境等，
+                各社區秉持坡地農村既有資源，發展出不同特色。在資訊多元發展潮流中，資訊傳播已融入現代生活，有鑑於此，水土保持局以網路社群為媒介，
+                建置本網站，將各區之水土保持治理成果、景觀、生態、體驗、故事等特色，透過網站推廣至全國民眾。</div>
+          </div>
+        </div>
+    </div>
+    <!-- <div class="img-fix fix-index-top"><img src="img/new_banner-05.png" alt=""></div> -->
     <div class="footer">
+        <div class="wave wave-green-d"></div>
         <div class="footer-content">
             <div class="footer-content-title"><img src="img/footer-LOGO.png" alt=""></div>
             <ul class="footer-content-left">
@@ -178,8 +272,6 @@
         </div> 
         <div class="scroll-top"><i class="fas fa-chevron-up"></i></div>  
     </div>
-
-    
     <!-- 載入彈跳視窗 -->
 
     <!-- 會員登入視窗 -->
@@ -212,7 +304,7 @@
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js"></script>
-
+    
     <!-- swiper -->
     <script src="https://unpkg.com/swiper/js/swiper.js"></script>
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>

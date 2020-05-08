@@ -9,7 +9,7 @@ body {
   height: 100%;
 }
 body {
-  background: #eee;
+  //background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
@@ -42,10 +42,10 @@ body {
   background-position: center center;
 }
 .swiper-slide-1 {
-  background-image: url(../img/banner-bg-01.jpg);
+  background-image: url(../img/banner-bg-06.jpg);
 }
 .swiper-slide-2 {
-  background-image: url(../img/banner-bg-02.jpg);
+  background-image: url(../img/banner-bg-05.jpg);
 }
 .swiper-slide-3 {
   background-image: url(../img/banner-bg-03.jpg);
@@ -56,6 +56,9 @@ body {
 .swiper-button-next,
 .swiper-button-prev {
   color: #fff;
+}
+.swiper-pagination {
+  margin-bottom: 30px;
 }
 .swiper-pagination-bullet {
   width: 15px;
@@ -79,14 +82,11 @@ body {
   z-index: 49;
 }
 .swiper-banner-logo {
-  width: 300px;
-  height: 300px;
+  width: 80%;
+  height: 60%;
   margin: 0 auto;
-  margin-top: 350px;
+  margin-top: 8%;
   z-index: 48;
-  //position: absolute;
-  //background-image: url(https://img.lovepik.com/original_origin_pic/19/01/02/83414ed3bfbce4482bbeed9279919048.png_wh860.png);
-  //background-color: #fff;
 }
 .swiper-pagination,
 .swiper-button-next,
@@ -96,4 +96,40 @@ body {
 .swiper-banner-img {
   width: 100%;
   height: 100%;
+}
+
+.swiper-banner-bird {
+  width: 150px;
+  height: 150px;
+  z-index: 50;
+  margin-left: 76%;
+  position: relative;
+  animation: move infinite;
+  animation-duration: 3s;
+  animation-direction: alternate-reverse;
+  /* Safari and Chrome */
+  -webkit-animation: move infinite;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-direction: alternate-reverse;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+@keyframes move {
+  from {
+    top: -150px;
+  }
+  to {
+    top: -120px;
+  }
+}
+
+@-webkit-keyframes move {
+  from {
+    top: -150px;
+  }
+  to {
+    top: -120px;
+  }
 }

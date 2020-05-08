@@ -1,7 +1,7 @@
 //最新消息 資料
 ajax(
   "https://cors-anywhere.herokuapp.com/https://gis.taiwan.net.tw/XMLReleaseALL_public/activity_C_f.json",
-  function(response) {
+  function (response) {
     newRender(response);
   }
 );
@@ -19,7 +19,7 @@ function newRender(data) {
 
   //抓出最新50筆
   let newArr = [];
-  arr.forEach(function(item, index) {
+  arr.forEach(function (item, index) {
     let max = arr.length;
     let min = max - 6;
     if (index < max && min < index) {
@@ -36,10 +36,10 @@ function newRender(data) {
 
     //最新消息DOM元素
     let indexMainCrad = document.createElement("div");
-    indexMainCrad.setAttribute("class", "index-main-crad");
+    indexMainCrad.setAttribute("class", "index-main-card");
     let indexMainCradHref = document.createElement("a");
     indexMainCradHref.setAttribute("href", "newsPagination.html?id=" + id);
-    indexMainCradHref.setAttribute("class", "index-main-crad-href");
+    indexMainCradHref.setAttribute("class", "index-main-card-href");
     let cardTitle = document.createElement("div");
     cardTitle.setAttribute("class", "card-title");
     cardTitle.textContent = title;
@@ -59,25 +59,23 @@ function newRender(data) {
     indexMainCradHref.appendChild(cardText);
     indexMainCradHref.appendChild(cardTime);
   }
-};
+}
 
-document.addEventListener("DOMContentLoaded",function(){
-//右移的按鈕
-let RightBtn = document.querySelector(".index-play-right-btn");
-RightBtn.addEventListener("click",moveRight);
-//左移的按鈕
-let LeftBtn = document.querySelector(".index-play-left-btn");
-LeftBtn.addEventListener("click",moveLeft);
-
+document.addEventListener("DOMContentLoaded", function () {
+  //右移的按鈕
+  let RightBtn = document.querySelector(".index-play-right-btn");
+  RightBtn.addEventListener("click", moveRight);
+  //左移的按鈕
+  let LeftBtn = document.querySelector(".index-play-left-btn");
+  LeftBtn.addEventListener("click", moveLeft);
 });
 
-function moveRight(){
+function moveRight() {
   let scroll = document.querySelector(".index-play-img");
   scroll.scrollLeft += 383;
-};
+}
 
-function moveLeft(){
+function moveLeft() {
   let scroll = document.querySelector(".index-play-img");
   scroll.scrollLeft -= 383;
-};
-
+}

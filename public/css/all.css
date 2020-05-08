@@ -91,7 +91,7 @@ option {
 }
 
 body {
-  background-color: #e9f1e7;
+  background-color: #fff;
 }
 
 .main {
@@ -110,7 +110,7 @@ body {
 }
 
 .nav-bar {
-  z-index: 51;
+  z-index: 99;
   background-color: #15713d;
   width: 100%;
   position: fixed;
@@ -207,6 +207,8 @@ body {
 
 .new-menu {
   z-index: 50;
+  margin-top: 30px;
+  margin-bottom: 50px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -219,16 +221,26 @@ body {
   background-color: #fff;
   font-size: 1.1rem;
   letter-spacing: 0.1rem;
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
+  padding-bottom: 3%;
+  padding-top: 3%;
 }
 
 .new-menu a {
   width: 230px;
 }
 
+.new-menu i {
+  width: 100%;
+  text-align: center;
+  color: #53f99b;
+}
+
 .new-menu li {
-  line-height: 65px;
+  color: #15713d;
+  font-weight: 600;
+  line-height: 40px;
+  padding-top: 5px;
+  padding-bottom: 10px;
   text-align: center;
   position: relative;
   -webkit-transition: 0.3s;
@@ -391,6 +403,7 @@ body {
 
 .footer-content {
   margin: 0 auto;
+  padding-top: 3%;
   max-width: 1200px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -1019,11 +1032,13 @@ body {
     opacity: 0;
     z-index: 2;
   }
-  6%, 25% {
+  6%,
+  25% {
     opacity: 1;
     z-index: 1;
   }
-  31%, 100% {
+  31%,
+  100% {
     opacity: 0;
     z-index: 0;
   }
@@ -1034,11 +1049,13 @@ body {
     opacity: 0;
     z-index: 2;
   }
-  6%, 25% {
+  6%,
+  25% {
     opacity: 1;
     z-index: 1;
   }
-  31%, 100% {
+  31%,
+  100% {
     opacity: 0;
     z-index: 0;
   }
@@ -1114,12 +1131,75 @@ body {
   }
 }
 
+.index-main-bg {
+  position: relative;
+}
+
+.TreeBranch-position {
+  margin-top: -6%;
+  margin-left: 8%;
+  position: absolute;
+  width: 12%;
+  z-index: 60;
+}
+
+.TreeBranch-position img {
+  width: 100%;
+}
+
+.bird-position {
+  width: 15%;
+  margin-top: -20%;
+}
+
+.TreeBranch-position-right {
+  right: 10%;
+}
+
+.ribbon-position {
+  width: 12%;
+  margin: 0 auto;
+}
+
+.ribbon-position img {
+  width: 100%;
+}
+
+.ribbon-position-text {
+  width: 45%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ribbon-position-text h3 {
+  font-size: 26px;
+  width: 50%;
+  font-weight: 600;
+  color: #15713d;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  padding-bottom: 1%;
+}
+
+.ribbon-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2% 0;
+}
+
+.ribbon-title-bg {
+  width: 100%;
+  height: 30px;
+  background: url(../img/line-03.svg) repeat-x;
+}
+
 .index-main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   max-width: 1152px;
   margin: 0 auto;
+  padding-bottom: 2%;
 }
 
 @media (max-width: 600px) {
@@ -1168,23 +1248,26 @@ body {
   width: 220px;
 }
 
-.index-main-crad {
+.index-main-card {
   border-bottom: 1px dashed #15713d;
-  padding: 5%;
+  padding: 3%;
+  margin-bottom: 3%;
+  margin-top: 3%;
+  background-color: #f2f6ea;
 }
 
-.index-main-crad .card-title {
+.index-main-card .card-title {
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   font-size: 1.2rem;
   margin-bottom: 2%;
 }
 
-.index-main-crad .card-time {
+.index-main-card .card-time {
   margin-top: 2%;
   text-align: end;
 }
 
-.index-main-crad .card-Text {
+.index-main-card .card-Text {
   text-decoration: none;
   color: #000;
   line-height: 2rem;
@@ -1229,14 +1312,14 @@ body {
 
 .index-more-btn {
   cursor: pointer;
-  height: 30px;
+  height: 40px;
   width: 120px;
-  line-height: 30px;
+  line-height: 40px;
   text-align: center;
   color: #fff;
   background-color: #15713d;
   border: 2px solid #15713d;
-  border-radius: 30px;
+  border-radius: 40px;
   font-size: 1.2rem;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
@@ -1250,12 +1333,19 @@ body {
 }
 
 .index-more-btn:hover {
-  border: 2px solid  #b8cf92;
+  border: 2px solid #b8cf92;
   background: #b8cf92;
+}
+
+.index-play-bg {
+  background-color: #f2f6ea;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .index-about {
   padding: 5% 2%;
+  padding-top: 0%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1295,6 +1385,7 @@ body {
 
 .index-about-bg {
   background-color: #fff;
+  padding-top: 5%;
 }
 
 .index-about-text {
@@ -1585,7 +1676,8 @@ body {
           filter: brightness(1.2);
 }
 
-.index-play-left-btn, .index-play-right-btn {
+.index-play-left-btn,
+.index-play-right-btn {
   font-size: 2rem;
   cursor: pointer;
   color: #15713d;
@@ -1593,8 +1685,68 @@ body {
   margin-bottom: 10%;
 }
 
-.index-play-left-btn:hover, .index-play-right-btn:hover {
+.index-play-left-btn:hover,
+.index-play-right-btn:hover {
   color: #b8cf92;
+}
+
+.index-play-photo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90%;
+  padding-bottom: 5%;
+  margin: 0 auto;
+}
+
+.index-play-photo-img {
+  width: 32.333%;
+  margin: 1%;
+  height: 100%;
+  position: relative;
+}
+
+.index-play-photo-img img {
+  width: 100%;
+}
+
+.index-play-photo-round-bg {
+  width: 45%;
+  height: 45%;
+  z-index: 60;
+  margin-left: 55%;
+  margin-top: 55%;
+  position: absolute;
+}
+
+.index-play-photo-text {
+  margin-top: 8%;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  color: #15713d;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+}
+
+.index-play-photo-line {
+  background-color: #ffe04c;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 1%;
+  padding-top: 2%;
+}
+
+.index-play-btn-position {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.fa-arrow-right {
+  margin-left: 8%;
 }
 
 .travel-main-title {
@@ -4043,7 +4195,6 @@ body {
 }
 
 body {
-  background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
@@ -4075,11 +4226,11 @@ body {
 }
 
 .swiper-slide-1 {
-  background-image: url(../img/banner-bg-01.jpg);
+  background-image: url(../img/banner-bg-06.jpg);
 }
 
 .swiper-slide-2 {
-  background-image: url(../img/banner-bg-02.jpg);
+  background-image: url(../img/banner-bg-05.jpg);
 }
 
 .swiper-slide-3 {
@@ -4093,6 +4244,10 @@ body {
 .swiper-button-next,
 .swiper-button-prev {
   color: #fff;
+}
+
+.swiper-pagination {
+  margin-bottom: 30px;
 }
 
 .swiper-pagination-bullet {
@@ -4118,10 +4273,10 @@ body {
 }
 
 .swiper-banner-logo {
-  width: 300px;
-  height: 300px;
+  width: 80%;
+  height: 60%;
   margin: 0 auto;
-  margin-top: 350px;
+  margin-top: 8%;
   z-index: 48;
 }
 
@@ -4136,41 +4291,58 @@ body {
   height: 100%;
 }
 
-.ocean {
-  height: 0;
+.swiper-banner-bird {
+  width: 150px;
+  height: 150px;
+  z-index: 50;
+  margin-left: 76%;
+  position: relative;
+  animation: move infinite;
+  animation-duration: 3s;
+  animation-direction: alternate-reverse;
+  /* Safari and Chrome */
+  -webkit-animation: move infinite;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-direction: alternate-reverse;
+}
+
+.swiper-banner-bird img {
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  height: 100%;
+}
+
+@keyframes move {
+  from {
+    top: -150px;
+  }
+  to {
+    top: -120px;
+  }
+}
+
+@-webkit-keyframes move {
+  from {
+    top: -150px;
+  }
+  to {
+    top: -120px;
+  }
 }
 
 .wave {
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+  height: 30px;
+  width: 100%;
   position: absolute;
-  top: -150px;
-  width: 6400px;
-  height: 150px;
-  -webkit-animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-          animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+  margin-top: -30px;
+  background: url(../img/wave_01.svg) repeat-x;
+  z-index: 50;
 }
 
-@-webkit-keyframes wave {
-  0% {
-    margin-left: 0;
-  }
-  100% {
-    margin-left: -1600px;
-  }
+.wave-green {
+  background: url(../img/wave_02.svg) repeat-x;
 }
 
-@keyframes wave {
-  0% {
-    margin-left: 0;
-  }
-  100% {
-    margin-left: -1600px;
-  }
+.wave-green-d {
+  background: url(../img/wave_03.svg) repeat-x;
 }
 /*# sourceMappingURL=all.css.map */

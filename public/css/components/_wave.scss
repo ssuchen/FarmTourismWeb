@@ -1,0 +1,14 @@
+.wave {
+  height: 30px;
+  width: 100%;
+  position: absolute;
+  margin-top: -30px;
+  background: url(../img/wave_01.svg) repeat-x;
+  z-index: 50;
+}
+.wave-green {
+  background: url(../img/wave_02.svg) repeat-x;
+}
+.wave-green-d {
+  background: url(../img/wave_03.svg) repeat-x;
+}
