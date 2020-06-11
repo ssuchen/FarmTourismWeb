@@ -10,6 +10,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="css/all.css" />
     <script src="https://kit.fontawesome.com/ab3a164183.js"></script>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v7.0&appId=2413258078998505&autoLogAppEvents=1"
+    ></script>
     <title>farm web-news-p</title>
   </head>
   <body class="body">
@@ -18,11 +24,11 @@
       <div class="nav-bar">
         <div class="nav-bar-width">
           <div class="nav-bar-logo">
-            <a href="index.html"><img src="img/LOGO-w-02.png" alt=""/></a>
+            <a href="index.html"><img src="img/LOGO-w-02.png" alt="" /></a>
           </div>
           <div class="user-login">
             <div class="user-wish">
-              <div><i class="far fa-heart  loginbtn-list"></i>我的清單</div>
+              <div><i class="far fa-heart loginbtn-list"></i>我的清單</div>
             </div>
             <div class="user-photo"></div>
             <div class="user-name"></div>
@@ -31,7 +37,7 @@
           </div>
         </div>
       </div>
-      <ul class="new-menu">
+      <ul class="new-menu new-menu-fixed">
         <a href="news.html"><li>最新消息</li></a>
         <a href="present.html"><li>農村伴手禮</li></a>
         <a href="travel.html"><li>休閒農業區</li></a>
@@ -46,7 +52,7 @@
             /></a>
           </div>
           <div class="mobile-menu-buttom">
-            <i class="mobile-menu-icon fas fa-bars "></i>
+            <i class="mobile-menu-icon fas fa-bars"></i>
           </div>
         </div>
         <ul class="mobile-menu-list">
@@ -59,9 +65,41 @@
       </div>
       <div class="title"></div>
 
-      <div class="main mine-top">
-        <div class="newspage-main-title">最新消息</div>
+      <div class="main main-top">
+        <!-- <div class="newspage-main-title">最新消息</div> -->
         <div class="newspage-main-content">
+          <div id="fb-root"></div>
+          <!-- <div
+            class="fb-share-button"
+            data-href="https://www.yahoo.com"
+            data-layout="button"
+            data-size="large"
+          >
+            <a
+              target="_blank"
+              href="https://www.yahoo.com"
+              class="fb-xfbml-parse-ignore"
+              >分享</a
+            >
+          </div> -->
+          <!-- <div
+            id="line-btn"
+            class="line-it-button"
+            data-lang="zh_Hant"
+            data-type="share-a"
+            data-ver="3"
+            data-url="https://social-plugins.line.me/zh_TW/how_to_install#lineitbutton"
+            data-color="default"
+            data-size="large"
+            data-count="false"
+            style="display: none;"
+          ></div> -->
+          <!-- <div class="red">
+            <a
+              href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fline.me%2Fen
+            於動態網站使用「LINE分享」按鍵"
+            ></a>
+          </div> -->
           <div class="newspage-left"></div>
           <div class="newspage-right">
             <div class="newspage-other">
@@ -73,10 +111,8 @@
           </div>
         </div>
       </div>
-      <div class="img-fix fix-index-top">
-        <img src="img/new_banner-05.png" alt="" />
-      </div>
       <div class="footer">
+        <div class="wave wave-green-d"></div>
         <div class="footer-content">
           <div class="footer-content-title">
             <img src="img/footer-LOGO.png" alt="" />
@@ -123,12 +159,16 @@
         <h1>最後一頁囉!!</h1>
       </div>
     </div>
+    <script
+      src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js"
+      async="async"
+      defer="defer"
+    ></script>
 
     <!-- 載入 firebase -->
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js"></script>
-
     <script src="js/all.js"></script>
     <script src="js/search.js"></script>
     <script src="js/login_firebase_sdk.js"></script>

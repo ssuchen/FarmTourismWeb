@@ -1,245 +1,277 @@
-
-.presentpagination-main-content{
-    margin-bottom: 3.5%;
-    @include tab-size{
-        margin-top:4%;
-        display: block;
-    }
+.presentpagination-main-content {
+  margin-bottom: 3.5%;
+  @include tab-size {
+    margin-top: 4%;
+    display: block;
+  }
 }
 
-.present-left{
-    
-    margin:0 2%;    
-    padding-bottom:3%; 
-    box-sizing: border-box;
-    @include tab-size{
-        margin: 0 auto;
-        margin-bottom:5%;
-        width: 90%;
-    }
-
+.present-left {
+  margin: 0 2%;
+  padding-bottom: 3%;
+  box-sizing: border-box;
+  @include tab-size {
+    margin: 0 auto;
+    margin-bottom: 5%;
+    width: 90%;
+  }
+  @include phone-size {
+    margin-bottom: 15%;
+  }
 }
-.present-other-title{
-    padding:0 5%;
-    display: flex;
-    justify-content:space-between;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
-    font-size: 1.3rem;
-    margin-top:3%;
-    @include tab-size{
-     margin-top:0;   
+.present-other-title {
+  padding: 0 5%;
+  padding-bottom: 3%;
+  display: flex;
+  justify-content: space-between;
+  font-family: $main-font;
+  color: $main-color-green;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 3%;
+  @include tab-size {
+    margin-top: 0;
+  }
+  a {
+    font-size: 1.2rem;
+    color: gray;
+    &:hover {
+      color: $main-color-green;
     }
-    a{
-        color: gray;
-        &:hover{
-        color:$main-color-green;  
-        }
-    }
+  }
 }
-.presentpagination-content{
-    box-shadow: 3px 3px 10px #ddddddf5;
-    box-sizing: border-box;
-    background-color: #fff;
-    border-radius: 10px;
-    object-fit: cover;
-    margin:0 auto;
-    display: flex;
-    @include tab-size{
-        display: block;
-
-    } 
-    img{
-    width:30%;     
-    margin:3% 0;
-    margin-left:2%;
-    border-radius:15px;
+.presentpagination-content {
+  box-shadow: 3px 3px 10px #ddddddf5;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 10px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: flex;
+  @include tab-size {
+    display: block;
+  }
+  img {
+    width: 30%;
+    margin: 3% 0;
+    margin-left: 2%;
+    border-radius: 15px;
     box-sizing: border-box;
     height: 300px;
     object-fit: cover;
-    @include tab-size{
-        width: 100%;
-        margin:0;
-        border-radius: 30px;
-        padding:3%;
-    }    
+    @include tab-size {
+      width: 100%;
+      margin: 0;
+      border-radius: 30px;
+      padding: 3%;
     }
-    .content-list{
-        padding-top:3%;
-        margin-left:3%;
-        width: 60%;
-        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
-    @include tab-size{
-        width: 95%;
+  }
+  .content-list {
+    padding-top: 3%;
+    margin-left: 3%;
+    width: 60%;
+    font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica,
+      "微軟正黑體", "新細明體", Arial, sans-serif;
+    @include tab-size {
+      width: 95%;
     }
+  }
+  .content-title {
+    margin-top: 3%;
+    font-style: $main-font;
+    color: $main-color-green;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: space-between;
+    @include phone-size {
+      margin-bottom: 8%;
     }
-    .content-title{
-        margin-top:3%;
-        font-size: 1.5rem;
-        margin-bottom:2%;
+  }
+  .content-produceOrg {
+    margin: 1% 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    @include phone-size {
+      margin-bottom: 6%;
     }
-    .content-produceOrg{
-        margin:1% 0;
-        font-size: 1.5rem;
-    }
-    .content-place{
-        margin:1.3% 0;
-        font-size: 1.3rem; 
-    }
-    .content-tel{
-        font-size: 1.2rem;
-         margin:1% 0;
-    }
-    .content-feature{
-        line-height:1.8rem;
-        padding-top:2%;
-        font-size: 1.1rem;
-        @include tab-size{
-        padding-bottom: 5%;
-        }
-    }
+  }
+  .content-place {
+    margin: 2% 0;
+    font-size: 1.2rem;
+  }
+  .content-tel {
+    font-size: 1.2rem;
+    margin: 1% 0;
+  }
+  .content-feature {
+    line-height: 1.8rem;
+    padding-top: 2%;
+    font-size: 1.1rem;
+    padding-bottom: 5%;
+  }
 }
-
-.present-right{
-    display: none;
-    margin:0 2%;
-    box-sizing: border-box;
-    position: relative;
-    @include tab-size{
-        margin: 0 auto;
-        width: 90%;
+.presentPagination-title {
+  margin-top: -50px;
+  margin-bottom: 50px;
+  .ribbon-title {
+    h3 {
+      @include tab-size-L {
+        width: 80%;
+      }
     }
-    
-    .present-left-btn{
-        position: absolute;
-        left:0;
-        top:0;
-        margin-right:1%;
-        margin-top:12%;
-        color:$main-color-green;
-        cursor: pointer;
-        font-size: 3.5rem;
-        &:hover{
-        color:$second-color-green;
-        }
-        @include tab-size-L{
-            margin-top:13%;
-            font-size: 3rem;
-        }
-        @include  tab-size{
-            margin-top:19%;
-        }
-        @include  tab-size-s{
-            margin-right:5%;
-            margin-top:22%;
-        }
-
+  }
+  @include phone-size {
+    margin-top: 100px;
+    margin-bottom: 0px;
+  }
+}
+.presentpagination-mine-top {
+  margin-bottom: 0;
+  padding-top: 0;
+}
+.present-right {
+  display: none;
+  margin: 0 2%;
+  box-sizing: border-box;
+  position: relative;
+  @include tab-size {
+    margin: 0 auto;
+    width: 90%;
+  }
+  @include phone-size {
+    margin-bottom: 15%;
+  }
+  .present-left-btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-right: 1%;
+    margin-top: 12%;
+    color: $main-color-green;
+    cursor: pointer;
+    font-size: 3.5rem;
+    &:hover {
+      color: $second-color-green;
     }
-    .present-right-btn{
-        position: absolute;
-        margin-left:1%;
-        margin-top:12%;
-        cursor: pointer;
-        right:0;
-        top:0;     
-        color:$main-color-green;
-        font-size: 3.5rem;
-        &:hover{
-        color: $second-color-green;
-        }
-        @include tab-size-L{
-            margin-top:13%;
-            font-size: 3rem;
-        }
-        @include  tab-size{
-            margin-top:19%;
-        }
-        @include  tab-size-s{
-            margin-left:5%;
-            margin-top:22%;
-        }
+    @include tab-size-L {
+      margin-top: 13%;
+      font-size: 3rem;
     }
+    @include tab-size {
+      margin-top: 19%;
+    }
+    @include tab-size-s {
+      margin-right: 5%;
+      margin-top: 22%;
+    }
+  }
+  .present-right-btn {
+    position: absolute;
+    margin-left: 1%;
+    margin-top: 12%;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    color: $main-color-green;
+    font-size: 3.5rem;
+    &:hover {
+      color: $second-color-green;
+    }
+    @include tab-size-L {
+      margin-top: 13%;
+      font-size: 3rem;
+    }
+    @include tab-size {
+      margin-top: 19%;
+    }
+    @include tab-size-s {
+      margin-left: 5%;
+      margin-top: 22%;
+    }
+  }
 
-    
-.present-other{
+  .present-other {
     display: flex;
     width: 90%;
     margin: 0 auto;
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
+    padding-bottom: 10%;
     overflow: auto;
     overflow-x: hidden;
-    .other-name{
-        font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
-        margin-top:5%;
-        margin-bottom: 3%;
-        padding-left: 5%;
-        @include phone-size{
-            margin-top:0;
-            margin-bottom:0;
-            
-        }
+    .other-name {
+      font-family: $main-font;
+      font-weight: 600;
+      margin-top: 5%;
+      margin-bottom: 3%;
+      font-size: 1.1rem;
+      line-height: 1.5rem;
+      padding-left: 5%;
+      @include phone-size {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
     }
-    .other-present{
-        width: 100%;
-        display:block;
-        
-      
+    .other-present {
+      width: 100%;
+      display: block;
     }
-    .other-img{
-        border-radius: 30px;
-        width:250px; 
-        height: 250px;
-        padding:5%;
-        box-sizing: border-box;
-        object-fit: cover;
-        img{
-            border-radius: 15px;
-
-        }
-        &:hover{
-            filter: brightness(1.2);
-        }
-        @include phone-size{
-         height: auto;
-        }
-     
+    .other-img {
+      border-radius: 30px;
+      width: 200px;
+      height: 200px;
+      padding: 5%;
+      box-sizing: border-box;
+      object-fit: cover;
+      img {
+        border-radius: 15px;
+      }
+      &:hover {
+        filter: brightness(1.2);
+      }
+      @include phone-size {
+        height: auto;
+        width: 304px;
+      }
     }
-    
-
-}
-.present-content{
-    margin:0 5%;
-    margin-top:3%;
-    
-}
-.present-name{
+  }
+  .present-content {
+    margin: 0 5%;
+    margin-top: 3%;
+  }
+  .present-name {
     font-size: 1.5rem;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
-    margin-bottom:3%;
-}
-.present-place{
+    font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica,
+      "微軟正黑體", "新細明體", Arial, sans-serif;
+    margin-bottom: 3%;
+  }
+  .present-place {
     display: flex;
     font-size: 1.3rem;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
-    margin-bottom:3%;
-}
-.present-city{
+    font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica,
+      "微軟正黑體", "新細明體", Arial, sans-serif;
+    margin-bottom: 3%;
+  }
+  .present-city {
     margin-right: 3%;
-}
-.present-tel{
+  }
+  .present-tel {
     font-size: 1rem;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
-    margin-bottom:3%;
-}
-.present-text{
+    font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica,
+      "微軟正黑體", "新細明體", Arial, sans-serif;
+    margin-bottom: 3%;
+  }
+  .present-text {
     line-height: 1.5rem;
-    font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
-}
+    font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica,
+      "微軟正黑體", "新細明體", Arial, sans-serif;
+  }
 
-.present-name{
-   font-size: 1.2rem;
-   margin-top: 5%;
-   font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif; 
-}
-
-
+  .present-name {
+    font-size: 1.2rem;
+    margin-top: 5%;
+    font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica,
+      "微軟正黑體", "新細明體", Arial, sans-serif;
+  }
 }

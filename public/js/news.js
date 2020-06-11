@@ -1,8 +1,8 @@
 //最新消息 資料
 ajax(
   "https://cors-anywhere.herokuapp.com/https://gis.taiwan.net.tw/XMLReleaseALL_public/activity_C_f.json",
-  function(response) {
-    newsRender(response)
+  function (response) {
+    newsRender(response);
   }
 );
 
@@ -15,13 +15,13 @@ function newsRender(data) {
   let list = data.XML_Head.Infos.Info;
   for (let a = 0; a < list.length; a++) {
     let year = data.XML_Head.Infos.Info[a].Start.slice(0, 4);
-    if (year == "2019") {
+    if (year == "2020") {
       arr.push(data.XML_Head.Infos.Info[a]);
     }
   }
   //抓出最新50筆
   let newArr = [];
-  arr.forEach(function(item, index) {
+  arr.forEach(function (item, index) {
     let max = arr.length;
     let min = max - 49;
     if (index < max && min < index) {
@@ -147,7 +147,7 @@ function newsRender(data) {
     //重新定義監聽的按鈕
     let pageBtn = document.querySelectorAll(".page-btn");
     for (let i = 0; i < pageBtn.length; i++) {
-      pageBtn[i].addEventListener("click", function() {
+      pageBtn[i].addEventListener("click", function () {
         //重新定義點擊的按鈕數字
         nextPage = parseInt(pageBtn[i].innerHTML);
         //改變按鈕 樣式
@@ -156,7 +156,7 @@ function newsRender(data) {
         renderPage();
       });
     }
-  };
+  }
 
   //---------------觸發更換按鈕------------
 
@@ -189,7 +189,7 @@ function newsRender(data) {
 
       let newdata = [];
 
-      newArr.forEach(function(item, index) {
+      newArr.forEach(function (item, index) {
         //利用陣列索引 索引從0開始 所以要加1
         let num = index + 1;
         //當篩選 索引大於最小值 及 小於最大值時 將該筆資料放入陣列
@@ -234,7 +234,7 @@ function newsRender(data) {
 
   //下一頁按鈕
   let addPageBtn = document.querySelector(".add-page");
-  addPageBtn.addEventListener("click", function() {
+  addPageBtn.addEventListener("click", function () {
     if (choseBtn == undefined) {
       choseBtn = 1;
     }
@@ -262,7 +262,7 @@ function newsRender(data) {
 
   //上一頁按鈕
   let lessPageBtn = document.querySelector(".less-page");
-  lessPageBtn.addEventListener("click", function() {
+  lessPageBtn.addEventListener("click", function () {
     if (choseBtn == undefined) {
       choseBtn = 1;
     }
@@ -278,4 +278,4 @@ function newsRender(data) {
     //更改內容資料
     renderPage();
   });
-};
+}

@@ -1,160 +1,191 @@
+.newspage-main-content {
+  display: flex;
+  margin-bottom: 15%;
+  margin-top: 110px;
+  padding-top: 50px;
+  @include tab-size {
+    margin-top: 10%;
+    display: block;
+  }
+  @include tab-size-s {
+    margin-top: -8%;
+    padding-top: 0px;
+  }
+}
+.newspage-left {
+  margin: 0 2%;
+  width: 100%;
+  padding-bottom: 3%;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 5px;
+  @include tab-size {
+    margin: 0 auto;
+    margin-bottom: 5%;
+    width: 90%;
+  }
+}
+.newspage-main-title {
+  font-family: $main-font;
+  margin-bottom: 3%;
+  margin-left: 2%;
+  font-size: 1.5rem;
+  @include tab-size {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+.newspage-img {
+  width: 90%;
+  border-radius: 5px;
+  object-fit: cover;
+  margin: 0 auto;
+  margin-top: 3%;
+  display: flex;
+  @include tab-size {
+    padding-top: 5%;
+  }
+}
+.newspage-right {
+  margin: 0 2%;
+  width: 40%;
+  box-sizing: border-box;
+  @include tab-size {
+    margin: 0 auto;
+    width: 90%;
+  }
+}
 
-.newspage-main-content{
+.newspage-content {
+  margin: 0 5%;
+  margin-top: 5%;
+}
+.newspage-name {
+  font-size: 2rem;
+  color: $main-color-green;
+  font-family: $main-font;
+  margin-bottom: 5%;
+  line-height: 2rem;
+  font-weight: 600;
+  @include tab-size-s {
+    margin-bottom: 8%;
+  }
+}
+.newspage-place {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: $main-font;
+  margin-bottom: 2%;
+  justify-content: space-between;
+}
+.newspage-city {
+  margin-right: 3%;
+}
+.newspage-date {
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: $main-font;
+  margin-bottom: 2%;
+}
+.newspage-web {
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: $main-font;
+  margin-bottom: 3%;
+  @include tab-size-s {
+    margin-bottom: 8%;
+  }
+}
+.newspage-text {
+  line-height: 2rem;
+  font-size: 1.2rem;
+  font-family: $main-font;
+}
+.newspage-other {
+  .other-title {
     display: flex;
-    margin-bottom: 3.5%;
-    @include tab-size{
-        margin-top:4%;
-        display: block;
+    justify-content: space-between;
+    margin-bottom: 3%;
+    width: 85%;
+    @include tab-size {
+      width: 100%;
     }
-}
-.newspage-left{
-    margin:0 2%;    
-    width: 100%;
-    padding-bottom:3%; 
-    box-sizing: border-box;
-    background-color: #fff;
-    border-radius: 5px;
-    @include tab-size{
-        margin: 0 auto;
-        margin-bottom:5%;
-        width: 90%;
+    div {
+      font-weight: 600;
+      color: $main-color-green;
+      margin-bottom: 3%;
+      font-family: $main-font;
+      font-size: 1.4rem;
+      margin-top: 5%;
+      margin-bottom: 3%;
+      @include tab-size {
+        margin-bottom: 0;
+      }
     }
-
-}
-.newspage-main-title{
-    font-family: $main-font;
-    margin-bottom:3%;
-    margin-left:2%;
-    font-size: 1.5rem;
-    @include tab-size{
-        margin-left:0;
-        text-align: center;
-    }
-}
-.newspage-img{
-    width:90%;
-    border-radius: 5px;
-    object-fit: cover;
-    margin:0 auto;
-    margin-top:5%;
-    display: flex;
-    @include tab-size{
-    padding-top:5%;    
-    }
-    
-}
-.newspage-right{
-    margin:0 2%;
-    width: 40%;
-    box-sizing: border-box;
-    @include tab-size{
-        margin: 0 auto;
-        width: 90%;
-    }
-}
-
-.newspage-content{
-    margin:0 5%;
-    margin-top:3%;
-}
-.newspage-name{
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-family: $main-font; 
-    margin-bottom:3%;
-    
-}
-.newspage-place{
-    display: flex;
-    font-size: 1.3rem;
-    font-family: $main-font; 
-    margin-bottom:2%;
-}
-.newspage-city{
-    margin-right: 3%;
-}
-.newspage-date{
-    font-size: 1rem;
-    font-family: $main-font; 
-    margin-bottom:1%;
-}
-.newspage-web{
-    font-size: 1rem;
-    font-family: $main-font; 
-    margin-bottom:3%;
-}
-.newspage-text{
-    line-height: 2rem;
-    font-family:$main-font; 
-}
-.newspage-other{
-    .other-title {
-        display:flex;
-        justify-content: space-between;
-        margin-bottom: 3%;
-        width: 85%;
-        div{
-        font-weight: 530;
+  }
+  .other-more {
+    a {
+      color: gray;
+      font-size: 1rem;
+      &:hover {
         color: $main-color-green;
-        margin-bottom: 3%;
-        font-family:$main-font; 
-        font-size: 1.2rem;
-        margin-top:5%;
-        margin-bottom: 3%;
-        @include tab-size{
-            margin-bottom: 0;
-        }
-        }
+      }
     }
-    .other-more{
-         a{
-            color: gray;
-         &:hover{
-            color:$main-color-green; 
-         } 
-            
-        
-    }
-}
-    .other-space{
-        border-radius: 5px;
-        width:100%;
-        padding:1.5% 0;
-       
-        display: block;
-        @include tab-size{
-            margin: 0;
-            display: flex;
-            width: 100%;
-        }
-    }
-    .other-img{
-        border-radius: 5px;
-        width: 80%;
-        height: 160px;
-        background-color: #fff;
-        padding:2.2%;
-        box-sizing: border-box;
-        object-fit: cover; 
-        &:hover{
-        filter: brightness(1.2);    
-        }  
-        @include tab-size{
-            width: 25%;
-            padding:1.6%;
-            height: 100px;
-        }
-    }
-    .other-name{
-       margin-top: 3%;
-       font-size: 1.2rem;
-       width: 80%;
-       font-family:$main-font; 
-    @include tab-size{
-        width: 100%;
-        line-height: 1.5rem;
-        margin-left: 3%;
-    }
-    }
+  }
+  .other-space {
+    border-radius: 5px;
+    width: 100%;
+    padding: 1.5% 0;
 
+    display: block;
+    @include tab-size {
+      margin: 0;
+      display: flex;
+      width: 100%;
+    }
+  }
+  .other-img {
+    border-radius: 5px;
+    width: 80%;
+    height: 160px;
+    background-color: #fff;
+    padding: 2.2%;
+    box-sizing: border-box;
+    object-fit: cover;
+    &:hover {
+      filter: brightness(1.2);
+    }
+    @include tab-size {
+      width: 25%;
+      padding: 1.6%;
+      height: 100px;
+    }
+  }
+  .other-name {
+    margin-top: 3%;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    width: 80%;
+    font-family: $main-font;
+    @include tab-size {
+      width: 50%;
+      line-height: 1.5rem;
+      margin-left: 3%;
+      margin-right: 3%;
+    }
+  }
+  .other-time {
+    margin-top: 3%;
+  }
+}
+
+.link-btn-position {
+  display: flex !important;
+  align-items: center !important;
+}
+.btn-padding {
+  padding-left: 5px !important;
 }

@@ -57,14 +57,51 @@ function presentpageRender(data) {
       contentFeature.setAttribute("class", "content-feature");
       contentFeature.textContent = feature;
 
+      let newspageName = document.createElement("div");
+      newspageName.setAttribute("class", "newspage-name");
+      newspageName.textContent = name;
+
+      //line share btn
+      LineIt.loadButton();
+      let newspagelineBtn = document.createElement("div");
+      let lineBtnLink = window.location.href;
+      newspagelineBtn.setAttribute("class", "line-it-button");
+      newspagelineBtn.classList.add("btn-padding");
+      newspagelineBtn.setAttribute("data-lang", "zh_Hant");
+      newspagelineBtn.setAttribute("data-type", "share-a");
+      newspagelineBtn.setAttribute("data-ver", "3");
+      newspagelineBtn.setAttribute("data-url", `${lineBtnLink}`);
+      newspagelineBtn.setAttribute("data-color", "default");
+      newspagelineBtn.setAttribute("data-size", "small");
+      newspagelineBtn.setAttribute("data-count", "false");
+      newspagelineBtn.setAttribute("style", "display: none;");
+
+      //fb share btn
+      let newspagefbBtn = document.createElement("div");
+      let fbBtnLink = window.location.href;
+      newspagefbBtn.setAttribute("class", "fb-share-button");
+      newspagefbBtn.classList.add("btn-padding");
+      newspagefbBtn.setAttribute("data-href", fbBtnLink);
+      newspagefbBtn.setAttribute("data-layout", "button");
+      newspagefbBtn.setAttribute("data-size", "small");
+
+      let sharebtnPosition = document.createElement("div");
+      sharebtnPosition.setAttribute("class", "link-btn-position");
+      sharebtnPosition.appendChild(newspagelineBtn);
+      sharebtnPosition.appendChild(newspagefbBtn);
+
       presentPaginationContent.appendChild(otherImg);
       presentPaginationContent.appendChild(contentList);
 
       contentList.appendChild(contentTitle);
       contentList.appendChild(contentProduceOrg);
       contentList.appendChild(contentPlace);
+      contentTitle.appendChild(sharebtnPosition);
       contentList.appendChild(contentTel);
       contentList.appendChild(contentFeature);
+
+      //載入line 按鈕
+      LineIt.loadButton();
     }
     if (item.ID == urlString && urlString == "126") {
       let presentPaginationContent = document.querySelector(
@@ -133,15 +170,25 @@ function presentpageRender(data) {
 }
 
 //右移的按鈕
+
+//let screenWidth = window.screen.width;
 let rightBtn = document.querySelector(".present-right-btn");
 rightBtn.addEventListener("click", function () {
   let scroll = document.querySelector(".present-other");
-  scroll.scrollLeft += 300;
+  let screenWidth = window.screen.width;
+  scroll.scrollLeft += 200;
+  if (screenWidth < 376) {
+    scroll.scrollLeft += 303;
+  }
 });
 
 //左移的按鈕
 let leftBtn = document.querySelector(".present-left-btn");
 leftBtn.addEventListener("click", function () {
   let scroll = document.querySelector(".present-other");
-  scroll.scrollLeft -= 300;
+  let screenWidth = window.screen.width;
+  scroll.scrollLeft -= 200;
+  if (screenWidth < 376) {
+    scroll.scrollLeft -= 303;
+  }
 });

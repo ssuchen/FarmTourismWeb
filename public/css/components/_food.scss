@@ -1,183 +1,213 @@
-
-.food-main-title{
-    font-family:$main-font;
-    font-size: 1.3rem;
-    @media(max-width: 680px){
-        padding-bottom: 2%;
-        padding-left:5%;
-        }
-    @include tab-size-s{
-        padding-top:3%;
-    }
-    @include phone-size{
-        padding-bottom:2.8%;
-        text-align: center;
-    }  
+.food-main-title {
+  font-family: $main-font;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #15713d;
+  @media (max-width: 680px) {
+    padding-bottom: 2%;
+    padding-left: 5%;
+  }
+  @include tab-size-s {
+    padding-top: 3%;
+  }
+  @include phone-size {
+    padding-bottom: 2.8%;
+    text-align: center;
+  }
 }
 
-.food-main-content-text{
-    padding-top: 10%;
-    padding-bottom:50%;
-    font-size: 1.2rem;
-    font-family: $main-font;
+.food-main-content-text {
+  padding-top: 10%;
+  padding-bottom: 50%;
+  font-size: 1.2rem;
+  font-family: $main-font;
 }
-.searchbar-group{
-    select{
-    width: 100%; 
-    padding:1%; 
+.searchbar-group {
+  select {
+    width: 100%;
+    padding: 1%;
     text-align: center;
     text-align-last: center;
 
     //取消向下預設箭頭
-    appearance:none;  
-    -moz-appearance:none;  
-    -webkit-appearance:none;
-    &::-ms-expand{ display: none; }
-
-    @include phone-size{
-        padding:2%;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    &::-ms-expand {
+      display: none;
     }
 
+    @include phone-size {
+      padding: 2%;
     }
-    option{
-        text-align: center;
-        text-align-last: center;
-    }
-    div{
-    width: 100%;
-    padding:1%;
-    @include phone-size{
-      width: auto;
-      padding:2%;
-    }
-    }
-    display: flex;
-    width: 80%;
+  }
+  option {
     text-align: center;
-    @media(max-width: 680px){
-        width: 100%;
-        box-sizing: border-box;
-        padding: 0 3%;
-       margin-bottom:2%;
-    }
-    @include tab-size-s{
-        margin-bottom:0;
-    }
-    @include phone-size{
-        display: block;   
-    }
-}
-.searchbar-input{
-    input{
-        width:300px;
-        border: 0px;
-        outline: none;
-        @include tab-size{
-        width:200px;
-       
-        }
-        @include phone-size {
-          width: 100%;  
-        }
-    }
- }
-.food-card{
-    display: flex;
-    box-sizing: border-box;
-    padding:1% 1%;
-    box-shadow:3px 3px 10px #ddddddf5;
-    margin:0.5%;
-    height: 200px;
-    margin-bottom:2%;
-    max-width: 45%;
-    transform: scale(0.95);
-    transition: transform 0.5s;
-    border:1px solid #fff;
-    background-color: #fff;
-    box-sizing: border-box;
-    border-radius: 5px;
-    &:hover{
-        box-shadow: 3px 3px 8px #a3a2a2; 
-        transform: scale(1);
-    }
-    @include tab-size{
-        max-width: 100%;
-        height: auto;
-        margin:5%;
-        padding:3%;
-        margin-bottom: 0; 
-    }
-}
-.food-card-left{
-   width: 100%;
-}
-.food-card-right{
+    text-align-last: center;
+  }
+  div {
     width: 100%;
-    margin-left: 3%;
-}
-.food-img{
-    position: relative;
-    overflow: hidden;
-    img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px; 
+    padding: 1%;
+    @include phone-size {
+      width: auto;
+      padding: 2%;
     }
+  }
+  display: flex;
+  width: 80%;
+  text-align: center;
+  @media (max-width: 680px) {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 3%;
+    margin-bottom: 2%;
+  }
+  @include tab-size-s {
+    margin-bottom: 0;
+  }
+  @include phone-size {
+    display: block;
+  }
+}
+.searchbar-input {
+  input {
+    width: 300px;
+    border: 0px;
+    outline: none;
+    @include tab-size {
+      width: 200px;
+    }
+    @include phone-size {
+      width: 100%;
+    }
+  }
+}
+.food-card {
+  display: flex;
+  box-sizing: border-box;
+  padding: 1% 1%;
+  box-shadow: 3px 3px 10px #ddddddf5;
+  margin: 0.5%;
+  height: 200px;
+  margin-bottom: 2%;
+  max-width: 45%;
+  transform: scale(0.95);
+  transition: transform 0.5s;
+  border: 1px solid #fff;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  &:hover {
+    box-shadow: 3px 3px 8px #a3a2a2;
+    transform: scale(1);
+  }
+  @include tab-size {
+    max-width: 100%;
+    height: auto;
+    margin: 5%;
+    padding: 3%;
+    margin-bottom: 0;
+  }
+}
+.food-card-left {
+  width: 100%;
+}
+.food-card-right {
+  width: 100%;
+  margin-left: 3%;
+}
+.food-img {
+  position: relative;
+  overflow: hidden;
+  img {
     width: 100%;
     height: 100%;
-    background-color: gray;
-    border-radius: 5px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  border-radius: 5px;
 }
-.food-likebtn{
-    left:5%;
+.food-likebtn {
+  left: 5%;
 }
-.food-title{
-    font-family:$main-font;
-    font-size: 1.5rem;
-    margin:3% 0 ;
-
+.food-title {
+  font-family: $main-font;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $main-color-green;
+  margin: 3% 0;
 }
-.food-main-content{   
-    display: flex;
-    justify-content:center;
-    flex-wrap: wrap;
+.food-main-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.food-textcontent{
-    font-family:$main-font;
-    margin-top:3%;
+.food-textcontent {
+  font-family: $main-font;
+  margin-top: 3%;
 }
-.food-tel{
-    font-family:$main-font;
-    margin:3% 0 ;
-
+.food-tel {
+  font-family: $main-font;
+  margin: 3% 0;
 }
-.food-place{
-    font-family:$main-font;
-    margin:3% 0; 
-    display: flex;
+.food-place {
+  font-family: $main-font;
+  margin: 3% 0;
+  display: flex;
 }
-.food-country{
-    font-family:$main-font;
-    margin-right:3%; 
+.food-country {
+  font-family: $main-font;
+  margin-right: 3%;
 }
-.food-address{
-    margin:3% 0 ;
-    line-height: 1.2rem;
+.food-address {
+  margin: 3% 0;
+  line-height: 1.2rem;
 }
-.food-text{
-    font-family:$main-font;
-    line-height: 1.2rem;
+.food-text {
+  font-family: $main-font;
+  line-height: 1.2rem;
 }
-.searchbar-area{
- @include phone-size{
-    margin:5% 0;
- }
+.searchbar-area {
+  @include phone-size {
+    margin: 5% 0;
+  }
 }
-.searchbar-country{
-@include phone-size{
-    margin-bottom:5%;
-}  
+.searchbar-country {
+  @include phone-size {
+    margin-bottom: 5%;
+  }
 }
-
-
+.food-treeBranch-right-position {
+  margin-top: -60%;
+  right: 5%;
+  z-index: -40;
+  @include tab-size-L {
+    display: none;
+  }
+}
+.food-treeBranch-left-position {
+  margin-top: -30%;
+  width: 10%;
+  z-index: -40;
+  @include tab-size-L {
+    display: none;
+  }
+}
+.food-mountain-right-position {
+  margin-top: -60%;
+  z-index: -40;
+  @include tab-size-L {
+    display: none;
+  }
+}
+.food-mountain-left-position {
+  margin-top: -70%;
+  margin-right: 10%;
+  z-index: -5;
+  @include tab-size-L {
+    display: none;
+  }
+}

@@ -18,7 +18,6 @@ function journeyRender(data) {
     let photo = data[i].PhotoUrl;
     let text = data[i].Contents.substr(0, 38) + "...";
     let tag = data[i].TravelType;
-
     //將tag 字串分開成陣列
     let arr = [];
     for (t = 0; t < tag.length; t++) {
@@ -66,7 +65,7 @@ function journeyRender(data) {
         journeyTag = document.createElement("div");
         journeyTag.setAttribute("class", "journey-tag");
         tag = item;
-        journeyTag.textContent = tag;
+        journeyTag.textContent = "#" + tag;
         journeyGroup.appendChild(journeyTag);
       });
     }
@@ -240,7 +239,7 @@ function journeyRender(data) {
           journeyTag = document.createElement("div");
           journeyTag.setAttribute("class", "journey-tag");
           tag = item;
-          journeyTag.textContent = tag;
+          journeyTag.textContent = "#" + tag;
           journeyGroup.appendChild(journeyTag);
         });
       }
@@ -395,7 +394,7 @@ function journeyRender(data) {
           journeyTag = document.createElement("div");
           journeyTag.setAttribute("class", "journey-tag");
           tag = item;
-          journeyTag.textContent = tag;
+          journeyTag.textContent = "#" + tag;
           journeyGroup.appendChild(journeyTag);
         });
       }

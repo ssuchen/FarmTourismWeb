@@ -90,6 +90,10 @@ option {
   appearance: none;
 }
 
+.wrap {
+  overflow: hidden;
+}
+
 body {
   background-color: #fff;
 }
@@ -99,12 +103,17 @@ body {
   margin: 0 auto;
 }
 
-.mine-top {
-  padding-top: 150px;
+.main-title {
+  margin-top: 110px;
+  padding-top: 2%;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 }
 
 @media (max-width: 600px) {
-  .mine-top {
+  .main-top {
     padding-top: 80px;
   }
 }
@@ -222,7 +231,7 @@ body {
   font-size: 1.1rem;
   letter-spacing: 0.1rem;
   padding-bottom: 3%;
-  padding-top: 3%;
+  padding-top: 45px;
 }
 
 .new-menu a {
@@ -279,6 +288,12 @@ body {
   }
 }
 
+.new-menu-fixed {
+  position: fixed;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 .mobile-menu {
   display: none;
   background-color: #fff;
@@ -292,7 +307,7 @@ body {
     top: 0;
     position: fixed;
     width: 100%;
-    z-index: 50;
+    z-index: 119;
   }
 }
 
@@ -347,6 +362,7 @@ body {
   position: relative;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  font-weight: 600;
 }
 
 .mobile-menu-list li:after {
@@ -488,6 +504,7 @@ body {
 }
 
 .user-wish {
+  font-size: 1.2rem;
   padding-top: 0.5%;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   width: 120px;
@@ -579,7 +596,7 @@ body {
   background-position: center center;
   background-size: cover;
   position: fixed;
-  z-index: 60;
+  z-index: 121;
   top: 30%;
   margin-left: 45%;
   -webkit-transform: translate(-150px);
@@ -734,8 +751,15 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 220px;
   width: 100%;
   margin-bottom: 3%;
+}
+
+@media (max-width: 768px) {
+  .searchbar {
+    margin-top: 180px;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -753,10 +777,16 @@ body {
   }
 }
 
+@media (max-width: 600px) {
+  .searchbar {
+    margin-top: 0px;
+  }
+}
+
 .searchbar-area {
   font-size: 1.1rem;
   cursor: pointer;
-  border-left: 2px solid #b8cf92;
+  border: 2px solid #b8cf92;
   outline: none;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
@@ -768,7 +798,6 @@ body {
 
 @media (max-width: 510px) {
   .searchbar-area {
-    border-left: 0px;
     border-bottom: 2px solid #b8cf92;
   }
 }
@@ -776,15 +805,16 @@ body {
 .searchbar-country {
   cursor: pointer;
   font-size: 1.1rem;
-  border-left: 2px solid #b8cf92;
+  border: 2px solid #b8cf92;
+  border-right: 1px;
+  border-left: 1px;
   outline: none;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
 @media (max-width: 510px) {
   .searchbar-country {
-    border-left: 0px;
-    border-bottom: 2px solid #b8cf92;
+    border: 2px solid #b8cf92;
   }
 }
 
@@ -871,9 +901,13 @@ body {
   color: #000;
 }
 
+.searchbar-input {
+  border: 2px solid #b8cf92;
+  border-right: 0px;
+}
+
 .searchbar-input input {
   width: 300px;
-  border: 0px;
   background-color: #fff;
   outline: none;
 }
@@ -887,6 +921,12 @@ body {
 @media (max-width: 510px) {
   .searchbar-input input {
     width: 100%;
+  }
+}
+
+@media (max-width: 510px) {
+  .searchbar-input {
+    border-right: 2px solid #b8cf92;
   }
 }
 
@@ -952,6 +992,12 @@ body {
           align-items: center;
 }
 
+@media (max-width: 1000px) {
+  .page-bar {
+    padding-bottom: 10%;
+  }
+}
+
 .less-page:hover,
 .add-page:hover {
   cursor: pointer;
@@ -971,7 +1017,7 @@ body {
   right: 0;
   background-color: #000;
   opacity: 0.5;
-  z-index: 59;
+  z-index: 120;
   overflow-y: auto;
 }
 
@@ -979,8 +1025,15 @@ body {
   overflow-y: hidden;
 }
 
+.scroll-top-appear {
+  opacity: 1 !important;
+}
+
 .scroll-top {
   width: 50px;
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
   height: 50px;
   font-size: 1.5rem;
   color: #fff;
@@ -999,11 +1052,17 @@ body {
   background-color: #b8cf92;
   position: fixed;
   bottom: 70px;
-  z-index: 58;
+  z-index: 80;
 }
 
 .scroll-top:hover {
   background-color: #97be57;
+}
+
+@media (max-width: 600px) {
+  .scroll-top {
+    right: 20px;
+  }
 }
 
 .banner {
@@ -1135,6 +1194,12 @@ body {
   position: relative;
 }
 
+@media (max-width: 600px) {
+  .index-main-bg {
+    margin-top: 10%;
+  }
+}
+
 .TreeBranch-position {
   margin-top: -6%;
   margin-left: 8%;
@@ -1147,18 +1212,151 @@ body {
   width: 100%;
 }
 
+.bike-position,
+.foodware-position {
+  margin-top: -7%;
+  right: 10%;
+  position: absolute;
+  width: 12%;
+  z-index: 60;
+}
+
+.bike-position img,
+.foodware-position img {
+  width: 90%;
+}
+
+@media (max-width: 1000px) {
+  .bike-position,
+  .foodware-position {
+    width: 18%;
+  }
+}
+
+.foodware-position {
+  margin-top: -3%;
+}
+
+.foodware-position img {
+  width: 60%;
+}
+
+.index-main-mountain-position-right {
+  margin-top: 3%;
+  right: -3%;
+  position: absolute;
+  width: 18%;
+}
+
+.index-main-mountain-position-right img {
+  width: 100%;
+}
+
+.index-main-mountain-position-left {
+  margin-top: 30%;
+  position: absolute;
+  left: -6%;
+  width: 18%;
+}
+
+.index-main-mountain-position-left img {
+  width: 100%;
+}
+
+.index-play-mountain-position-left {
+  position: absolute;
+  margin-top: 15%;
+  left: -6%;
+  width: 15%;
+}
+
+.index-play-mountain-position-left img {
+  width: 100%;
+}
+
+.index-about-mountain-position-left {
+  position: absolute;
+  margin-top: 5%;
+  left: -6%;
+  width: 15%;
+}
+
+.index-about-mountain-position-left img {
+  width: 100%;
+}
+
+.index-main-mountain-position-right-bottom {
+  margin-top: 45%;
+  right: -3%;
+  position: absolute;
+  width: 18%;
+}
+
+.index-main-mountain-position-right-bottom img {
+  width: 100%;
+}
+
 .bird-position {
   width: 15%;
   margin-top: -20%;
+}
+
+@media (max-width: 1000px) {
+  .bird-position {
+    width: 25%;
+    margin-top: -30%;
+  }
+}
+
+@media (max-width: 600px) {
+  .bird-position {
+    display: none;
+  }
 }
 
 .TreeBranch-position-right {
   right: 10%;
 }
 
+@media (max-width: 768px) {
+  .TreeBranch-position-right {
+    display: none;
+  }
+}
+
+.index-about-TreeBranch-position-right {
+  right: 10%;
+  margin-top: -15%;
+}
+
+.flag-position {
+  margin-top: -4%;
+  margin-left: 10%;
+  position: absolute;
+  width: 12%;
+  z-index: 60;
+}
+
+.flag-position img {
+  width: 100%;
+}
+
 .ribbon-position {
   width: 12%;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .ribbon-position {
+    width: 20%;
+  }
+}
+
+@media (max-width: 600px) {
+  .ribbon-position {
+    width: 30%;
+    margin-bottom: 3%;
+  }
 }
 
 .ribbon-position img {
@@ -1171,6 +1369,18 @@ body {
   text-align: center;
 }
 
+@media (max-width: 1000px) {
+  .ribbon-position-text {
+    width: 60%;
+  }
+}
+
+@media (max-width: 510px) {
+  .ribbon-position-text {
+    width: 80%;
+  }
+}
+
 .ribbon-position-text h3 {
   font-size: 26px;
   width: 50%;
@@ -1178,6 +1388,26 @@ body {
   color: #15713d;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   padding-bottom: 1%;
+}
+
+@media (max-width: 768px) {
+  .ribbon-position-text h3 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 510px) {
+  .ribbon-position-text h3 {
+    margin-bottom: 5%;
+  }
+}
+
+.ribbon-position-text p {
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
 }
 
 .ribbon-title {
@@ -1193,6 +1423,12 @@ body {
   background: url(../img/line-03.svg) repeat-x;
 }
 
+@media (max-width: 510px) {
+  .ribbon-title-bg {
+    width: 40%;
+  }
+}
+
 .index-main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1200,11 +1436,24 @@ body {
   max-width: 1152px;
   margin: 0 auto;
   padding-bottom: 2%;
+  padding-top: 2%;
 }
 
 @media (max-width: 600px) {
   .index-main {
     display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .index-main {
+    padding-top: 20%;
+  }
+}
+
+@media (max-width: 510px) {
+  .index-main {
+    padding-top: 10%;
   }
 }
 
@@ -1242,10 +1491,17 @@ body {
 .index-main-title {
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .index-main-title img {
   width: 220px;
+}
+
+@media (max-width: 510px) {
+  .index-main-title {
+    text-align: center;
+  }
 }
 
 .index-main-card {
@@ -1256,10 +1512,17 @@ body {
   background-color: #f2f6ea;
 }
 
+@media (max-width: 510px) {
+  .index-main-card {
+    margin-bottom: 6%;
+  }
+}
+
 .index-main-card .card-title {
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   font-size: 1.2rem;
   margin-bottom: 2%;
+  font-weight: 600;
 }
 
 .index-main-card .card-time {
@@ -1337,20 +1600,36 @@ body {
   background: #b8cf92;
 }
 
-.index-play-bg {
+.index-play-bg,
+.index-present-bg {
   background-color: #f2f6ea;
   padding-top: 5%;
   padding-bottom: 5%;
 }
 
+@media (max-width: 600px) {
+  .index-play-bg,
+  .index-present-bg {
+    padding-top: 15%;
+  }
+}
+
 .index-about {
   padding: 5% 2%;
-  padding-top: 0%;
+  padding-top: 5%;
+  padding-bottom: 10%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   max-width: 1000px;
   margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+  .index-about {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1361,7 +1640,7 @@ body {
 }
 
 .index-about-img {
-  border-radius: 30%;
+  border-radius: 10%;
   width: 300px;
   height: 300px;
   background-position: center center;
@@ -1380,12 +1659,25 @@ body {
 @media (max-width: 600px) {
   .index-about-img {
     margin: 0 auto;
+    margin-bottom: 10%;
   }
 }
 
-.index-about-bg {
+.index-about-bg,
+.index-food-bg {
   background-color: #fff;
   padding-top: 5%;
+}
+
+@media (max-width: 600px) {
+  .index-about-bg,
+  .index-food-bg {
+    padding-top: 15%;
+  }
+}
+
+.index-food-bg {
+  padding-bottom: 5%;
 }
 
 .index-about-text {
@@ -1416,6 +1708,8 @@ body {
 
 .index-about-title {
   font-size: 1.5rem;
+  font-weight: 600;
+  color: #15713d;
   margin: 3% 0;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
@@ -1426,7 +1720,9 @@ body {
 
 .index-about-content {
   line-height: 2rem;
+  font-size: 1.1rem;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  letter-spacing: 0.1rem;
 }
 
 @media (max-width: 1000px) {
@@ -1434,6 +1730,19 @@ body {
     margin-right: 2%;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
+  }
+}
+
+@media (max-width: 600px) {
+  .index-about-content {
+    margin-bottom: 15%;
+  }
+}
+
+@media (max-width: 510px) {
+  .index-about-content {
+    margin-right: 0;
+    margin-bottom: 30%;
   }
 }
 
@@ -1498,13 +1807,24 @@ body {
   margin-top: -120px;
 }
 
-.index-play {
+.index-div-show {
+  opacity: 1 !important;
+}
+
+.index-play,
+.index-food,
+.index-present {
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 @media (max-width: 600px) {
-  .index-play {
+  .index-play,
+  .index-food,
+  .index-present {
     display: block;
   }
 }
@@ -1690,7 +2010,9 @@ body {
   color: #b8cf92;
 }
 
-.index-play-photo {
+.index-play-photo,
+.index-food-photo,
+.index-present-photo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1699,27 +2021,215 @@ body {
   margin: 0 auto;
 }
 
-.index-play-photo-img {
+@media (max-width: 510px) {
+  .index-play-photo,
+  .index-food-photo,
+  .index-present-photo {
+    display: block;
+  }
+}
+
+.index-present-photo-bground {
+  width: 70%;
+  margin-top: 16%;
+  margin-left: 8%;
+  height: 60%;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+}
+
+.index-food-photo,
+.index-present-photo {
+  padding-top: 5%;
+}
+
+.index-present-shiny {
+  width: 30%;
+  height: 30%;
+  position: absolute;
+  left: -10%;
+  top: 5%;
+  z-index: 60;
+}
+
+.index-play-photo-img,
+.index-food-photo-img,
+.index-present-photo-img {
   width: 32.333%;
   margin: 1%;
   height: 100%;
   position: relative;
 }
 
-.index-play-photo-img img {
+.index-play-photo-img img,
+.index-food-photo-img img,
+.index-present-photo-img img {
   width: 100%;
 }
 
-.index-play-photo-round-bg {
+@media (max-width: 510px) {
+  .index-play-photo-img,
+  .index-food-photo-img,
+  .index-present-photo-img {
+    margin: 0 auto;
+    width: 60%;
+    margin-top: 10%;
+  }
+}
+
+.index-play-photo-round-bg-move {
+  margin-top: 55% !important;
+}
+
+.index-food-photo-round-bg-move {
+  margin-top: 0% !important;
+}
+
+.index-Present-photo-round-bg-move {
+  margin-top: 55% !important;
+}
+
+.index-play-photo-round-bg,
+.index-present-photo-round-bg {
+  opacity: 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
   width: 45%;
   height: 45%;
   z-index: 60;
   margin-left: 55%;
-  margin-top: 55%;
+  margin-top: 100%;
   position: absolute;
 }
 
-.index-play-photo-text {
+.index-play-star {
+  width: 30%;
+  height: 30%;
+  z-index: 60;
+  margin-left: -30%;
+  margin-top: 32%;
+  position: absolute;
+  animation: shiny infinite;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  animation-direction: alternate-reverse;
+  /* Safari and Chrome */
+  -webkit-animation: shiny infinite;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-direction: alternate-reverse;
+}
+
+@media (max-width: 1000px) {
+  .index-play-star {
+    display: none;
+  }
+}
+
+@-webkit-keyframes shiny {
+  from {
+  }
+  to {
+    transform: scale(1.5, 1.5);
+    -ms-transform: scale(1.5, 1.5);
+    /* Internet Explorer */
+    -moz-transform: scale(1.5, 1.5);
+    /* Firefox */
+    -webkit-transform: scale(1.5, 1.5);
+    /* Safari 和 Chrome */
+    -o-transform: scale(1.5, 1.5);
+    /* Opera */
+  }
+}
+
+@keyframes shiny {
+  from {
+  }
+  to {
+    transform: scale(1.5, 1.5);
+    -ms-transform: scale(1.5, 1.5);
+    /* Internet Explorer */
+    -moz-transform: scale(1.5, 1.5);
+    /* Firefox */
+    -webkit-transform: scale(1.5, 1.5);
+    /* Safari 和 Chrome */
+    -o-transform: scale(1.5, 1.5);
+    /* Opera */
+  }
+}
+
+.index-play-star .index-play-star-pic {
+  width: 40%;
+  margin-top: 33%;
+  margin-left: 33%;
+}
+
+.star-left {
+  margin-left: 100%;
+}
+
+.index-food-teapot {
+  width: 30%;
+  height: 30%;
+  z-index: 60;
+  margin-left: -5%;
+  position: absolute;
+  animation: tableware infinite;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  animation-direction: alternate-reverse;
+  /* Safari and Chrome */
+  -webkit-animation: tableware infinite;
+  -webkit-animation-duration: 2.5s;
+  -webkit-animation-direction: alternate-reverse;
+}
+
+@media (max-width: 1000px) {
+  .index-food-teapot {
+    margin-left: 15%;
+    width: 50%;
+  }
+}
+
+@-webkit-keyframes tableware {
+  from {
+  }
+  to {
+    /* IE 9 */
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+  }
+}
+
+@keyframes tableware {
+  from {
+  }
+  to {
+    /* IE 9 */
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+  }
+}
+
+.index-food-teapot .index-food-teapot-pic {
+  width: 35%;
+}
+
+.index-food-photo-round-bg {
+  opacity: 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  margin-left: 0%;
+  margin-top: 50%;
+  width: 50%;
+  height: 50%;
+  z-index: 60;
+  position: absolute;
+}
+
+.index-play-photo-text,
+.index-food-photo-text,
+.index-present-photo-text {
   margin-top: 8%;
   font-size: 1.3rem;
   font-weight: 600;
@@ -1728,7 +2238,14 @@ body {
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
-.index-play-photo-line {
+.index-food-photo-text {
+  line-height: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.index-play-photo-line,
+.index-food-photo-line,
+.index-present-photo-line {
   background-color: #ffe04c;
   width: 60%;
   margin: 0 auto;
@@ -1745,19 +2262,34 @@ body {
           justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .index-play-btn-position {
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+}
+
 .fa-arrow-right {
   margin-left: 8%;
 }
 
 .travel-main-title {
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #15713d;
 }
 
 @media (max-width: 680px) {
   .travel-main-title {
     padding-bottom: 2%;
     padding-left: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .travel-main-title {
+    font-size: 1.5rem;
   }
 }
 
@@ -1771,34 +2303,6 @@ body {
   .travel-main-title {
     padding-bottom: 2.8%;
     text-align: center;
-  }
-}
-
-.searchbar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  margin-bottom: 3%;
-}
-
-@media (max-width: 1000px) {
-  .searchbar {
-    padding: 0 3%;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-  }
-}
-
-@media (max-width: 680px) {
-  .searchbar {
-    display: block;
-    margin-bottom: 0;
   }
 }
 
@@ -1859,7 +2363,9 @@ body {
   text-align: center;
   margin-top: 6%;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #15713d;
 }
 
 .travel-main-content {
@@ -1886,18 +2392,38 @@ body {
 
 .travel-place {
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-  margin-top: 3%;
+  margin-top: 5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-size: 1.1rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: #15713d;
 }
 
 .travel-country {
   margin-right: 3%;
+}
+
+.travel-mountain-right-position {
+  margin-top: 3%;
+  padding-bottom: 5%;
+  position: absolute;
+  width: 18%;
+  right: 5%;
+  top: 80%;
+  z-index: -10;
+}
+
+.travel-mountain-right-position img {
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .travel-mountain-right-position {
+    display: none;
+  }
 }
 
 @media (max-width: 510px) {
@@ -1909,6 +2435,29 @@ body {
 @media (max-width: 510px) {
   .searchbar-country {
     margin-bottom: 5%;
+  }
+}
+
+.travel-treebranch-left-position {
+  z-index: -10;
+  padding-top: 5%;
+  right: 10%;
+}
+
+@media (max-width: 1000px) {
+  .travel-treebranch-left-position {
+    display: none;
+  }
+}
+
+.travel-treebranch-right-position {
+  margin-top: -50%;
+  z-index: -10;
+}
+
+@media (max-width: 1000px) {
+  .travel-treebranch-right-position {
+    display: none;
   }
 }
 
@@ -1935,6 +2484,23 @@ body {
 
 .page-bar-none {
   display: none;
+}
+
+.travel-mountain-left-position {
+  z-index: -40;
+  position: absolute;
+  left: -6%;
+  width: 18%;
+}
+
+.travel-mountain-left-position img {
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .travel-mountain-left-position {
+    display: none;
+  }
 }
 
 .present-main-title {
@@ -1969,12 +2535,13 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: #fff;
+  border: 1px solid lightgray;
   padding: 1% 1%;
   margin: 0.5%;
   margin-bottom: 2%;
   border-radius: 5px;
   max-width: 270px;
-  height: 380px;
+  height: 450px;
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
   -webkit-transition: -webkit-transform 0.5s;
@@ -1993,7 +2560,7 @@ body {
 @media (max-width: 600px) {
   .present-card {
     max-width: 460px;
-    height: 400px;
+    height: 460px;
     margin: 5%;
     padding: 3%;
     margin-bottom: 0;
@@ -2015,10 +2582,20 @@ body {
 }
 
 .present-title {
-  margin-top: 4%;
+  margin-top: 6%;
+  margin-bottom: 8%;
+  color: #15713d;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-weight: 600;
   font-size: 1.3rem;
   line-height: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .present-title {
+    margin-bottom: 0%;
+    font-size: 1.5rem;
+  }
 }
 
 .present-main-content {
@@ -2052,7 +2629,9 @@ body {
 
 .present-country {
   margin-right: 2%;
-  margin-bottom: 2%;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 5%;
 }
 
 @media (max-width: 510px) {
@@ -2073,6 +2652,53 @@ body {
 
 .searchbar-btn:active {
   background: gray;
+}
+
+.present-mountain-left-position {
+  margin-top: -70%;
+  margin-right: 10%;
+  z-index: -5;
+}
+
+@media (max-width: 768px) {
+  .present-mountain-left-position {
+    display: none;
+  }
+}
+
+.present-treeBranch-right-position {
+  margin-top: -60%;
+  right: 5%;
+  z-index: -40;
+}
+
+@media (max-width: 768px) {
+  .present-treeBranch-right-position {
+    display: none;
+  }
+}
+
+.present-mountain-right-position {
+  margin-top: -60%;
+  z-index: -40;
+}
+
+@media (max-width: 768px) {
+  .present-mountain-right-position {
+    display: none;
+  }
+}
+
+.present-treeBranch-left-position {
+  margin-top: -30%;
+  width: 10%;
+  z-index: -40;
+}
+
+@media (max-width: 768px) {
+  .present-treeBranch-left-position {
+    display: none;
+  }
 }
 
 .travelpage-main-content {
@@ -2147,15 +2773,13 @@ body {
 
 .travelpage-message {
   margin: 0 2%;
-  margin-bottom: 2%;
+  margin-bottom: 15%;
   width: 96%;
   padding: 2% 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 5px;
   background-color: #fff;
-  -webkit-box-shadow: 3px 3px 10px #ddddddf5;
-          box-shadow: 3px 3px 10px #ddddddf5;
 }
 
 @media (max-width: 768px) {
@@ -2184,8 +2808,8 @@ body {
 }
 
 .travelpage-message-content-left img {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 }
 
@@ -2195,7 +2819,9 @@ body {
 
 .travelpage-message-text {
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  color: #15713d;
+  font-weight: 600;
   margin-left: 2%;
   margin-right: 2%;
   margin-bottom: 2%;
@@ -2208,13 +2834,17 @@ body {
   line-height: 2rem;
   margin: 0 2%;
   padding-bottom: 1%;
+  font-size: 1.1rem;
+  letter-spacing: 0.05rem;
 }
 
 .travelpage-message-title {
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  color: #15713d;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-weight: 600;
   font-size: 1.2rem;
   margin: 1% 2%;
   -webkit-box-pack: justify;
@@ -2272,8 +2902,10 @@ body {
 }
 
 .travelpage-message-comment .comment-title {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 1.6%;
+  color: #15713d;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
 .travelpage-message-comment .comment-input {
@@ -2294,7 +2926,8 @@ body {
           justify-content: center;
 }
 
-.travelpage-message-comment .comment-btn .comment-submit-btn, .travelpage-message-comment .comment-btn .comment-cancel-btn {
+.travelpage-message-comment .comment-btn .comment-submit-btn,
+.travelpage-message-comment .comment-btn .comment-cancel-btn {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -2305,14 +2938,16 @@ body {
   border: 1px solid;
   text-align: center;
   font-size: 1.2rem;
-  border-radius: 30px;
+  font-weight: 600;
+  border-radius: 20px;
   margin: 0 1%;
   margin-top: 2%;
   color: #15713d;
   border: 1.5px solid #15713d;
 }
 
-.travelpage-message-comment .comment-btn .comment-submit-btn:hover, .travelpage-message-comment .comment-btn .comment-cancel-btn:hover {
+.travelpage-message-comment .comment-btn .comment-submit-btn:hover,
+.travelpage-message-comment .comment-btn .comment-cancel-btn:hover {
   background-color: #15713d;
   color: #fff;
 }
@@ -2351,10 +2986,26 @@ body {
   margin-top: 3%;
 }
 
+.travelpage-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+.travelpage-town {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
 .travelpage-name {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin-bottom: 3%;
+  margin-top: 5%;
+  font-weight: 600;
+  color: #15713d;
 }
 
 .travelpage-place {
@@ -2368,16 +3019,20 @@ body {
 
 .travelpage-city {
   margin-right: 3%;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
 .travelpage-tel {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin-bottom: 3%;
+  font-weight: 600;
 }
 
 .travelpage-text {
-  line-height: 1.8rem;
+  line-height: 2rem;
+  font-size: 1.05rem;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
@@ -2393,11 +3048,11 @@ body {
 
 .travelpage-other .other-title div {
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-  font-size: 1.3rem;
-  font-weight: 530;
   color: #15713d;
   margin-top: 5%;
   margin-bottom: 3%;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 .travelpage-other .other-space {
@@ -2405,7 +3060,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 1.5% 0;
+  padding: 4% 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2437,15 +3092,27 @@ body {
 
 .travelpage-other .other-name {
   padding-left: 5%;
+  width: 80%;
   font-size: 1.2rem;
+  font-weight: 600;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
 .travelpage-other .other-more a {
   color: gray;
+  font-size: 1.2rem;
 }
 
 .travelpage-other .other-more a:hover {
+  color: #15713d;
+}
+
+.travelpagination-main-top {
+  margin-top: 180px;
+}
+
+.talk-icon {
+  margin-right: 1%;
   color: #15713d;
 }
 
@@ -2475,16 +3142,25 @@ body {
   }
 }
 
+@media (max-width: 510px) {
+  .present-left {
+    margin-bottom: 15%;
+  }
+}
+
 .present-other-title {
   padding: 0 5%;
+  padding-bottom: 3%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-  font-size: 1.3rem;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  color: #15713d;
+  font-size: 1.5rem;
+  font-weight: 600;
   margin-top: 3%;
 }
 
@@ -2495,6 +3171,7 @@ body {
 }
 
 .present-other-title a {
+  font-size: 1.2rem;
   color: gray;
 }
 
@@ -2548,7 +3225,7 @@ body {
   padding-top: 3%;
   margin-left: 3%;
   width: 60%;
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
 @media (max-width: 768px) {
@@ -2559,18 +3236,40 @@ body {
 
 .presentpagination-content .content-title {
   margin-top: 3%;
-  font-size: 1.5rem;
+  font-style: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  color: #15713d;
+  font-size: 1.8rem;
+  font-weight: 600;
   margin-bottom: 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (max-width: 510px) {
+  .presentpagination-content .content-title {
+    margin-bottom: 8%;
+  }
 }
 
 .presentpagination-content .content-produceOrg {
   margin: 1% 0;
   font-size: 1.5rem;
+  font-weight: 600;
+}
+
+@media (max-width: 510px) {
+  .presentpagination-content .content-produceOrg {
+    margin-bottom: 6%;
+  }
 }
 
 .presentpagination-content .content-place {
-  margin: 1.3% 0;
-  font-size: 1.3rem;
+  margin: 2% 0;
+  font-size: 1.2rem;
 }
 
 .presentpagination-content .content-tel {
@@ -2582,12 +3281,30 @@ body {
   line-height: 1.8rem;
   padding-top: 2%;
   font-size: 1.1rem;
+  padding-bottom: 5%;
 }
 
-@media (max-width: 768px) {
-  .presentpagination-content .content-feature {
-    padding-bottom: 5%;
+.presentPagination-title {
+  margin-top: -50px;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 1000px) {
+  .presentPagination-title .ribbon-title h3 {
+    width: 80%;
   }
+}
+
+@media (max-width: 510px) {
+  .presentPagination-title {
+    margin-top: 100px;
+    margin-bottom: 0px;
+  }
+}
+
+.presentpagination-mine-top {
+  margin-bottom: 0;
+  padding-top: 0;
 }
 
 .present-right {
@@ -2602,6 +3319,12 @@ body {
   .present-right {
     margin: 0 auto;
     width: 90%;
+  }
+}
+
+@media (max-width: 510px) {
+  .present-right {
+    margin-bottom: 15%;
   }
 }
 
@@ -2682,14 +3405,18 @@ body {
   width: 90%;
   margin: 0 auto;
   scroll-behavior: smooth;
+  padding-bottom: 10%;
   overflow: auto;
   overflow-x: hidden;
 }
 
 .present-right .present-other .other-name {
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-weight: 600;
   margin-top: 5%;
   margin-bottom: 3%;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
   padding-left: 5%;
 }
 
@@ -2707,8 +3434,8 @@ body {
 
 .present-right .present-other .other-img {
   border-radius: 30px;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   padding: 5%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -2728,6 +3455,7 @@ body {
 @media (max-width: 510px) {
   .present-right .present-other .other-img {
     height: auto;
+    width: 304px;
   }
 }
 
@@ -2738,7 +3466,7 @@ body {
 
 .present-right .present-name {
   font-size: 1.5rem;
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin-bottom: 3%;
 }
 
@@ -2747,7 +3475,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   font-size: 1.3rem;
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin-bottom: 3%;
 }
 
@@ -2757,24 +3485,26 @@ body {
 
 .present-right .present-tel {
   font-size: 1rem;
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin-bottom: 3%;
 }
 
 .present-right .present-text {
   line-height: 1.5rem;
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
 .present-right .present-name {
   font-size: 1.2rem;
   margin-top: 5%;
-  font-family: "Lato","PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
 .food-main-title {
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #15713d;
 }
 
 @media (max-width: 680px) {
@@ -2964,6 +3694,8 @@ body {
 .food-title {
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   font-size: 1.5rem;
+  font-weight: 600;
+  color: #15713d;
   margin: 3% 0;
 }
 
@@ -3020,6 +3752,53 @@ body {
 @media (max-width: 510px) {
   .searchbar-country {
     margin-bottom: 5%;
+  }
+}
+
+.food-treeBranch-right-position {
+  margin-top: -60%;
+  right: 5%;
+  z-index: -40;
+}
+
+@media (max-width: 1000px) {
+  .food-treeBranch-right-position {
+    display: none;
+  }
+}
+
+.food-treeBranch-left-position {
+  margin-top: -30%;
+  width: 10%;
+  z-index: -40;
+}
+
+@media (max-width: 1000px) {
+  .food-treeBranch-left-position {
+    display: none;
+  }
+}
+
+.food-mountain-right-position {
+  margin-top: -60%;
+  z-index: -40;
+}
+
+@media (max-width: 1000px) {
+  .food-mountain-right-position {
+    display: none;
+  }
+}
+
+.food-mountain-left-position {
+  margin-top: -70%;
+  margin-right: 10%;
+  z-index: -5;
+}
+
+@media (max-width: 1000px) {
+  .food-mountain-left-position {
+    display: none;
   }
 }
 
@@ -3255,7 +4034,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   margin: 0.5%;
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 
 @media (max-width: 768px) {
@@ -3265,10 +4044,12 @@ body {
 }
 
 .tag-title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
+  color: #15713d;
+  font-weight: 600;
   margin-right: 2%;
-  width: 100px;
+  width: 150px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -3290,6 +4071,8 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 @media (max-width: 768px) {
@@ -3360,7 +4143,7 @@ body {
   transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
   transition: transform 0.5s, -webkit-transform 0.5s;
-  height: 560px;
+  height: 630px;
 }
 
 .journey-card:hover {
@@ -3397,9 +4180,9 @@ body {
 .journey-title {
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin: 3% 0;
-  line-height: 1.6rem;
-  font-size: 1.2rem;
-  letter-spacing: 0.1rem;
+  line-height: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
 .journey-main-content {
@@ -3425,17 +4208,18 @@ body {
 
 .journey-tag {
   padding: 2%;
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-align: center;
   width: 25%;
   margin: 1%;
   color: #15713d;
   border-radius: 3px;
-  border: 1px solid  #a5b68c;
+  border: 2px solid #a5b68c;
 }
 
 .journey-text {
   line-height: 1.5rem;
+  font-size: 1rem;
 }
 
 @media (max-width: 510px) {
@@ -3475,6 +4259,71 @@ body {
   background-color: #15713d;
   border: 1px solid #15713d;
   color: #fff;
+}
+
+.journey-mountain-right-position {
+  margin-top: 3%;
+  padding-bottom: 5%;
+  position: absolute;
+  width: 18%;
+  right: 5%;
+  top: 80%;
+  z-index: -12;
+}
+
+.journey-mountain-right-position img {
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .journey-mountain-right-position {
+    display: none;
+  }
+}
+
+.journey-mountain-left-position {
+  z-index: -40;
+  top: 60%;
+  position: absolute;
+  left: -6%;
+  width: 18%;
+}
+
+.journey-mountain-left-position img {
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .journey-mountain-left-position {
+    display: none;
+  }
+}
+
+.journey-treebranch-left-position {
+  z-index: -10;
+  padding-top: 5%;
+  right: 10%;
+}
+
+@media (max-width: 1000px) {
+  .journey-treebranch-left-position {
+    display: none;
+  }
+}
+
+.journey-treebranch-right-position {
+  margin-top: -120%;
+  z-index: -10;
+}
+
+@media (max-width: 1000px) {
+  .journey-treebranch-right-position {
+    display: none;
+  }
+}
+
+.journey-main-top {
+  padding-top: 180px;
 }
 
 .journeypagination-main-content {
@@ -3619,10 +4468,14 @@ body {
 }
 
 .news-main-title {
-  margin-left: 8%;
+  padding-left: 5%;
+  margin: 0 auto;
+  max-width: 1152px;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   font-size: 1.5rem;
   padding-bottom: 2%;
+  font-weight: 600;
+  color: #15713d;
 }
 
 @media (max-width: 680px) {
@@ -3650,13 +4503,14 @@ body {
   display: flex;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 1% 1%;
+  padding: 2% 2%;
   -webkit-box-shadow: 3px 3px 10px #ddddddf5;
           box-shadow: 3px 3px 10px #ddddddf5;
   margin: 0.5%;
-  height: 180px;
+  height: 280px;
+  width: 1000px;
   margin-bottom: 2%;
-  max-width: 80%;
+  max-width: 95%;
   border: 1px solid #fff;
   background-color: #fff;
   box-sizing: border-box;
@@ -3692,12 +4546,12 @@ body {
 }
 
 .news-card-left {
-  width: 25%;
+  width: 35%;
 }
 
 @media (max-width: 768px) {
   .news-card-left {
-    width: 38%;
+    width: 60%;
   }
 }
 
@@ -3738,20 +4592,99 @@ body {
 }
 
 .news-title {
-  font-size: 1.2rem;
-  line-height: 1.5rem;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  font-weight: 600;
+  padding-bottom: 3%;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin: 0;
+}
+
+.main-title-padding p {
+  padding-bottom: 35px;
+}
+
+@media (max-width: 600px) {
+  .main-title-padding {
+    margin-top: 49px;
+  }
+}
+
+.news-TreeBranch-right-position {
+  position: fixed;
+  margin-top: 28%;
+  z-index: -10;
+}
+
+@media (max-width: 1000px) {
+  .news-TreeBranch-right-position {
+    display: none;
+  }
+}
+
+.news-TreeBranch-left-position {
+  position: fixed;
+  margin-top: 16%;
+  z-index: -10;
+}
+
+@media (max-width: 1000px) {
+  .news-TreeBranch-left-position {
+    display: none;
+  }
+}
+
+.news-mountain-left-position {
+  position: fixed;
+  margin-top: 22%;
+  z-index: -10;
+}
+
+@media (max-width: 1000px) {
+  .news-mountain-left-position {
+    display: none;
+  }
+}
+
+.news-mountain-right-position {
+  position: fixed;
+  margin-top: 25%;
+  z-index: -10;
+  margin-right: -5%;
+}
+
+@media (max-width: 1000px) {
+  .news-mountain-right-position {
+    display: none;
+  }
+}
+
+.news-ribbon-position-text {
+  width: 50%;
+}
+
+@media (max-width: 1000px) {
+  .news-ribbon-position-text {
+    width: 80%;
+  }
 }
 
 .news-main-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding-top: 280px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .news-main-content {
+    padding-top: 120px;
+  }
 }
 
 .news-textcontent {
@@ -3760,10 +4693,18 @@ body {
 
 .news-org {
   margin: 2% 0;
+  padding: 0.5% 1.5%;
+  font-size: 1.1rem;
+  color: #fff;
+  display: inline;
+  background-color: #b8cf92;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
 .news-place {
   margin: 1% 0;
+  margin-bottom: 2%;
+  font-size: 1.2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3771,6 +4712,9 @@ body {
 
 .news-date {
   margin-right: 3%;
+  padding-top: 2%;
+  color: #15713d;
+  font-weight: 600;
 }
 
 .news-address {
@@ -3779,20 +4723,31 @@ body {
 }
 
 .news-text {
-  line-height: 1.2rem;
+  line-height: 1.8rem;
+  font-size: 1.2rem;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
 .newspage-main-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 3.5%;
+  margin-bottom: 15%;
+  margin-top: 110px;
+  padding-top: 50px;
 }
 
 @media (max-width: 768px) {
   .newspage-main-content {
-    margin-top: 4%;
+    margin-top: 10%;
     display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .newspage-main-content {
+    margin-top: -8%;
+    padding-top: 0px;
   }
 }
 
@@ -3834,7 +4789,7 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
   margin: 0 auto;
-  margin-top: 5%;
+  margin-top: 3%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3862,23 +4817,38 @@ body {
 
 .newspage-content {
   margin: 0 5%;
-  margin-top: 3%;
+  margin-top: 5%;
 }
 
 .newspage-name {
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 2rem;
+  color: #15713d;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-  margin-bottom: 3%;
+  margin-bottom: 5%;
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .newspage-name {
+    margin-bottom: 8%;
+  }
 }
 
 .newspage-place {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 1.3rem;
+  font-weight: 600;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin-bottom: 2%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .newspage-city {
@@ -3886,19 +4856,28 @@ body {
 }
 
 .newspage-date {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-  margin-bottom: 1%;
+  margin-bottom: 2%;
 }
 
 .newspage-web {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   margin-bottom: 3%;
 }
 
+@media (max-width: 600px) {
+  .newspage-web {
+    margin-bottom: 8%;
+  }
+}
+
 .newspage-text {
   line-height: 2rem;
+  font-size: 1.2rem;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
@@ -3913,12 +4892,18 @@ body {
   width: 85%;
 }
 
+@media (max-width: 768px) {
+  .newspage-other .other-title {
+    width: 100%;
+  }
+}
+
 .newspage-other .other-title div {
-  font-weight: 530;
+  font-weight: 600;
   color: #15713d;
   margin-bottom: 3%;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-top: 5%;
   margin-bottom: 3%;
 }
@@ -3931,6 +4916,7 @@ body {
 
 .newspage-other .other-more a {
   color: gray;
+  font-size: 1rem;
 }
 
 .newspage-other .other-more a:hover {
@@ -3981,17 +4967,37 @@ body {
 
 .newspage-other .other-name {
   margin-top: 3%;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
   width: 80%;
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
 }
 
 @media (max-width: 768px) {
   .newspage-other .other-name {
-    width: 100%;
+    width: 50%;
     line-height: 1.5rem;
     margin-left: 3%;
+    margin-right: 3%;
   }
+}
+
+.newspage-other .other-time {
+  margin-top: 3%;
+}
+
+.link-btn-position {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+}
+
+.btn-padding {
+  padding-left: 5px !important;
 }
 
 .wish-main-title {
@@ -4241,6 +5247,18 @@ body {
   height: 800px;
 }
 
+@media (max-width: 1000px) {
+  .swiper-wrapper {
+    height: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .swiper-wrapper {
+    height: 500px;
+  }
+}
+
 .swiper-button-next,
 .swiper-button-prev {
   color: #fff;
@@ -4278,6 +5296,12 @@ body {
   margin: 0 auto;
   margin-top: 8%;
   z-index: 48;
+}
+
+@media (max-width: 600px) {
+  .swiper-banner-logo {
+    margin-top: 15%;
+  }
 }
 
 .swiper-pagination,

@@ -12,7 +12,7 @@ function newRender(data) {
   let list = data.XML_Head.Infos.Info;
   for (let a = 0; a < list.length; a++) {
     let year = data.XML_Head.Infos.Info[a].Start.slice(0, 4);
-    if (year == "2019") {
+    if (year == "2020") {
       arr.push(data.XML_Head.Infos.Info[a]);
     }
   }
@@ -61,21 +61,21 @@ function newRender(data) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  //右移的按鈕
-  let RightBtn = document.querySelector(".index-play-right-btn");
-  RightBtn.addEventListener("click", moveRight);
-  //左移的按鈕
-  let LeftBtn = document.querySelector(".index-play-left-btn");
-  LeftBtn.addEventListener("click", moveLeft);
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//   //右移的按鈕
+//   let RightBtn = document.querySelector(".index-play-right-btn");
+//   RightBtn.addEventListener("click", moveRight);
+//   //左移的按鈕
+//   let LeftBtn = document.querySelector(".index-play-left-btn");
+//   LeftBtn.addEventListener("click", moveLeft);
+// });
 
-function moveRight() {
-  let scroll = document.querySelector(".index-play-img");
-  scroll.scrollLeft += 383;
-}
+// function moveRight() {
+//   let scroll = document.querySelector(".index-play-img");
+//   scroll.scrollLeft += 383;
+// }
 
-function moveLeft() {
-  let scroll = document.querySelector(".index-play-img");
-  scroll.scrollLeft -= 383;
-}
+// function moveLeft() {
+//   let scroll = document.querySelector(".index-play-img");
+//   scroll.scrollLeft -= 383;
+// }

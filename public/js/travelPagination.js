@@ -55,6 +55,9 @@ function travelpageRender(data) {
       travelpageName.setAttribute("class", "travelpage-name");
       travelpageName.textContent = name;
 
+      let travelpageTitle = document.createElement("div");
+      travelpageTitle.setAttribute("class", "travelpage-title");
+
       let travelpagePlace = document.createElement("div");
       travelpagePlace.setAttribute("class", "travelpage-place");
 
@@ -67,11 +70,41 @@ function travelpageRender(data) {
 
       let travelpageTel = document.createElement("div");
       travelpageTel.setAttribute("class", "travelpage-tel");
-      travelpageTel.textContent = tel;
+      travelpageTel.textContent = "連絡電話 | " + tel;
 
       let travelpageText = document.createElement("div");
       travelpageText.setAttribute("class", "travelpage-text");
       travelpageText.textContent = introduction;
+
+      //line share btn
+      LineIt.loadButton();
+      let newspagelineBtn = document.createElement("div");
+      let lineBtnLink = window.location.href;
+      //console.log(lineBtnLink);
+      newspagelineBtn.setAttribute("class", "line-it-button");
+      newspagelineBtn.classList.add("btn-padding");
+      newspagelineBtn.setAttribute("data-lang", "zh_Hant");
+      newspagelineBtn.setAttribute("data-type", "share-a");
+      newspagelineBtn.setAttribute("data-ver", "3");
+      newspagelineBtn.setAttribute("data-url", `${lineBtnLink}`);
+      newspagelineBtn.setAttribute("data-color", "default");
+      newspagelineBtn.setAttribute("data-size", "small");
+      newspagelineBtn.setAttribute("data-count", "false");
+      newspagelineBtn.setAttribute("style", "display: none;");
+
+      // //fb share btn
+      let newspagefbBtn = document.createElement("div");
+      let fbBtnLink = window.location.href;
+      newspagefbBtn.setAttribute("class", "fb-share-button");
+      newspagefbBtn.classList.add("btn-padding");
+      newspagefbBtn.setAttribute("data-href", fbBtnLink);
+      newspagefbBtn.setAttribute("data-layout", "button");
+      newspagefbBtn.setAttribute("data-size", "small");
+
+      let sharebtnPosition = document.createElement("div");
+      sharebtnPosition.setAttribute("class", "link-btn-position");
+      sharebtnPosition.appendChild(newspagelineBtn);
+      sharebtnPosition.appendChild(newspagefbBtn);
 
       //建立google map 標籤
       let travelpageMap = document.querySelector(".travelpage-map");
@@ -92,7 +125,10 @@ function travelpageRender(data) {
       travelpageLeft.appendChild(travelpageImg);
       travelpageLeft.appendChild(travelpageContent);
 
-      travelpageContent.appendChild(travelpageName);
+      travelpageContent.appendChild(travelpageTitle);
+      travelpageTitle.appendChild(travelpageName);
+      travelpageTitle.appendChild(sharebtnPosition);
+
       travelpageContent.appendChild(travelpagePlace);
 
       travelpagePlace.appendChild(travelpageCity);
@@ -116,7 +152,7 @@ function travelpageRender(data) {
           MessageArr = [];
           let travelpageMessage = document.querySelector(".travelpage-message");
           travelpageMessage.innerHTML =
-            '<div class="travelpage-message-text">留言評價</div>';
+            '<div class="travelpage-message-text"><i class="far fa-comment-dots  talk-icon"></i>留言評價</div>';
           snapshop.docs.forEach(function (doc) {
             if (doc.data().id == urlString) {
               MessageArr.push(doc.data());

@@ -3,6 +3,7 @@ ajax(
   "https://cors-anywhere.herokuapp.com/https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAgriculturalProduce.aspx",
   function (response) {
     presentRender(response);
+    typeof response;
   }
 );
 

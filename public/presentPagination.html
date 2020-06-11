@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="css/all.css" />
     <script src="https://kit.fontawesome.com/ab3a164183.js"></script>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v7.0&appId=2413258078998505&autoLogAppEvents=1"
+    ></script>
     <title>farm web-travel-p</title>
   </head>
   <body class="body">
@@ -14,11 +20,11 @@
       <div class="nav-bar">
         <div class="nav-bar-width">
           <div class="nav-bar-logo">
-            <a href="index.html"><img src="img/LOGO-w-02.png" alt=""/></a>
+            <a href="index.html"><img src="img/LOGO-w-02.png" alt="" /></a>
           </div>
           <div class="user-login">
             <div class="user-wish">
-              <div><i class="far fa-heart  loginbtn-list"></i>我的清單</div>
+              <div><i class="far fa-heart loginbtn-list"></i>我的清單</div>
             </div>
             <div class="user-photo"></div>
             <div class="user-name"></div>
@@ -42,7 +48,7 @@
             /></a>
           </div>
           <div class="mobile-menu-buttom">
-            <i class="mobile-menu-icon fas fa-bars "></i>
+            <i class="mobile-menu-icon fas fa-bars"></i>
           </div>
         </div>
         <ul class="mobile-menu-list">
@@ -53,8 +59,20 @@
           <a href="food.html"><li>農村特色小吃</li></a>
         </ul>
       </div>
-      <div class="title"></div>
-      <div class="main mine-top">
+      <!-- <div class="title"></div> -->
+      <div class="presentPagination-title">
+        <div class="ribbon-position-text">
+          <div class="ribbon-title">
+            <div class="ribbon-title-bg"></div>
+            <h3>農村伴手禮</h3>
+            <div class="ribbon-title-bg"></div>
+          </div>
+          <p>
+            提供您 最具台灣區域人文特色的伴手禮。
+          </p>
+        </div>
+      </div>
+      <div class="main main-top presentpagination-mine-top">
         <div class="presentpagination-main-content">
           <div class="loading">
             <img src="img/Ellipsis-1s-128px.gif" alt="" />
@@ -77,10 +95,8 @@
           </div>
         </div>
       </div>
-      <div class="img-fix fix-index-top">
-        <img src="img/new_banner-05.png" alt="" />
-      </div>
       <div class="footer">
+        <div class="wave wave-green-d"></div>
         <div class="footer-content">
           <div class="footer-content-title">
             <img src="img/footer-LOGO.png" alt="" />
@@ -127,6 +143,12 @@
         <h1>最後一頁囉!!</h1>
       </div>
     </div>
+
+    <script
+      src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js"
+      async="async"
+      defer="defer"
+    ></script>
 
     <!-- 載入 firebase -->
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>

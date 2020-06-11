@@ -1,101 +1,139 @@
-
-.present-main-title{
-    font-family: $main-font;
-    font-size: 1.5rem;
-    @media(max-width: 680px){
-        padding-bottom: 2%;
-        padding-left:5%;
-        }
-    @include tab-size-s{
-        padding-top:3%;
-    }
-    @include phone-size{
-        padding-bottom:2.8%;
-        text-align: center;
-    }  
+.present-main-title {
+  font-family: $main-font;
+  font-size: 1.5rem;
+  @media (max-width: 680px) {
+    padding-bottom: 2%;
+    padding-left: 5%;
+  }
+  @include tab-size-s {
+    padding-top: 3%;
+  }
+  @include phone-size {
+    padding-bottom: 2.8%;
+    text-align: center;
+  }
 }
 
-.present-card{
-    position: relative;
-    box-shadow:3px 3px 10px #ddddddf5;
-    box-sizing: border-box;
-    background-color: #fff;
-    padding:1% 1%;
-    margin:0.5%;
-    margin-bottom:2%;
-    border-radius: 5px;
-    max-width: 270px;
-    height: 380px;
-    transform: scale(0.95);
-    transition: transform 0.5s;
-    &:hover{
-        box-shadow: 3px 3px 8px #a3a2a2;
-        transform: scale(1); 
-    }
-    @include tab-size-s{
-        max-width: 460px;
-        height: 400px;
-        margin:5%;
-        padding:3%;
-        margin-bottom: 0; 
-    }
+.present-card {
+  position: relative;
+  box-shadow: 3px 3px 10px #ddddddf5;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid rgb(211, 211, 211);
+  padding: 1% 1%;
+  margin: 0.5%;
+  margin-bottom: 2%;
+  border-radius: 5px;
+  max-width: 270px;
+  height: 450px;
+  transform: scale(0.95);
+  transition: transform 0.5s;
+  &:hover {
+    box-shadow: 3px 3px 8px #a3a2a2;
+    transform: scale(1);
+  }
+  @include tab-size-s {
+    max-width: 460px;
+    height: 460px;
+    margin: 5%;
+    padding: 3%;
+    margin-bottom: 0;
+  }
 }
-.present-img{
-    overflow: hidden;
-    border-radius: 5px;
-    img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;   
-    }
+.present-img {
+  overflow: hidden;
+  border-radius: 5px;
+  img {
     width: 100%;
-    height: 70%;
+    height: 100%;
+    object-fit: cover;
+  }
+  width: 100%;
+  height: 70%;
 }
-.present-title{
-    margin-top:4%;
-    font-family: $main-font;
-    font-size: 1.3rem;
-    line-height: 1.5rem;
-
+.present-title {
+  margin-top: 6%;
+  margin-bottom: 8%;
+  color: $main-color-green;
+  font-family: $main-font;
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  @include tab-size-s {
+    margin-bottom: 0%;
+    font-size: 1.5rem;
+  }
 }
-.present-main-content{
-    font-family: $main-font; 
-    display: flex;
-    justify-content:center;
-    flex-wrap: wrap;
-    font-size: 1rem;
+.present-main-content {
+  font-family: $main-font;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 1rem;
 }
-.present-main-content-text{
-    padding-top: 10%;
-    padding-bottom: 50%;
-    font-size: 1.2rem;
-    font-family: $main-font;
+.present-main-content-text {
+  padding-top: 10%;
+  padding-bottom: 50%;
+  font-size: 1.2rem;
+  font-family: $main-font;
 }
-.present-textcontent{
-    margin-top:4%;
+.present-textcontent {
+  margin-top: 4%;
 }
-.present-place{
-    margin-top:2%; 
-    margin-bottom: 2%;
+.present-place {
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
-.present-country{
-    margin-right:2%; 
-    margin-bottom: 2%;
+.present-country {
+  margin-right: 2%;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 5%;
 }
-.searchbar-area{
- @include phone-size{
-    margin:5% 0;
- }
+.searchbar-area {
+  @include phone-size {
+    margin: 5% 0;
+  }
 }
-.searchbar-country{
-@include phone-size{
-    margin-bottom:5%;
-}  
+.searchbar-country {
+  @include phone-size {
+    margin-bottom: 5%;
+  }
 }
-.searchbar-btn{
-    background:#fff;
-    &:active{
-        background: gray;
-    }
+.searchbar-btn {
+  background: #fff;
+  &:active {
+    background: gray;
+  }
 }
-
+.present-mountain-left-position {
+  margin-top: -70%;
+  margin-right: 10%;
+  z-index: -5;
+  @include tab-size {
+    display: none;
+  }
+}
+.present-treeBranch-right-position {
+  margin-top: -60%;
+  right: 5%;
+  z-index: -40;
+  @include tab-size {
+    display: none;
+  }
+}
+.present-mountain-right-position {
+  margin-top: -60%;
+  z-index: -40;
+  @include tab-size {
+    display: none;
+  }
+}
+.present-treeBranch-left-position {
+  margin-top: -30%;
+  width: 10%;
+  z-index: -40;
+  @include tab-size {
+    display: none;
+  }
+}

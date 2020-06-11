@@ -52,6 +52,12 @@ body {
 }
 .swiper-wrapper {
   height: 800px;
+  @include tab-size-L {
+    height: 600px;
+  }
+  @include tab-size-s {
+    height: 500px;
+  }
 }
 .swiper-button-next,
 .swiper-button-prev {
@@ -78,7 +84,6 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  //background-color: red;
   z-index: 49;
 }
 .swiper-banner-logo {
@@ -87,6 +92,9 @@ body {
   margin: 0 auto;
   margin-top: 8%;
   z-index: 48;
+  @include tab-size-s {
+    margin-top: 15%;
+  }
 }
 .swiper-pagination,
 .swiper-button-next,

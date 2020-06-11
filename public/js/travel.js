@@ -7,7 +7,6 @@ ajax(
 );
 
 function travelRender(data) {
-  console.log(data);
   let len = data.length;
   let perPage = 12;
   let travelMainContent;
