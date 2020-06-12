@@ -18,30 +18,14 @@
     text-align: center;
   }
 }
-// .searchbar{
-//     display: flex;
-//     justify-content: space-around;
-//     align-items: center;
-//     width: 100%;
-//     margin-bottom:3%;
-//     @include tab-size-L {
-//         padding: 0 3%;
-//         box-sizing: border-box;
-//     }
-//     @media(max-width: 680px){
-//         display: block;
-//         margin-bottom:0;
-
-//     }
-
-// }
 
 .travel-card {
   position: relative;
   box-shadow: 3px 3px 10px #ddddddf5;
   background-color: #fff;
   box-sizing: border-box;
-  padding: 1% 1%;
+  padding: 0.7% 0.7%;
+  border: 1px #ddddddf5 solid;
   margin: 0.5%;
   margin-bottom: 2%;
   max-width: 270px;
