@@ -251,6 +251,7 @@ body {
 
 .footer {
   height: 150px;
+  margin-top: 10%;
   position: relative;
   background-color: $main-color-green;
   @include tab-size-s {
@@ -659,7 +660,7 @@ body {
   display: flex;
   justify-content: center;
   padding-top: 150px;
-  padding-bottom: 200px;
+  padding-bottom: 250px;
 }
 
 //分頁按鈕列
