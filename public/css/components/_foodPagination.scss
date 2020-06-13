@@ -1,157 +1,166 @@
-.foodpage-main-title{
-    font-family:$main-font;
-    font-size: 1.5rem;
-    margin-left: 2%;
-    @media(max-width: 680px){
-        padding-bottom: 2%;
-        padding-left:5%;
-        }
-    @include tab-size-s{
-        padding-top:3%;
-    }
-    @include phone-size{
-        padding-bottom:2.8%;
-        text-align: center;
-    }  
+.foodpage-main-title {
+  font-family: $main-font;
+  font-size: 1.5rem;
+  margin-left: 2%;
+  @media (max-width: 680px) {
+    padding-bottom: 2%;
+    padding-left: 5%;
+  }
+  @include tab-size-s {
+    padding-top: 3%;
+  }
+  @include phone-size {
+    padding-bottom: 2.8%;
+    text-align: center;
+  }
 }
-.foodpage-main-content{
-    display: flex;
-    margin-bottom: 3.5%;
-    @include tab-size{
-        margin-top:4%;
-        display: block;
-    }
+.foodpage-main-content {
+  display: flex;
+  margin-bottom: 3.5%;
+  @include tab-size {
+    margin-top: 4%;
+    display: block;
+  }
 }
-.food-main-title{
-    max-width:800px;
+.food-main-title {
+  max-width: 800px;
 }
-.foodpage-left{
-    margin:0 2%;    
+.foodpage-left {
+  margin: 0 2%;
+  width: 100%;
+  padding-bottom: 3%;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px #ddddddf5;
+  @include tab-size {
+    margin: 0 auto;
+    margin-bottom: 5%;
+    width: 90%;
+  }
+}
+.foodpage-img {
+  width: 90%;
+  object-fit: cover;
+  margin: 0 auto;
+  margin-top: 5%;
+  display: flex;
+  @include tab-size {
+    padding: 5%;
+  }
+}
+.foodpage-right {
+  margin: 0 2%;
+  width: 45%;
+  box-sizing: border-box;
+  @include tab-size {
+    margin: 0 auto;
+    width: 90%;
+  }
+}
+.foodpage-map {
+  width: 100%;
+  height: 300px;
+  padding: 5%;
+  margin-bottom: 10%;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 3px 3px 10px #ddddddf5;
+  @include tab-size {
+    padding: 3%;
+  }
+  div {
     width: 100%;
-    padding-bottom:3%; 
-    box-sizing: border-box;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 3px 3px 10px #ddddddf5;
-    @include tab-size{
-        margin: 0 auto;
-        margin-bottom:5%;
-        width: 90%;
-    }
-
+    height: 100%;
+  }
 }
-.foodpage-img{
-    width:90%;
+.foodpage-content {
+  margin: 0 5%;
+  margin-top: 3%;
+}
+.foodpage-name {
+  font-size: 2rem;
+  color: $main-color-green;
+  font-weight: 600;
+  font-family: $main-font;
+  margin-bottom: 3%;
+  margin-top: 5%;
+}
+.foodpage-place {
+  display: flex;
+  font-size: 1.3rem;
+  font-family: $main-font;
+  margin-bottom: 3%;
+  font-weight: 600;
+}
+.foodpage-city {
+  margin-right: 3%;
+}
+.foodpage-tel {
+  font-size: 1.1rem;
+  font-family: $main-font;
+  margin-bottom: 3%;
+  font-weight: 600;
+}
+.foodpage-text {
+  font-family: $main-font;
+  line-height: 2rem;
+  font-size: 1.05rem;
+}
+.foodpage-other {
+  .other-title {
+    display: flex;
+    justify-content: space-between;
+    div {
+      font-family: $main-font;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: $main-color-green;
+      margin-top: 5%;
+      margin-bottom: 3%;
+    }
+  }
+  .other-space {
+    width: 100%;
+    border-bottom: 1px dashed #b8cf92;
+    display: flex;
+    padding: 4% 0;
+    align-items: center;
+  }
+  .other-img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    padding: 1.5%;
+    box-sizing: border-box;
     object-fit: cover;
-    margin:0 auto;
-    margin-top:5%;
-    display: flex;
-    @include tab-size{
-        padding:5%;
+    &:hover {
+      filter: brightness(1.2);
     }
-}
-.foodpage-right{
-    margin:0 2%;
-    width: 45%;
-    box-sizing: border-box;
-    @include tab-size{
-        margin: 0 auto;
-        width: 90%;
+    @include tab-size {
+      width: 100px;
+      height: 100px;
     }
-}
-.foodpage-map{
-    width: 100%;
-    height: 300px;
-    padding:5%;
-    margin-bottom: 10%;
-    border-radius: 6px;
-    box-sizing: border-box;
-    background-color: #fff;
-    box-shadow: 3px 3px 10px #ddddddf5;
-    @include tab-size{
-        padding:3%;
-    }
-    div{
-        width: 100%;
-        height: 100%;
-    }
-
-}
-.foodpage-content{
-    margin:0 5%;
-    margin-top:3%;
-}
-.foodpage-name{
-    font-size: 1.5rem;
-    font-family:$main-font; 
-    margin-bottom:3%;
-}
-.foodpage-place{
-    display: flex;
-    font-size: 1.3rem;
-    font-family: $main-font; 
-    margin-bottom:3%;
-}
-.foodpage-city{
-    margin-right: 3%;
-}
-.foodpage-tel{
-    font-size: 1rem;
-    font-family: $main-font; 
-    margin-bottom:3%;
-}
-.foodpage-text{
-    line-height: 1.5rem;
-    font-family: $main-font; 
-}
-.foodpage-other{
-    .other-title { 
-        display:flex;
-        justify-content: space-between;
-        div{
-        font-family: $main-font;
-        font-size: 1.3rem;
-        font-weight: 530;
+  }
+  .other-name {
+    padding-left: 5%;
+    font-size: 1.2rem;
+    font-family: $main-font;
+  }
+  .other-more {
+    a {
+      color: gray;
+      font-size: 1.2rem;
+      &:hover {
         color: $main-color-green;
-        margin-top: 5%;
-        margin-bottom: 3%;    
-
-        }
+      }
     }
-    .other-space{
-        width: 100%;
-        border-bottom: 1px dashed #b8cf92;
-        display:flex;
-        padding:1.5% 0;
-        align-items: center;
-    }
-    .other-img{
-        width: 75px;
-        height: 75px;
-        border-radius: 50%;
-        padding: 1.5%;
-        box-sizing: border-box;
-        object-fit: cover;
-        &:hover{
-            filter: brightness(1.2);
-        }
-        @include tab-size{
-            width: 100px;
-            height: 100px;
-        }
-     
-    }
-    .other-name{
-       padding-left:5%; 
-       font-size: 1rem;
-       font-family: $main-font; 
-    }
-    .other-more{
-        a{
-        color: gray;
-        &:hover{
-        color: $main-color-green; 
-        }
-        }
-    }
+  }
+}
+.foodpagination-main-top {
+  margin-top: 180px;
+  @include tab-size-s {
+    margin-top: 0;
+  }
 }

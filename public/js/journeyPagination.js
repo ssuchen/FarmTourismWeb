@@ -67,8 +67,8 @@ function journeypageRender(data) {
       contentList.appendChild(contentTitle);
       contentList.appendChild(contentJourneygroup);
 
-      contentJourneygroup.appendChild(contentTag);
       contentJourneygroup.appendChild(contentDate);
+      contentJourneygroup.appendChild(contentTag);
       contentJourneygroup.appendChild(contentFeature);
 
       //將 tag 放入 journey-group的迴圈
@@ -76,7 +76,7 @@ function journeypageRender(data) {
         journeyTag = document.createElement("div");
         journeyTag.setAttribute("class", "journeypagination-tag");
         tag = item;
-        journeyTag.textContent = tag;
+        journeyTag.textContent = "#" + tag;
         contentTag.appendChild(journeyTag);
       });
 

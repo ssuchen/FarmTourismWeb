@@ -142,7 +142,7 @@
 .travelpage-message-comment {
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 3px 3px 10px #ddddddf5;
+  //box-shadow: 3px 3px 10px #ddddddf5;
   display: none;
   margin: 0 2%;
   width: 96%;
@@ -296,10 +296,6 @@
       filter: brightness(1.2);
     }
     @include tab-size {
-      width: 100px;
-      height: 100px;
-    }
-    @include tab-size-s {
       width: 70px;
       height: 70px;
     }

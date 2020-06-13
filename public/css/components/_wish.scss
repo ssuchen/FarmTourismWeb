@@ -1,134 +1,126 @@
-
-.wish-main-title{
-    font-family:$main-font;
-    font-size: 1.5rem;
-    @media(max-width: 680px){
-        padding-bottom: 2%;
-        padding-left:5%;
-        padding-right: 5%;
-    }
-    @include tab-size-s{
-        padding-top:3%;
-    }
-    @include phone-size{
-        padding-bottom:2.8%;
-        text-align: center;
-    }  
-}
-.searchbar{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    margin-bottom:3%;
-    @include tab-size-L {
-        padding: 0 3%;  
-        box-sizing: border-box;
-    }
-    @media(max-width: 680px){
-        display: block;
-        margin-bottom:0;
-        
-    }
- 
-}
-
-.wish-card{
-    position: relative;
-    box-sizing: border-box;
-    padding:1% 1%;
-    margin:0.5%;
-    margin-bottom:2%;
-    max-width: 270px;
-    border:1px solid;
-    height: 350px;
-    @include tab-size-s{
-        max-width: 460px;
-        height: 400px;
-        margin:5%;
-        padding:3%;
-        margin-bottom: 0; 
-    }
-}
-.wish-img{
-    overflow: hidden;
-    img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover; 
-      transform: scale(1,1);
-      transition: all 1s;
-      &:hover{
-          transform: scale(1.06,1.06);
-      } 
-    }
-    width: 100%;
-    height: 80%;
-    background-color: gray;
-}
-.wish-title{
-    margin-top:3%;
-    
-
-}
-.wish-main-content{
-    padding-top:8%;
-    padding-bottom: 28%;
-    display: flex;
-    justify-content:center;
-    flex-wrap: wrap;
-}
-.wish-main-title{
-    display: flex;
-    justify-content: center;
-    font-family: $main-font;
-    font-size: 1.2rem;
-    @include tab-size{
-        display: block;
-    }
-}
-.wish-main-text{
+.wish-main-title {
+  font-family: $main-font;
+  font-size: 1.5rem;
+  @media (max-width: 680px) {
     padding-bottom: 2%;
-    padding-top:1.2%;
-    font-family: $main-font;
-    font-size: 1.5rem;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  @include tab-size-s {
+    padding-top: 3%;
+  }
+  @include phone-size {
+    padding-bottom: 2.8%;
     text-align: center;
-    width: 160px;
-    @include tab-size{
-        display: flex;
-        width: 100%;
-        justify-content: center;
+  }
+}
+.searchbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 3%;
+  @include tab-size-L {
+    padding: 0 3%;
+    box-sizing: border-box;
+  }
+  @media (max-width: 680px) {
+    display: block;
+    margin-bottom: 0;
+  }
+}
+
+.wish-card {
+  position: relative;
+  box-sizing: border-box;
+  padding: 1% 1%;
+  margin: 0.5%;
+  margin-bottom: 2%;
+  max-width: 270px;
+  border: 1px solid;
+  height: 350px;
+  @include tab-size-s {
+    max-width: 460px;
+    height: 400px;
+    margin: 5%;
+    padding: 3%;
+    margin-bottom: 0;
+  }
+}
+.wish-img {
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1, 1);
+    transition: all 1s;
+    &:hover {
+      transform: scale(1.06, 1.06);
     }
+  }
+  width: 100%;
+  height: 80%;
+  background-color: gray;
 }
-.wish-btn{
-    padding: 2% 1%;
-    width: 150px;
-    text-align: center;
-    border-bottom:5px solid  rgb(233, 241, 231); 
-    
-   
+.wish-title {
+  margin-top: 3%;
 }
-.wishBtn-click{
-    border-bottom:5px solid $main-color-green; 
+.wish-main-content {
+  padding-top: 8%;
+  padding-bottom: 28%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.wish-main-list{
+.wish-main-title {
+  display: flex;
+  justify-content: center;
+  font-family: $main-font;
+  font-size: 1.2rem;
+  @include tab-size {
+    display: block;
+  }
+}
+.wish-main-text {
+  padding-bottom: 2%;
+  padding-top: 1.2%;
+  margin-right: 2%;
+  font-family: $main-font;
+  color: $main-color-green;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  width: 160px;
+  @include tab-size {
     display: flex;
-    @include tab-size{
-        justify-content: center;
-    }
-
+    width: 100%;
+    justify-content: center;
+  }
 }
-.wish-textcontent{
-    margin-top:3%;
+.wish-btn {
+  padding: 2% 1%;
+  width: 150px;
+  font-size: 1.3rem;
+  text-align: center;
+  border-bottom: 5px solid rgb(233, 241, 231);
 }
-.wish-place{
-    margin-top:3%; 
-    display: flex;
+.wishBtn-click {
+  border-bottom: 5px solid $main-color-green;
 }
-.wish-country{
-    margin-right:3%; 
+.wish-main-list {
+  display: flex;
+  @include tab-size {
+    justify-content: center;
+  }
 }
-
-
-
-
+.wish-textcontent {
+  margin-top: 3%;
+}
+.wish-place {
+  margin-top: 3%;
+  display: flex;
+}
+.wish-country {
+  margin-right: 3%;
+}

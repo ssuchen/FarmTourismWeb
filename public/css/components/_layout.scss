@@ -1,5 +1,4 @@
 //標準色
-// $main-color-green: #7b9a48;
 $main-color-green: #15713d;
 $second-color-green: #b8cf92;
 $second-color-yellow: #ffe04c;
@@ -11,7 +10,6 @@ $main-font: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體
   overflow: hidden;
 }
 body {
-  //background-color: #e9f1e7;
   background-color: #fff;
 }
 
@@ -34,7 +32,6 @@ body {
 }
 .nav-bar {
   z-index: 99;
-  //background: linear-gradient(90deg, $main-color-green 0, #97be57 50%);
   background-color: $main-color-green;
   width: 100%;
   position: fixed;
@@ -109,7 +106,6 @@ body {
   letter-spacing: 0.1rem;
   padding-bottom: 3%;
   padding-top: 45px;
-  //box-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
   a {
     width: 230px;
   }

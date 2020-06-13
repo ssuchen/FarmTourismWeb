@@ -151,7 +151,10 @@
 }
 .food-tel {
   font-family: $main-font;
-  margin: 3% 0;
+  margin: 5% 0;
+  font-size: 1.2rem;
+  font-size: 1.2rem;
+  padding-bottom: 2%;
 }
 .food-place {
   font-family: $main-font;
@@ -169,6 +172,8 @@
 .food-text {
   font-family: $main-font;
   line-height: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .searchbar-area {
   @include phone-size {
