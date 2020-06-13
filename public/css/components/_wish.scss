@@ -68,6 +68,9 @@
 }
 .wish-main-content {
   padding-top: 8%;
+  font-weight: 600;
+  font-size: 1.6rem;
+  font-family: $main-font;
   padding-bottom: 28%;
   display: flex;
   justify-content: center;
@@ -100,6 +103,10 @@
 }
 .wish-btn {
   padding: 2% 1%;
+  align-items: center;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
   width: 150px;
   font-size: 1.3rem;
   text-align: center;

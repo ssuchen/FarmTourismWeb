@@ -3752,6 +3752,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .food-country {
@@ -5154,6 +5156,9 @@ body {
 
 .wish-main-content {
   padding-top: 8%;
+  font-weight: 600;
+  font-size: 1.6rem;
+  font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
   padding-bottom: 28%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5208,6 +5213,16 @@ body {
 
 .wish-btn {
   padding: 2% 1%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 150px;
   font-size: 1.3rem;
   text-align: center;

@@ -4,7 +4,7 @@
 
 let wishBtn = document.querySelectorAll(".wish-btn");
 for (let i = 0; i < wishBtn.length; i++) {
-  wishBtn[i].addEventListener("click", function() {
+  wishBtn[i].addEventListener("click", function () {
     let removeBtn = document.querySelector(".wishBtn-click");
     removeBtn.classList.remove("wishBtn-click");
     wishBtn[i].classList.add("wishBtn-click");
@@ -32,21 +32,18 @@ function wishTravelText() {
   let TravelList = [];
   db.collection("user")
     .get()
-    .then(function(snapshop) {
+    .then(function (snapshop) {
       let docID;
       //獲得 doc 的 id
-      snapshop.docs.forEach(function(doc) {
+      snapshop.docs.forEach(function (doc) {
         if (userEmail == doc.data().email) {
           docID = doc.id;
         }
       });
       //將符合email的資料放入陣列
-      let list = db
-        .collection("user")
-        .doc(docID)
-        .collection("travellist");
-      list.get().then(function(snapshop) {
-        snapshop.forEach(function(doc) {
+      let list = db.collection("user").doc(docID).collection("travellist");
+      list.get().then(function (snapshop) {
+        snapshop.forEach(function (doc) {
           TravelList.push(doc.data());
         });
         let str = "";
@@ -55,7 +52,7 @@ function wishTravelText() {
           tooManyWishes();
           TravelList.length = 12;
         }
-        TravelList.forEach(function(item) {
+        TravelList.forEach(function (item) {
           let name = item.title;
           let photo = item.img;
           let town = item.text;
@@ -85,10 +82,10 @@ function wishTravelText() {
         //點擊愛心按鈕 刪除卡片
         let btn = document.querySelectorAll(".like-btn");
         for (let b = 0; b < btn.length; b++) {
-          btn[b].addEventListener("click", function(e) {
+          btn[b].addEventListener("click", function (e) {
             e.preventDefault();
-            list.where("id", "==", btn[b].id).onSnapshot(function(snapshop) {
-              snapshop.docs.forEach(function(doc) {
+            list.where("id", "==", btn[b].id).onSnapshot(function (snapshop) {
+              snapshop.docs.forEach(function (doc) {
                 list.doc(doc.id).delete();
               });
             });
@@ -97,7 +94,7 @@ function wishTravelText() {
         }
       });
     });
-};
+}
 
 //=======================================
 //  切換 wishPresent 按鈕 切換相對應的內容
@@ -109,21 +106,18 @@ function wishPresentText() {
   let PresentList = [];
   db.collection("user")
     .get()
-    .then(function(snapshop) {
+    .then(function (snapshop) {
       let docID;
       //獲得 doc 的 id
-      snapshop.docs.forEach(function(doc) {
+      snapshop.docs.forEach(function (doc) {
         if (userEmail == doc.data().email) {
           docID = doc.id;
         }
       });
       //將符合email的資料放入陣列
-      let list = db
-        .collection("user")
-        .doc(docID)
-        .collection("presentlist");
-      list.get().then(function(snapshop) {
-        snapshop.forEach(function(doc) {
+      let list = db.collection("user").doc(docID).collection("presentlist");
+      list.get().then(function (snapshop) {
+        snapshop.forEach(function (doc) {
           PresentList.push(doc.data());
         });
         let str = "";
@@ -132,7 +126,7 @@ function wishPresentText() {
           tooManyWishes();
           PresentList.length = 12;
         }
-        PresentList.forEach(function(item) {
+        PresentList.forEach(function (item) {
           let name = item.title;
           let photo = item.img;
           let text = item.text;
@@ -148,7 +142,7 @@ function wishPresentText() {
             id +
             '></i></div><div class="present-title">' +
             name +
-            '</div><div class="present-place"><div class="presentCountry">' +
+            '</div><div class="present-place"><div class="present-country">' +
             city +
             ' | </div><div class="present-text">' +
             text +
@@ -163,10 +157,10 @@ function wishPresentText() {
         //點擊愛心按鈕 刪除卡片
         let btn = document.querySelectorAll(".like-btn");
         for (let b = 0; b < btn.length; b++) {
-          btn[b].addEventListener("click", function(e) {
+          btn[b].addEventListener("click", function (e) {
             e.preventDefault();
-            list.where("id", "==", btn[b].id).onSnapshot(function(snapshop) {
-              snapshop.docs.forEach(function(doc) {
+            list.where("id", "==", btn[b].id).onSnapshot(function (snapshop) {
+              snapshop.docs.forEach(function (doc) {
                 list.doc(doc.id).delete();
               });
             });
@@ -175,7 +169,7 @@ function wishPresentText() {
         }
       });
     });
-};
+}
 
 //=======================================
 //  切換 wishJourney 按鈕 切換相對應的內容
@@ -187,21 +181,18 @@ function wishJourneyText() {
   let JourneyList = [];
   db.collection("user")
     .get()
-    .then(function(snapshop) {
+    .then(function (snapshop) {
       let docID;
       //獲得 doc 的 id
-      snapshop.docs.forEach(function(doc) {
+      snapshop.docs.forEach(function (doc) {
         if (userEmail == doc.data().email) {
           docID = doc.id;
         }
       });
       //將符合email的資料放入陣列
-      let list = db
-        .collection("user")
-        .doc(docID)
-        .collection("journeylist");
-      list.get().then(function(snapshop) {
-        snapshop.forEach(function(doc) {
+      let list = db.collection("user").doc(docID).collection("journeylist");
+      list.get().then(function (snapshop) {
+        snapshop.forEach(function (doc) {
           JourneyList.push(doc.data());
         });
         let journeyMainContent = document.querySelector(".wish-main-content");
@@ -214,7 +205,7 @@ function wishJourneyText() {
           JourneyList.length = 12;
         }
 
-        JourneyList.forEach(function(item) {
+        JourneyList.forEach(function (item) {
           let id = item.id;
           let photo = item.img;
           let tag = item.tag;
@@ -269,10 +260,10 @@ function wishJourneyText() {
         //點擊愛心按鈕 刪除卡片
         let btn = document.querySelectorAll(".like-btn");
         for (let b = 0; b < btn.length; b++) {
-          btn[b].addEventListener("click", function(e) {
+          btn[b].addEventListener("click", function (e) {
             e.preventDefault();
-            list.where("id", "==", btn[b].id).onSnapshot(function(snapshop) {
-              snapshop.docs.forEach(function(doc) {
+            list.where("id", "==", btn[b].id).onSnapshot(function (snapshop) {
+              snapshop.docs.forEach(function (doc) {
                 list.doc(doc.id).delete();
               });
             });
@@ -281,7 +272,7 @@ function wishJourneyText() {
         }
       });
     });
-};
+}
 
 //=======================================
 //  切換 wishFood 按鈕 切換相對應的內容
@@ -293,21 +284,18 @@ function wishFoodText() {
   let FoodList = [];
   db.collection("user")
     .get()
-    .then(function(snapshop) {
+    .then(function (snapshop) {
       let docID;
       //獲得 doc 的 id
-      snapshop.docs.forEach(function(doc) {
+      snapshop.docs.forEach(function (doc) {
         if (userEmail == doc.data().email) {
           docID = doc.id;
         }
       });
       //將符合email的資料放入陣列
-      let list = db
-        .collection("user")
-        .doc(docID)
-        .collection("foodlist");
-      list.get().then(function(snapshop) {
-        snapshop.forEach(function(doc) {
+      let list = db.collection("user").doc(docID).collection("foodlist");
+      list.get().then(function (snapshop) {
+        snapshop.forEach(function (doc) {
           FoodList.push(doc.data());
         });
         let str = "";
@@ -316,7 +304,7 @@ function wishFoodText() {
           tooManyWishes();
           FoodList.length = 12;
         }
-        FoodList.forEach(function(item) {
+        FoodList.forEach(function (item) {
           let name = item.title;
           let tel = item.tel;
           let photo = item.img;
@@ -352,10 +340,10 @@ function wishFoodText() {
         //點擊愛心按鈕 刪除卡片
         let btn = document.querySelectorAll(".like-btn");
         for (let b = 0; b < btn.length; b++) {
-          btn[b].addEventListener("click", function(e) {
+          btn[b].addEventListener("click", function (e) {
             e.preventDefault();
-            list.where("id", "==", btn[b].id).onSnapshot(function(snapshop) {
-              snapshop.docs.forEach(function(doc) {
+            list.where("id", "==", btn[b].id).onSnapshot(function (snapshop) {
+              snapshop.docs.forEach(function (doc) {
                 list.doc(doc.id).delete();
               });
             });
@@ -364,4 +352,4 @@ function wishFoodText() {
         }
       });
     });
-};
+}
