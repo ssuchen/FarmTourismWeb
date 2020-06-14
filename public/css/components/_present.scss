@@ -25,7 +25,7 @@
   margin-bottom: 2%;
   border-radius: 5px;
   max-width: 270px;
-  height: 450px;
+  height: 500px;
   transform: scale(0.95);
   transition: transform 0.5s;
   &:hover {
@@ -94,6 +94,10 @@
   @include phone-size {
     margin: 5% 0;
   }
+}
+.present-text {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
 }
 .searchbar-country {
   @include phone-size {
