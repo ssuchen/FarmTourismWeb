@@ -109,6 +109,10 @@ body {
 .swiper-banner-bird {
   width: 150px;
   height: 150px;
+  @include tab-size {
+    width: 80px;
+    height: 80px;
+  }
   z-index: 50;
   margin-left: 76%;
   position: relative;
