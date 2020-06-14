@@ -1,9 +1,12 @@
 .journeypagination-main-content {
+  margin-top: 180px;
   margin-bottom: 8%;
   @include tab-size {
-    margin-top: 4%;
     padding-top: 0px;
     display: block;
+  }
+  @include tab-size-s {
+    margin-top: 0;
   }
 }
 .journeypagination-left {

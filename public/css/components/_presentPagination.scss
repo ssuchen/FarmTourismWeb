@@ -113,8 +113,11 @@
   }
 }
 .presentPagination-title {
-  margin-top: -50px;
+  margin-top: 180px;
   margin-bottom: 50px;
+  @include tab-size-s {
+    margin-top: 80px;
+  }
   .ribbon-title {
     h3 {
       @include tab-size-L {

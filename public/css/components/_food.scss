@@ -173,9 +173,9 @@
 }
 .food-text {
   font-family: $main-font;
-  line-height: 1.2rem;
   font-size: 1rem;
   line-height: 1.5rem;
+  font-weight: 400;
 }
 .searchbar-area {
   @include phone-size {

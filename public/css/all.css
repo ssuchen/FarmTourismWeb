@@ -2645,6 +2645,7 @@ body {
 .present-text {
   font-size: 1.1rem;
   line-height: 1.5rem;
+  font-weight: 400;
 }
 
 @media (max-width: 510px) {
@@ -3313,8 +3314,14 @@ body {
 }
 
 .presentPagination-title {
-  margin-top: -50px;
+  margin-top: 180px;
   margin-bottom: 50px;
+}
+
+@media (max-width: 600px) {
+  .presentPagination-title {
+    margin-top: 80px;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -3773,9 +3780,9 @@ body {
 
 .food-text {
   font-family: "Lato", "PingFang TC", "Helvetica Neue", Helvetica, "微軟正黑體", "新細明體", Arial, sans-serif;
-  line-height: 1.2rem;
   font-size: 1rem;
   line-height: 1.5rem;
+  font-weight: 400;
 }
 
 @media (max-width: 510px) {
@@ -4379,14 +4386,20 @@ body {
 }
 
 .journeypagination-main-content {
+  margin-top: 180px;
   margin-bottom: 8%;
 }
 
 @media (max-width: 768px) {
   .journeypagination-main-content {
-    margin-top: 4%;
     padding-top: 0px;
     display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .journeypagination-main-content {
+    margin-top: 0;
   }
 }
 
