@@ -11,9 +11,13 @@ ajax(
 
 function journeypageRender(data) {
   data.forEach(function (item) {
-    if (item.TravelSeq == urlString) {
-      let photo = item.PhotoUrl;
-      let date = item.cDate.substr(0, 10);
+    // if (item.TravelSeq == urlString)
+    if (item.Title == urlString) {
+      //let photo = item.PhotoUrl;
+      let photo =
+        "https://images.unsplash.com/photo-1551651431-aae9dc0ba2dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=968&q=80";
+      //let date = item.Date.substr(0, 10);
+      let date = "2020.10.10";
       let tag = item.TravelType;
       let text = item.Contents;
       let name = item.Title;

@@ -15,7 +15,9 @@ function journeyRender(data) {
     let journeyTag;
     let id = data[i].TravelSeq;
     let name = data[i].Title;
-    let photo = data[i].PhotoUrl;
+    //let photo = data[i].PhotoUrl;
+    let photo =
+      "https://images.unsplash.com/photo-1551651431-aae9dc0ba2dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=968&q=80";
     let text = data[i].Contents.substr(0, 38) + "...";
     let tag = data[i].TravelType;
     //將tag 字串分開成陣列
@@ -31,7 +33,8 @@ function journeyRender(data) {
       let journeyMainContent = document.querySelector(".journey-main-content");
       let journeyCard = document.createElement("a");
       journeyCard.setAttribute("class", "journey-card");
-      journeyCard.setAttribute("href", "journeyPagination.html?id=" + id);
+      //journeyCard.setAttribute("href", "journeyPagination.html?id=" + id);
+      journeyCard.setAttribute("href", "journeyPagination.html?id=" + name);
       let journeyImg = document.createElement("div");
       journeyImg.setAttribute("class", "journey-img");
       let img = document.createElement("img");
@@ -189,7 +192,9 @@ function journeyRender(data) {
       for (let p = 0; p < newData.length; p++) {
         let id = newData[p].TravelSeq;
         let name = newData[p].Title;
-        let photo = newData[p].PhotoUrl;
+        //let photo = newData[p].PhotoUrl;
+        let photo =
+          "https://images.unsplash.com/photo-1551651431-aae9dc0ba2dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=968&q=80";
         let text = newData[p].Contents.substr(0, 38) + "...";
         let tag = newData[p].TravelType;
 
@@ -344,7 +349,9 @@ function journeyRender(data) {
         let journeyTag;
         let id = searchData[l].TravelSeq;
         let name = searchData[l].Title;
-        let photo = searchData[l].PhotoUrl;
+        //let photo = searchData[l].PhotoUrl;
+        let photo =
+          "https://images.unsplash.com/photo-1551651431-aae9dc0ba2dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=968&q=80";
         let text = searchData[l].Contents.substr(0, 38) + "...";
         let tag = searchData[l].TravelType;
 
