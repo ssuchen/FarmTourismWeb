@@ -1,6 +1,6 @@
 //最新消息 資料
 ajax(
-  "https://cors-anywhere.herokuapp.com/https://gis.taiwan.net.tw/XMLReleaseALL_public/activity_C_f.json",
+  "https://cors-anywhere.herokuapp.com/http://gis.taiwan.net.tw/XMLReleaseALL_public/activity_C_f.json",
   function (response) {
     newsRender(response);
   }
