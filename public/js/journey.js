@@ -1,16 +1,20 @@
-ajax(
-  "https://cors-anywhere.herokuapp.com/https://data.coa.gov.tw/Service/OpenData/RuralTravelData.aspx",
-  function (response) {
-    journeyRender(response);
-  }
-);
+// ajax(
+//   "https://cors-anywhere.herokuapp.com/https://data.coa.gov.tw/Service/OpenData/RuralTravelData.aspx",
+//   function (response) {
+//     journeyRender(response);
+//   }
+// );
+ajax("../../journey.json", function (response) {
+  journeypageRender(response);
+});
 function journeyRender(data) {
+  console.log(data);
   let len = data.length;
   let perPage = 12;
 
   let loading = document.querySelector(".loading");
   loading.style.display = "none";
-
+  console.log("aaa");
   for (let i = 0; i < 12; i++) {
     let journeyTag;
     let id = data[i].TravelSeq;
