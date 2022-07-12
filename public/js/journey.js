@@ -4,8 +4,8 @@
 //     journeyRender(response);
 //   }
 // );
-ajax("../../journey.json", function (response) {
-  journeypageRender(response);
+ajax("journey.json", function (response) {
+  journeyRender(response);
 });
 function journeyRender(data) {
   console.log(data);
